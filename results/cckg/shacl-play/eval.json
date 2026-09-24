@@ -1,0 +1,61 @@
+{
+  "run": "shacl-play",
+  "tool": "shacl-play",
+  "mode": "file",
+  "source": "work/cckg/data.nt",
+  "command": [
+    "tools/shacl-play/run.sh",
+    "file",
+    "work/cckg/data.nt",
+    "results/cckg/shacl-play"
+  ],
+  "exit_code": 0,
+  "timed_out": false,
+  "wall_seconds": 169.23,
+  "cpu_seconds": 203.46,
+  "peak_rss_mb": 2765.4,
+  "has_output": true,
+  "syntax": "ok",
+  "non_shacl_terms": [],
+  "well_formedness": {
+    "conforms": true,
+    "violations": 0,
+    "focus_nodes": 0,
+    "by_component": {}
+  },
+  "profile": {
+    "triples": 2641,
+    "node_shapes": 47,
+    "property_shapes": 238,
+    "constraint_usage": {
+      "sh:class": 195,
+      "sh:datatype": 109,
+      "sh:hasValue": 14,
+      "sh:in": 31,
+      "sh:languageIn": 43,
+      "sh:maxCount": 172,
+      "sh:minCount": 99,
+      "sh:nodeKind": 242,
+      "sh:or": 56
+    }
+  },
+  "self_validation": {
+    "conforms": false,
+    "violations": 4016867,
+    "focus_nodes": 586920,
+    "validated_focus_nodes": 594528,
+    "target_focus_nodes": 594528,
+    "partial": false,
+    "seconds": 271,
+    "by_component": {
+      "sh:ClassConstraintComponent": 1500777,
+      "sh:MinCountConstraintComponent": 1178485,
+      "sh:InConstraintComponent": 586283,
+      "sh:DatatypeConstraintComponent": 579179,
+      "sh:LanguageInConstraintComponent": 152341,
+      "sh:MaxCountConstraintComponent": 13134,
+      "sh:OrConstraintComponent": 6362,
+      "sh:HasValueConstraintComponent": 306
+    }
+  }
+}

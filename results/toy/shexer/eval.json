@@ -11,9 +11,9 @@
   ],
   "exit_code": 0,
   "timed_out": false,
-  "wall_seconds": 0.6,
-  "cpu_seconds": 0.41,
-  "peak_rss_mb": 42.8,
+  "wall_seconds": 0.61,
+  "cpu_seconds": 0.54,
+  "peak_rss_mb": 42.6,
   "has_output": true,
   "syntax": "ok",
   "non_shacl_terms": [
@@ -41,9 +41,34 @@
     "conforms": false,
     "violations": 20,
     "focus_nodes": 5,
+    "validated_focus_nodes": 34,
+    "target_focus_nodes": 34,
+    "partial": false,
+    "seconds": 0,
     "by_component": {
       "sh:InConstraintComponent": 12,
       "sh:MaxCountConstraintComponent": 8
+    },
+    "top_path_components": {
+      "<http://www.w3.org/1999/02/22-rdf-syntax-ns#type> sh:InConstraintComponent": 12,
+      "<http://www.w3.org/1999/02/22-rdf-syntax-ns#type> sh:MaxCountConstraintComponent": 8
+    }
+  },
+  "self_validation_explicit": {
+    "conforms": false,
+    "violations": 19,
+    "focus_nodes": 5,
+    "validated_focus_nodes": 34,
+    "target_focus_nodes": 34,
+    "partial": false,
+    "seconds": 0,
+    "by_component": {
+      "sh:InConstraintComponent": 11,
+      "sh:MaxCountConstraintComponent": 8
+    },
+    "top_path_components": {
+      "<http://www.w3.org/1999/02/22-rdf-syntax-ns#type> sh:InConstraintComponent": 11,
+      "<http://www.w3.org/1999/02/22-rdf-syntax-ns#type> sh:MaxCountConstraintComponent": 8
     }
   },
   "reference": {

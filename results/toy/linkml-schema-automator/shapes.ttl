@@ -8,19 +8,15 @@
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
     sh:property [ sh:datatype xsd:string ;
-            sh:nodeKind sh:Literal ;
-            sh:order 2 ;
-            sh:path rdfs:label ],
-        [ sh:datatype xsd:date ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
-            sh:order 5 ;
-            sh:path <http://example.org/toy/releaseDate> ],
+            sh:order 2 ;
+            sh:path <http://example.org/toy/horizontalResolutionKm> ],
         [ sh:datatype xsd:string ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 4 ;
-            sh:path <http://example.org/toy/horizontalResolutionKm> ],
+            sh:path rdf:type ],
         [ sh:maxCount 1 ;
             sh:order 0 ;
             sh:path example:id ],
@@ -28,44 +24,50 @@
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 1 ;
-            sh:path rdf:type ],
+            sh:path <http://example.org/toy/developedBy> ],
         [ sh:datatype xsd:string ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
+            sh:order 5 ;
+            sh:path rdfs:label ],
+        [ sh:datatype xsd:date ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
             sh:order 3 ;
-            sh:path <http://example.org/toy/developedBy> ] ;
+            sh:path <http://example.org/toy/releaseDate> ] ;
     sh:targetClass <http://example.org/toy/ClimateModel> .
 
 <http://example.org/toy/EarthSystemModel> a sh:NodeShape ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
     sh:property [ sh:datatype xsd:string ;
-            sh:nodeKind sh:Literal ;
-            sh:order 2 ;
-            sh:path rdfs:label ],
-        [ sh:datatype xsd:string ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 4 ;
-            sh:path <http://example.org/toy/horizontalResolutionKm> ],
-        [ sh:datatype xsd:string ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 3 ;
-            sh:path <http://example.org/toy/developedBy> ],
-        [ sh:datatype xsd:date ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 5 ;
+            sh:path rdfs:label ],
+        [ sh:datatype xsd:date ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 3 ;
             sh:path <http://example.org/toy/releaseDate> ],
         [ sh:datatype xsd:string ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 1 ;
-            sh:path rdf:type ],
+            sh:path <http://example.org/toy/developedBy> ],
         [ sh:maxCount 1 ;
             sh:order 0 ;
-            sh:path example:id ] ;
+            sh:path example:id ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path <http://example.org/toy/horizontalResolutionKm> ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 4 ;
+            sh:path rdf:type ] ;
     sh:targetClass <http://example.org/toy/EarthSystemModel> .
 
 <http://example.org/toy/Institution> a sh:NodeShape ;
@@ -75,38 +77,67 @@
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 3 ;
-            sh:path <http://example.org/toy/country> ],
+            sh:path rdfs:label ],
+        [ sh:maxCount 1 ;
+            sh:order 0 ;
+            sh:path example:id ],
         [ sh:datatype xsd:string ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
-            sh:order 1 ;
+            sh:order 2 ;
             sh:path rdf:type ],
         [ sh:datatype xsd:string ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 4 ;
             sh:path <http://example.org/toy/homepage> ],
-        [ sh:maxCount 1 ;
-            sh:order 0 ;
-            sh:path example:id ],
         [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
-            sh:order 2 ;
-            sh:path rdfs:label ] ;
+            sh:order 1 ;
+            sh:path <http://example.org/toy/country> ] ;
     sh:targetClass <http://example.org/toy/Institution> .
 
 <http://example.org/toy/Person> a sh:NodeShape ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:datatype xsd:string ;
+    sh:property [ sh:maxCount 1 ;
+            sh:order 0 ;
+            sh:path example:id ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path <http://example.org/toy/email> ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 4 ;
+            sh:path rdf:type ],
+        [ sh:datatype xsd:string ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
             sh:path <http://example.org/toy/affiliation> ],
         [ sh:datatype xsd:string ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 3 ;
-            sh:path <http://example.org/toy/email> ],
+            sh:path <http://example.org/toy/name> ] ;
+    sh:targetClass <http://example.org/toy/Person> .
+
+<http://example.org/toy/Scenario> a sh:NodeShape ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path rdf:type ],
+        [ sh:datatype xsd:float ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 3 ;
+            sh:path <http://example.org/toy/radiativeForcing> ],
         [ sh:maxCount 1 ;
             sh:order 0 ;
             sh:path example:id ],
@@ -114,34 +145,7 @@
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 2 ;
-            sh:path <http://example.org/toy/name> ],
-        [ sh:datatype xsd:string ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 1 ;
-            sh:path rdf:type ] ;
-    sh:targetClass <http://example.org/toy/Person> .
-
-<http://example.org/toy/Scenario> a sh:NodeShape ;
-    sh:closed true ;
-    sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:maxCount 1 ;
-            sh:order 0 ;
-            sh:path example:id ],
-        [ sh:datatype xsd:float ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 3 ;
-            sh:path <http://example.org/toy/radiativeForcing> ],
-        [ sh:datatype xsd:string ;
-            sh:nodeKind sh:Literal ;
-            sh:order 2 ;
-            sh:path rdfs:label ],
-        [ sh:datatype xsd:string ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 1 ;
-            sh:path rdf:type ] ;
+            sh:path rdfs:label ] ;
     sh:targetClass <http://example.org/toy/Scenario> .
 
 <http://example.org/toy/Simulation> a sh:NodeShape ;
@@ -150,39 +154,39 @@
     sh:property [ sh:datatype xsd:string ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
+            sh:order 4 ;
+            sh:path <http://example.org/toy/period> ],
+        [ sh:datatype xsd:string ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path <http://example.org/toy/author> ],
+        [ sh:datatype xsd:string ;
+            sh:nodeKind sh:Literal ;
             sh:order 3 ;
+            sh:path <http://example.org/toy/outputVariable> ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path <http://example.org/toy/doi> ],
+        [ sh:maxCount 1 ;
+            sh:order 0 ;
+            sh:path example:id ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 5 ;
+            sh:path <http://example.org/toy/usesModel> ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 6 ;
             sh:path <http://example.org/toy/usesScenario> ],
         [ sh:datatype xsd:string ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 7 ;
-            sh:path <http://example.org/toy/doi> ],
-        [ sh:datatype xsd:string ;
-            sh:nodeKind sh:Literal ;
-            sh:order 4 ;
-            sh:path <http://example.org/toy/outputVariable> ],
-        [ sh:maxCount 1 ;
-            sh:order 0 ;
-            sh:path example:id ],
-        [ sh:datatype xsd:string ;
-            sh:nodeKind sh:Literal ;
-            sh:order 6 ;
-            sh:path <http://example.org/toy/author> ],
-        [ sh:datatype xsd:string ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 2 ;
-            sh:path <http://example.org/toy/usesModel> ],
-        [ sh:datatype xsd:string ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 1 ;
-            sh:path rdf:type ],
-        [ sh:datatype xsd:string ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 5 ;
-            sh:path <http://example.org/toy/period> ] ;
+            sh:path rdf:type ] ;
     sh:targetClass <http://example.org/toy/Simulation> .
 
 <http://example.org/toy/Variable> a sh:NodeShape ;
@@ -191,11 +195,17 @@
     sh:property [ sh:datatype xsd:string ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
-            sh:order 4 ;
-            sh:path <http://example.org/toy/shortName> ],
+            sh:order 3 ;
+            sh:path rdf:type ],
         [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 2 ;
+            sh:path <http://example.org/toy/unit> ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 4 ;
             sh:path rdfs:label ],
         [ sh:maxCount 1 ;
             sh:order 0 ;
@@ -203,13 +213,8 @@
         [ sh:datatype xsd:string ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
-            sh:order 3 ;
-            sh:path <http://example.org/toy/unit> ],
-        [ sh:datatype xsd:string ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
             sh:order 1 ;
-            sh:path rdf:type ] ;
+            sh:path <http://example.org/toy/shortName> ] ;
     sh:targetClass <http://example.org/toy/Variable> .
 
 rdfs:Class a sh:NodeShape ;
@@ -220,14 +225,14 @@ rdfs:Class a sh:NodeShape ;
             sh:nodeKind sh:Literal ;
             sh:order 1 ;
             sh:path rdf:type ],
-        [ sh:maxCount 1 ;
-            sh:order 0 ;
-            sh:path example:id ],
         [ sh:datatype xsd:string ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 2 ;
-            sh:path rdfs:subClassOf ] ;
+            sh:path rdfs:subClassOf ],
+        [ sh:maxCount 1 ;
+            sh:order 0 ;
+            sh:path example:id ] ;
     sh:targetClass rdfs:Class .
 
 

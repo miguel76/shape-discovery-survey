@@ -1,0 +1,50 @@
+{
+  "run": "linkml-schema-automator",
+  "tool": "linkml-schema-automator",
+  "mode": "file",
+  "source": "work/cckg/data.ttl",
+  "command": [
+    "tools/linkml-schema-automator/run.sh",
+    "file",
+    "work/cckg/data.ttl",
+    "results/cckg/linkml-schema-automator"
+  ],
+  "exit_code": 0,
+  "timed_out": false,
+  "wall_seconds": 648.92,
+  "cpu_seconds": 640.46,
+  "peak_rss_mb": 7356.7,
+  "has_output": true,
+  "syntax": "ok",
+  "non_shacl_terms": [],
+  "well_formedness": {
+    "conforms": true,
+    "violations": 0,
+    "focus_nodes": 0,
+    "by_component": {}
+  },
+  "profile": {
+    "triples": 4114,
+    "node_shapes": 59,
+    "property_shapes": 434,
+    "constraint_usage": {
+      "sh:closed": 59,
+      "sh:datatype": 292,
+      "sh:in": 80,
+      "sh:maxCount": 294,
+      "sh:nodeKind": 292
+    }
+  },
+  "self_validation": {
+    "conforms": false,
+    "violations": 20113053,
+    "focus_nodes": 594982,
+    "by_component": {
+      "sh:DatatypeConstraintComponent": 5886926,
+      "sh:ClosedConstraintComponent": 4953717,
+      "sh:NodeKindConstraintComponent": 4564347,
+      "sh:InConstraintComponent": 3719554,
+      "sh:MaxCountConstraintComponent": 988509
+    }
+  }
+}

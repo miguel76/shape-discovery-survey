@@ -1,0 +1,123 @@
+/home/user/shape-discovery-survey/.tools/linkml-venv/lib/python3.11/site-packages/quantulum3/classifier.py:27: UserWarning: Classifier dependencies not installed. Run `uv sync --extra classifier` or `pip install quantulum3[classifier]` to install them. The classifer helps to dissambiguate units.
+  warnings.warn(
+Writing 5 to /tmp/tmp.VwyqXezu9A/AnnotationProperty.tsv
+Writing 143 to /tmp/tmp.VwyqXezu9A/Class.tsv
+Writing 212 to /tmp/tmp.VwyqXezu9A/ObjectProperty.tsv
+Writing 10 to /tmp/tmp.VwyqXezu9A/Datatype.tsv
+Writing 193 to /tmp/tmp.VwyqXezu9A/DependentVariable.tsv
+Writing 24 to /tmp/tmp.VwyqXezu9A/Collection.tsv
+Writing 12 to /tmp/tmp.VwyqXezu9A/ConceptScheme.tsv
+Writing 79 to /tmp/tmp.VwyqXezu9A/Aggregation.tsv
+Writing 4 to /tmp/tmp.VwyqXezu9A/IndependentVariable.tsv
+Writing 48 to /tmp/tmp.VwyqXezu9A/Concept.tsv
+Writing 1 to /tmp/tmp.VwyqXezu9A/Description.tsv
+Writing 4423 to /tmp/tmp.VwyqXezu9A/DimensionalSpace.tsv
+Writing 2230 to /tmp/tmp.VwyqXezu9A/VariableSpecialization.tsv
+Writing 2208 to /tmp/tmp.VwyqXezu9A/EnsembleProjection.tsv
+Writing 157107 to /tmp/tmp.VwyqXezu9A/ScenarioBasedProjection.tsv
+Writing 514792 to /tmp/tmp.VwyqXezu9A/SingleProjection.tsv
+Writing 106 to /tmp/tmp.VwyqXezu9A/SingleProjectionProduction.tsv
+Writing 110 to /tmp/tmp.VwyqXezu9A/StatisticalProjectionTransformation.tsv
+Writing 4 to /tmp/tmp.VwyqXezu9A/EnsembleProjectionProduction.tsv
+Writing 24 to /tmp/tmp.VwyqXezu9A/Continuum.tsv
+Writing 91 to /tmp/tmp.VwyqXezu9A/GeodeticRegion.tsv
+Writing 21 to /tmp/tmp.VwyqXezu9A/SimpleRegularBinning.tsv
+Writing 10 to /tmp/tmp.VwyqXezu9A/DiscreteDimensionalSpace.tsv
+Writing 12 to /tmp/tmp.VwyqXezu9A/GeodeticPoint.tsv
+Writing 2176 to /tmp/tmp.VwyqXezu9A/TemporalRegion.tsv
+Writing 1 to /tmp/tmp.VwyqXezu9A/SinglePeriodicBinning.tsv
+Writing 4 to /tmp/tmp.VwyqXezu9A/RegularPeriodicBinning.tsv
+Writing 8 to /tmp/tmp.VwyqXezu9A/RegularBinning.tsv
+Writing 42 to /tmp/tmp.VwyqXezu9A/HazardType.tsv
+Writing 1411 to /tmp/tmp.VwyqXezu9A/EnsembleSimulation.tsv
+Writing 918 to /tmp/tmp.VwyqXezu9A/GlobalClimateSimulation.tsv
+Writing 579 to /tmp/tmp.VwyqXezu9A/ClimateModelIntercomparisonExperiment.tsv
+Writing 2 to /tmp/tmp.VwyqXezu9A/Dataset.tsv
+Writing 2 to /tmp/tmp.VwyqXezu9A/DataGeneratingProcess.tsv
+Writing 43 to /tmp/tmp.VwyqXezu9A/Action.tsv
+Writing 42 to /tmp/tmp.VwyqXezu9A/GlobalClimateModel.tsv
+Writing 147 to /tmp/tmp.VwyqXezu9A/RegionalClimateModel.tsv
+Writing 1 to /tmp/tmp.VwyqXezu9A/ConvectionPermittingClimateModel.tsv
+Writing 91 to /tmp/tmp.VwyqXezu9A/Organization.tsv
+Writing 12 to /tmp/tmp.VwyqXezu9A/NamedIndividual.tsv
+Writing 7 to /tmp/tmp.VwyqXezu9A/GreenhouseGasConcentrationPathway.tsv
+Writing 5 to /tmp/tmp.VwyqXezu9A/SharedSocioeconomicPathway.tsv
+Writing 2744 to /tmp/tmp.VwyqXezu9A/SingleSimulation.tsv
+Writing 152 to /tmp/tmp.VwyqXezu9A/PerturbedParameterClimateEnsembleSimulation.tsv
+Writing 3963 to /tmp/tmp.VwyqXezu9A/DynamicalDownscaling.tsv
+Writing 56448 to /tmp/tmp.VwyqXezu9A/ProbabilisticProjection.tsv
+Writing 148 to /tmp/tmp.VwyqXezu9A/UnitOfMeasure.tsv
+Writing 5 to /tmp/tmp.VwyqXezu9A/Amount.tsv
+Writing 6143 to /tmp/tmp.VwyqXezu9A/Variable.tsv
+Writing 60 to /tmp/tmp.VwyqXezu9A/Method.tsv
+Writing 65 to /tmp/tmp.VwyqXezu9A/InformationRole.tsv
+Writing 81 to /tmp/tmp.VwyqXezu9A/Operation.tsv
+Writing 2 to /tmp/tmp.VwyqXezu9A/SymmetricProperty.tsv
+Writing 3 to /tmp/tmp.VwyqXezu9A/Ontology.tsv
+Writing 20 to /tmp/tmp.VwyqXezu9A/DatatypeProperty.tsv
+Writing 10 to /tmp/tmp.VwyqXezu9A/TransitiveProperty.tsv
+Writing 4 to /tmp/tmp.VwyqXezu9A/AsymmetricProperty.tsv
+Writing 2 to /tmp/tmp.VwyqXezu9A/ReflexiveProperty.tsv
+Writing 63 to /tmp/tmp.VwyqXezu9A/Restriction.tsv
+ERROR:linkml.generators.shaclgen:No URI for type http identifier
+ERROR:linkml.generators.shaclgen:No URI for type http identifier
+ERROR:linkml.generators.shaclgen:No URI for type http identifier
+ERROR:linkml.generators.shaclgen:No URI for type http identifier
+ERROR:linkml.generators.shaclgen:No URI for type http identifier
+ERROR:linkml.generators.shaclgen:No URI for type http identifier
+ERROR:linkml.generators.shaclgen:No URI for type http identifier
+ERROR:linkml.generators.shaclgen:No URI for type http identifier
+ERROR:linkml.generators.shaclgen:No URI for type http identifier
+ERROR:linkml.generators.shaclgen:No URI for type http identifier
+ERROR:linkml.generators.shaclgen:No URI for type http identifier
+ERROR:linkml.generators.shaclgen:No URI for type http identifier
+ERROR:linkml.generators.shaclgen:No URI for type http identifier
+ERROR:linkml.generators.shaclgen:No URI for type http identifier
+ERROR:linkml.generators.shaclgen:No URI for type http identifier
+ERROR:linkml.generators.shaclgen:No URI for type http identifier
+ERROR:linkml.generators.shaclgen:No URI for type http identifier
+ERROR:linkml.generators.shaclgen:No URI for type http identifier
+ERROR:linkml.generators.shaclgen:No URI for type http identifier
+ERROR:linkml.generators.shaclgen:No URI for type http identifier
+ERROR:linkml.generators.shaclgen:No URI for type http identifier
+ERROR:linkml.generators.shaclgen:No URI for type http identifier
+ERROR:linkml.generators.shaclgen:No URI for type http identifier
+ERROR:linkml.generators.shaclgen:No URI for type http identifier
+ERROR:linkml.generators.shaclgen:No URI for type http identifier
+ERROR:linkml.generators.shaclgen:No URI for type http identifier
+ERROR:linkml.generators.shaclgen:No URI for type http identifier
+ERROR:linkml.generators.shaclgen:No URI for type http identifier
+ERROR:linkml.generators.shaclgen:No URI for type http identifier
+ERROR:linkml.generators.shaclgen:No URI for type http identifier
+ERROR:linkml.generators.shaclgen:No URI for type http identifier
+ERROR:linkml.generators.shaclgen:No URI for type http identifier
+ERROR:linkml.generators.shaclgen:No URI for type http identifier
+ERROR:linkml.generators.shaclgen:No URI for type http identifier
+ERROR:linkml.generators.shaclgen:No URI for type http identifier
+ERROR:linkml.generators.shaclgen:No URI for type http identifier
+ERROR:linkml.generators.shaclgen:No URI for type http identifier
+ERROR:linkml.generators.shaclgen:No URI for type http identifier
+ERROR:linkml.generators.shaclgen:No URI for type http identifier
+ERROR:linkml.generators.shaclgen:No URI for type http identifier
+ERROR:linkml.generators.shaclgen:No URI for type identifier
+ERROR:linkml.generators.shaclgen:No URI for type http identifier
+ERROR:linkml.generators.shaclgen:No URI for type http identifier
+ERROR:linkml.generators.shaclgen:No URI for type identifier
+ERROR:linkml.generators.shaclgen:No URI for type http identifier
+ERROR:linkml.generators.shaclgen:No URI for type http identifier
+ERROR:linkml.generators.shaclgen:No URI for type http identifier
+ERROR:linkml.generators.shaclgen:No URI for type http identifier
+ERROR:linkml.generators.shaclgen:No URI for type http identifier
+ERROR:linkml.generators.shaclgen:No URI for type http identifier
+ERROR:linkml.generators.shaclgen:No URI for type http identifier
+ERROR:linkml.generators.shaclgen:No URI for type http identifier
+ERROR:linkml.generators.shaclgen:No URI for type http identifier
+ERROR:linkml.generators.shaclgen:No URI for type http identifier
+ERROR:linkml.generators.shaclgen:No URI for type http identifier
+ERROR:linkml.generators.shaclgen:No URI for type http identifier
+ERROR:linkml.generators.shaclgen:No URI for type identifier
+ERROR:linkml.generators.shaclgen:No URI for type http identifier
+ERROR:linkml.generators.shaclgen:No URI for type http identifier
+ERROR:linkml.generators.shaclgen:No URI for type http identifier
+ERROR:linkml.generators.shaclgen:No URI for type http identifier
+ERROR:linkml.generators.shaclgen:No URI for type http identifier

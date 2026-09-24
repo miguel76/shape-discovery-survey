@@ -3,6 +3,7 @@
 KG ?= toy
 TOOLS := $(shell python3 -c "import json;print(' '.join(json.load(open('tools/registry.json'))))")
 TOOLS_HOME ?= $(CURDIR)/.tools
+RUN_ARGS ?= --endpoint
 PY := $(TOOLS_HOME)/pipeline-venv/bin/python
 export TOOLS_HOME
 
@@ -22,7 +23,7 @@ install-%: FORCE
 
 # run all tools on data/$(KG) (file input, plus SPARQL-endpoint input where supported)
 run:
-	$(PY) pipeline/run.py $(KG) --endpoint
+	$(PY) pipeline/run.py $(KG) $(RUN_ARGS)
 
 evaluate:
 	$(PY) pipeline/evaluate.py $(KG)

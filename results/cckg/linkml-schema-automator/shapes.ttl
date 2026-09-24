@@ -1,0 +1,2133 @@
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix example: <https://w3id.org/example> .
+@prefix geo: <http://www.opengis.net/ont/geosparql#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+rdfs:Datatype a sh:NodeShape ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:maxCount 1 ;
+            sh:order 0 ;
+            sh:path example:id ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path rdf:type ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path owl:unionOf ] ;
+    sh:targetClass rdfs:Datatype .
+
+owl:AnnotationProperty a sh:NodeShape ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:maxCount 1 ;
+            sh:order 0 ;
+            sh:path example:id ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path rdf:type ] ;
+    sh:targetClass owl:AnnotationProperty .
+
+owl:AsymmetricProperty a sh:NodeShape ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path rdf:type ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 3 ;
+            sh:path rdfs:domain ],
+        [ sh:in ( <https://w3id.org/hacid/onto/ccso> <https://w3id.org/hacid/onto/data> <https://w3id.org/hacid/onto/top-level> ) ;
+            sh:maxCount 1 ;
+            sh:order 4 ;
+            sh:path rdfs:isDefinedBy ],
+        [ sh:datatype xsd:string ;
+            sh:nodeKind sh:Literal ;
+            sh:order 7 ;
+            sh:path rdfs:subPropertyOf ],
+        [ sh:datatype xsd:string ;
+            sh:nodeKind sh:Literal ;
+            sh:order 5 ;
+            sh:path rdfs:label ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 6 ;
+            sh:path rdfs:range ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 8 ;
+            sh:path owl:inverseOf ],
+        [ sh:datatype xsd:string ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path rdfs:comment ],
+        [ sh:maxCount 1 ;
+            sh:order 0 ;
+            sh:path example:id ] ;
+    sh:targetClass owl:AsymmetricProperty .
+
+owl:Class a sh:NodeShape ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 11 ;
+            sh:path owl:intersectionOf ],
+        [ sh:maxCount 1 ;
+            sh:order 0 ;
+            sh:path example:id ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 6 ;
+            sh:path owl:disjointWith ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 7 ;
+            sh:path owl:equivalentClass ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path rdf:type ],
+        [ sh:in ( <https://w3id.org/hacid/onto/ccso> <https://w3id.org/hacid/onto/data> <https://w3id.org/hacid/onto/top-level> ) ;
+            sh:maxCount 1 ;
+            sh:order 3 ;
+            sh:path rdfs:isDefinedBy ],
+        [ sh:datatype xsd:string ;
+            sh:nodeKind sh:Literal ;
+            sh:order 4 ;
+            sh:path rdfs:label ],
+        [ sh:datatype xsd:string ;
+            sh:nodeKind sh:Literal ;
+            sh:order 8 ;
+            sh:path owl:versionInfo ],
+        [ sh:datatype xsd:string ;
+            sh:nodeKind sh:Literal ;
+            sh:order 5 ;
+            sh:path rdfs:subClassOf ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 9 ;
+            sh:path owl:hasKey ],
+        [ sh:datatype xsd:string ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path rdfs:comment ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 10 ;
+            sh:path owl:unionOf ] ;
+    sh:targetClass owl:Class .
+
+owl:DatatypeProperty a sh:NodeShape ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:maxCount 1 ;
+            sh:order 0 ;
+            sh:path example:id ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 3 ;
+            sh:path rdfs:domain ],
+        [ sh:in ( <https://w3id.org/hacid/onto/ccso> <https://w3id.org/hacid/onto/data> <https://w3id.org/hacid/onto/top-level> ) ;
+            sh:maxCount 1 ;
+            sh:order 4 ;
+            sh:path rdfs:isDefinedBy ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path rdf:type ],
+        [ sh:datatype xsd:string ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path rdfs:comment ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 6 ;
+            sh:path rdfs:range ],
+        [ sh:datatype xsd:string ;
+            sh:nodeKind sh:Literal ;
+            sh:order 7 ;
+            sh:path rdfs:subPropertyOf ],
+        [ sh:datatype xsd:string ;
+            sh:nodeKind sh:Literal ;
+            sh:order 8 ;
+            sh:path owl:versionInfo ],
+        [ sh:datatype xsd:string ;
+            sh:nodeKind sh:Literal ;
+            sh:order 5 ;
+            sh:path rdfs:label ] ;
+    sh:targetClass owl:DatatypeProperty .
+
+owl:NamedIndividual a sh:NodeShape ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:in ( <https://w3id.org/hacid/onto/ccso> <https://w3id.org/hacid/onto/data> <https://w3id.org/hacid/onto/top-level> ) ;
+            sh:maxCount 1 ;
+            sh:order 3 ;
+            sh:path rdfs:isDefinedBy ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 5 ;
+            sh:path <https://w3id.org/hacid/onto/top-level/acronym> ],
+        [ sh:datatype xsd:string ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path rdfs:comment ],
+        [ sh:maxCount 1 ;
+            sh:order 6 ;
+            sh:path dcterms:title ],
+        [ sh:maxCount 1 ;
+            sh:order 0 ;
+            sh:path example:id ],
+        [ sh:datatype xsd:string ;
+            sh:nodeKind sh:Literal ;
+            sh:order 4 ;
+            sh:path rdfs:label ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path rdf:type ] ;
+    sh:targetClass owl:NamedIndividual .
+
+owl:ObjectProperty a sh:NodeShape ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 8 ;
+            sh:path owl:inverseOf ],
+        [ sh:datatype xsd:string ;
+            sh:nodeKind sh:Literal ;
+            sh:order 7 ;
+            sh:path rdfs:subPropertyOf ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path rdf:type ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 9 ;
+            sh:path owl:propertyChainAxiom ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 3 ;
+            sh:path rdfs:domain ],
+        [ sh:in ( <https://w3id.org/hacid/onto/ccso> <https://w3id.org/hacid/onto/data> <https://w3id.org/hacid/onto/top-level> ) ;
+            sh:maxCount 1 ;
+            sh:order 4 ;
+            sh:path rdfs:isDefinedBy ],
+        [ sh:maxCount 1 ;
+            sh:order 0 ;
+            sh:path example:id ],
+        [ sh:datatype xsd:string ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path rdfs:comment ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 6 ;
+            sh:path rdfs:range ],
+        [ sh:datatype xsd:string ;
+            sh:nodeKind sh:Literal ;
+            sh:order 5 ;
+            sh:path rdfs:label ] ;
+    sh:targetClass owl:ObjectProperty .
+
+owl:Ontology a sh:NodeShape ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 10 ;
+            sh:path dcat:theme ],
+        [ sh:datatype xsd:string ;
+            sh:nodeKind sh:Literal ;
+            sh:order 9 ;
+            sh:path dcat:keyword ],
+        [ sh:datatype xsd:string ;
+            sh:nodeKind sh:Literal ;
+            sh:order 5 ;
+            sh:path rdfs:comment ],
+        [ sh:datatype xsd:string ;
+            sh:nodeKind sh:Literal ;
+            sh:order 6 ;
+            sh:path rdfs:label ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path dc:description ],
+        [ sh:datatype xsd:string ;
+            sh:nodeKind sh:Literal ;
+            sh:order 7 ;
+            sh:path owl:imports ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 4 ;
+            sh:path rdf:type ],
+        [ sh:maxCount 1 ;
+            sh:order 3 ;
+            sh:path dcterms:title ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 8 ;
+            sh:path owl:versionIRI ],
+        [ sh:maxCount 1 ;
+            sh:order 0 ;
+            sh:path example:id ],
+        [ sh:datatype xsd:string ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path dcterms:creator ] ;
+    sh:targetClass owl:Ontology .
+
+owl:ReflexiveProperty a sh:NodeShape ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:nodeKind sh:Literal ;
+            sh:order 7 ;
+            sh:path rdfs:subPropertyOf ],
+        [ sh:datatype xsd:string ;
+            sh:nodeKind sh:Literal ;
+            sh:order 5 ;
+            sh:path rdfs:label ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 6 ;
+            sh:path rdfs:range ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 8 ;
+            sh:path owl:inverseOf ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path rdf:type ],
+        [ sh:datatype xsd:string ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path rdfs:comment ],
+        [ sh:maxCount 1 ;
+            sh:order 0 ;
+            sh:path example:id ],
+        [ sh:in ( <https://w3id.org/hacid/onto/ccso> <https://w3id.org/hacid/onto/data> <https://w3id.org/hacid/onto/top-level> ) ;
+            sh:maxCount 1 ;
+            sh:order 4 ;
+            sh:path rdfs:isDefinedBy ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 3 ;
+            sh:path rdfs:domain ] ;
+    sh:targetClass owl:ReflexiveProperty .
+
+owl:Restriction a sh:NodeShape ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 7 ;
+            sh:path owl:someValuesFrom ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path rdf:type ],
+        [ sh:datatype xsd:integer ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 8 ;
+            sh:path owl:qualifiedCardinality ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 6 ;
+            sh:path owl:onClass ],
+        [ sh:maxCount 1 ;
+            sh:order 0 ;
+            sh:path example:id ],
+        [ sh:datatype xsd:integer ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 5 ;
+            sh:path owl:maxQualifiedCardinality ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path owl:allValuesFrom ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 11 ;
+            sh:path owl:onDataRange ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 3 ;
+            sh:path owl:onProperty ],
+        [ sh:datatype xsd:integer ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 10 ;
+            sh:path owl:cardinality ],
+        [ sh:datatype xsd:boolean ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 9 ;
+            sh:path owl:hasSelf ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 4 ;
+            sh:path owl:hasValue ] ;
+    sh:targetClass owl:Restriction .
+
+owl:SymmetricProperty a sh:NodeShape ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:nodeKind sh:Literal ;
+            sh:order 6 ;
+            sh:path rdfs:comment ],
+        [ sh:datatype xsd:string ;
+            sh:nodeKind sh:Literal ;
+            sh:order 4 ;
+            sh:path rdfs:subPropertyOf ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 8 ;
+            sh:path rdfs:range ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 7 ;
+            sh:path rdfs:domain ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 5 ;
+            sh:path owl:inverseOf ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path rdf:type ],
+        [ sh:maxCount 1 ;
+            sh:order 0 ;
+            sh:path example:id ],
+        [ sh:datatype xsd:string ;
+            sh:nodeKind sh:Literal ;
+            sh:order 3 ;
+            sh:path rdfs:label ],
+        [ sh:in ( <https://w3id.org/hacid/onto/ccso> <https://w3id.org/hacid/onto/data> <https://w3id.org/hacid/onto/top-level> ) ;
+            sh:maxCount 1 ;
+            sh:order 2 ;
+            sh:path rdfs:isDefinedBy ] ;
+    sh:targetClass owl:SymmetricProperty .
+
+owl:TransitiveProperty a sh:NodeShape ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:nodeKind sh:Literal ;
+            sh:order 5 ;
+            sh:path rdfs:label ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 6 ;
+            sh:path rdfs:range ],
+        [ sh:datatype xsd:string ;
+            sh:nodeKind sh:Literal ;
+            sh:order 7 ;
+            sh:path rdfs:subPropertyOf ],
+        [ sh:maxCount 1 ;
+            sh:order 0 ;
+            sh:path example:id ],
+        [ sh:datatype xsd:string ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path rdfs:comment ],
+        [ sh:in ( <https://w3id.org/hacid/onto/ccso> <https://w3id.org/hacid/onto/data> <https://w3id.org/hacid/onto/top-level> ) ;
+            sh:maxCount 1 ;
+            sh:order 4 ;
+            sh:path rdfs:isDefinedBy ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 8 ;
+            sh:path owl:inverseOf ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 3 ;
+            sh:path rdfs:domain ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path rdf:type ] ;
+    sh:targetClass owl:TransitiveProperty .
+
+<https://w3id.org/hacid/onto/ccso/ClimateModelIntercomparisonExperiment> a sh:NodeShape ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 7 ;
+            sh:path <https://w3id.org/hacid/onto/top-level/hasPart> ],
+        [ sh:in ( <https://w3id.org/hacid/data/cs/models/REMO2015> <https://w3id.org/hacid/data/cs/models/WRF360K> <https://w3id.org/hacid/data/cs/models/CCLM5-0-15> <https://w3id.org/hacid/data/cs/models/CanRCM4> <https://w3id.org/hacid/data/cs/models/ALADIN53> <https://w3id.org/hacid/data/cs/models/HIRHAM5> <https://w3id.org/hacid/data/cs/models/WRF360L> <https://w3id.org/hacid/data/cs/models/CCAM-1704> <https://w3id.org/hacid/data/cs/models/WRF341E> <https://w3id.org/hacid/data/cs/models/CRCM5> <https://w3id.org/hacid/data/cs/models/WRF381P> <https://w3id.org/hacid/data/cs/models/RRCM> <https://w3id.org/hacid/data/cs/models/HadREM3-GA7-05> <https://w3id.org/hacid/data/cs/models/WRF331F> <https://w3id.org/hacid/data/cs/models/RACMO21P> <https://w3id.org/hacid/data/cs/models/CCAM> <https://w3id.org/hacid/data/cs/models/MAR311> <https://w3id.org/hacid/data/cs/models/COSMO-crCLIM-v1-1> <https://w3id.org/hacid/data/cs/models/RegCM4-4> <https://w3id.org/hacid/data/cs/models/ALARO-0> <https://w3id.org/hacid/data/cs/models/RCA4> <https://w3id.org/hacid/data/cs/models/ALADIN63> <https://w3id.org/hacid/data/cs/models/CCAM-2008> <https://w3id.org/hacid/data/cs/models/RACMO22T> <https://w3id.org/hacid/data/cs/models/BOM-SDM> <https://w3id.org/hacid/data/cs/models/REMO2009> <https://w3id.org/hacid/data/cs/models/ALADIN52> <https://w3id.org/hacid/data/cs/models/RegCM4-3> <https://w3id.org/hacid/data/cs/models/RACMO22E> <https://w3id.org/hacid/data/cs/models/CCLM4-21-2> <https://w3id.org/hacid/data/cs/models/WRF351> <https://w3id.org/hacid/data/cs/models/WRF361H> <https://w3id.org/hacid/data/cs/models/WRF341I> <https://w3id.org/hacid/data/cs/models/Eta> <https://w3id.org/hacid/data/cs/models/RegCM4-6> <https://w3id.org/hacid/data/cs/models/RegCM4-7> <https://w3id.org/hacid/data/cs/models/WRF360J> <https://w3id.org/hacid/data/cs/models/CCLM5-0-2> <https://w3id.org/hacid/data/cs/models/WRF> <https://w3id.org/hacid/data/cs/models/CCLM4-8-17> <https://w3id.org/hacid/data/cs/models/RegCM4> <https://w3id.org/hacid/data/cs/models/CCLM5-0-6> <https://w3id.org/hacid/data/cs/models/DeepESD-EE> <https://w3id.org/hacid/data/cs/models/RCA4-SN> <https://w3id.org/hacid/data/cs/models/CCLM4-8-17-CLM3-5> ) ;
+            sh:maxCount 1 ;
+            sh:order 10 ;
+            sh:path <https://w3id.org/hacid/onto/ccso/usesModel> ],
+        [ sh:datatype xsd:string ;
+            sh:nodeKind sh:Literal ;
+            sh:order 11 ;
+            sh:path <https://w3id.org/hacid/onto/top-level/hasComponent> ],
+        [ sh:datatype xsd:string ;
+            sh:nodeKind sh:Literal ;
+            sh:order 4 ;
+            sh:path <https://w3id.org/hacid/onto/ccso/hasMemberSimulation> ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 3 ;
+            sh:path <https://w3id.org/hacid/onto/ccso/experimentId> ],
+        [ sh:datatype xsd:string ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path rdfs:label ],
+        [ sh:in ( <https://w3id.org/hacid/data/cs/scenarios/RCP/RCP6> <https://w3id.org/hacid/data/cs/scenarios/RCP/RCP4.5> <https://w3id.org/hacid/data/cs/scenarios/RCP/RCP2.6> <https://w3id.org/hacid/data/cs/scenarios/RCP/RCP8.5> ) ;
+            sh:maxCount 1 ;
+            sh:order 9 ;
+            sh:path <https://w3id.org/hacid/onto/ccso/refersToScenario> ],
+        [ sh:in ( <https://w3id.org/hacid/data/cs/ukcp18/land-rcm/datasets/rcp85/output> ) ;
+            sh:maxCount 1 ;
+            sh:order 8 ;
+            sh:path <https://w3id.org/hacid/onto/top-level/isComponentOf> ],
+        [ sh:maxCount 1 ;
+            sh:order 0 ;
+            sh:path example:id ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 6 ;
+            sh:path <https://w3id.org/hacid/onto/top-level/acronym> ],
+        [ sh:in ( <https://w3id.org/hacid/data/cs/ukcp18/land-rcm/datasets/rcp85/output> ) ;
+            sh:maxCount 1 ;
+            sh:order 5 ;
+            sh:path <https://w3id.org/hacid/onto/data/hasOutput> ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path rdf:type ] ;
+    sh:targetClass <https://w3id.org/hacid/onto/ccso/ClimateModelIntercomparisonExperiment> .
+
+<https://w3id.org/hacid/onto/ccso/ConvectionPermittingClimateModel> a sh:NodeShape ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path rdfs:label ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 3 ;
+            sh:path <https://w3id.org/hacid/onto/ccso/isMaintainedBy> ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path rdf:type ],
+        [ sh:maxCount 1 ;
+            sh:order 0 ;
+            sh:path example:id ] ;
+    sh:targetClass <https://w3id.org/hacid/onto/ccso/ConvectionPermittingClimateModel> .
+
+<https://w3id.org/hacid/onto/ccso/DynamicalDownscaling> a sh:NodeShape ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path rdf:type ],
+        [ sh:maxCount 1 ;
+            sh:order 0 ;
+            sh:path example:id ],
+        [ sh:in ( <https://w3id.org/hacid/data/cs/ukcp18/land-rcm/datasets/rcp85/output> ) ;
+            sh:maxCount 1 ;
+            sh:order 6 ;
+            sh:path <https://w3id.org/hacid/onto/data/hasOutput> ],
+        [ sh:in ( <https://w3id.org/hacid/data/cs/models/REMO2015> <https://w3id.org/hacid/data/cs/models/WRF360K> <https://w3id.org/hacid/data/cs/models/CCLM5-0-15> <https://w3id.org/hacid/data/cs/models/CanRCM4> <https://w3id.org/hacid/data/cs/models/ALADIN53> <https://w3id.org/hacid/data/cs/models/HIRHAM5> <https://w3id.org/hacid/data/cs/models/WRF360L> <https://w3id.org/hacid/data/cs/models/CCAM-1704> <https://w3id.org/hacid/data/cs/models/WRF341E> <https://w3id.org/hacid/data/cs/models/CRCM5> <https://w3id.org/hacid/data/cs/models/WRF381P> <https://w3id.org/hacid/data/cs/models/RRCM> <https://w3id.org/hacid/data/cs/models/HadREM3-GA7-05> <https://w3id.org/hacid/data/cs/models/WRF331F> <https://w3id.org/hacid/data/cs/models/RACMO21P> <https://w3id.org/hacid/data/cs/models/CCAM> <https://w3id.org/hacid/data/cs/models/MAR311> <https://w3id.org/hacid/data/cs/models/COSMO-crCLIM-v1-1> <https://w3id.org/hacid/data/cs/models/RegCM4-4> <https://w3id.org/hacid/data/cs/models/ALARO-0> <https://w3id.org/hacid/data/cs/models/RCA4> <https://w3id.org/hacid/data/cs/models/ALADIN63> <https://w3id.org/hacid/data/cs/models/CCAM-2008> <https://w3id.org/hacid/data/cs/models/RACMO22T> <https://w3id.org/hacid/data/cs/models/BOM-SDM> <https://w3id.org/hacid/data/cs/models/REMO2009> <https://w3id.org/hacid/data/cs/models/ALADIN52> <https://w3id.org/hacid/data/cs/models/RegCM4-3> <https://w3id.org/hacid/data/cs/models/RACMO22E> <https://w3id.org/hacid/data/cs/models/CCLM4-21-2> <https://w3id.org/hacid/data/cs/models/WRF351> <https://w3id.org/hacid/data/cs/models/WRF361H> <https://w3id.org/hacid/data/cs/models/WRF341I> <https://w3id.org/hacid/data/cs/models/Eta> <https://w3id.org/hacid/data/cs/models/RegCM4-6> <https://w3id.org/hacid/data/cs/models/RegCM4-7> <https://w3id.org/hacid/data/cs/models/WRF360J> <https://w3id.org/hacid/data/cs/models/CCLM5-0-2> <https://w3id.org/hacid/data/cs/models/WRF> <https://w3id.org/hacid/data/cs/models/CCLM4-8-17> <https://w3id.org/hacid/data/cs/models/RegCM4> <https://w3id.org/hacid/data/cs/models/CCLM5-0-6> <https://w3id.org/hacid/data/cs/models/DeepESD-EE> <https://w3id.org/hacid/data/cs/models/RCA4-SN> <https://w3id.org/hacid/data/cs/models/CCLM4-8-17-CLM3-5> ) ;
+            sh:maxCount 1 ;
+            sh:order 5 ;
+            sh:path <https://w3id.org/hacid/onto/ccso/usesModel> ],
+        [ sh:datatype xsd:string ;
+            sh:nodeKind sh:Literal ;
+            sh:order 8 ;
+            sh:path <https://w3id.org/hacid/onto/top-level/hasComponent> ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 4 ;
+            sh:path <https://w3id.org/hacid/onto/ccso/isDownscalingOf> ],
+        [ sh:datatype xsd:string ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path rdfs:comment ],
+        [ sh:datatype xsd:string ;
+            sh:nodeKind sh:Literal ;
+            sh:order 3 ;
+            sh:path rdfs:label ],
+        [ sh:in ( <https://w3id.org/hacid/data/cs/scenarios/RCP/RCP6> <https://w3id.org/hacid/data/cs/scenarios/RCP/RCP4.5> <https://w3id.org/hacid/data/cs/scenarios/RCP/RCP2.6> <https://w3id.org/hacid/data/cs/scenarios/RCP/RCP8.5> ) ;
+            sh:maxCount 1 ;
+            sh:order 9 ;
+            sh:path <https://w3id.org/hacid/onto/ccso/refersToScenario> ],
+        [ sh:datatype xsd:string ;
+            sh:nodeKind sh:Literal ;
+            sh:order 7 ;
+            sh:path <https://w3id.org/hacid/onto/ccso/hasMemberSimulation> ] ;
+    sh:targetClass <https://w3id.org/hacid/onto/ccso/DynamicalDownscaling> .
+
+<https://w3id.org/hacid/onto/ccso/EnsembleProjection> a sh:NodeShape ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 9 ;
+            sh:path <https://w3id.org/hacid/onto/ccso/refersToGlobalWarmingLevel> ],
+        [ sh:in ( <https://w3id.org/hacid/onto/top-level/time> <https://w3id.org/hacid/data/cs/climdex/parameters/baseTemperature> <https://w3id.org/hacid/data/cs/climdex/parameters/heatwaveMethod> <https://w3id.org/hacid/data/cs/climdex/parameters/minimumLength> <https://w3id.org/hacid/data/cs/dimensions/geodetic> <https://w3id.org/hacid/data/cs/climdex/parameters/minimumPrecipitation> ) ;
+            sh:order 7 ;
+            sh:path <https://w3id.org/hacid/onto/data/dependsOnVariable> ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 3 ;
+            sh:path <https://w3id.org/hacid/onto/data/holdsSpecializationOfVariable> ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path rdf:type ],
+        [ sh:in ( <https://w3id.org/hacid/data/cs/dimensions/time/reference-frames/gregorian/regions/2010-01-01T00:00:00Z-2099-11-31T00:00:00Z/specialization> ) ;
+            sh:maxCount 1 ;
+            sh:order 4 ;
+            sh:path <https://w3id.org/hacid/onto/data/isSpecializedAccordingTo> ],
+        [ sh:maxCount 1 ;
+            sh:order 0 ;
+            sh:path example:id ],
+        [ sh:in ( <https://w3id.org/hacid/data/cs/ukcp18/land-rcm/datasets/rcp85/output> ) ;
+            sh:maxCount 1 ;
+            sh:order 8 ;
+            sh:path <https://w3id.org/hacid/onto/top-level/isComponentOf> ],
+        [ sh:in ( <https://w3id.org/hacid/data/cs/scenarios/RCP/RCP6> <https://w3id.org/hacid/data/cs/scenarios/RCP/RCP4.5> <https://w3id.org/hacid/data/cs/scenarios/RCP/RCP2.6> <https://w3id.org/hacid/data/cs/scenarios/RCP/RCP8.5> ) ;
+            sh:maxCount 1 ;
+            sh:order 6 ;
+            sh:path <https://w3id.org/hacid/onto/ccso/refersToScenario> ],
+        [ sh:datatype xsd:string ;
+            sh:nodeKind sh:Literal ;
+            sh:order 5 ;
+            sh:path <https://w3id.org/hacid/onto/top-level/hasComponent> ],
+        [ sh:datatype xsd:string ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path rdfs:label ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 10 ;
+            sh:path <https://w3id.org/hacid/onto/top-level/hasPart> ] ;
+    sh:targetClass <https://w3id.org/hacid/onto/ccso/EnsembleProjection> .
+
+<https://w3id.org/hacid/onto/ccso/EnsembleProjectionProduction> a sh:NodeShape ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path rdf:type ],
+        [ sh:datatype xsd:string ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path rdfs:label ],
+        [ sh:in ( <https://w3id.org/hacid/data/cs/scenarios/RCP/RCP6> <https://w3id.org/hacid/data/cs/scenarios/RCP/RCP4.5> <https://w3id.org/hacid/data/cs/scenarios/RCP/RCP2.6> <https://w3id.org/hacid/data/cs/scenarios/RCP/RCP8.5> ) ;
+            sh:maxCount 1 ;
+            sh:order 6 ;
+            sh:path <https://w3id.org/hacid/onto/ccso/refersToScenario> ],
+        [ sh:datatype xsd:string ;
+            sh:nodeKind sh:Literal ;
+            sh:order 3 ;
+            sh:path <https://w3id.org/hacid/onto/ccso/hasMemberSimulation> ],
+        [ sh:in ( <https://w3id.org/hacid/data/cs/ukcp18/land-rcm/datasets/rcp85/output> ) ;
+            sh:maxCount 1 ;
+            sh:order 5 ;
+            sh:path <https://w3id.org/hacid/onto/data/hasOutput> ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 4 ;
+            sh:path <https://w3id.org/hacid/onto/ccso/refersToGlobalWarmingLevel> ],
+        [ sh:maxCount 1 ;
+            sh:order 0 ;
+            sh:path example:id ] ;
+    sh:targetClass <https://w3id.org/hacid/onto/ccso/EnsembleProjectionProduction> .
+
+<https://w3id.org/hacid/onto/ccso/EnsembleSimulation> a sh:NodeShape ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 8 ;
+            sh:path <https://w3id.org/hacid/onto/top-level/hasPart> ],
+        [ sh:in ( <https://w3id.org/hacid/data/cs/scenarios/RCP/RCP6> <https://w3id.org/hacid/data/cs/scenarios/RCP/RCP4.5> <https://w3id.org/hacid/data/cs/scenarios/RCP/RCP2.6> <https://w3id.org/hacid/data/cs/scenarios/RCP/RCP8.5> ) ;
+            sh:maxCount 1 ;
+            sh:order 9 ;
+            sh:path <https://w3id.org/hacid/onto/ccso/refersToScenario> ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 12 ;
+            sh:path <https://w3id.org/hacid/onto/ccso/isDownscalingOf> ],
+        [ sh:maxCount 1 ;
+            sh:order 0 ;
+            sh:path example:id ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 3 ;
+            sh:path <https://w3id.org/hacid/onto/ccso/experimentId> ],
+        [ sh:in ( <https://w3id.org/hacid/data/cs/ukcp18/land-rcm/datasets/rcp85/output> ) ;
+            sh:maxCount 1 ;
+            sh:order 7 ;
+            sh:path <https://w3id.org/hacid/onto/data/hasOutput> ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path rdf:type ],
+        [ sh:datatype xsd:string ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path rdfs:label ],
+        [ sh:in ( <https://w3id.org/hacid/data/cs/models/REMO2015> <https://w3id.org/hacid/data/cs/models/WRF360K> <https://w3id.org/hacid/data/cs/models/CCLM5-0-15> <https://w3id.org/hacid/data/cs/models/CanRCM4> <https://w3id.org/hacid/data/cs/models/ALADIN53> <https://w3id.org/hacid/data/cs/models/HIRHAM5> <https://w3id.org/hacid/data/cs/models/WRF360L> <https://w3id.org/hacid/data/cs/models/CCAM-1704> <https://w3id.org/hacid/data/cs/models/WRF341E> <https://w3id.org/hacid/data/cs/models/CRCM5> <https://w3id.org/hacid/data/cs/models/WRF381P> <https://w3id.org/hacid/data/cs/models/RRCM> <https://w3id.org/hacid/data/cs/models/HadREM3-GA7-05> <https://w3id.org/hacid/data/cs/models/WRF331F> <https://w3id.org/hacid/data/cs/models/RACMO21P> <https://w3id.org/hacid/data/cs/models/CCAM> <https://w3id.org/hacid/data/cs/models/MAR311> <https://w3id.org/hacid/data/cs/models/COSMO-crCLIM-v1-1> <https://w3id.org/hacid/data/cs/models/RegCM4-4> <https://w3id.org/hacid/data/cs/models/ALARO-0> <https://w3id.org/hacid/data/cs/models/RCA4> <https://w3id.org/hacid/data/cs/models/ALADIN63> <https://w3id.org/hacid/data/cs/models/CCAM-2008> <https://w3id.org/hacid/data/cs/models/RACMO22T> <https://w3id.org/hacid/data/cs/models/BOM-SDM> <https://w3id.org/hacid/data/cs/models/REMO2009> <https://w3id.org/hacid/data/cs/models/ALADIN52> <https://w3id.org/hacid/data/cs/models/RegCM4-3> <https://w3id.org/hacid/data/cs/models/RACMO22E> <https://w3id.org/hacid/data/cs/models/CCLM4-21-2> <https://w3id.org/hacid/data/cs/models/WRF351> <https://w3id.org/hacid/data/cs/models/WRF361H> <https://w3id.org/hacid/data/cs/models/WRF341I> <https://w3id.org/hacid/data/cs/models/Eta> <https://w3id.org/hacid/data/cs/models/RegCM4-6> <https://w3id.org/hacid/data/cs/models/RegCM4-7> <https://w3id.org/hacid/data/cs/models/WRF360J> <https://w3id.org/hacid/data/cs/models/CCLM5-0-2> <https://w3id.org/hacid/data/cs/models/WRF> <https://w3id.org/hacid/data/cs/models/CCLM4-8-17> <https://w3id.org/hacid/data/cs/models/RegCM4> <https://w3id.org/hacid/data/cs/models/CCLM5-0-6> <https://w3id.org/hacid/data/cs/models/DeepESD-EE> <https://w3id.org/hacid/data/cs/models/RCA4-SN> <https://w3id.org/hacid/data/cs/models/CCLM4-8-17-CLM3-5> ) ;
+            sh:maxCount 1 ;
+            sh:order 10 ;
+            sh:path <https://w3id.org/hacid/onto/ccso/usesModel> ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 4 ;
+            sh:path <https://w3id.org/hacid/onto/top-level/acronym> ],
+        [ sh:datatype xsd:string ;
+            sh:nodeKind sh:Literal ;
+            sh:order 11 ;
+            sh:path <https://w3id.org/hacid/onto/top-level/hasComponent> ],
+        [ sh:datatype xsd:string ;
+            sh:nodeKind sh:Literal ;
+            sh:order 6 ;
+            sh:path <https://w3id.org/hacid/onto/ccso/hasMemberSimulation> ],
+        [ sh:in ( <https://w3id.org/hacid/data/cs/ukcp18/land-rcm/datasets/rcp85/output> ) ;
+            sh:maxCount 1 ;
+            sh:order 5 ;
+            sh:path <https://w3id.org/hacid/onto/top-level/isComponentOf> ] ;
+    sh:targetClass <https://w3id.org/hacid/onto/ccso/EnsembleSimulation> .
+
+<https://w3id.org/hacid/onto/ccso/GlobalClimateModel> a sh:NodeShape ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path rdfs:label ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 3 ;
+            sh:path <https://w3id.org/hacid/onto/ccso/isMaintainedBy> ],
+        [ sh:maxCount 1 ;
+            sh:order 0 ;
+            sh:path example:id ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path rdf:type ] ;
+    sh:targetClass <https://w3id.org/hacid/onto/ccso/GlobalClimateModel> .
+
+<https://w3id.org/hacid/onto/ccso/GlobalClimateSimulation> a sh:NodeShape ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path rdfs:label ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 3 ;
+            sh:path <https://w3id.org/hacid/onto/ccso/experimentId> ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path rdf:type ],
+        [ sh:in ( <https://w3id.org/hacid/data/cs/scenarios/RCP/RCP6> <https://w3id.org/hacid/data/cs/scenarios/RCP/RCP4.5> <https://w3id.org/hacid/data/cs/scenarios/RCP/RCP2.6> <https://w3id.org/hacid/data/cs/scenarios/RCP/RCP8.5> ) ;
+            sh:maxCount 1 ;
+            sh:order 9 ;
+            sh:path <https://w3id.org/hacid/onto/ccso/refersToScenario> ],
+        [ sh:datatype xsd:string ;
+            sh:nodeKind sh:Literal ;
+            sh:order 10 ;
+            sh:path rdfs:comment ],
+        [ sh:in ( <https://w3id.org/hacid/data/cs/ukcp18/land-rcm/datasets/rcp85/output> ) ;
+            sh:maxCount 1 ;
+            sh:order 7 ;
+            sh:path <https://w3id.org/hacid/onto/data/hasOutput> ],
+        [ sh:in ( "r12i1p1" "r3i1p3" "r2i1p2" "r6i1p2" "r14i1p1" "r6i1p1" "r2i1p3" "r1i2p1" "r13i1p1" "r1i1p124" "r4i1p2" "r3i1p1" "r4i1p1" "r1i1p128" "r2i1p1" "r5i1p2" "r1i1p2" "r0i0p0" "r1i1p1" "r2i2p1" "r9i1p1" "r6i1p3" "r5i1p1" "r7i1p1" "r1i1p121" "r1i1p123" "r4i1p3" "r11i1p1" "r3i1p2" "r8i1p1" "r10i1p1" "r1i1p127" "r1i1p125" "r1i1p3" "r3i2p1" "r5i1p3" "r1i1p122" "r1i1p126" ) ;
+            sh:maxCount 1 ;
+            sh:order 11 ;
+            sh:path <https://w3id.org/hacid/onto/ccso/simulationConfigurationId> ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 4 ;
+            sh:path <https://w3id.org/hacid/onto/top-level/acronym> ],
+        [ sh:in ( <https://w3id.org/hacid/data/cs/models/REMO2015> <https://w3id.org/hacid/data/cs/models/WRF360K> <https://w3id.org/hacid/data/cs/models/CCLM5-0-15> <https://w3id.org/hacid/data/cs/models/CanRCM4> <https://w3id.org/hacid/data/cs/models/ALADIN53> <https://w3id.org/hacid/data/cs/models/HIRHAM5> <https://w3id.org/hacid/data/cs/models/WRF360L> <https://w3id.org/hacid/data/cs/models/CCAM-1704> <https://w3id.org/hacid/data/cs/models/WRF341E> <https://w3id.org/hacid/data/cs/models/CRCM5> <https://w3id.org/hacid/data/cs/models/WRF381P> <https://w3id.org/hacid/data/cs/models/RRCM> <https://w3id.org/hacid/data/cs/models/HadREM3-GA7-05> <https://w3id.org/hacid/data/cs/models/WRF331F> <https://w3id.org/hacid/data/cs/models/RACMO21P> <https://w3id.org/hacid/data/cs/models/CCAM> <https://w3id.org/hacid/data/cs/models/MAR311> <https://w3id.org/hacid/data/cs/models/COSMO-crCLIM-v1-1> <https://w3id.org/hacid/data/cs/models/RegCM4-4> <https://w3id.org/hacid/data/cs/models/ALARO-0> <https://w3id.org/hacid/data/cs/models/RCA4> <https://w3id.org/hacid/data/cs/models/ALADIN63> <https://w3id.org/hacid/data/cs/models/CCAM-2008> <https://w3id.org/hacid/data/cs/models/RACMO22T> <https://w3id.org/hacid/data/cs/models/BOM-SDM> <https://w3id.org/hacid/data/cs/models/REMO2009> <https://w3id.org/hacid/data/cs/models/ALADIN52> <https://w3id.org/hacid/data/cs/models/RegCM4-3> <https://w3id.org/hacid/data/cs/models/RACMO22E> <https://w3id.org/hacid/data/cs/models/CCLM4-21-2> <https://w3id.org/hacid/data/cs/models/WRF351> <https://w3id.org/hacid/data/cs/models/WRF361H> <https://w3id.org/hacid/data/cs/models/WRF341I> <https://w3id.org/hacid/data/cs/models/Eta> <https://w3id.org/hacid/data/cs/models/RegCM4-6> <https://w3id.org/hacid/data/cs/models/RegCM4-7> <https://w3id.org/hacid/data/cs/models/WRF360J> <https://w3id.org/hacid/data/cs/models/CCLM5-0-2> <https://w3id.org/hacid/data/cs/models/WRF> <https://w3id.org/hacid/data/cs/models/CCLM4-8-17> <https://w3id.org/hacid/data/cs/models/RegCM4> <https://w3id.org/hacid/data/cs/models/CCLM5-0-6> <https://w3id.org/hacid/data/cs/models/DeepESD-EE> <https://w3id.org/hacid/data/cs/models/RCA4-SN> <https://w3id.org/hacid/data/cs/models/CCLM4-8-17-CLM3-5> ) ;
+            sh:maxCount 1 ;
+            sh:order 12 ;
+            sh:path <https://w3id.org/hacid/onto/ccso/usesModel> ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 8 ;
+            sh:path <https://w3id.org/hacid/onto/top-level/hasPart> ],
+        [ sh:maxCount 1 ;
+            sh:order 0 ;
+            sh:path example:id ],
+        [ sh:datatype xsd:string ;
+            sh:nodeKind sh:Literal ;
+            sh:order 6 ;
+            sh:path <https://w3id.org/hacid/onto/ccso/hasMemberSimulation> ],
+        [ sh:in ( <https://w3id.org/hacid/data/cs/ukcp18/land-rcm/datasets/rcp85/output> ) ;
+            sh:maxCount 1 ;
+            sh:order 5 ;
+            sh:path <https://w3id.org/hacid/onto/top-level/isComponentOf> ] ;
+    sh:targetClass <https://w3id.org/hacid/onto/ccso/GlobalClimateSimulation> .
+
+<https://w3id.org/hacid/onto/ccso/GreenhouseGasConcentrationPathway> a sh:NodeShape ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path rdf:type ],
+        [ sh:maxCount 1 ;
+            sh:order 0 ;
+            sh:path example:id ],
+        [ sh:datatype xsd:string ;
+            sh:nodeKind sh:Literal ;
+            sh:order 4 ;
+            sh:path rdfs:label ],
+        [ sh:datatype xsd:string ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path rdfs:comment ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 5 ;
+            sh:path <https://w3id.org/hacid/onto/top-level/acronym> ],
+        [ sh:in ( <https://w3id.org/hacid/onto/ccso> <https://w3id.org/hacid/onto/data> <https://w3id.org/hacid/onto/top-level> ) ;
+            sh:maxCount 1 ;
+            sh:order 3 ;
+            sh:path rdfs:isDefinedBy ] ;
+    sh:targetClass <https://w3id.org/hacid/onto/ccso/GreenhouseGasConcentrationPathway> .
+
+<https://w3id.org/hacid/onto/ccso/HazardType> a sh:NodeShape ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:maxCount 1 ;
+            sh:order 0 ;
+            sh:path example:id ],
+        [ sh:datatype xsd:string ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path rdfs:label ],
+        [ sh:datatype xsd:string ;
+            sh:nodeKind sh:Literal ;
+            sh:order 4 ;
+            sh:path <https://w3id.org/hacid/onto/top-level/isSpecializedBy> ],
+        [ sh:datatype xsd:string ;
+            sh:nodeKind sh:Literal ;
+            sh:order 3 ;
+            sh:path <https://w3id.org/hacid/onto/ccso/hasIndicator> ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path rdf:type ] ;
+    sh:targetClass <https://w3id.org/hacid/onto/ccso/HazardType> .
+
+<https://w3id.org/hacid/onto/ccso/PerturbedParameterClimateEnsembleSimulation> a sh:NodeShape ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:in ( <https://w3id.org/hacid/data/cs/ukcp18/land-rcm/datasets/rcp85/output> ) ;
+            sh:maxCount 1 ;
+            sh:order 5 ;
+            sh:path <https://w3id.org/hacid/onto/data/hasOutput> ],
+        [ sh:datatype xsd:string ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path rdfs:label ],
+        [ sh:in ( <https://w3id.org/hacid/data/cs/scenarios/RCP/RCP6> <https://w3id.org/hacid/data/cs/scenarios/RCP/RCP4.5> <https://w3id.org/hacid/data/cs/scenarios/RCP/RCP2.6> <https://w3id.org/hacid/data/cs/scenarios/RCP/RCP8.5> ) ;
+            sh:maxCount 1 ;
+            sh:order 6 ;
+            sh:path <https://w3id.org/hacid/onto/ccso/refersToScenario> ],
+        [ sh:in ( <https://w3id.org/hacid/data/cs/models/REMO2015> <https://w3id.org/hacid/data/cs/models/WRF360K> <https://w3id.org/hacid/data/cs/models/CCLM5-0-15> <https://w3id.org/hacid/data/cs/models/CanRCM4> <https://w3id.org/hacid/data/cs/models/ALADIN53> <https://w3id.org/hacid/data/cs/models/HIRHAM5> <https://w3id.org/hacid/data/cs/models/WRF360L> <https://w3id.org/hacid/data/cs/models/CCAM-1704> <https://w3id.org/hacid/data/cs/models/WRF341E> <https://w3id.org/hacid/data/cs/models/CRCM5> <https://w3id.org/hacid/data/cs/models/WRF381P> <https://w3id.org/hacid/data/cs/models/RRCM> <https://w3id.org/hacid/data/cs/models/HadREM3-GA7-05> <https://w3id.org/hacid/data/cs/models/WRF331F> <https://w3id.org/hacid/data/cs/models/RACMO21P> <https://w3id.org/hacid/data/cs/models/CCAM> <https://w3id.org/hacid/data/cs/models/MAR311> <https://w3id.org/hacid/data/cs/models/COSMO-crCLIM-v1-1> <https://w3id.org/hacid/data/cs/models/RegCM4-4> <https://w3id.org/hacid/data/cs/models/ALARO-0> <https://w3id.org/hacid/data/cs/models/RCA4> <https://w3id.org/hacid/data/cs/models/ALADIN63> <https://w3id.org/hacid/data/cs/models/CCAM-2008> <https://w3id.org/hacid/data/cs/models/RACMO22T> <https://w3id.org/hacid/data/cs/models/BOM-SDM> <https://w3id.org/hacid/data/cs/models/REMO2009> <https://w3id.org/hacid/data/cs/models/ALADIN52> <https://w3id.org/hacid/data/cs/models/RegCM4-3> <https://w3id.org/hacid/data/cs/models/RACMO22E> <https://w3id.org/hacid/data/cs/models/CCLM4-21-2> <https://w3id.org/hacid/data/cs/models/WRF351> <https://w3id.org/hacid/data/cs/models/WRF361H> <https://w3id.org/hacid/data/cs/models/WRF341I> <https://w3id.org/hacid/data/cs/models/Eta> <https://w3id.org/hacid/data/cs/models/RegCM4-6> <https://w3id.org/hacid/data/cs/models/RegCM4-7> <https://w3id.org/hacid/data/cs/models/WRF360J> <https://w3id.org/hacid/data/cs/models/CCLM5-0-2> <https://w3id.org/hacid/data/cs/models/WRF> <https://w3id.org/hacid/data/cs/models/CCLM4-8-17> <https://w3id.org/hacid/data/cs/models/RegCM4> <https://w3id.org/hacid/data/cs/models/CCLM5-0-6> <https://w3id.org/hacid/data/cs/models/DeepESD-EE> <https://w3id.org/hacid/data/cs/models/RCA4-SN> <https://w3id.org/hacid/data/cs/models/CCLM4-8-17-CLM3-5> ) ;
+            sh:maxCount 1 ;
+            sh:order 4 ;
+            sh:path <https://w3id.org/hacid/onto/ccso/usesModel> ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path rdf:type ],
+        [ sh:maxCount 1 ;
+            sh:order 0 ;
+            sh:path example:id ],
+        [ sh:datatype xsd:string ;
+            sh:nodeKind sh:Literal ;
+            sh:order 3 ;
+            sh:path <https://w3id.org/hacid/onto/ccso/hasMemberSimulation> ] ;
+    sh:targetClass <https://w3id.org/hacid/onto/ccso/PerturbedParameterClimateEnsembleSimulation> .
+
+<https://w3id.org/hacid/onto/ccso/ProbabilisticProjection> a sh:NodeShape ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:maxCount 1 ;
+            sh:order 0 ;
+            sh:path example:id ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path rdf:type ],
+        [ sh:in ( <https://w3id.org/hacid/data/cs/dimensions/time/reference-frames/gregorian/regions/2010-01-01T00:00:00Z-2099-11-31T00:00:00Z/specialization> ) ;
+            sh:maxCount 1 ;
+            sh:order 5 ;
+            sh:path <https://w3id.org/hacid/onto/data/isSpecializedAccordingTo> ],
+        [ sh:datatype xsd:string ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path rdfs:label ],
+        [ sh:in ( <https://w3id.org/hacid/onto/top-level/time> <https://w3id.org/hacid/data/cs/climdex/parameters/baseTemperature> <https://w3id.org/hacid/data/cs/climdex/parameters/heatwaveMethod> <https://w3id.org/hacid/data/cs/climdex/parameters/minimumLength> <https://w3id.org/hacid/data/cs/dimensions/geodetic> <https://w3id.org/hacid/data/cs/climdex/parameters/minimumPrecipitation> ) ;
+            sh:order 3 ;
+            sh:path <https://w3id.org/hacid/onto/data/dependsOnVariable> ],
+        [ sh:in ( <https://w3id.org/hacid/data/cs/variables/mip/jetlat> <https://w3id.org/hacid/data/cs/variables/mip/var__> <https://w3id.org/hacid/data/cs/variables/mip/rls> <https://w3id.org/hacid/data/cs/variables/mip/psl> <https://w3id.org/hacid/data/cs/variables/mip/vas> <https://w3id.org/hacid/data/cs/variables/mip/sfcWind> <https://w3id.org/hacid/data/cs/variables/mip/flashrate> <https://w3id.org/hacid/data/cs/variables/mip/huss> <https://w3id.org/hacid/data/cs/variables/mip/mrrob> <https://w3id.org/hacid/data/cs/variables/mip/mrso> <https://w3id.org/hacid/data/cs/variables/mip/tasmin> <https://w3id.org/hacid/data/cs/variables/mip/ensemble_member> <https://w3id.org/hacid/data/cs/variables/mip/wtype30> <https://w3id.org/hacid/data/cs/variables/mip/pr> <https://w3id.org/hacid/data/cs/variables/mip/evspsblsoi> <https://w3id.org/hacid/data/cs/variables/mip/evspsblveg> <https://w3id.org/hacid/data/cs/variables/mip/rss> <https://w3id.org/hacid/data/cs/variables/mip/clt> <https://w3id.org/hacid/data/cs/variables/mip/wsgmax10m> <https://w3id.org/hacid/data/cs/variables/mip/jetstr> <https://w3id.org/hacid/data/cs/variables/mip/uas> <https://w3id.org/hacid/data/cs/variables/mip/mrros> <https://w3id.org/hacid/data/cs/variables/mip/evspsbl> <https://w3id.org/hacid/data/cs/variables/mip/wtype8> <https://w3id.org/hacid/data/cs/variables/cf/subsurface_runoff_flux> <https://w3id.org/hacid/data/cs/variables/mip/air_pressure_at_sea_level> <https://w3id.org/hacid/data/cs/variables/mip/naodjf> <https://w3id.org/hacid/data/cs/variables/mip/hurs> <https://w3id.org/hacid/data/cs/variables/mip/tasmax> <https://w3id.org/hacid/data/cs/variables/mip/prsn> <https://w3id.org/hacid/data/cs/variables/mip/beta> <https://w3id.org/hacid/data/cs/variables/mip/tas> <https://w3id.org/hacid/data/cs/variables/mip/snw> ) ;
+            sh:maxCount 1 ;
+            sh:order 4 ;
+            sh:path <https://w3id.org/hacid/onto/data/isSpecializationOfVariable> ] ;
+    sh:targetClass <https://w3id.org/hacid/onto/ccso/ProbabilisticProjection> .
+
+<https://w3id.org/hacid/onto/ccso/RegionalClimateModel> a sh:NodeShape ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 3 ;
+            sh:path <https://w3id.org/hacid/onto/ccso/isMaintainedBy> ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path rdf:type ],
+        [ sh:maxCount 1 ;
+            sh:order 0 ;
+            sh:path example:id ],
+        [ sh:datatype xsd:string ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path rdfs:label ] ;
+    sh:targetClass <https://w3id.org/hacid/onto/ccso/RegionalClimateModel> .
+
+<https://w3id.org/hacid/onto/ccso/ScenarioBasedProjection> a sh:NodeShape ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:in ( <https://w3id.org/hacid/data/cs/scenarios/RCP/RCP6> <https://w3id.org/hacid/data/cs/scenarios/RCP/RCP4.5> <https://w3id.org/hacid/data/cs/scenarios/RCP/RCP2.6> <https://w3id.org/hacid/data/cs/scenarios/RCP/RCP8.5> ) ;
+            sh:maxCount 1 ;
+            sh:order 8 ;
+            sh:path <https://w3id.org/hacid/onto/ccso/refersToScenario> ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 10 ;
+            sh:path <https://w3id.org/hacid/onto/top-level/hasPart> ],
+        [ sh:in ( <https://w3id.org/hacid/data/cs/dimensions/time/reference-frames/gregorian/regions/2010-01-01T00:00:00Z-2099-11-31T00:00:00Z/specialization> ) ;
+            sh:maxCount 1 ;
+            sh:order 4 ;
+            sh:path <https://w3id.org/hacid/onto/data/isSpecializedAccordingTo> ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 3 ;
+            sh:path <https://w3id.org/hacid/onto/data/holdsSpecializationOfVariable> ],
+        [ sh:datatype xsd:string ;
+            sh:nodeKind sh:Literal ;
+            sh:order 5 ;
+            sh:path <https://w3id.org/hacid/onto/top-level/hasComponent> ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path rdf:type ],
+        [ sh:in ( "unsolicited" "output1" "output2" <https://w3id.org/hacid/data/cs/ukcp18/land-rcm/datasets/rcp85/output> ) ;
+            sh:maxCount 1 ;
+            sh:order 6 ;
+            sh:path <https://w3id.org/hacid/onto/ccso/outputId> ],
+        [ sh:datatype xsd:string ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path rdfs:label ],
+        [ sh:in ( <https://w3id.org/hacid/data/cs/ukcp18/land-rcm/datasets/rcp85/output> ) ;
+            sh:maxCount 1 ;
+            sh:order 11 ;
+            sh:path <https://w3id.org/hacid/onto/top-level/isComponentOf> ],
+        [ sh:in ( <https://w3id.org/hacid/onto/top-level/time> <https://w3id.org/hacid/data/cs/climdex/parameters/baseTemperature> <https://w3id.org/hacid/data/cs/climdex/parameters/heatwaveMethod> <https://w3id.org/hacid/data/cs/climdex/parameters/minimumLength> <https://w3id.org/hacid/data/cs/dimensions/geodetic> <https://w3id.org/hacid/data/cs/climdex/parameters/minimumPrecipitation> ) ;
+            sh:order 7 ;
+            sh:path <https://w3id.org/hacid/onto/data/dependsOnVariable> ],
+        [ sh:datatype xsd:string ;
+            sh:nodeKind sh:Literal ;
+            sh:order 12 ;
+            sh:path <https://w3id.org/hacid/onto/data/iSpecializationOfVariable> ],
+        [ sh:maxCount 1 ;
+            sh:order 0 ;
+            sh:path example:id ],
+        [ sh:datatype xsd:string ;
+            sh:nodeKind sh:Literal ;
+            sh:order 9 ;
+            sh:path rdfs:comment ] ;
+    sh:targetClass <https://w3id.org/hacid/onto/ccso/ScenarioBasedProjection> .
+
+<https://w3id.org/hacid/onto/ccso/SharedSocioeconomicPathway> a sh:NodeShape ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path rdf:type ],
+        [ sh:maxCount 1 ;
+            sh:order 1 ;
+            sh:path dcterms:title ],
+        [ sh:datatype xsd:string ;
+            sh:nodeKind sh:Literal ;
+            sh:order 3 ;
+            sh:path rdfs:comment ],
+        [ sh:maxCount 1 ;
+            sh:order 0 ;
+            sh:path example:id ],
+        [ sh:datatype xsd:string ;
+            sh:nodeKind sh:Literal ;
+            sh:order 5 ;
+            sh:path rdfs:label ],
+        [ sh:in ( <https://w3id.org/hacid/onto/ccso> <https://w3id.org/hacid/onto/data> <https://w3id.org/hacid/onto/top-level> ) ;
+            sh:maxCount 1 ;
+            sh:order 4 ;
+            sh:path rdfs:isDefinedBy ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 6 ;
+            sh:path <https://w3id.org/hacid/onto/top-level/acronym> ] ;
+    sh:targetClass <https://w3id.org/hacid/onto/ccso/SharedSocioeconomicPathway> .
+
+<https://w3id.org/hacid/onto/ccso/SingleProjection> a sh:NodeShape ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:nodeKind sh:Literal ;
+            sh:order 9 ;
+            sh:path rdfs:comment ],
+        [ sh:in ( <https://w3id.org/hacid/data/cs/variables/mip/jetlat> <https://w3id.org/hacid/data/cs/variables/mip/var__> <https://w3id.org/hacid/data/cs/variables/mip/rls> <https://w3id.org/hacid/data/cs/variables/mip/psl> <https://w3id.org/hacid/data/cs/variables/mip/vas> <https://w3id.org/hacid/data/cs/variables/mip/sfcWind> <https://w3id.org/hacid/data/cs/variables/mip/flashrate> <https://w3id.org/hacid/data/cs/variables/mip/huss> <https://w3id.org/hacid/data/cs/variables/mip/mrrob> <https://w3id.org/hacid/data/cs/variables/mip/mrso> <https://w3id.org/hacid/data/cs/variables/mip/tasmin> <https://w3id.org/hacid/data/cs/variables/mip/ensemble_member> <https://w3id.org/hacid/data/cs/variables/mip/wtype30> <https://w3id.org/hacid/data/cs/variables/mip/pr> <https://w3id.org/hacid/data/cs/variables/mip/evspsblsoi> <https://w3id.org/hacid/data/cs/variables/mip/evspsblveg> <https://w3id.org/hacid/data/cs/variables/mip/rss> <https://w3id.org/hacid/data/cs/variables/mip/clt> <https://w3id.org/hacid/data/cs/variables/mip/wsgmax10m> <https://w3id.org/hacid/data/cs/variables/mip/jetstr> <https://w3id.org/hacid/data/cs/variables/mip/uas> <https://w3id.org/hacid/data/cs/variables/mip/mrros> <https://w3id.org/hacid/data/cs/variables/mip/evspsbl> <https://w3id.org/hacid/data/cs/variables/mip/wtype8> <https://w3id.org/hacid/data/cs/variables/cf/subsurface_runoff_flux> <https://w3id.org/hacid/data/cs/variables/mip/air_pressure_at_sea_level> <https://w3id.org/hacid/data/cs/variables/mip/naodjf> <https://w3id.org/hacid/data/cs/variables/mip/hurs> <https://w3id.org/hacid/data/cs/variables/mip/tasmax> <https://w3id.org/hacid/data/cs/variables/mip/prsn> <https://w3id.org/hacid/data/cs/variables/mip/beta> <https://w3id.org/hacid/data/cs/variables/mip/tas> <https://w3id.org/hacid/data/cs/variables/mip/snw> ) ;
+            sh:maxCount 1 ;
+            sh:order 13 ;
+            sh:path <https://w3id.org/hacid/onto/data/isSpecializationOfVariable> ],
+        [ sh:in ( <https://w3id.org/hacid/data/cs/scenarios/RCP/RCP6> <https://w3id.org/hacid/data/cs/scenarios/RCP/RCP4.5> <https://w3id.org/hacid/data/cs/scenarios/RCP/RCP2.6> <https://w3id.org/hacid/data/cs/scenarios/RCP/RCP8.5> ) ;
+            sh:maxCount 1 ;
+            sh:order 8 ;
+            sh:path <https://w3id.org/hacid/onto/ccso/refersToScenario> ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 12 ;
+            sh:path <https://w3id.org/hacid/onto/ccso/refersToGlobalWarmingLevel> ],
+        [ sh:in ( "unsolicited" "output1" "output2" <https://w3id.org/hacid/data/cs/ukcp18/land-rcm/datasets/rcp85/output> ) ;
+            sh:maxCount 1 ;
+            sh:order 3 ;
+            sh:path <https://w3id.org/hacid/onto/ccso/outputId> ],
+        [ sh:in ( <https://w3id.org/hacid/onto/top-level/time> <https://w3id.org/hacid/data/cs/climdex/parameters/baseTemperature> <https://w3id.org/hacid/data/cs/climdex/parameters/heatwaveMethod> <https://w3id.org/hacid/data/cs/climdex/parameters/minimumLength> <https://w3id.org/hacid/data/cs/dimensions/geodetic> <https://w3id.org/hacid/data/cs/climdex/parameters/minimumPrecipitation> ) ;
+            sh:order 4 ;
+            sh:path <https://w3id.org/hacid/onto/data/dependsOnVariable> ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 5 ;
+            sh:path <https://w3id.org/hacid/onto/data/holdsSpecializationOfVariable> ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 10 ;
+            sh:path <https://w3id.org/hacid/onto/top-level/hasPart> ],
+        [ sh:datatype xsd:string ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path rdfs:label ],
+        [ sh:datatype xsd:string ;
+            sh:nodeKind sh:Literal ;
+            sh:order 7 ;
+            sh:path <https://w3id.org/hacid/onto/top-level/hasComponent> ],
+        [ sh:in ( <https://w3id.org/hacid/data/cs/dimensions/time/reference-frames/gregorian/regions/2010-01-01T00:00:00Z-2099-11-31T00:00:00Z/specialization> ) ;
+            sh:maxCount 1 ;
+            sh:order 6 ;
+            sh:path <https://w3id.org/hacid/onto/data/isSpecializedAccordingTo> ],
+        [ sh:datatype xsd:string ;
+            sh:nodeKind sh:Literal ;
+            sh:order 11 ;
+            sh:path <https://w3id.org/hacid/onto/data/iSpecializationOfVariable> ],
+        [ sh:maxCount 1 ;
+            sh:order 0 ;
+            sh:path example:id ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path rdf:type ] ;
+    sh:targetClass <https://w3id.org/hacid/onto/ccso/SingleProjection> .
+
+<https://w3id.org/hacid/onto/ccso/SingleProjectionProduction> a sh:NodeShape ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 3 ;
+            sh:path <https://w3id.org/hacid/onto/ccso/refersToGlobalWarmingLevel> ],
+        [ sh:in ( <https://w3id.org/hacid/data/cs/ukcp18/land-rcm/datasets/rcp85/output> ) ;
+            sh:maxCount 1 ;
+            sh:order 4 ;
+            sh:path <https://w3id.org/hacid/onto/data/hasOutput> ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path rdf:type ],
+        [ sh:maxCount 1 ;
+            sh:order 0 ;
+            sh:path example:id ],
+        [ sh:datatype xsd:string ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path rdfs:label ],
+        [ sh:in ( <https://w3id.org/hacid/data/cs/scenarios/RCP/RCP6> <https://w3id.org/hacid/data/cs/scenarios/RCP/RCP4.5> <https://w3id.org/hacid/data/cs/scenarios/RCP/RCP2.6> <https://w3id.org/hacid/data/cs/scenarios/RCP/RCP8.5> ) ;
+            sh:maxCount 1 ;
+            sh:order 5 ;
+            sh:path <https://w3id.org/hacid/onto/ccso/refersToScenario> ] ;
+    sh:targetClass <https://w3id.org/hacid/onto/ccso/SingleProjectionProduction> .
+
+<https://w3id.org/hacid/onto/ccso/SingleSimulation> a sh:NodeShape ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:maxCount 1 ;
+            sh:order 0 ;
+            sh:path example:id ],
+        [ sh:datatype xsd:string ;
+            sh:nodeKind sh:Literal ;
+            sh:order 3 ;
+            sh:path rdfs:label ],
+        [ sh:datatype xsd:string ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path rdfs:comment ],
+        [ sh:in ( "r12i1p1" "r3i1p3" "r2i1p2" "r6i1p2" "r14i1p1" "r6i1p1" "r2i1p3" "r1i2p1" "r13i1p1" "r1i1p124" "r4i1p2" "r3i1p1" "r4i1p1" "r1i1p128" "r2i1p1" "r5i1p2" "r1i1p2" "r0i0p0" "r1i1p1" "r2i2p1" "r9i1p1" "r6i1p3" "r5i1p1" "r7i1p1" "r1i1p121" "r1i1p123" "r4i1p3" "r11i1p1" "r3i1p2" "r8i1p1" "r10i1p1" "r1i1p127" "r1i1p125" "r1i1p3" "r3i2p1" "r5i1p3" "r1i1p122" "r1i1p126" ) ;
+            sh:maxCount 1 ;
+            sh:order 4 ;
+            sh:path <https://w3id.org/hacid/onto/ccso/simulationConfigurationId> ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path rdf:type ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 8 ;
+            sh:path <https://w3id.org/hacid/onto/ccso/isDownscalingOf> ],
+        [ sh:in ( <https://w3id.org/hacid/data/cs/scenarios/RCP/RCP6> <https://w3id.org/hacid/data/cs/scenarios/RCP/RCP4.5> <https://w3id.org/hacid/data/cs/scenarios/RCP/RCP2.6> <https://w3id.org/hacid/data/cs/scenarios/RCP/RCP8.5> ) ;
+            sh:maxCount 1 ;
+            sh:order 7 ;
+            sh:path <https://w3id.org/hacid/onto/ccso/refersToScenario> ],
+        [ sh:in ( <https://w3id.org/hacid/data/cs/ukcp18/land-rcm/datasets/rcp85/output> ) ;
+            sh:maxCount 1 ;
+            sh:order 6 ;
+            sh:path <https://w3id.org/hacid/onto/data/hasOutput> ],
+        [ sh:in ( <https://w3id.org/hacid/data/cs/models/REMO2015> <https://w3id.org/hacid/data/cs/models/WRF360K> <https://w3id.org/hacid/data/cs/models/CCLM5-0-15> <https://w3id.org/hacid/data/cs/models/CanRCM4> <https://w3id.org/hacid/data/cs/models/ALADIN53> <https://w3id.org/hacid/data/cs/models/HIRHAM5> <https://w3id.org/hacid/data/cs/models/WRF360L> <https://w3id.org/hacid/data/cs/models/CCAM-1704> <https://w3id.org/hacid/data/cs/models/WRF341E> <https://w3id.org/hacid/data/cs/models/CRCM5> <https://w3id.org/hacid/data/cs/models/WRF381P> <https://w3id.org/hacid/data/cs/models/RRCM> <https://w3id.org/hacid/data/cs/models/HadREM3-GA7-05> <https://w3id.org/hacid/data/cs/models/WRF331F> <https://w3id.org/hacid/data/cs/models/RACMO21P> <https://w3id.org/hacid/data/cs/models/CCAM> <https://w3id.org/hacid/data/cs/models/MAR311> <https://w3id.org/hacid/data/cs/models/COSMO-crCLIM-v1-1> <https://w3id.org/hacid/data/cs/models/RegCM4-4> <https://w3id.org/hacid/data/cs/models/ALARO-0> <https://w3id.org/hacid/data/cs/models/RCA4> <https://w3id.org/hacid/data/cs/models/ALADIN63> <https://w3id.org/hacid/data/cs/models/CCAM-2008> <https://w3id.org/hacid/data/cs/models/RACMO22T> <https://w3id.org/hacid/data/cs/models/BOM-SDM> <https://w3id.org/hacid/data/cs/models/REMO2009> <https://w3id.org/hacid/data/cs/models/ALADIN52> <https://w3id.org/hacid/data/cs/models/RegCM4-3> <https://w3id.org/hacid/data/cs/models/RACMO22E> <https://w3id.org/hacid/data/cs/models/CCLM4-21-2> <https://w3id.org/hacid/data/cs/models/WRF351> <https://w3id.org/hacid/data/cs/models/WRF361H> <https://w3id.org/hacid/data/cs/models/WRF341I> <https://w3id.org/hacid/data/cs/models/Eta> <https://w3id.org/hacid/data/cs/models/RegCM4-6> <https://w3id.org/hacid/data/cs/models/RegCM4-7> <https://w3id.org/hacid/data/cs/models/WRF360J> <https://w3id.org/hacid/data/cs/models/CCLM5-0-2> <https://w3id.org/hacid/data/cs/models/WRF> <https://w3id.org/hacid/data/cs/models/CCLM4-8-17> <https://w3id.org/hacid/data/cs/models/RegCM4> <https://w3id.org/hacid/data/cs/models/CCLM5-0-6> <https://w3id.org/hacid/data/cs/models/DeepESD-EE> <https://w3id.org/hacid/data/cs/models/RCA4-SN> <https://w3id.org/hacid/data/cs/models/CCLM4-8-17-CLM3-5> ) ;
+            sh:maxCount 1 ;
+            sh:order 5 ;
+            sh:path <https://w3id.org/hacid/onto/ccso/usesModel> ] ;
+    sh:targetClass <https://w3id.org/hacid/onto/ccso/SingleSimulation> .
+
+<https://w3id.org/hacid/onto/ccso/StatisticalProjectionTransformation> a sh:NodeShape ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:in ( <https://w3id.org/hacid/data/cs/scenarios/RCP/RCP6> <https://w3id.org/hacid/data/cs/scenarios/RCP/RCP4.5> <https://w3id.org/hacid/data/cs/scenarios/RCP/RCP2.6> <https://w3id.org/hacid/data/cs/scenarios/RCP/RCP8.5> ) ;
+            sh:maxCount 1 ;
+            sh:order 6 ;
+            sh:path <https://w3id.org/hacid/onto/ccso/refersToScenario> ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path rdf:type ],
+        [ sh:datatype xsd:string ;
+            sh:nodeKind sh:Literal ;
+            sh:order 5 ;
+            sh:path <https://w3id.org/hacid/onto/ccso/hasMemberSimulation> ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 3 ;
+            sh:path <https://w3id.org/hacid/onto/ccso/refersToGlobalWarmingLevel> ],
+        [ sh:datatype xsd:string ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path rdfs:label ],
+        [ sh:in ( <https://w3id.org/hacid/data/cs/ukcp18/land-rcm/datasets/rcp85/output> ) ;
+            sh:maxCount 1 ;
+            sh:order 4 ;
+            sh:path <https://w3id.org/hacid/onto/data/hasOutput> ],
+        [ sh:maxCount 1 ;
+            sh:order 0 ;
+            sh:path example:id ] ;
+    sh:targetClass <https://w3id.org/hacid/onto/ccso/StatisticalProjectionTransformation> .
+
+<https://w3id.org/hacid/onto/data/Aggregation> a sh:NodeShape ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:in ( <https://w3id.org/hacid/data/cs/dimensions/time/reference-frames/gregorian/quantizations/regular/P1D> <https://w3id.org/hacid/data/cs/dimensions/time/reference-frames/gregorian/quantizations/regular/P6M> <https://w3id.org/hacid/data/cs/dimensions/time/reference-frames/gregorian/regions/2010-01-01T00:00:00Z-2099-11-31T00:00:00Z/quantized/regular/P1Y> <https://w3id.org/hacid/data/cs/dimensions/time/reference-frames/gregorian/regions/2010-01-01T00:00:00Z-2099-11-31T00:00:00Z/quantized/regular/P1M> <https://w3id.org/hacid/data/cs/dimensions/time/reference-frames/gregorian/regions/2010-01-01T00:00:00Z-2099-11-31T00:00:00Z/quantized/regular/P3M> ) ;
+            sh:order 3 ;
+            sh:path <https://w3id.org/hacid/onto/data/hasSuggestedQuantization> ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path rdf:type ],
+        [ sh:in ( <https://w3id.org/hacid/onto/top-level/time> ) ;
+            sh:maxCount 1 ;
+            sh:order 2 ;
+            sh:path <https://w3id.org/hacid/onto/data/aggregatesVariable> ],
+        [ sh:maxCount 1 ;
+            sh:order 0 ;
+            sh:path example:id ] ;
+    sh:targetClass <https://w3id.org/hacid/onto/data/Aggregation> .
+
+<https://w3id.org/hacid/onto/data/Continuum> a sh:NodeShape ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path rdfs:comment ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 8 ;
+            sh:path <https://w3id.org/hacid/onto/data/hasReferencePoint> ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path rdf:type ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 6 ;
+            sh:path <https://w3id.org/hacid/onto/data/hasExactBoundingRegion> ],
+        [ sh:in ( <https://w3id.org/hacid/data/cs/dimensions/geodetic/reference-frames/rotated-WGS84/-103.39,43.48> <https://w3id.org/hacid/data/cs/dimensions/geodetic/reference-frames/rotated-WGS84/-64.78,77.61> <https://w3id.org/hacid/data/cs/dimensions/geodetic/reference-frames/rotated-WGS84/-166.92,6.08> <https://w3id.org/hacid/data/cs/dimensions/geodetic/reference-frames/rotated-WGS84/141.38,60.31> <https://w3id.org/hacid/data/cs/dimensions/geodetic/reference-frames/rotated-WGS84/-56.06,70.6> <https://w3id.org/hacid/data/cs/dimensions/time/reference-frames/gregorian/quantizations/regular/PT1H> <https://w3id.org/hacid/data/cs/dimensions/time/reference-frames/gregorian/quantizations/regular/PT3H> <https://w3id.org/hacid/data/cs/dimensions/geodetic/reference-frames/rotated-WGS84/180.0,90.0> <https://w3id.org/hacid/data/cs/dimensions/geodetic/reference-frames/rotated-WGS84/113.98,75.74> <https://w3id.org/hacid/data/cs/dimensions/time/reference-frames/gregorian/regions/2010-01-01T00:00:00Z-2099-11-31T00:00:00Z/quantized/regular/P1M> <https://w3id.org/hacid/data/cs/dimensions/geodetic/reference-frames/rotated-WGS84/-123.34,79.95> <https://w3id.org/hacid/data/cs/dimensions/geodetic/reference-frames/rotated-WGS84/0.0,6.55> <https://w3id.org/hacid/data/cs/dimensions/geodetic/reference-frames/rotated-WGS84/83.0,42.5> <https://w3id.org/hacid/data/cs/dimensions/geodetic/reference-frames/rotated-WGS84/198.0,39.25> <https://w3id.org/hacid/data/cs/dimensions/time/reference-frames/gregorian/quantizations/regular/P1D> <https://w3id.org/hacid/data/cs/dimensions/time/reference-frames/gregorian/quantizations/regular/PT6H> <https://w3id.org/hacid/data/cs/dimensions/time/reference-frames/gregorian> <https://w3id.org/hacid/data/cs/dimensions/geodetic/reference-frames/WGS84> <https://w3id.org/hacid/data/cs/dimensions/time/reference-frames/gregorian/quantizations/regular/P3M/P2M> <https://w3id.org/hacid/data/cs/dimensions/geodetic/reference-frames/rotated-WGS84/-162.0,39.25> ) ;
+            sh:order 5 ;
+            sh:path <https://w3id.org/hacid/onto/data/basedOnDimensionalSpace> ],
+        [ sh:datatype xsd:string ;
+            sh:nodeKind sh:Literal ;
+            sh:order 3 ;
+            sh:path rdfs:label ],
+        [ sh:maxCount 1 ;
+            sh:order 0 ;
+            sh:path example:id ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 4 ;
+            sh:path <https://w3id.org/hacid/onto/data/hasValuesOn> ],
+        [ sh:datatype xsd:string ;
+            sh:nodeKind sh:Literal ;
+            sh:order 7 ;
+            sh:path <https://w3id.org/hacid/onto/data/hasSubDimensionalSpace> ] ;
+    sh:targetClass <https://w3id.org/hacid/onto/data/Continuum> .
+
+<https://w3id.org/hacid/onto/data/DataGeneratingProcess> a sh:NodeShape ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path rdf:type ],
+        [ sh:maxCount 1 ;
+            sh:order 0 ;
+            sh:path example:id ],
+        [ sh:in ( <https://w3id.org/hacid/data/cs/ukcp18/land-rcm/datasets/rcp85/output> ) ;
+            sh:maxCount 1 ;
+            sh:order 4 ;
+            sh:path <https://w3id.org/hacid/onto/data/hasOutput> ],
+        [ sh:datatype xsd:string ;
+            sh:nodeKind sh:Literal ;
+            sh:order 3 ;
+            sh:path rdfs:label ],
+        [ sh:datatype xsd:string ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path rdfs:comment ],
+        [ sh:in ( <https://w3id.org/hacid/data/cs/ukcp18/land-rcm/datasets/rcp85/output> ) ;
+            sh:maxCount 1 ;
+            sh:order 5 ;
+            sh:path <https://w3id.org/hacid/onto/top-level/isComponentOf> ] ;
+    sh:targetClass <https://w3id.org/hacid/onto/data/DataGeneratingProcess> .
+
+<https://w3id.org/hacid/onto/data/DependentVariable> a sh:NodeShape ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 13 ;
+            sh:path <https://w3id.org/hacid/onto/data/hasValuesOn> ],
+        [ sh:datatype xsd:string ;
+            sh:nodeKind sh:Literal ;
+            sh:order 7 ;
+            sh:path <https://w3id.org/hacid/onto/top-level/isClassifiedBy> ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 11 ;
+            sh:path <https://w3id.org/hacid/onto/data/definesAggregation> ],
+        [ sh:in ( <https://w3id.org/hacid/onto/top-level/time> <https://w3id.org/hacid/data/cs/climdex/parameters/baseTemperature> <https://w3id.org/hacid/data/cs/climdex/parameters/heatwaveMethod> <https://w3id.org/hacid/data/cs/climdex/parameters/minimumLength> <https://w3id.org/hacid/data/cs/dimensions/geodetic> <https://w3id.org/hacid/data/cs/climdex/parameters/minimumPrecipitation> ) ;
+            sh:order 12 ;
+            sh:path <https://w3id.org/hacid/onto/data/dependsOnVariable> ],
+        [ sh:datatype xsd:string ;
+            sh:nodeKind sh:Literal ;
+            sh:order 8 ;
+            sh:path <https://w3id.org/hacid/onto/top-level/isRelatedToConcept> ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 14 ;
+            sh:path <https://w3id.org/hacid/onto/top-level/acronym> ],
+        [ sh:maxCount 1 ;
+            sh:order 0 ;
+            sh:path example:id ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 9 ;
+            sh:path <https://w3id.org/hacid/onto/data/isEquivalentTo> ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path rdf:type ],
+        [ sh:datatype xsd:string ;
+            sh:nodeKind sh:Literal ;
+            sh:order 10 ;
+            sh:path rdfs:comment ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 15 ;
+            sh:path <https://w3id.org/hacid/onto/data/holdsSpecializationOfVariable> ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 5 ;
+            sh:path <https://w3id.org/hacid/onto/top-level/hasUnitOfMeasure> ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 4 ;
+            sh:path <https://w3id.org/hacid/onto/top-level/definition> ],
+        [ sh:datatype xsd:string ;
+            sh:nodeKind sh:Literal ;
+            sh:order 3 ;
+            sh:path <https://w3id.org/hacid/onto/data/derivedFromVariable> ],
+        [ sh:datatype xsd:string ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path rdfs:label ],
+        [ sh:in ( <https://w3id.org/hacid/data/cs/Climate-ADAPT> <https://w3id.org/hacid/data/cs/Copernicus-CCS> <https://w3id.org/hacid/data/cs/ETCCDI> <https://w3id.org/hacid/data/cs/UK-CRI> ) ;
+            sh:maxCount 1 ;
+            sh:order 6 ;
+            sh:path <https://w3id.org/hacid/onto/top-level/inScheme> ] ;
+    sh:targetClass <https://w3id.org/hacid/onto/data/DependentVariable> .
+
+<https://w3id.org/hacid/onto/data/DimensionalSpace> a sh:NodeShape ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:maxCount 1 ;
+            sh:order 0 ;
+            sh:path example:id ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 6 ;
+            sh:path <https://w3id.org/hacid/onto/data/hasExactBoundingRegion> ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 8 ;
+            sh:path <https://w3id.org/hacid/onto/top-level/isConstituentOf> ],
+        [ sh:in ( <https://w3id.org/hacid/data/cs/dimensions/geodetic/reference-frames/rotated-WGS84/-103.39,43.48> <https://w3id.org/hacid/data/cs/dimensions/geodetic/reference-frames/rotated-WGS84/-64.78,77.61> <https://w3id.org/hacid/data/cs/dimensions/geodetic/reference-frames/rotated-WGS84/-166.92,6.08> <https://w3id.org/hacid/data/cs/dimensions/geodetic/reference-frames/rotated-WGS84/141.38,60.31> <https://w3id.org/hacid/data/cs/dimensions/geodetic/reference-frames/rotated-WGS84/-56.06,70.6> <https://w3id.org/hacid/data/cs/dimensions/time/reference-frames/gregorian/quantizations/regular/PT1H> <https://w3id.org/hacid/data/cs/dimensions/time/reference-frames/gregorian/quantizations/regular/PT3H> <https://w3id.org/hacid/data/cs/dimensions/geodetic/reference-frames/rotated-WGS84/180.0,90.0> <https://w3id.org/hacid/data/cs/dimensions/geodetic/reference-frames/rotated-WGS84/113.98,75.74> <https://w3id.org/hacid/data/cs/dimensions/time/reference-frames/gregorian/regions/2010-01-01T00:00:00Z-2099-11-31T00:00:00Z/quantized/regular/P1M> <https://w3id.org/hacid/data/cs/dimensions/geodetic/reference-frames/rotated-WGS84/-123.34,79.95> <https://w3id.org/hacid/data/cs/dimensions/geodetic/reference-frames/rotated-WGS84/0.0,6.55> <https://w3id.org/hacid/data/cs/dimensions/geodetic/reference-frames/rotated-WGS84/83.0,42.5> <https://w3id.org/hacid/data/cs/dimensions/geodetic/reference-frames/rotated-WGS84/198.0,39.25> <https://w3id.org/hacid/data/cs/dimensions/time/reference-frames/gregorian/quantizations/regular/P1D> <https://w3id.org/hacid/data/cs/dimensions/time/reference-frames/gregorian/quantizations/regular/PT6H> <https://w3id.org/hacid/data/cs/dimensions/time/reference-frames/gregorian> <https://w3id.org/hacid/data/cs/dimensions/geodetic/reference-frames/WGS84> <https://w3id.org/hacid/data/cs/dimensions/time/reference-frames/gregorian/quantizations/regular/P3M/P2M> <https://w3id.org/hacid/data/cs/dimensions/geodetic/reference-frames/rotated-WGS84/-162.0,39.25> ) ;
+            sh:order 4 ;
+            sh:path <https://w3id.org/hacid/onto/data/basedOnDimensionalSpace> ],
+        [ sh:datatype xsd:string ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path rdfs:comment ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path rdf:type ],
+        [ sh:datatype xsd:string ;
+            sh:nodeKind sh:Literal ;
+            sh:order 3 ;
+            sh:path rdfs:label ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 7 ;
+            sh:path <https://w3id.org/hacid/onto/data/hasValuesOn> ],
+        [ sh:in ( <https://w3id.org/hacid/data/cs/dimensions/time/reference-frames/gregorian/quantizations/regular/P1D> <https://w3id.org/hacid/data/cs/dimensions/geodetic/quantizations/regular-angle/0.22> <https://w3id.org/hacid/data/cs/dimensions/geodetic/quantizations/regular-angle/0.11> <https://w3id.org/hacid/data/cs/dimensions/geodetic/quantizations/regular-angle/0.125> <https://w3id.org/hacid/data/cs/dimensions/geodetic/quantizations/regular-angle/0.25> <https://w3id.org/hacid/data/cs/dimensions/time/reference-frames/gregorian/quantizations/regular/PT6H> <https://w3id.org/hacid/data/cs/dimensions/time/reference-frames/gregorian/quantizations/regular/P20Y> <https://w3id.org/hacid/data/cs/dimensions/time/reference-frames/gregorian/regions/2010-01-01T00:00:00Z-2099-11-31T00:00:00Z/quantized/regular/P1M> <https://w3id.org/hacid/data/cs/dimensions/time/reference-frames/gregorian/regions/2010-01-01T00:00:00Z-2099-11-31T00:00:00Z/quantized/regular/P1Y> <https://w3id.org/hacid/data/cs/dimensions/time/reference-frames/gregorian/quantizations/regular/P3M/P2M> <https://w3id.org/hacid/data/cs/dimensions/geodetic/quantizations/regular-angle/0.44> <https://w3id.org/hacid/data/cs/dimensions/time/reference-frames/gregorian/quantizations/regular/PT1H> <https://w3id.org/hacid/data/cs/dimensions/time/reference-frames/gregorian/regions/1850-01-01T00:00:00+00:00-2006-01-01T00:00:00+00:00/regular> <https://w3id.org/hacid/data/cs/dimensions/time/reference-frames/gregorian/quantizations/regular/PT3H> <https://w3id.org/hacid/data/cs/dimensions/geodetic/quantizations/regular-angle/0.5> <https://w3id.org/hacid/data/cs/dimensions/time/reference-frames/gregorian/regions/2010-01-01T00:00:00Z-2099-11-31T00:00:00Z/quantized/regular/P3M> <https://w3id.org/hacid/data/cs/dimensions/time/reference-frames/gregorian/quantizations/regular/P30Y> ) ;
+            sh:maxCount 1 ;
+            sh:order 5 ;
+            sh:path <https://w3id.org/hacid/onto/data/hasDiscretization> ] ;
+    sh:targetClass <https://w3id.org/hacid/onto/data/DimensionalSpace> .
+
+<https://w3id.org/hacid/onto/data/DiscreteDimensionalSpace> a sh:NodeShape ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:maxCount 1 ;
+            sh:order 0 ;
+            sh:path example:id ],
+        [ sh:in ( <https://w3id.org/hacid/data/cs/dimensions/time/reference-frames/gregorian/quantizations/regular/P1D> <https://w3id.org/hacid/data/cs/dimensions/geodetic/quantizations/regular-angle/0.22> <https://w3id.org/hacid/data/cs/dimensions/geodetic/quantizations/regular-angle/0.11> <https://w3id.org/hacid/data/cs/dimensions/geodetic/quantizations/regular-angle/0.125> <https://w3id.org/hacid/data/cs/dimensions/geodetic/quantizations/regular-angle/0.25> <https://w3id.org/hacid/data/cs/dimensions/time/reference-frames/gregorian/quantizations/regular/PT6H> <https://w3id.org/hacid/data/cs/dimensions/time/reference-frames/gregorian/quantizations/regular/P20Y> <https://w3id.org/hacid/data/cs/dimensions/time/reference-frames/gregorian/regions/2010-01-01T00:00:00Z-2099-11-31T00:00:00Z/quantized/regular/P1M> <https://w3id.org/hacid/data/cs/dimensions/time/reference-frames/gregorian/regions/2010-01-01T00:00:00Z-2099-11-31T00:00:00Z/quantized/regular/P1Y> <https://w3id.org/hacid/data/cs/dimensions/time/reference-frames/gregorian/quantizations/regular/P3M/P2M> <https://w3id.org/hacid/data/cs/dimensions/geodetic/quantizations/regular-angle/0.44> <https://w3id.org/hacid/data/cs/dimensions/time/reference-frames/gregorian/quantizations/regular/PT1H> <https://w3id.org/hacid/data/cs/dimensions/time/reference-frames/gregorian/regions/1850-01-01T00:00:00+00:00-2006-01-01T00:00:00+00:00/regular> <https://w3id.org/hacid/data/cs/dimensions/time/reference-frames/gregorian/quantizations/regular/PT3H> <https://w3id.org/hacid/data/cs/dimensions/geodetic/quantizations/regular-angle/0.5> <https://w3id.org/hacid/data/cs/dimensions/time/reference-frames/gregorian/regions/2010-01-01T00:00:00Z-2099-11-31T00:00:00Z/quantized/regular/P3M> <https://w3id.org/hacid/data/cs/dimensions/time/reference-frames/gregorian/quantizations/regular/P30Y> ) ;
+            sh:maxCount 1 ;
+            sh:order 5 ;
+            sh:path <https://w3id.org/hacid/onto/data/hasDiscretization> ],
+        [ sh:datatype xsd:string ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path rdfs:comment ],
+        [ sh:in ( <https://w3id.org/hacid/data/cs/dimensions/geodetic/reference-frames/rotated-WGS84/-103.39,43.48> <https://w3id.org/hacid/data/cs/dimensions/geodetic/reference-frames/rotated-WGS84/-64.78,77.61> <https://w3id.org/hacid/data/cs/dimensions/geodetic/reference-frames/rotated-WGS84/-166.92,6.08> <https://w3id.org/hacid/data/cs/dimensions/geodetic/reference-frames/rotated-WGS84/141.38,60.31> <https://w3id.org/hacid/data/cs/dimensions/geodetic/reference-frames/rotated-WGS84/-56.06,70.6> <https://w3id.org/hacid/data/cs/dimensions/time/reference-frames/gregorian/quantizations/regular/PT1H> <https://w3id.org/hacid/data/cs/dimensions/time/reference-frames/gregorian/quantizations/regular/PT3H> <https://w3id.org/hacid/data/cs/dimensions/geodetic/reference-frames/rotated-WGS84/180.0,90.0> <https://w3id.org/hacid/data/cs/dimensions/geodetic/reference-frames/rotated-WGS84/113.98,75.74> <https://w3id.org/hacid/data/cs/dimensions/time/reference-frames/gregorian/regions/2010-01-01T00:00:00Z-2099-11-31T00:00:00Z/quantized/regular/P1M> <https://w3id.org/hacid/data/cs/dimensions/geodetic/reference-frames/rotated-WGS84/-123.34,79.95> <https://w3id.org/hacid/data/cs/dimensions/geodetic/reference-frames/rotated-WGS84/0.0,6.55> <https://w3id.org/hacid/data/cs/dimensions/geodetic/reference-frames/rotated-WGS84/83.0,42.5> <https://w3id.org/hacid/data/cs/dimensions/geodetic/reference-frames/rotated-WGS84/198.0,39.25> <https://w3id.org/hacid/data/cs/dimensions/time/reference-frames/gregorian/quantizations/regular/P1D> <https://w3id.org/hacid/data/cs/dimensions/time/reference-frames/gregorian/quantizations/regular/PT6H> <https://w3id.org/hacid/data/cs/dimensions/time/reference-frames/gregorian> <https://w3id.org/hacid/data/cs/dimensions/geodetic/reference-frames/WGS84> <https://w3id.org/hacid/data/cs/dimensions/time/reference-frames/gregorian/quantizations/regular/P3M/P2M> <https://w3id.org/hacid/data/cs/dimensions/geodetic/reference-frames/rotated-WGS84/-162.0,39.25> ) ;
+            sh:order 4 ;
+            sh:path <https://w3id.org/hacid/onto/data/basedOnDimensionalSpace> ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 6 ;
+            sh:path <https://w3id.org/hacid/onto/data/hasExactBoundingRegion> ],
+        [ sh:datatype xsd:string ;
+            sh:nodeKind sh:Literal ;
+            sh:order 3 ;
+            sh:path rdfs:label ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path rdf:type ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 7 ;
+            sh:path <https://w3id.org/hacid/onto/data/hasValuesOn> ] ;
+    sh:targetClass <https://w3id.org/hacid/onto/data/DiscreteDimensionalSpace> .
+
+<https://w3id.org/hacid/onto/data/GeodeticPoint> a sh:NodeShape ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:in ( <https://w3id.org/hacid/data/cs/dimensions/geodetic/reference-frames/WGS84> ) ;
+            sh:maxCount 1 ;
+            sh:order 5 ;
+            sh:path <https://w3id.org/hacid/onto/data/isPointOf> ],
+        [ sh:datatype xsd:string ;
+            sh:nodeKind sh:Literal ;
+            sh:order 3 ;
+            sh:path rdfs:comment ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path rdf:type ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path geo:asWKT ],
+        [ sh:maxCount 1 ;
+            sh:order 0 ;
+            sh:path example:id ],
+        [ sh:datatype xsd:string ;
+            sh:nodeKind sh:Literal ;
+            sh:order 4 ;
+            sh:path rdfs:label ] ;
+    sh:targetClass <https://w3id.org/hacid/onto/data/GeodeticPoint> .
+
+<https://w3id.org/hacid/onto/data/GeodeticRegion> a sh:NodeShape ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path rdf:type ],
+        [ sh:datatype xsd:string ;
+            sh:nodeKind sh:Literal ;
+            sh:order 4 ;
+            sh:path rdfs:label ],
+        [ sh:datatype xsd:string ;
+            sh:nodeKind sh:Literal ;
+            sh:order 3 ;
+            sh:path rdfs:comment ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 5 ;
+            sh:path <https://w3id.org/hacid/onto/data/isRegionOf> ],
+        [ sh:maxCount 1 ;
+            sh:order 0 ;
+            sh:path example:id ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path geo:asWKT ] ;
+    sh:targetClass <https://w3id.org/hacid/onto/data/GeodeticRegion> .
+
+<https://w3id.org/hacid/onto/data/IndependentVariable> a sh:NodeShape ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path rdfs:label ],
+        [ sh:maxCount 1 ;
+            sh:order 0 ;
+            sh:path example:id ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path rdf:type ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 3 ;
+            sh:path <https://w3id.org/hacid/onto/top-level/acronym> ] ;
+    sh:targetClass <https://w3id.org/hacid/onto/data/IndependentVariable> .
+
+<https://w3id.org/hacid/onto/data/RegularBinning> a sh:NodeShape ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path rdf:type ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 4 ;
+            sh:path <https://w3id.org/hacid/onto/data/hasValuesOn> ],
+        [ sh:in ( <https://w3id.org/hacid/data/cs/dimensions/geodetic/reference-frames/rotated-WGS84/-103.39,43.48> <https://w3id.org/hacid/data/cs/dimensions/geodetic/reference-frames/rotated-WGS84/-64.78,77.61> <https://w3id.org/hacid/data/cs/dimensions/geodetic/reference-frames/rotated-WGS84/-166.92,6.08> <https://w3id.org/hacid/data/cs/dimensions/geodetic/reference-frames/rotated-WGS84/141.38,60.31> <https://w3id.org/hacid/data/cs/dimensions/geodetic/reference-frames/rotated-WGS84/-56.06,70.6> <https://w3id.org/hacid/data/cs/dimensions/time/reference-frames/gregorian/quantizations/regular/PT1H> <https://w3id.org/hacid/data/cs/dimensions/time/reference-frames/gregorian/quantizations/regular/PT3H> <https://w3id.org/hacid/data/cs/dimensions/geodetic/reference-frames/rotated-WGS84/180.0,90.0> <https://w3id.org/hacid/data/cs/dimensions/geodetic/reference-frames/rotated-WGS84/113.98,75.74> <https://w3id.org/hacid/data/cs/dimensions/time/reference-frames/gregorian/regions/2010-01-01T00:00:00Z-2099-11-31T00:00:00Z/quantized/regular/P1M> <https://w3id.org/hacid/data/cs/dimensions/geodetic/reference-frames/rotated-WGS84/-123.34,79.95> <https://w3id.org/hacid/data/cs/dimensions/geodetic/reference-frames/rotated-WGS84/0.0,6.55> <https://w3id.org/hacid/data/cs/dimensions/geodetic/reference-frames/rotated-WGS84/83.0,42.5> <https://w3id.org/hacid/data/cs/dimensions/geodetic/reference-frames/rotated-WGS84/198.0,39.25> <https://w3id.org/hacid/data/cs/dimensions/time/reference-frames/gregorian/quantizations/regular/P1D> <https://w3id.org/hacid/data/cs/dimensions/time/reference-frames/gregorian/quantizations/regular/PT6H> <https://w3id.org/hacid/data/cs/dimensions/time/reference-frames/gregorian> <https://w3id.org/hacid/data/cs/dimensions/geodetic/reference-frames/WGS84> <https://w3id.org/hacid/data/cs/dimensions/time/reference-frames/gregorian/quantizations/regular/P3M/P2M> <https://w3id.org/hacid/data/cs/dimensions/geodetic/reference-frames/rotated-WGS84/-162.0,39.25> ) ;
+            sh:order 2 ;
+            sh:path <https://w3id.org/hacid/onto/data/basedOnDimensionalSpace> ],
+        [ sh:maxCount 1 ;
+            sh:order 0 ;
+            sh:path example:id ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 3 ;
+            sh:path <https://w3id.org/hacid/onto/data/hasResolutionValue> ] ;
+    sh:targetClass <https://w3id.org/hacid/onto/data/RegularBinning> .
+
+<https://w3id.org/hacid/onto/data/RegularPeriodicBinning> a sh:NodeShape ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 5 ;
+            sh:path <https://w3id.org/hacid/onto/data/hasResolutionValue> ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 4 ;
+            sh:path <https://w3id.org/hacid/onto/data/hasPeriodValue> ],
+        [ sh:maxCount 1 ;
+            sh:order 0 ;
+            sh:path example:id ],
+        [ sh:in ( <https://w3id.org/hacid/data/cs/dimensions/geodetic/reference-frames/rotated-WGS84/-103.39,43.48> <https://w3id.org/hacid/data/cs/dimensions/geodetic/reference-frames/rotated-WGS84/-64.78,77.61> <https://w3id.org/hacid/data/cs/dimensions/geodetic/reference-frames/rotated-WGS84/-166.92,6.08> <https://w3id.org/hacid/data/cs/dimensions/geodetic/reference-frames/rotated-WGS84/141.38,60.31> <https://w3id.org/hacid/data/cs/dimensions/geodetic/reference-frames/rotated-WGS84/-56.06,70.6> <https://w3id.org/hacid/data/cs/dimensions/time/reference-frames/gregorian/quantizations/regular/PT1H> <https://w3id.org/hacid/data/cs/dimensions/time/reference-frames/gregorian/quantizations/regular/PT3H> <https://w3id.org/hacid/data/cs/dimensions/geodetic/reference-frames/rotated-WGS84/180.0,90.0> <https://w3id.org/hacid/data/cs/dimensions/geodetic/reference-frames/rotated-WGS84/113.98,75.74> <https://w3id.org/hacid/data/cs/dimensions/time/reference-frames/gregorian/regions/2010-01-01T00:00:00Z-2099-11-31T00:00:00Z/quantized/regular/P1M> <https://w3id.org/hacid/data/cs/dimensions/geodetic/reference-frames/rotated-WGS84/-123.34,79.95> <https://w3id.org/hacid/data/cs/dimensions/geodetic/reference-frames/rotated-WGS84/0.0,6.55> <https://w3id.org/hacid/data/cs/dimensions/geodetic/reference-frames/rotated-WGS84/83.0,42.5> <https://w3id.org/hacid/data/cs/dimensions/geodetic/reference-frames/rotated-WGS84/198.0,39.25> <https://w3id.org/hacid/data/cs/dimensions/time/reference-frames/gregorian/quantizations/regular/P1D> <https://w3id.org/hacid/data/cs/dimensions/time/reference-frames/gregorian/quantizations/regular/PT6H> <https://w3id.org/hacid/data/cs/dimensions/time/reference-frames/gregorian> <https://w3id.org/hacid/data/cs/dimensions/geodetic/reference-frames/WGS84> <https://w3id.org/hacid/data/cs/dimensions/time/reference-frames/gregorian/quantizations/regular/P3M/P2M> <https://w3id.org/hacid/data/cs/dimensions/geodetic/reference-frames/rotated-WGS84/-162.0,39.25> ) ;
+            sh:order 2 ;
+            sh:path <https://w3id.org/hacid/onto/data/basedOnDimensionalSpace> ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path rdf:type ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 3 ;
+            sh:path <https://w3id.org/hacid/onto/data/hasInPeriodResolutionValue> ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 6 ;
+            sh:path <https://w3id.org/hacid/onto/data/hasValuesOn> ] ;
+    sh:targetClass <https://w3id.org/hacid/onto/data/RegularPeriodicBinning> .
+
+<https://w3id.org/hacid/onto/data/SimpleRegularBinning> a sh:NodeShape ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:nodeKind sh:Literal ;
+            sh:order 3 ;
+            sh:path rdfs:label ],
+        [ sh:datatype xsd:integer ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 8 ;
+            sh:path <https://w3id.org/hacid/onto/data/hasResolution> ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path rdf:type ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 6 ;
+            sh:path <https://w3id.org/hacid/onto/data/hasValuesOn> ],
+        [ sh:datatype xsd:string ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path rdfs:comment ],
+        [ sh:in ( <https://w3id.org/hacid/data/cs/dimensions/geodetic/reference-frames/rotated-WGS84/-103.39,43.48> <https://w3id.org/hacid/data/cs/dimensions/geodetic/reference-frames/rotated-WGS84/-64.78,77.61> <https://w3id.org/hacid/data/cs/dimensions/geodetic/reference-frames/rotated-WGS84/-166.92,6.08> <https://w3id.org/hacid/data/cs/dimensions/geodetic/reference-frames/rotated-WGS84/141.38,60.31> <https://w3id.org/hacid/data/cs/dimensions/geodetic/reference-frames/rotated-WGS84/-56.06,70.6> <https://w3id.org/hacid/data/cs/dimensions/time/reference-frames/gregorian/quantizations/regular/PT1H> <https://w3id.org/hacid/data/cs/dimensions/time/reference-frames/gregorian/quantizations/regular/PT3H> <https://w3id.org/hacid/data/cs/dimensions/geodetic/reference-frames/rotated-WGS84/180.0,90.0> <https://w3id.org/hacid/data/cs/dimensions/geodetic/reference-frames/rotated-WGS84/113.98,75.74> <https://w3id.org/hacid/data/cs/dimensions/time/reference-frames/gregorian/regions/2010-01-01T00:00:00Z-2099-11-31T00:00:00Z/quantized/regular/P1M> <https://w3id.org/hacid/data/cs/dimensions/geodetic/reference-frames/rotated-WGS84/-123.34,79.95> <https://w3id.org/hacid/data/cs/dimensions/geodetic/reference-frames/rotated-WGS84/0.0,6.55> <https://w3id.org/hacid/data/cs/dimensions/geodetic/reference-frames/rotated-WGS84/83.0,42.5> <https://w3id.org/hacid/data/cs/dimensions/geodetic/reference-frames/rotated-WGS84/198.0,39.25> <https://w3id.org/hacid/data/cs/dimensions/time/reference-frames/gregorian/quantizations/regular/P1D> <https://w3id.org/hacid/data/cs/dimensions/time/reference-frames/gregorian/quantizations/regular/PT6H> <https://w3id.org/hacid/data/cs/dimensions/time/reference-frames/gregorian> <https://w3id.org/hacid/data/cs/dimensions/geodetic/reference-frames/WGS84> <https://w3id.org/hacid/data/cs/dimensions/time/reference-frames/gregorian/quantizations/regular/P3M/P2M> <https://w3id.org/hacid/data/cs/dimensions/geodetic/reference-frames/rotated-WGS84/-162.0,39.25> ) ;
+            sh:order 4 ;
+            sh:path <https://w3id.org/hacid/onto/data/basedOnDimensionalSpace> ],
+        [ sh:maxCount 1 ;
+            sh:order 0 ;
+            sh:path example:id ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 5 ;
+            sh:path <https://w3id.org/hacid/onto/data/hasResolutionValue> ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 7 ;
+            sh:path <https://w3id.org/hacid/onto/data/hasOffsetValue> ] ;
+    sh:targetClass <https://w3id.org/hacid/onto/data/SimpleRegularBinning> .
+
+<https://w3id.org/hacid/onto/data/SinglePeriodicBinning> a sh:NodeShape ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 5 ;
+            sh:path <https://w3id.org/hacid/onto/data/hasValuesOn> ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 3 ;
+            sh:path <https://w3id.org/hacid/onto/data/hasInPeriodResolutionValue> ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path rdf:type ],
+        [ sh:in ( <https://w3id.org/hacid/data/cs/dimensions/geodetic/reference-frames/rotated-WGS84/-103.39,43.48> <https://w3id.org/hacid/data/cs/dimensions/geodetic/reference-frames/rotated-WGS84/-64.78,77.61> <https://w3id.org/hacid/data/cs/dimensions/geodetic/reference-frames/rotated-WGS84/-166.92,6.08> <https://w3id.org/hacid/data/cs/dimensions/geodetic/reference-frames/rotated-WGS84/141.38,60.31> <https://w3id.org/hacid/data/cs/dimensions/geodetic/reference-frames/rotated-WGS84/-56.06,70.6> <https://w3id.org/hacid/data/cs/dimensions/time/reference-frames/gregorian/quantizations/regular/PT1H> <https://w3id.org/hacid/data/cs/dimensions/time/reference-frames/gregorian/quantizations/regular/PT3H> <https://w3id.org/hacid/data/cs/dimensions/geodetic/reference-frames/rotated-WGS84/180.0,90.0> <https://w3id.org/hacid/data/cs/dimensions/geodetic/reference-frames/rotated-WGS84/113.98,75.74> <https://w3id.org/hacid/data/cs/dimensions/time/reference-frames/gregorian/regions/2010-01-01T00:00:00Z-2099-11-31T00:00:00Z/quantized/regular/P1M> <https://w3id.org/hacid/data/cs/dimensions/geodetic/reference-frames/rotated-WGS84/-123.34,79.95> <https://w3id.org/hacid/data/cs/dimensions/geodetic/reference-frames/rotated-WGS84/0.0,6.55> <https://w3id.org/hacid/data/cs/dimensions/geodetic/reference-frames/rotated-WGS84/83.0,42.5> <https://w3id.org/hacid/data/cs/dimensions/geodetic/reference-frames/rotated-WGS84/198.0,39.25> <https://w3id.org/hacid/data/cs/dimensions/time/reference-frames/gregorian/quantizations/regular/P1D> <https://w3id.org/hacid/data/cs/dimensions/time/reference-frames/gregorian/quantizations/regular/PT6H> <https://w3id.org/hacid/data/cs/dimensions/time/reference-frames/gregorian> <https://w3id.org/hacid/data/cs/dimensions/geodetic/reference-frames/WGS84> <https://w3id.org/hacid/data/cs/dimensions/time/reference-frames/gregorian/quantizations/regular/P3M/P2M> <https://w3id.org/hacid/data/cs/dimensions/geodetic/reference-frames/rotated-WGS84/-162.0,39.25> ) ;
+            sh:order 2 ;
+            sh:path <https://w3id.org/hacid/onto/data/basedOnDimensionalSpace> ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 4 ;
+            sh:path <https://w3id.org/hacid/onto/data/hasPeriodValue> ],
+        [ sh:maxCount 1 ;
+            sh:order 0 ;
+            sh:path example:id ] ;
+    sh:targetClass <https://w3id.org/hacid/onto/data/SinglePeriodicBinning> .
+
+<https://w3id.org/hacid/onto/data/TemporalRegion> a sh:NodeShape ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:nodeKind sh:Literal ;
+            sh:order 4 ;
+            sh:path <https://w3id.org/hacid/onto/data/hasStartDateTime> ],
+        [ sh:datatype xsd:string ;
+            sh:nodeKind sh:Literal ;
+            sh:order 3 ;
+            sh:path <https://w3id.org/hacid/onto/data/hasEndDateTime> ],
+        [ sh:datatype xsd:string ;
+            sh:nodeKind sh:Literal ;
+            sh:order 5 ;
+            sh:path rdfs:comment ],
+        [ sh:maxCount 1 ;
+            sh:order 0 ;
+            sh:path example:id ],
+        [ sh:datatype xsd:string ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path rdfs:label ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path rdf:type ] ;
+    sh:targetClass <https://w3id.org/hacid/onto/data/TemporalRegion> .
+
+<https://w3id.org/hacid/onto/data/Variable> a sh:NodeShape ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:in ( <https://w3id.org/hacid/onto/top-level/time> <https://w3id.org/hacid/data/cs/climdex/parameters/baseTemperature> <https://w3id.org/hacid/data/cs/climdex/parameters/heatwaveMethod> <https://w3id.org/hacid/data/cs/climdex/parameters/minimumLength> <https://w3id.org/hacid/data/cs/dimensions/geodetic> <https://w3id.org/hacid/data/cs/climdex/parameters/minimumPrecipitation> ) ;
+            sh:order 7 ;
+            sh:path <https://w3id.org/hacid/onto/data/dependsOnVariable> ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 4 ;
+            sh:path <https://w3id.org/hacid/onto/data/hasValuesOn> ],
+        [ sh:datatype xsd:string ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path rdfs:comment ],
+        [ sh:in ( <https://w3id.org/hacid/data/cs/cordex/domains> ) ;
+            sh:maxCount 1 ;
+            sh:order 6 ;
+            sh:path <https://w3id.org/hacid/onto/top-level/isMemberOf> ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 8 ;
+            sh:path <https://w3id.org/hacid/onto/data/holdsSpecializationOfVariable> ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 5 ;
+            sh:path <https://w3id.org/hacid/onto/top-level/hasUnitOfMeasure> ],
+        [ sh:maxCount 1 ;
+            sh:order 0 ;
+            sh:path example:id ],
+        [ sh:datatype xsd:string ;
+            sh:nodeKind sh:Literal ;
+            sh:order 3 ;
+            sh:path rdfs:label ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path rdf:type ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 9 ;
+            sh:path <https://w3id.org/hacid/onto/top-level/acronym> ] ;
+    sh:targetClass <https://w3id.org/hacid/onto/data/Variable> .
+
+<https://w3id.org/hacid/onto/data/VariableSpecialization> a sh:NodeShape ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path rdf:type ],
+        [ sh:datatype xsd:string ;
+            sh:nodeKind sh:Literal ;
+            sh:order 4 ;
+            sh:path rdfs:comment ],
+        [ sh:in ( <https://w3id.org/hacid/data/cs/dimensions/geodetic> <https://w3id.org/hacid/onto/top-level/time> ) ;
+            sh:maxCount 1 ;
+            sh:order 3 ;
+            sh:path <https://w3id.org/hacid/onto/data/isSpecializationOn> ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path <https://w3id.org/hacid/onto/data/hasSelectedRegion> ],
+        [ sh:datatype xsd:string ;
+            sh:nodeKind sh:Literal ;
+            sh:order 5 ;
+            sh:path rdfs:label ],
+        [ sh:maxCount 1 ;
+            sh:order 0 ;
+            sh:path example:id ] ;
+    sh:targetClass <https://w3id.org/hacid/onto/data/VariableSpecialization> .
+
+<https://w3id.org/hacid/onto/top-level/Action> a sh:NodeShape ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:nodeKind sh:Literal ;
+            sh:order 6 ;
+            sh:path <https://w3id.org/hacid/onto/top-level/hasComponent> ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path rdf:type ],
+        [ sh:in ( <https://w3id.org/hacid/data/cs/ukcp18/land-rcm/datasets/rcp85/output> ) ;
+            sh:maxCount 1 ;
+            sh:order 5 ;
+            sh:path <https://w3id.org/hacid/onto/top-level/isComponentOf> ],
+        [ sh:in ( <https://w3id.org/hacid/data/cs/ukcp18/land-rcm/datasets/rcp85/output> ) ;
+            sh:maxCount 1 ;
+            sh:order 4 ;
+            sh:path <https://w3id.org/hacid/onto/data/hasOutput> ],
+        [ sh:maxCount 1 ;
+            sh:order 0 ;
+            sh:path example:id ],
+        [ sh:datatype xsd:string ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path rdfs:comment ],
+        [ sh:datatype xsd:string ;
+            sh:nodeKind sh:Literal ;
+            sh:order 3 ;
+            sh:path rdfs:label ] ;
+    sh:targetClass <https://w3id.org/hacid/onto/top-level/Action> .
+
+<https://w3id.org/hacid/onto/top-level/Amount> a sh:NodeShape ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path rdf:type ],
+        [ sh:maxCount 1 ;
+            sh:order 0 ;
+            sh:path example:id ] ;
+    sh:targetClass <https://w3id.org/hacid/onto/top-level/Amount> .
+
+<https://w3id.org/hacid/onto/top-level/Collection> a sh:NodeShape ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path <https://w3id.org/hacid/onto/top-level/hasMember> ],
+        [ sh:datatype xsd:string ;
+            sh:nodeKind sh:Literal ;
+            sh:order 3 ;
+            sh:path rdfs:comment ],
+        [ sh:datatype xsd:string ;
+            sh:nodeKind sh:Literal ;
+            sh:order 4 ;
+            sh:path rdfs:label ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path rdf:type ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 5 ;
+            sh:path <https://w3id.org/hacid/onto/top-level/hasPart> ],
+        [ sh:maxCount 1 ;
+            sh:order 0 ;
+            sh:path example:id ] ;
+    sh:targetClass <https://w3id.org/hacid/onto/top-level/Collection> .
+
+<https://w3id.org/hacid/onto/top-level/Concept> a sh:NodeShape ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path rdf:type ],
+        [ sh:in ( <https://w3id.org/hacid/data/cs/Climate-ADAPT> <https://w3id.org/hacid/data/cs/Copernicus-CCS> <https://w3id.org/hacid/data/cs/ETCCDI> <https://w3id.org/hacid/data/cs/UK-CRI> ) ;
+            sh:maxCount 1 ;
+            sh:order 6 ;
+            sh:path <https://w3id.org/hacid/onto/top-level/inScheme> ],
+        [ sh:maxCount 1 ;
+            sh:order 0 ;
+            sh:path example:id ],
+        [ sh:in ( <https://w3id.org/hacid/data/cs/cordex/domains> ) ;
+            sh:maxCount 1 ;
+            sh:order 5 ;
+            sh:path <https://w3id.org/hacid/onto/top-level/isMemberOf> ],
+        [ sh:datatype xsd:string ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path rdfs:label ],
+        [ sh:datatype xsd:string ;
+            sh:nodeKind sh:Literal ;
+            sh:order 4 ;
+            sh:path rdfs:comment ],
+        [ sh:datatype xsd:string ;
+            sh:nodeKind sh:Literal ;
+            sh:order 3 ;
+            sh:path <https://w3id.org/hacid/onto/top-level/classifies> ] ;
+    sh:targetClass <https://w3id.org/hacid/onto/top-level/Concept> .
+
+<https://w3id.org/hacid/onto/top-level/ConceptScheme> a sh:NodeShape ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:nodeKind sh:Literal ;
+            sh:order 3 ;
+            sh:path <https://w3id.org/hacid/onto/top-level/defines> ],
+        [ sh:maxCount 1 ;
+            sh:order 0 ;
+            sh:path example:id ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path rdf:type ],
+        [ sh:datatype xsd:string ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path rdfs:label ] ;
+    sh:targetClass <https://w3id.org/hacid/onto/top-level/ConceptScheme> .
+
+<https://w3id.org/hacid/onto/top-level/Dataset> a sh:NodeShape ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:nodeKind sh:Literal ;
+            sh:order 3 ;
+            sh:path rdfs:label ],
+        [ sh:datatype xsd:string ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path rdfs:comment ],
+        [ sh:maxCount 1 ;
+            sh:order 0 ;
+            sh:path example:id ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path rdf:type ] ;
+    sh:targetClass <https://w3id.org/hacid/onto/top-level/Dataset> .
+
+<https://w3id.org/hacid/onto/top-level/Description> a sh:NodeShape ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:nodeKind sh:Literal ;
+            sh:order 3 ;
+            sh:path rdfs:label ],
+        [ sh:maxCount 1 ;
+            sh:order 0 ;
+            sh:path example:id ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path rdf:type ],
+        [ sh:datatype xsd:string ;
+            sh:nodeKind sh:Literal ;
+            sh:order 4 ;
+            sh:path <https://w3id.org/hacid/onto/top-level/defines> ],
+        [ sh:datatype xsd:string ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path rdfs:comment ] ;
+    sh:targetClass <https://w3id.org/hacid/onto/top-level/Description> .
+
+<https://w3id.org/hacid/onto/top-level/InformationRole> a sh:NodeShape ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:maxCount 1 ;
+            sh:order 0 ;
+            sh:path example:id ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path <https://w3id.org/hacid/onto/top-level/hasExpectedType> ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path rdf:type ] ;
+    sh:targetClass <https://w3id.org/hacid/onto/top-level/InformationRole> .
+
+<https://w3id.org/hacid/onto/top-level/Method> a sh:NodeShape ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path rdf:type ],
+        [ sh:datatype xsd:string ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path rdfs:label ],
+        [ sh:maxCount 1 ;
+            sh:order 0 ;
+            sh:path example:id ],
+        [ sh:datatype xsd:string ;
+            sh:nodeKind sh:Literal ;
+            sh:order 3 ;
+            sh:path <https://w3id.org/hacid/onto/top-level/altLabel> ],
+        [ sh:datatype xsd:string ;
+            sh:nodeKind sh:Literal ;
+            sh:order 4 ;
+            sh:path <https://w3id.org/hacid/onto/top-level/isSpecializedBy> ] ;
+    sh:targetClass <https://w3id.org/hacid/onto/top-level/Method> .
+
+<https://w3id.org/hacid/onto/top-level/Operation> a sh:NodeShape ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:nodeKind sh:Literal ;
+            sh:order 5 ;
+            sh:path <https://w3id.org/hacid/onto/top-level/isSpecializedBy> ],
+        [ sh:datatype xsd:string ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path rdfs:comment ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path rdf:type ],
+        [ sh:datatype xsd:string ;
+            sh:nodeKind sh:Literal ;
+            sh:order 3 ;
+            sh:path rdfs:label ],
+        [ sh:in ( <https://w3id.org/hacid/data/cs/wf/ops/SpecifyDecisionContext/associated-data> ) ;
+            sh:maxCount 1 ;
+            sh:order 4 ;
+            sh:path <https://w3id.org/hacid/onto/top-level/definesRole> ],
+        [ sh:maxCount 1 ;
+            sh:order 0 ;
+            sh:path example:id ] ;
+    sh:targetClass <https://w3id.org/hacid/onto/top-level/Operation> .
+
+<https://w3id.org/hacid/onto/top-level/Organization> a sh:NodeShape ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path rdfs:label ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 3 ;
+            sh:path <https://w3id.org/hacid/onto/top-level/acronym> ],
+        [ sh:maxCount 1 ;
+            sh:order 0 ;
+            sh:path example:id ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path rdf:type ] ;
+    sh:targetClass <https://w3id.org/hacid/onto/top-level/Organization> .
+
+<https://w3id.org/hacid/onto/top-level/UnitOfMeasure> a sh:NodeShape ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 3 ;
+            sh:path <https://w3id.org/hacid/onto/data/hasValuesOn> ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path rdf:type ],
+        [ sh:maxCount 1 ;
+            sh:order 0 ;
+            sh:path example:id ],
+        [ sh:datatype xsd:string ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path rdfs:label ] ;
+    sh:targetClass <https://w3id.org/hacid/onto/top-level/UnitOfMeasure> .
+
+

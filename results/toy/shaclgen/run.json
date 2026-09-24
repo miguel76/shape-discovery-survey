@@ -11,7 +11,7 @@
   "exit_code": 0,
   "timed_out": false,
   "wall_seconds": 1.6,
-  "cpu_seconds": 1.39,
-  "peak_rss_mb": 40.2,
+  "cpu_seconds": 1.41,
+  "peak_rss_mb": 40.5,
   "has_output": true
 }

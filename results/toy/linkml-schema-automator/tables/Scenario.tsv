@@ -1,5 +1,0 @@
-id	type	label	radiativeForcing
-http://example.org/toy/ssp126	Scenario	SSP1-2.6	2.6
-http://example.org/toy/ssp245	Scenario	SSP2-4.5	4.5
-http://example.org/toy/ssp585	Scenario	SSP5-8.5	8.5
-http://example.org/toy/historical	Scenario	historical	

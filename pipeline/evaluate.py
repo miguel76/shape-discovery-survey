@@ -12,27 +12,41 @@ For each results/<KG>/<run>/shapes.ttl it computes:
   * well-formed - violations of the SHACL-SHACL meta-shapes;
   * profile     - number of node/property shapes and constraint components used;
   * self-validation - validating the KG itself against the extracted shapes
-                  (pySHACL, no inference): shapes that describe the data should
-                  mostly conform, and the violations are the "suspicious" nodes;
+                  (Jena SHACL via ShaclStats.java, no inference): shapes that
+                  describe the data should mostly conform, and the violations
+                  are the "suspicious" nodes. Done twice: on the KG as is (SHACL
+                  semantics: sh:targetClass also reaches instances of subclasses
+                  through rdfs:subClassOf triples in the data) and on the KG
+                  without rdfs:subClassOf triples ("explicit typing", the view
+                  the tools extract from);
   * reference   - if data/<KG>/kg.json names reference shapes: overlap of
                   (target class, path) pairs and agreement of the main
                   constraints on the shared pairs, plus how many of the
                   violations found by the reference shapes are also found.
 
 Writes results/<KG>/<run>/eval.json and results/<KG>/summary.md.
+Environment: JAVA_XMX (heap for validation, default 8g), VALIDATION_BUDGET
+(seconds per shapes file after which only a random sample of focus nodes has
+been validated, default 3600), VALIDATION_TIMEOUT (hard limit, default budget +
+1 hour). Validation results in work/<KG>/validation/ are reused while newer than
+both the data and the shapes.
 """
 import argparse
 import json
+import os
+import subprocess
 import sys
-from collections import Counter, defaultdict
+from collections import Counter
 from pathlib import Path
 
 import pyshacl
-from rdflib import RDF, RDFS, SH, BNode, Graph, Literal, URIRef
+from rdflib import RDF, RDFS, SH, Graph, URIRef
 from rdflib.collection import Collection
 
 ROOT = Path(__file__).resolve().parent.parent
 ASSETS = Path(pyshacl.__file__).parent / "assets"
+TOOLS_HOME = Path(os.environ.get("TOOLS_HOME", ROOT / ".tools"))
+JENA_JAR = TOOLS_HOME / "fuseki" / "jena-fuseki-server-5.2.0.jar"
 
 # Constraint parameters we report on (SHACL Core).
 COMPONENT_PARAMS = [
@@ -163,7 +177,54 @@ def compare_to_reference(table, ref):
 
 
 # ------------------------------------------------------------------ validation
+def validate_kg(data_file, shapes_file, out_file, focus_paths=False):
+    """Validate the KG dump against a shapes file with Jena SHACL (scales to millions of triples)."""
+    fresh = out_file.exists() and out_file.stat().st_size > 0 and \
+        out_file.stat().st_mtime > max(data_file.stat().st_mtime, shapes_file.stat().st_mtime)
+    if not fresh:
+        budget = int(os.environ.get("VALIDATION_BUDGET", 3600))
+        cmd = ["java", f"-Xmx{os.environ.get('JAVA_XMX', '8g')}", "-cp", str(JENA_JAR),
+               str(ROOT / "pipeline" / "ShaclStats.java"), str(data_file),
+               *(["--focus-paths"] if focus_paths else []), str(out_file), str(shapes_file)]
+        try:
+            with open(out_file.with_suffix(".log"), "w") as log:
+                proc = subprocess.run(cmd, stderr=log, stdout=subprocess.DEVNULL,
+                                      env={**os.environ, "VALIDATION_BUDGET": str(budget)},
+                                      timeout=float(os.environ.get("VALIDATION_TIMEOUT", budget + 3600)))
+        except subprocess.TimeoutExpired:
+            out_file.unlink(missing_ok=True)
+            return {"error": "validation timed out"}
+        if proc.returncode != 0 or not out_file.exists() or out_file.stat().st_size == 0:
+            out_file.unlink(missing_ok=True)
+            tail = out_file.with_suffix(".log").read_text().strip()[-300:]
+            return {"error": f"validator exited with {proc.returncode}: {tail}"}
+    res = json.loads(out_file.read_text())
+    if "focus_paths" in res:
+        res["_focus_paths"] = {tuple(fp) for fp in res.pop("focus_paths")}
+    return res
+
+
+def without_subclass_axioms(data_file):
+    """The dump without rdfs:subClassOf triples, so sh:targetClass only reaches explicitly typed nodes."""
+    dest = data_file.with_name("data-explicit.nt")
+    if not dest.exists() or dest.stat().st_mtime < data_file.stat().st_mtime:
+        with open(dest, "wb") as f:
+            subprocess.run(["grep", "-v", "-F", f" <{RDFS.subClassOf}> ", str(data_file)], stdout=f)
+    return dest
+
+
+def rdfs_closure(data_file):
+    """Materialise RDFS entailments with riot, using the KG itself as the vocabulary."""
+    dest = data_file.with_name("data-rdfs.nt")
+    if not dest.exists() or dest.stat().st_mtime < data_file.stat().st_mtime:
+        with open(dest, "wb") as f:
+            subprocess.run(["java", "-cp", str(JENA_JAR), "riotcmd.riot", f"--rdfs={data_file}",
+                            "--output=ntriples", str(data_file)], stdout=f, check=True)
+    return dest
+
+
 def validate(data, shapes, inference="none"):
+    """pySHACL validation of in-memory graphs (used for the small shapes-vs-meta-shapes check)."""
     try:
         conforms, report, _ = pyshacl.validate(data, shacl_graph=shapes, inference=inference,
                                                allow_warnings=True, abort_on_first=False)
@@ -188,7 +249,10 @@ def main():
 
     kg_dir, results = ROOT / "data" / args.kg, ROOT / "results" / args.kg
     kg = json.loads((kg_dir / "kg.json").read_text())
-    data = Graph().parse(ROOT / "work" / args.kg / "data.nt", format="nt")
+    data_file = ROOT / "work" / args.kg / "data.nt"
+    explicit_file = without_subclass_axioms(data_file)
+    val_dir = ROOT / "work" / args.kg / "validation"
+    val_dir.mkdir(parents=True, exist_ok=True)
     vocab = shacl_vocabulary()
     meta_shapes = Graph().parse(ASSETS / "shacl-shacl.ttl")
 
@@ -196,7 +260,10 @@ def main():
     if kg.get("reference_shapes"):
         ref = load(kg_dir / kg["reference_shapes"])
         ref_table = constraint_table(ref)
-        ref_validation = validate(data, ref, kg.get("reference_inference", "none"))
+        ref_data = rdfs_closure(data_file) if kg.get("reference_inference") == "rdfs" else data_file
+        print("[validate] reference shapes", flush=True)
+        ref_validation = validate_kg(ref_data, kg_dir / kg["reference_shapes"], val_dir / "reference.json",
+                                     focus_paths=True)
 
     evaluations = {}
     for run_dir in sorted(d for d in results.iterdir() if d.is_dir()):
@@ -213,11 +280,16 @@ def main():
         wf = validate(g, meta_shapes)
         ev["well_formedness"] = {k: v for k, v in wf.items() if not k.startswith("_")}
         ev["profile"] = profile(g)
-        sv = validate(data, g)
+        print(f"[validate] {run_dir.name}", flush=True)
+        sv = validate_kg(data_file, shapes_file, val_dir / f"{run_dir.name}.json",
+                         focus_paths=ref_table is not None)
         ev["self_validation"] = {k: v for k, v in sv.items() if not k.startswith("_")}
+        print(f"[validate] {run_dir.name} (explicit typing)", flush=True)
+        sve = validate_kg(explicit_file, shapes_file, val_dir / f"{run_dir.name}.explicit.json")
+        ev["self_validation_explicit"] = {k: v for k, v in sve.items() if not k.startswith("_")}
         if ref_table is not None:
             ev["reference"] = compare_to_reference(constraint_table(g), ref_table)
-            if "_focus_paths" in sv and "_focus_paths" in ref_validation:
+            if "_focus_paths" in sv and "_focus_paths" in (ref_validation or {}):
                 expected = ref_validation["_focus_paths"]
                 ev["reference"]["reference_violations_found"] = {
                     "found": len(expected & sv["_focus_paths"]), "of": len(expected)}
@@ -260,9 +332,25 @@ def write_summary(path, name, kg, evs, ref_validation):
         if "error" in sv:
             lines.append(f"| {r} | error: {sv['error'][:80]} | | | | |")
             continue
+        if sv.get("partial"):
+            r = f"{r} (sample: {sv['validated_focus_nodes']}/{sv['target_focus_nodes']} focus nodes)"
         lines.append(f"| {r} | {sv.get('conforms', '-')} | {sv.get('violations', '-')} | {sv.get('focus_nodes', '-')} | "
                      f"{', '.join(f'{k}: {v}' for k, v in sv.get('by_component', {}).items()) or '-'} | "
                      f"{str(rv['found']) + '/' + str(rv['of']) if rv else '-'} |")
+    lines += ["", "### Explicit typing (without `rdfs:subClassOf` triples in the data)", "",
+              "The tools profile the explicitly typed instances of each class, whereas SHACL's `sh:targetClass` "
+              "also reaches instances of subclasses. Removing the `rdfs:subClassOf` triples from the data graph "
+              "validates each shape only on the nodes it was learned from.", "",
+              "| run | conforms | violations | focus nodes | by component |", "|---|---|---|---|---|"]
+    for r, ev in evs.items():
+        sv = ev.get("self_validation_explicit", {})
+        if "error" in sv:
+            lines.append(f"| {r} | error: {sv['error'][:80]} | | | |")
+            continue
+        if sv.get("partial"):
+            r = f"{r} (sample: {sv['validated_focus_nodes']}/{sv['target_focus_nodes']} focus nodes)"
+        lines.append(f"| {r} | {sv.get('conforms', '-')} | {sv.get('violations', '-')} | {sv.get('focus_nodes', '-')} | "
+                     f"{', '.join(f'{k}: {v}' for k, v in sv.get('by_component', {}).items()) or '-'} |")
     if any("reference" in ev for ev in evs.values()):
         lines += ["", "## Comparison with the reference shapes", "",
                   "Pairs are (target class, property path) with an IRI path, excluding `rdf:type`. "

@@ -1,7 +1,0 @@
-id	type	usesModel	usesScenario	outputVariable	period	author	doi
-http://example.org/toy/sim_1	Simulation	m_ipsl_cm6a	ssp585	var_tas|var_pr	n074bfa2fe848407b9710e2092613e373b1	p_alice	sim.1
-http://example.org/toy/sim_2	Simulation	m_mpi_esm	ssp245	var_tas|var_tos|var_psl	n074bfa2fe848407b9710e2092613e373b2	p_bob|p_dan	
-http://example.org/toy/sim_3	Simulation	m_cesm2	ssp126	var_pr	n074bfa2fe848407b9710e2092613e373b3	p_dan	sim.3
-http://example.org/toy/sim_4	Simulation	m_cmcc_cm2	historical	var_tas|var_tos	n074bfa2fe848407b9710e2092613e373b4	p_carla	
-http://example.org/toy/sim_5	Simulation	m_ipsl_cm6a	historical	var_tas	n074bfa2fe848407b9710e2092613e373b5	p_alice	
-http://example.org/toy/sim_bad	Simulation		var_pr	var_tas		p_bob	

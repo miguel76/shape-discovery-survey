@@ -1,0 +1,17 @@
+{
+  "tool": "shacl-play",
+  "mode": "file",
+  "source": "work/cckg/data.nt",
+  "command": [
+    "tools/shacl-play/run.sh",
+    "file",
+    "work/cckg/data.nt",
+    "results/cckg/shacl-play"
+  ],
+  "exit_code": 0,
+  "timed_out": false,
+  "wall_seconds": 169.23,
+  "cpu_seconds": 203.46,
+  "peak_rss_mb": 2765.4,
+  "has_output": true
+}

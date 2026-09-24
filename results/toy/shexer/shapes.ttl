@@ -7,17 +7,11 @@
 
 weso-s:ClimateModel a sh:NodeShape ;
     sh:property [ a sh:PropertyShape ;
-            ns1:ratio_property_usage 1.0 ;
+            ns1:ratio_property_usage 0.25 ;
+            rdfs:comment "# 25.0 % obj: xsd:string. Cardinality: {1}" ;
             sh:dataType xsd:string ;
             sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:path rdfs:label ],
-        [ a sh:PropertyShape ;
-            ns1:ratio_property_usage 1.0 ;
-            sh:in ( <http://example.org/toy/ClimateModel> ) ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:path rdf:type ],
+            sh:path <http://example.org/toy/horizontalResolutionKm> ],
         [ a sh:PropertyShape ;
             ns1:ratio_property_usage 0.5 ;
             sh:in ( <http://example.org/toy/EarthSystemModel> ) ;
@@ -26,18 +20,10 @@ weso-s:ClimateModel a sh:NodeShape ;
             sh:path rdf:type ],
         [ a sh:PropertyShape ;
             ns1:ratio_property_usage 1.0 ;
-            rdfs:comment "# 25.0 % obj: @weso-s:Person. Cardinality: {1}",
-                "# 75.0 % obj: @weso-s:Institution. Cardinality: {1}" ;
+            sh:in ( <http://example.org/toy/ClimateModel> ) ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:path <http://example.org/toy/developedBy> ],
-        [ a sh:PropertyShape ;
-            ns1:ratio_property_usage 0.25 ;
-            rdfs:comment "# 25.0 % obj: xsd:string. Cardinality: {1}" ;
-            sh:dataType xsd:string ;
-            sh:maxCount 1 ;
-            sh:path <http://example.org/toy/horizontalResolutionKm> ],
+            sh:path rdf:type ],
         [ a sh:PropertyShape ;
             ns1:ratio_property_usage 0.75 ;
             rdfs:comment "# 75.0 % obj: xsd:decimal. Cardinality: {1}" ;
@@ -49,16 +35,36 @@ weso-s:ClimateModel a sh:NodeShape ;
             rdfs:comment "# 50.0 % obj: xsd:date. Cardinality: {1}" ;
             sh:dataType xsd:date ;
             sh:maxCount 1 ;
-            sh:path <http://example.org/toy/releaseDate> ] ;
+            sh:path <http://example.org/toy/releaseDate> ],
+        [ a sh:PropertyShape ;
+            ns1:ratio_property_usage 1.0 ;
+            rdfs:comment "# 25.0 % obj: @weso-s:Person. Cardinality: {1}",
+                "# 75.0 % obj: @weso-s:Institution. Cardinality: {1}" ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:path <http://example.org/toy/developedBy> ],
+        [ a sh:PropertyShape ;
+            ns1:ratio_property_usage 1.0 ;
+            sh:dataType xsd:string ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path rdfs:label ] ;
     sh:targetClass <http://example.org/toy/ClimateModel> .
 
 weso-s:EarthSystemModel a sh:NodeShape ;
     sh:property [ a sh:PropertyShape ;
             ns1:ratio_property_usage 1.0 ;
+            sh:dataType xsd:decimal ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
-            sh:node weso-s:Institution ;
-            sh:path <http://example.org/toy/developedBy> ],
+            sh:path <http://example.org/toy/horizontalResolutionKm> ],
+        [ a sh:PropertyShape ;
+            ns1:ratio_property_usage 1.0 ;
+            sh:in ( <http://example.org/toy/EarthSystemModel> ) ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path rdf:type ],
         [ a sh:PropertyShape ;
             ns1:ratio_property_usage 0.6666666666666666 ;
             sh:in ( <http://example.org/toy/ClimateModel> ) ;
@@ -67,32 +73,32 @@ weso-s:EarthSystemModel a sh:NodeShape ;
             sh:path rdf:type ],
         [ a sh:PropertyShape ;
             ns1:ratio_property_usage 1.0 ;
-            sh:dataType xsd:decimal ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:path <http://example.org/toy/horizontalResolutionKm> ],
-        [ a sh:PropertyShape ;
-            ns1:ratio_property_usage 1.0 ;
-            sh:dataType xsd:date ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:path <http://example.org/toy/releaseDate> ],
-        [ a sh:PropertyShape ;
-            ns1:ratio_property_usage 1.0 ;
             sh:dataType xsd:string ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
             sh:path rdfs:label ],
         [ a sh:PropertyShape ;
             ns1:ratio_property_usage 1.0 ;
-            sh:in ( <http://example.org/toy/EarthSystemModel> ) ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
-            sh:path rdf:type ] ;
+            sh:node weso-s:Institution ;
+            sh:path <http://example.org/toy/developedBy> ],
+        [ a sh:PropertyShape ;
+            ns1:ratio_property_usage 1.0 ;
+            sh:dataType xsd:date ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path <http://example.org/toy/releaseDate> ] ;
     sh:targetClass <http://example.org/toy/EarthSystemModel> .
 
 weso-s:Scenario a sh:NodeShape ;
     sh:property [ a sh:PropertyShape ;
+            ns1:ratio_property_usage 1.0 ;
+            sh:dataType xsd:string ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path rdfs:label ],
+        [ a sh:PropertyShape ;
             ns1:ratio_property_usage 1.0 ;
             sh:in ( <http://example.org/toy/Scenario> ) ;
             sh:maxCount 1 ;
@@ -103,17 +109,17 @@ weso-s:Scenario a sh:NodeShape ;
             rdfs:comment "# 75.0 % obj: xsd:decimal. Cardinality: {1}" ;
             sh:dataType xsd:decimal ;
             sh:maxCount 1 ;
-            sh:path <http://example.org/toy/radiativeForcing> ],
-        [ a sh:PropertyShape ;
-            ns1:ratio_property_usage 1.0 ;
-            sh:dataType xsd:string ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:path rdfs:label ] ;
+            sh:path <http://example.org/toy/radiativeForcing> ] ;
     sh:targetClass <http://example.org/toy/Scenario> .
 
 weso-s:Simulation a sh:NodeShape ;
     sh:property [ a sh:PropertyShape ;
+            ns1:ratio_property_usage 1.0 ;
+            sh:in ( <http://example.org/toy/Simulation> ) ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path rdf:type ],
+        [ a sh:PropertyShape ;
             ns1:ratio_property_usage 0.3333333333333333 ;
             rdfs:comment "# 33.33333333333333 % obj: xsd:string. Cardinality: {1}" ;
             sh:dataType xsd:string ;
@@ -121,19 +127,16 @@ weso-s:Simulation a sh:NodeShape ;
             sh:path <http://example.org/toy/doi> ],
         [ a sh:PropertyShape ;
             ns1:ratio_property_usage 1.0 ;
-            rdfs:comment "# 16.666666666666664 % obj: @weso-s:Variable. Cardinality: {1}",
-                "# 83.33333333333334 % obj: @weso-s:Scenario. Cardinality: {1}" ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:path <http://example.org/toy/usesScenario> ],
-        [ a sh:PropertyShape ;
-            ns1:ratio_property_usage 1.0 ;
             rdfs:comment "# 16.666666666666664 % obj: @weso-s:Person. Cardinality: {2}",
                 "# 83.33333333333334 % obj: @weso-s:Person. Cardinality: {1}" ;
             sh:minCount 1 ;
             sh:node weso-s:Person ;
             sh:path <http://example.org/toy/author> ],
+        [ a sh:PropertyShape ;
+            ns1:ratio_property_usage 0.8333333333333334 ;
+            rdfs:comment "# 83.33333333333334 % obj: BNode. Cardinality: {1}" ;
+            sh:maxCount 1 ;
+            sh:path <http://example.org/toy/period> ],
         [ a sh:PropertyShape ;
             ns1:ratio_property_usage 0.8333333333333334 ;
             rdfs:comment "# 66.66666666666666 % obj: @weso-s:ClimateModel. Cardinality: {1}",
@@ -144,15 +147,12 @@ weso-s:Simulation a sh:NodeShape ;
             sh:path <http://example.org/toy/usesModel> ],
         [ a sh:PropertyShape ;
             ns1:ratio_property_usage 1.0 ;
-            sh:in ( <http://example.org/toy/Simulation> ) ;
+            rdfs:comment "# 16.666666666666664 % obj: @weso-s:Variable. Cardinality: {1}",
+                "# 83.33333333333334 % obj: @weso-s:Scenario. Cardinality: {1}" ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
-            sh:path rdf:type ],
-        [ a sh:PropertyShape ;
-            ns1:ratio_property_usage 0.8333333333333334 ;
-            rdfs:comment "# 83.33333333333334 % obj: BNode. Cardinality: {1}" ;
-            sh:maxCount 1 ;
-            sh:path <http://example.org/toy/period> ],
+            sh:nodeKind sh:IRI ;
+            sh:path <http://example.org/toy/usesScenario> ],
         [ a sh:PropertyShape ;
             ns1:ratio_property_usage 1.0 ;
             rdfs:comment "# 16.666666666666664 % obj: @weso-s:Variable. Cardinality: {3}",
@@ -181,6 +181,12 @@ weso-s:Class a sh:NodeShape ;
 weso-s:Person a sh:NodeShape ;
     sh:property [ a sh:PropertyShape ;
             ns1:ratio_property_usage 1.0 ;
+            sh:dataType xsd:string ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path <http://example.org/toy/name> ],
+        [ a sh:PropertyShape ;
+            ns1:ratio_property_usage 1.0 ;
             sh:in ( <http://example.org/toy/Person> ) ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
@@ -192,12 +198,6 @@ weso-s:Person a sh:NodeShape ;
             sh:minCount 1 ;
             sh:node weso-s:Institution ;
             sh:path <http://example.org/toy/affiliation> ],
-        [ a sh:PropertyShape ;
-            ns1:ratio_property_usage 1.0 ;
-            sh:dataType xsd:string ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:path <http://example.org/toy/name> ],
         [ a sh:PropertyShape ;
             ns1:ratio_property_usage 0.5 ;
             rdfs:comment "# 50.0 % obj: xsd:string. Cardinality: {1}" ;
@@ -218,7 +218,7 @@ weso-s:Variable a sh:NodeShape ;
             sh:dataType xsd:string ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
-            sh:path <http://example.org/toy/shortName> ],
+            sh:path <http://example.org/toy/unit> ],
         [ a sh:PropertyShape ;
             ns1:ratio_property_usage 1.0 ;
             sh:in ( <http://example.org/toy/Variable> ) ;
@@ -230,7 +230,7 @@ weso-s:Variable a sh:NodeShape ;
             sh:dataType xsd:string ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
-            sh:path <http://example.org/toy/unit> ] ;
+            sh:path <http://example.org/toy/shortName> ] ;
     sh:targetClass <http://example.org/toy/Variable> .
 
 weso-s:Institution a sh:NodeShape ;
@@ -240,12 +240,6 @@ weso-s:Institution a sh:NodeShape ;
             sh:maxCount 1 ;
             sh:nodeKind sh:IRI ;
             sh:path <http://example.org/toy/homepage> ],
-        [ a sh:PropertyShape ;
-            ns1:ratio_property_usage 1.0 ;
-            sh:in ( <http://example.org/toy/Institution> ) ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:path rdf:type ],
         [ a sh:PropertyShape ;
             ns1:ratio_property_usage 1.0 ;
             sh:dataType xsd:string ;
@@ -258,6 +252,12 @@ weso-s:Institution a sh:NodeShape ;
                 "# 75.0 % obj: xsd:string. Cardinality: {1}" ;
             sh:dataType xsd:string ;
             sh:minCount 1 ;
-            sh:path rdfs:label ] ;
+            sh:path rdfs:label ],
+        [ a sh:PropertyShape ;
+            ns1:ratio_property_usage 1.0 ;
+            sh:in ( <http://example.org/toy/Institution> ) ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path rdf:type ] ;
     sh:targetClass <http://example.org/toy/Institution> .
 

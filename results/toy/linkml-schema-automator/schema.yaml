@@ -42,19 +42,27 @@ slots:
     annotations:
       num_distinct_values:
         tag: num_distinct_values
-        value: '5'
+        value: '4'
     examples:
-    - value: Centro Euro-Mediterraneo sui Cambiamenti Climatici
+    - value: SSP5-8.5
     slot_uri: http://www.w3.org/2000/01/rdf-schema#label
     range: string
-    multivalued: true
+  radiativeForcing:
+    annotations:
+      num_distinct_values:
+        tag: num_distinct_values
+        value: '3'
+    examples:
+    - value: '8.5'
+    slot_uri: http://example.org/toy/radiativeForcing
+    range: float
   country:
     annotations:
       num_distinct_values:
         tag: num_distinct_values
         value: '4'
     examples:
-    - value: IT
+    - value: US
     slot_uri: http://example.org/toy/country
     range: string
   homepage:
@@ -64,34 +72,6 @@ slots:
         value: '0'
     slot_uri: http://example.org/toy/homepage
     range: string
-  name:
-    annotations:
-      num_distinct_values:
-        tag: num_distinct_values
-        value: '4'
-    examples:
-    - value: Dan Brown
-    slot_uri: http://example.org/toy/name
-    range: string
-  email:
-    annotations:
-      num_distinct_values:
-        tag: num_distinct_values
-        value: '2'
-    examples:
-    - value: carla@example.org
-    slot_uri: http://example.org/toy/email
-    range: string
-  affiliation:
-    annotations:
-      num_distinct_values:
-        tag: num_distinct_values
-        value: '4'
-    examples:
-    - value: inst_mpi|inst_ncar
-    slot_uri: http://example.org/toy/affiliation
-    range: string
-    multivalued: true
   developedBy:
     annotations:
       num_distinct_values:
@@ -116,72 +96,36 @@ slots:
         tag: num_distinct_values
         value: '2'
     examples:
-    - value: '2018-09-01'
+    - value: '2018-06-01'
     slot_uri: http://example.org/toy/releaseDate
     range: date
-  radiativeForcing:
-    annotations:
-      num_distinct_values:
-        tag: num_distinct_values
-        value: '3'
-    examples:
-    - value: '8.5'
-    slot_uri: http://example.org/toy/radiativeForcing
-    range: float
-  unit:
+  affiliation:
     annotations:
       num_distinct_values:
         tag: num_distinct_values
         value: '4'
     examples:
-    - value: degC
-    slot_uri: http://example.org/toy/unit
-    range: string
-  shortName:
-    annotations:
-      num_distinct_values:
-        tag: num_distinct_values
-        value: '4'
-    examples:
-    - value: tos
-    slot_uri: http://example.org/toy/shortName
-    range: string
-  usesModel:
-    annotations:
-      num_distinct_values:
-        tag: num_distinct_values
-        value: '4'
-    examples:
-    - value: m_ipsl_cm6a
-    slot_uri: http://example.org/toy/usesModel
-    range: string
-  usesScenario:
-    annotations:
-      num_distinct_values:
-        tag: num_distinct_values
-        value: '5'
-    examples:
-    - value: var_pr
-    slot_uri: http://example.org/toy/usesScenario
-    range: string
-  outputVariable:
-    annotations:
-      num_distinct_values:
-        tag: num_distinct_values
-        value: '4'
-    examples:
-    - value: var_tas
-    slot_uri: http://example.org/toy/outputVariable
+    - value: inst_mpi|inst_ncar
+    slot_uri: http://example.org/toy/affiliation
     range: string
     multivalued: true
-  period:
+  email:
     annotations:
       num_distinct_values:
         tag: num_distinct_values
-        value: '5'
+        value: '2'
     examples:
-    - value: n074bfa2fe848407b9710e2092613e373b5
-    slot_uri: http://example.org/toy/period
+    - value: carla@example.org
+    slot_uri: http://example.org/toy/email
+    range: string
+  name:
+    annotations:
+      num_distinct_values:
+        tag: num_distinct_values
+        value: '4'
+    examples:
+    - value: Dan Brown
+    slot_uri: http://example.org/toy/name
     range: string
   author:
     annotations:
@@ -202,6 +146,61 @@ slots:
     - value: sim.3
     slot_uri: http://example.org/toy/doi
     range: string
+  outputVariable:
+    annotations:
+      num_distinct_values:
+        tag: num_distinct_values
+        value: '4'
+    examples:
+    - value: var_tas
+    slot_uri: http://example.org/toy/outputVariable
+    range: string
+    multivalued: true
+  period:
+    annotations:
+      num_distinct_values:
+        tag: num_distinct_values
+        value: '5'
+    examples:
+    - value: n25dd1ccb142446a3b186c6f4832e5357b5
+    slot_uri: http://example.org/toy/period
+    range: string
+  usesModel:
+    annotations:
+      num_distinct_values:
+        tag: num_distinct_values
+        value: '4'
+    examples:
+    - value: m_ipsl_cm6a
+    slot_uri: http://example.org/toy/usesModel
+    range: string
+  usesScenario:
+    annotations:
+      num_distinct_values:
+        tag: num_distinct_values
+        value: '5'
+    examples:
+    - value: var_pr
+    slot_uri: http://example.org/toy/usesScenario
+    range: string
+  shortName:
+    annotations:
+      num_distinct_values:
+        tag: num_distinct_values
+        value: '4'
+    examples:
+    - value: tos
+    slot_uri: http://example.org/toy/shortName
+    range: string
+  unit:
+    annotations:
+      num_distinct_values:
+        tag: num_distinct_values
+        value: '4'
+    examples:
+    - value: degC
+    slot_uri: http://example.org/toy/unit
+    range: string
 classes:
   Class:
     slots:
@@ -214,92 +213,6 @@ classes:
         unique_key_name: subClassOf_key
         unique_key_slots:
         - subClassOf
-  Institution:
-    slots:
-    - id
-    - type
-    - label
-    - country
-    - homepage
-    class_uri: http://example.org/toy/Institution
-    unique_keys:
-      label_key:
-        unique_key_name: label_key
-        unique_key_slots:
-        - label
-      country_key:
-        unique_key_name: country_key
-        unique_key_slots:
-        - country
-      homepage_key:
-        unique_key_name: homepage_key
-        unique_key_slots:
-        - homepage
-  Person:
-    slots:
-    - id
-    - type
-    - name
-    - email
-    - affiliation
-    class_uri: http://example.org/toy/Person
-    unique_keys:
-      name_key:
-        unique_key_name: name_key
-        unique_key_slots:
-        - name
-      email_key:
-        unique_key_name: email_key
-        unique_key_slots:
-        - email
-  ClimateModel:
-    slots:
-    - id
-    - type
-    - label
-    - developedBy
-    - horizontalResolutionKm
-    - releaseDate
-    class_uri: http://example.org/toy/ClimateModel
-    unique_keys:
-      label_key:
-        unique_key_name: label_key
-        unique_key_slots:
-        - label
-      developedBy_key:
-        unique_key_name: developedBy_key
-        unique_key_slots:
-        - developedBy
-      horizontalResolutionKm_key:
-        unique_key_name: horizontalResolutionKm_key
-        unique_key_slots:
-        - horizontalResolutionKm
-      releaseDate_key:
-        unique_key_name: releaseDate_key
-        unique_key_slots:
-        - releaseDate
-  EarthSystemModel:
-    slots:
-    - id
-    - type
-    - label
-    - developedBy
-    - horizontalResolutionKm
-    - releaseDate
-    class_uri: http://example.org/toy/EarthSystemModel
-    unique_keys:
-      label_key:
-        unique_key_name: label_key
-        unique_key_slots:
-        - label
-      developedBy_key:
-        unique_key_name: developedBy_key
-        unique_key_slots:
-        - developedBy
-      releaseDate_key:
-        unique_key_name: releaseDate_key
-        unique_key_slots:
-        - releaseDate
   Scenario:
     slots:
     - id
@@ -316,44 +229,130 @@ classes:
         unique_key_name: radiativeForcing_key
         unique_key_slots:
         - radiativeForcing
-  Variable:
+  Institution:
     slots:
     - id
+    - country
     - type
     - label
-    - unit
-    - shortName
-    class_uri: http://example.org/toy/Variable
+    - homepage
+    class_uri: http://example.org/toy/Institution
     unique_keys:
+      country_key:
+        unique_key_name: country_key
+        unique_key_slots:
+        - country
       label_key:
         unique_key_name: label_key
         unique_key_slots:
         - label
-      unit_key:
-        unique_key_name: unit_key
+      homepage_key:
+        unique_key_name: homepage_key
         unique_key_slots:
-        - unit
-      shortName_key:
-        unique_key_name: shortName_key
+        - homepage
+  ClimateModel:
+    slots:
+    - id
+    - developedBy
+    - horizontalResolutionKm
+    - releaseDate
+    - type
+    - label
+    class_uri: http://example.org/toy/ClimateModel
+    unique_keys:
+      developedBy_key:
+        unique_key_name: developedBy_key
         unique_key_slots:
-        - shortName
+        - developedBy
+      horizontalResolutionKm_key:
+        unique_key_name: horizontalResolutionKm_key
+        unique_key_slots:
+        - horizontalResolutionKm
+      releaseDate_key:
+        unique_key_name: releaseDate_key
+        unique_key_slots:
+        - releaseDate
+      label_key:
+        unique_key_name: label_key
+        unique_key_slots:
+        - label
+  EarthSystemModel:
+    slots:
+    - id
+    - developedBy
+    - horizontalResolutionKm
+    - releaseDate
+    - type
+    - label
+    class_uri: http://example.org/toy/EarthSystemModel
+    unique_keys:
+      developedBy_key:
+        unique_key_name: developedBy_key
+        unique_key_slots:
+        - developedBy
+      releaseDate_key:
+        unique_key_name: releaseDate_key
+        unique_key_slots:
+        - releaseDate
+      label_key:
+        unique_key_name: label_key
+        unique_key_slots:
+        - label
+  Person:
+    slots:
+    - id
+    - affiliation
+    - email
+    - name
+    - type
+    class_uri: http://example.org/toy/Person
+    unique_keys:
+      email_key:
+        unique_key_name: email_key
+        unique_key_slots:
+        - email
+      name_key:
+        unique_key_name: name_key
+        unique_key_slots:
+        - name
   Simulation:
     slots:
     - id
-    - type
-    - usesModel
-    - usesScenario
-    - outputVariable
-    - period
     - author
     - doi
+    - outputVariable
+    - period
+    - usesModel
+    - usesScenario
+    - type
     class_uri: http://example.org/toy/Simulation
     unique_keys:
-      period_key:
-        unique_key_name: period_key
-        unique_key_slots:
-        - period
       doi_key:
         unique_key_name: doi_key
         unique_key_slots:
         - doi
+      period_key:
+        unique_key_name: period_key
+        unique_key_slots:
+        - period
+  Variable:
+    slots:
+    - id
+    - shortName
+    - unit
+    - type
+    - label
+    class_uri: http://example.org/toy/Variable
+    unique_keys:
+      shortName_key:
+        unique_key_name: shortName_key
+        unique_key_slots:
+        - shortName
+      unit_key:
+        unique_key_name: unit_key
+        unique_key_slots:
+        - unit
+      label_key:
+        unique_key_name: label_key
+        unique_key_slots:
+        - label

@@ -1,0 +1,50 @@
+{
+  "run": "shaclgen",
+  "tool": "shaclgen",
+  "mode": "file",
+  "source": "work/cckg/data.nt",
+  "command": [
+    "tools/shaclgen/run.sh",
+    "file",
+    "work/cckg/data.nt",
+    "results/cckg/shaclgen"
+  ],
+  "exit_code": 0,
+  "timed_out": false,
+  "wall_seconds": 2258.22,
+  "cpu_seconds": 2227.52,
+  "peak_rss_mb": 6119.9,
+  "has_output": true,
+  "syntax": "ok",
+  "non_shacl_terms": [],
+  "well_formedness": {
+    "conforms": true,
+    "violations": 0,
+    "focus_nodes": 0,
+    "by_component": {}
+  },
+  "profile": {
+    "triples": 1085,
+    "node_shapes": 59,
+    "property_shapes": 92,
+    "constraint_usage": {
+      "sh:class": 114,
+      "sh:datatype": 16,
+      "sh:nodeKind": 141,
+      "sh:or": 24
+    }
+  },
+  "self_validation": {
+    "conforms": false,
+    "violations": 366302,
+    "focus_nodes": 114577,
+    "validated_focus_nodes": 594982,
+    "target_focus_nodes": 594982,
+    "partial": false,
+    "seconds": 305,
+    "by_component": {
+      "sh:OrConstraintComponent": 218210,
+      "sh:ClassConstraintComponent": 148092
+    }
+  }
+}

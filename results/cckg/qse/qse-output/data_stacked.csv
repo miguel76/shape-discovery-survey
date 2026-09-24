@@ -1,0 +1,3 @@
+Confidence,Support,COUNT,TYPE
+ > 10.0%, > 100,33,NonLiteral
+ > 10.0%, > 100,26,Literal
