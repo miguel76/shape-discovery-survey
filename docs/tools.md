@@ -38,11 +38,15 @@ Notes on execution requirements and workarounds (details in each `tools/<name>/`
   repository's `src/main/resources` queries at run time. The query-based variants
   (`qse_exact_query_based`, `qse_approximate_*`) are hard-wired to a GraphDB repository URL, so for
   now only the file-based *QSE-Exact* is wired up; *QSE-Approximate* (reservoir sampling on files)
-  can be enabled by switching `qse_approximate_file` in the generated config.
+  can be enabled by switching `qse_approximate_file` in the generated config. QSE writes a full
+  output and one output pruned by (confidence, support) thresholds (`QSE_PRUNING`, default
+  `{(0.1,100)}`). The pipeline evaluates both, as `qse` and `qse-pruned`
+  (`tools/qse-pruned/run.sh`).
 - **SHACLGEN** — the PyPI release (0.2.5.2) crashes with rdflib ≥ 6 (`str.decode`) and the
   development head's console script crashes at start-up (`importlib.resources.path` on
   `shaclgen.__main__`), so `tools/shaclgen/run_shaclgen.py` calls the library directly. No endpoint
-  support; loads the whole graph in memory (about 6 GB and 17 min just to parse CCKG). Shape IRIs
+  support; loads the whole graph in memory (6 GB on CCKG), and its per-property SPARQL queries over
+  rdflib take over half an hour on CCKG. Shape IRIs
   are minted from `prefix_localname` labels, which crashes on property IRIs without a local name
   (CCKG has a predicate ending in `/`). The wrapper falls back to a label derived from the whole
   IRI.
