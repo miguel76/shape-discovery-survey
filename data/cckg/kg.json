@@ -1,0 +1,7 @@
+{
+  "name": "CCKG",
+  "description": "The climate change knowledge graph (CCKG) is a large-scale knowledge graph that integrates climate change-related data from various sources. It contains millions of triples and is designed to support research and analysis in the field of climate science.",
+  "files": ["cckg_2026-09-24_10-44-07.nq.gz"],
+  "endpoint": "https://w3id.org/hacid/cs/sparql",  
+  "reference_inference": "rdfs"
+}
