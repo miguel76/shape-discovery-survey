@@ -1,5 +1,0 @@
-id	type	label	unit	shortName
-http://example.org/toy/var_tas	Variable	Near-Surface Air Temperature	K	tas
-http://example.org/toy/var_pr	Variable	Precipitation	kg m-2 s-1	pr
-http://example.org/toy/var_psl	Variable	Sea Level Pressure	Pa	psl
-http://example.org/toy/var_tos	Variable	Sea Surface Temperature	degC	tos

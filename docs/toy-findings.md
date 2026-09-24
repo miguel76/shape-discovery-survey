@@ -39,8 +39,8 @@ and uses at most 240 MB RSS. Every output parses and passes the SHACL-SHACL meta
 - In the full, unpruned output, some cardinalities contradict the data and the tool's own confidence
   values: `homepage` gets `minCount 1` at confidence 0.5, `rdfs:label` gets `maxCount 1` although
   one institution has 2 labels, and `author` gets `maxCount 1` although one simulation has 2 authors.
-  Together with `sh:node` references that pass nested failures up the graph, this gives 72
-  violations on its own input. This needs a closer look at the `min_cardinality`/`max_cardinality`
+  Together with `sh:node` references that fail whenever the referenced node's shape fails, this
+  gives 34 violations on its own input. This needs a closer look at the `min_cardinality`/`max_cardinality`
   options before drawing conclusions. With the default pruning thresholds (confidence 0.1, support
   100) the pruned file is empty, because every class has fewer than 100 instances.
 - It uses `sh:or` for mixed value types, for example `developedBy` pointing to Institution or
@@ -54,7 +54,9 @@ and uses at most 240 MB RSS. Every output parses and passes the SHACL-SHACL meta
 - Adds `sh:in` enumerations for properties with at most 3 distinct values. These enumerations are
   computed from explicitly typed instances. SHACL's `sh:targetClass` also reaches subclass
   instances through `rdfs:subClassOf` in the data, so `ex:m_mpi_esm`, which is typed only as
-  `EarthSystemModel`, violates the `ClimateModel` enumerations. That causes the only 2 violations.
+  `EarthSystemModel`, violates the `ClimateModel` enumerations. That causes the only 2 violations;
+  with the `rdfs:subClassOf` triples removed from the data ("explicit typing" in the summary), its
+  shapes conform.
 - Its output adds display hints (`sh:name`, `rdfs:label`, random background colours), so two runs are not
   byte-identical.
 
@@ -66,9 +68,22 @@ and uses at most 240 MB RSS. Every output parses and passes the SHACL-SHACL meta
 
 **LinkML schema-automator → gen-shacl**
 - Going through tables loses the RDF typing. IRIs become `xsd:string` literals and no `sh:class`
-  constraints are produced, which gives 203 violations on its own input. Its shapes are also
+  constraints are produced, which gives 204 violations on its own input. Its shapes are also
   `sh:closed`.
+- LinkML slots are global, and each slot's definition (range, `multivalued`) appears to come from
+  whichever class table is processed last. The result therefore depends on the order of the input
+  triples. When the pipeline switched to sorted N-Triples as the source of `data.ttl`, `rdfs:label`
+  lost `multivalued` and the number of `sh:maxCount` constraints went from 34 to 39.
 - It is useful mainly as a baseline, or when a LinkML schema is the goal anyway.
+
+## Validator note
+
+The first version of the evaluator used pySHACL and counted 72 self-validation violations for QSE.
+pySHACL copies the inner results of `sh:node` checks into the top-level report, and the same result
+can appear several times. For example, it reported the Person `ex:p_dan` as missing an Institution
+`homepage`, and it listed the missing `homepage` of `ex:inst_ncar` 7 times. The SHACL spec expects a single `sh:NodeConstraintComponent`
+result on the outer focus node. The evaluator now validates with Jena SHACL, which gives 34, and Jena
+also scales to KGs with millions of triples.
 
 ## Cross-cutting lessons for the survey
 

@@ -1,4 +1,0 @@
-id	type	label	developedBy	horizontalResolutionKm	releaseDate
-http://example.org/toy/m_ipsl_cm6a	ClimateModel|EarthSystemModel	IPSL-CM6A-LR	inst_ipsl	250.0	2018-06-01
-http://example.org/toy/m_mpi_esm	EarthSystemModel	MPI-ESM1-2-HR	inst_mpi	100.0	2019-01-15
-http://example.org/toy/m_cesm2	ClimateModel|EarthSystemModel	CESM2	inst_ncar	100.0	2018-09-01

@@ -1,0 +1,17 @@
+{
+  "tool": "shacl-play",
+  "mode": "endpoint",
+  "source": "http://localhost:3030/kg/sparql",
+  "command": [
+    "tools/shacl-play/run.sh",
+    "endpoint",
+    "http://localhost:3030/kg/sparql",
+    "results/cckg/shacl-play@endpoint"
+  ],
+  "exit_code": 0,
+  "timed_out": false,
+  "wall_seconds": 192.08,
+  "cpu_seconds": 17.51,
+  "peak_rss_mb": 254.6,
+  "has_output": true
+}

@@ -31,7 +31,7 @@ The full catalogue, including execution requirements and the reason for each exc
 | Tool | Input | Status in the pipeline |
 |---|---|---|
 | [sheXer](https://github.com/weso/shexer) | file, SPARQL endpoint | ✅ file + endpoint |
-| [QSE](https://github.com/dkw-aau/qse) / SHACTOR | file (N-Triples), GraphDB | ✅ file |
+| [QSE](https://github.com/dkw-aau/qse) / SHACTOR | file (N-Triples), GraphDB | ✅ file (full and pruned output, as `qse` and `qse-pruned`) |
 | [SHACLGEN](https://github.com/alexiskeely/shaclgen) | file | ✅ file (wrapper around a broken CLI) |
 | [SHACL Play! generate](https://github.com/sparna-git/shacl-play) | file, SPARQL endpoint | ✅ file + endpoint (patched) |
 | [LinkML schema-automator](https://github.com/linkml/schema-automator) + `gen-shacl` | Turtle file | ✅ file (indirect, via LinkML) |
@@ -42,10 +42,10 @@ The full catalogue, including execution requirements and the reason for each exc
 
 ```
 data/<kg>/kg.json ──► pipeline/run.py ──► results/<kg>/<tool>[@endpoint]/shapes.ttl ──► pipeline/evaluate.py ──► results/<kg>/summary.md
-   (dump files,        normalise input with Jena riot;       + run.log, run.json            parse, SHACL vocabulary and
-    endpoint,          optionally serve it with Fuseki;      (exit code, time, peak RSS)    SHACL-SHACL checks, profile,
-    reference shapes)  run tools/<tool>/run.sh                                              self-validation, comparison
-                                                                                             with the reference shapes
+   (dump files,        merge graphs and normalise with       + run.log, run.json            parse, SHACL vocabulary and
+    endpoint,          Jena riot; optionally serve the       (exit code, time, peak RSS)    SHACL-SHACL checks, profile,
+    reference shapes)  dump with Fuseki (TDB2);                                             self-validation (Jena SHACL),
+                       run tools/<tool>/run.sh                                              comparison with the reference shapes
 ```
 
 Requirements are bash, git, Python ≥ 3.10, Java ≥ 17 and Maven. Docker is not needed. Every tool
@@ -54,7 +54,13 @@ is installed under `.tools/` at a pinned version:
 ```sh
 make install          # the tools, Fuseki, and the evaluation environment (~2 min)
 make run evaluate     # KG=toy by default; results in results/toy/
+make run evaluate KG=cckg RUN_ARGS="--endpoint --local-endpoint"
 ```
+
+On CCKG (4.7M triples) single steps peak at about 8 GB of RAM (a 16 GB machine is enough), and a full run takes a few hours, most of it spent in
+SHACLGEN, in sheXer's endpoint mode and in validating the KG against every set of shapes.
+`--local-endpoint` serves the dump with a local Fuseki. This sandbox cannot reach the public CCKG
+endpoint, and a local endpoint also keeps the load off the public one.
 
 To add a KG, create `data/<kg>/kg.json` (see [data/toy/kg.json](data/toy/kg.json) and the
 docstring of [pipeline/run.py](pipeline/run.py)). The file lists the dump files and, optionally,
@@ -72,3 +78,10 @@ hand-written reference shapes. All five runnable tools complete on it; see
 [docs/toy-findings.md](docs/toy-findings.md). Among them, sheXer and QSE emit misspelled SHACL
 terms (`sh:dataType`, `sh:NodeKind`) that validators silently ignore. SHACL Play's generator
 needed a bug fix before its per-class results were meaningful.
+
+### Phase 1: CCKG
+
+All five tools run on the CCKG dump, and sheXer and SHACL Play also run through a SPARQL
+endpoint. Getting there required fixes in three tools. The run also exposed defects in the CCKG
+data itself. See [results/cckg/summary.md](results/cckg/summary.md) and
+[docs/cckg-findings.md](docs/cckg-findings.md).

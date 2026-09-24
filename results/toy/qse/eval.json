@@ -11,9 +11,9 @@
   ],
   "exit_code": 0,
   "timed_out": false,
-  "wall_seconds": 2.4,
-  "cpu_seconds": 4.27,
-  "peak_rss_mb": 153.6,
+  "wall_seconds": 2.81,
+  "cpu_seconds": 4.39,
+  "peak_rss_mb": 150.1,
   "has_output": true,
   "syntax": "ok",
   "non_shacl_terms": [
@@ -41,14 +41,60 @@
   },
   "self_validation": {
     "conforms": false,
-    "violations": 72,
-    "focus_nodes": 18,
+    "violations": 34,
+    "focus_nodes": 17,
+    "validated_focus_nodes": 34,
+    "target_focus_nodes": 34,
+    "partial": false,
+    "seconds": 0,
     "by_component": {
-      "sh:NodeConstraintComponent": 29,
-      "sh:MinCountConstraintComponent": 16,
-      "sh:MaxCountConstraintComponent": 15,
-      "sh:InConstraintComponent": 11,
-      "sh:DatatypeConstraintComponent": 1
+      "sh:NodeConstraintComponent": 20,
+      "sh:MaxCountConstraintComponent": 6,
+      "sh:InConstraintComponent": 5,
+      "sh:MinCountConstraintComponent": 3
+    },
+    "top_path_components": {
+      "<http://example.org/toy/developedBy> sh:NodeConstraintComponent": 6,
+      "<http://www.w3.org/1999/02/22-rdf-syntax-ns#type> sh:InConstraintComponent": 5,
+      "<http://example.org/toy/usesModel> sh:NodeConstraintComponent": 5,
+      "<http://example.org/toy/author> sh:NodeConstraintComponent": 5,
+      "<http://example.org/toy/affiliation> sh:NodeConstraintComponent": 3,
+      "<http://example.org/toy/outputVariable> sh:MaxCountConstraintComponent": 3,
+      "<http://example.org/toy/homepage> sh:MinCountConstraintComponent": 2,
+      "<http://example.org/toy/affiliation> sh:MaxCountConstraintComponent": 1,
+      "<http://example.org/toy/usesScenario> sh:NodeConstraintComponent": 1,
+      "<http://example.org/toy/author> sh:MaxCountConstraintComponent": 1,
+      "<http://www.w3.org/2000/01/rdf-schema#label> sh:MaxCountConstraintComponent": 1,
+      "<http://example.org/toy/period> sh:MinCountConstraintComponent": 1
+    }
+  },
+  "self_validation_explicit": {
+    "conforms": false,
+    "violations": 33,
+    "focus_nodes": 16,
+    "validated_focus_nodes": 34,
+    "target_focus_nodes": 34,
+    "partial": false,
+    "seconds": 0,
+    "by_component": {
+      "sh:NodeConstraintComponent": 20,
+      "sh:MaxCountConstraintComponent": 6,
+      "sh:InConstraintComponent": 4,
+      "sh:MinCountConstraintComponent": 3
+    },
+    "top_path_components": {
+      "<http://example.org/toy/developedBy> sh:NodeConstraintComponent": 6,
+      "<http://example.org/toy/usesModel> sh:NodeConstraintComponent": 5,
+      "<http://example.org/toy/author> sh:NodeConstraintComponent": 5,
+      "<http://www.w3.org/1999/02/22-rdf-syntax-ns#type> sh:InConstraintComponent": 4,
+      "<http://example.org/toy/affiliation> sh:NodeConstraintComponent": 3,
+      "<http://example.org/toy/outputVariable> sh:MaxCountConstraintComponent": 3,
+      "<http://example.org/toy/homepage> sh:MinCountConstraintComponent": 2,
+      "<http://example.org/toy/affiliation> sh:MaxCountConstraintComponent": 1,
+      "<http://example.org/toy/usesScenario> sh:NodeConstraintComponent": 1,
+      "<http://example.org/toy/author> sh:MaxCountConstraintComponent": 1,
+      "<http://www.w3.org/2000/01/rdf-schema#label> sh:MaxCountConstraintComponent": 1,
+      "<http://example.org/toy/period> sh:MinCountConstraintComponent": 1
     }
   },
   "reference": {

@@ -1,0 +1,17 @@
+{
+  "tool": "qse",
+  "mode": "file",
+  "source": "work/cckg/data.nt",
+  "command": [
+    "tools/qse/run.sh",
+    "file",
+    "work/cckg/data.nt",
+    "results/cckg/qse"
+  ],
+  "exit_code": 0,
+  "timed_out": false,
+  "wall_seconds": 33.05,
+  "cpu_seconds": 56.7,
+  "peak_rss_mb": 2575.9,
+  "has_output": true
+}

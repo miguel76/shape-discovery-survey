@@ -1,0 +1,101 @@
+{
+  "run": "shaclgen",
+  "tool": "shaclgen",
+  "mode": "file",
+  "source": "work/cckg/data.nt",
+  "command": [
+    "tools/shaclgen/run.sh",
+    "file",
+    "work/cckg/data.nt",
+    "results/cckg/shaclgen"
+  ],
+  "exit_code": 0,
+  "timed_out": false,
+  "wall_seconds": 2258.22,
+  "cpu_seconds": 2227.52,
+  "peak_rss_mb": 6119.9,
+  "has_output": true,
+  "syntax": "ok",
+  "non_shacl_terms": [],
+  "well_formedness": {
+    "conforms": true,
+    "violations": 0,
+    "focus_nodes": 0,
+    "by_component": {}
+  },
+  "profile": {
+    "triples": 1085,
+    "node_shapes": 59,
+    "property_shapes": 92,
+    "constraint_usage": {
+      "sh:class": 114,
+      "sh:datatype": 16,
+      "sh:nodeKind": 141,
+      "sh:or": 24
+    }
+  },
+  "self_validation": {
+    "conforms": false,
+    "violations": 366302,
+    "focus_nodes": 114577,
+    "validated_focus_nodes": 594982,
+    "target_focus_nodes": 594982,
+    "partial": false,
+    "seconds": 301,
+    "by_component": {
+      "sh:OrConstraintComponent": 218210,
+      "sh:ClassConstraintComponent": 148092
+    },
+    "top_path_components": {
+      "<https://w3id.org/hacid/onto/data/holdsSpecializationOfVariable> sh:OrConstraintComponent": 211486,
+      "<https://w3id.org/hacid/onto/data/iSpecializationOfVariable> sh:ClassConstraintComponent": 79964,
+      "<https://w3id.org/hacid/onto/data/isSpecializationOfVariable> sh:ClassConstraintComponent": 67883,
+      "<https://w3id.org/hacid/onto/top-level/hasPart> sh:OrConstraintComponent": 5786,
+      "<https://w3id.org/hacid/onto/data/dependsOnVariable> sh:OrConstraintComponent": 366,
+      "<https://w3id.org/hacid/onto/ccso/isDownscalingOf> sh:OrConstraintComponent": 264,
+      "<https://w3id.org/hacid/onto/data/isSpecializedAccordingTo> sh:ClassConstraintComponent": 244,
+      "<https://w3id.org/hacid/onto/ccso/hasMemberSimulation> sh:OrConstraintComponent": 148,
+      "<https://w3id.org/hacid/onto/data/hasOutput> sh:OrConstraintComponent": 56,
+      "<https://w3id.org/hacid/onto/top-level/hasUnitOfMeasure> sh:OrConstraintComponent": 28,
+      "<https://w3id.org/hacid/onto/data/hasValuesOn> sh:OrConstraintComponent": 28,
+      "<https://w3id.org/hacid/onto/data/derivedFromVariable> sh:OrConstraintComponent": 20,
+      "<http://www.w3.org/2002/07/owl#onProperty> sh:OrConstraintComponent": 15,
+      "<https://w3id.org/hacid/onto/data/hasExactBoundingRegion> sh:OrConstraintComponent": 10,
+      "<https://w3id.org/hacid/onto/data/basedOnDimensionalSpace> sh:OrConstraintComponent": 2,
+      "<http://www.w3.org/2002/07/owl#someValuesFrom> sh:ClassConstraintComponent": 1,
+      "<http://www.w3.org/2000/01/rdf-schema#subPropertyOf> sh:OrConstraintComponent": 1
+    }
+  },
+  "self_validation_explicit": {
+    "conforms": false,
+    "violations": 295625,
+    "focus_nodes": 114577,
+    "validated_focus_nodes": 594982,
+    "target_focus_nodes": 594982,
+    "partial": false,
+    "seconds": 117,
+    "by_component": {
+      "sh:ClassConstraintComponent": 148092,
+      "sh:OrConstraintComponent": 147533
+    },
+    "top_path_components": {
+      "<https://w3id.org/hacid/onto/data/holdsSpecializationOfVariable> sh:OrConstraintComponent": 140993,
+      "<https://w3id.org/hacid/onto/data/iSpecializationOfVariable> sh:ClassConstraintComponent": 79964,
+      "<https://w3id.org/hacid/onto/data/isSpecializationOfVariable> sh:ClassConstraintComponent": 67883,
+      "<https://w3id.org/hacid/onto/top-level/hasPart> sh:OrConstraintComponent": 5786,
+      "<https://w3id.org/hacid/onto/ccso/isDownscalingOf> sh:OrConstraintComponent": 264,
+      "<https://w3id.org/hacid/onto/data/isSpecializedAccordingTo> sh:ClassConstraintComponent": 244,
+      "<https://w3id.org/hacid/onto/data/dependsOnVariable> sh:OrConstraintComponent": 244,
+      "<https://w3id.org/hacid/onto/ccso/hasMemberSimulation> sh:OrConstraintComponent": 148,
+      "<https://w3id.org/hacid/onto/data/hasOutput> sh:OrConstraintComponent": 28,
+      "<https://w3id.org/hacid/onto/data/derivedFromVariable> sh:OrConstraintComponent": 20,
+      "<http://www.w3.org/2002/07/owl#onProperty> sh:OrConstraintComponent": 15,
+      "<https://w3id.org/hacid/onto/top-level/hasUnitOfMeasure> sh:OrConstraintComponent": 14,
+      "<https://w3id.org/hacid/onto/data/hasValuesOn> sh:OrConstraintComponent": 14,
+      "<https://w3id.org/hacid/onto/data/hasExactBoundingRegion> sh:OrConstraintComponent": 5,
+      "<https://w3id.org/hacid/onto/data/basedOnDimensionalSpace> sh:OrConstraintComponent": 1,
+      "<http://www.w3.org/2002/07/owl#someValuesFrom> sh:ClassConstraintComponent": 1,
+      "<http://www.w3.org/2000/01/rdf-schema#subPropertyOf> sh:OrConstraintComponent": 1
+    }
+  }
+}

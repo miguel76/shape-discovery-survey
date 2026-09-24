@@ -1,0 +1,1422 @@
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix dce: <http://purl.org/dc/elements/1.1/> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix ex: <http://www.example.org/> .
+@prefix gsp: <http://www.opengis.net/ont/geosparql#> .
+@prefix ns1: <https://w3id.org/hacid/onto/data/> .
+@prefix ns2: <https://w3id.org/hacid/onto/top-level/> .
+@prefix ns3: <https://w3id.org/hacid/onto/ccso/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xmls: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:iri_https_w3id_org_hacid_data_cs_variables_mip a sh:PropertyShape ;
+    sh:datatype xmls:string ;
+    sh:nodeKind sh:Literal ;
+    sh:path <https://w3id.org/hacid/data/cs/variables/mip/> .
+
+ex:ns1_Aggregation a sh:NodeShape ;
+    sh:nodeKind sh:BlankNodeOrIRI ;
+    sh:property ex:ns1_aggregatesVariable,
+        ex:ns1_hasSuggestedQuantization ;
+    sh:targetClass ns1:Aggregation .
+
+ex:ns1_Continuum a sh:NodeShape ;
+    sh:nodeKind sh:BlankNodeOrIRI ;
+    sh:property ex:ns1_basedOnDimensionalSpace,
+        ex:ns1_hasExactBoundingRegion,
+        ex:ns1_hasReferencePoint,
+        ex:ns1_hasSubDimensionalSpace,
+        ex:ns1_hasValuesOn,
+        ex:rdfs_comment,
+        ex:rdfs_label ;
+    sh:targetClass ns1:Continuum .
+
+ex:ns1_DataGeneratingProcess a sh:NodeShape ;
+    sh:nodeKind sh:BlankNodeOrIRI ;
+    sh:property ex:ns1_hasOutput,
+        ex:ns2_isComponentOf,
+        ex:rdfs_comment,
+        ex:rdfs_label ;
+    sh:targetClass ns1:DataGeneratingProcess .
+
+ex:ns1_Dataset a sh:NodeShape ;
+    sh:nodeKind sh:BlankNodeOrIRI ;
+    sh:property ex:rdfs_comment,
+        ex:rdfs_label ;
+    sh:targetClass ns1:Dataset .
+
+ex:ns1_DependentVariable a sh:NodeShape ;
+    sh:nodeKind sh:BlankNodeOrIRI ;
+    sh:property ex:ns1_definesAggregation,
+        ex:ns1_dependsOnVariable,
+        ex:ns1_derivedFromVariable,
+        ex:ns1_hasValuesOn,
+        ex:ns1_holdsSpecializationOfVariable,
+        ex:ns1_isEquivalentTo,
+        ex:ns2_acronym,
+        ex:ns2_definition,
+        ex:ns2_hasUnitOfMeasure,
+        ex:ns2_inScheme,
+        ex:ns2_isClassifiedBy,
+        ex:ns2_isRelatedToConcept,
+        ex:rdfs_comment,
+        ex:rdfs_label ;
+    sh:targetClass ns1:DependentVariable .
+
+ex:ns1_DimensionalSpace a sh:NodeShape ;
+    sh:nodeKind sh:BlankNodeOrIRI ;
+    sh:property ex:ns1_basedOnDimensionalSpace,
+        ex:ns1_hasDiscretization,
+        ex:ns1_hasExactBoundingRegion,
+        ex:ns1_hasValuesOn,
+        ex:ns2_isConstituentOf,
+        ex:rdfs_comment,
+        ex:rdfs_label ;
+    sh:targetClass ns1:DimensionalSpace .
+
+ex:ns1_DiscreteDimensionalSpace a sh:NodeShape ;
+    sh:nodeKind sh:BlankNodeOrIRI ;
+    sh:property ex:ns1_basedOnDimensionalSpace,
+        ex:ns1_hasDiscretization,
+        ex:ns1_hasExactBoundingRegion,
+        ex:ns1_hasValuesOn,
+        ex:rdfs_comment,
+        ex:rdfs_label ;
+    sh:targetClass ns1:DiscreteDimensionalSpace .
+
+ex:ns1_GeodeticPoint a sh:NodeShape ;
+    sh:nodeKind sh:BlankNodeOrIRI ;
+    sh:property ex:gsp_asWKT,
+        ex:ns1_isPointOf,
+        ex:rdfs_comment,
+        ex:rdfs_label ;
+    sh:targetClass ns1:GeodeticPoint .
+
+ex:ns1_GeodeticRegion a sh:NodeShape ;
+    sh:nodeKind sh:BlankNodeOrIRI ;
+    sh:property ex:gsp_asWKT,
+        ex:ns1_isRegionOf,
+        ex:rdfs_comment,
+        ex:rdfs_label ;
+    sh:targetClass ns1:GeodeticRegion .
+
+ex:ns1_IndependentVariable a sh:NodeShape ;
+    sh:nodeKind sh:BlankNodeOrIRI ;
+    sh:property ex:ns2_acronym,
+        ex:rdfs_label ;
+    sh:targetClass ns1:IndependentVariable .
+
+ex:ns1_RegularBinning a sh:NodeShape ;
+    sh:nodeKind sh:BlankNodeOrIRI ;
+    sh:property ex:ns1_basedOnDimensionalSpace,
+        ex:ns1_hasResolutionValue,
+        ex:ns1_hasValuesOn ;
+    sh:targetClass ns1:RegularBinning .
+
+ex:ns1_RegularPeriodicBinning a sh:NodeShape ;
+    sh:nodeKind sh:BlankNodeOrIRI ;
+    sh:property ex:ns1_basedOnDimensionalSpace,
+        ex:ns1_hasInPeriodResolutionValue,
+        ex:ns1_hasPeriodValue,
+        ex:ns1_hasResolutionValue,
+        ex:ns1_hasValuesOn ;
+    sh:targetClass ns1:RegularPeriodicBinning .
+
+ex:ns1_SimpleRegularBinning a sh:NodeShape ;
+    sh:nodeKind sh:BlankNodeOrIRI ;
+    sh:property ex:ns1_basedOnDimensionalSpace,
+        ex:ns1_hasOffsetValue,
+        ex:ns1_hasResolution,
+        ex:ns1_hasResolutionValue,
+        ex:ns1_hasValuesOn,
+        ex:rdfs_comment,
+        ex:rdfs_label ;
+    sh:targetClass ns1:SimpleRegularBinning .
+
+ex:ns1_SinglePeriodicBinning a sh:NodeShape ;
+    sh:nodeKind sh:BlankNodeOrIRI ;
+    sh:property ex:ns1_basedOnDimensionalSpace,
+        ex:ns1_hasInPeriodResolutionValue,
+        ex:ns1_hasPeriodValue,
+        ex:ns1_hasValuesOn ;
+    sh:targetClass ns1:SinglePeriodicBinning .
+
+ex:ns1_TemporalRegion a sh:NodeShape ;
+    sh:nodeKind sh:BlankNodeOrIRI ;
+    sh:property ex:ns1_hasEndDateTime,
+        ex:ns1_hasStartDateTime,
+        ex:rdfs_comment,
+        ex:rdfs_label ;
+    sh:targetClass ns1:TemporalRegion .
+
+ex:ns1_Variable a sh:NodeShape ;
+    sh:nodeKind sh:BlankNodeOrIRI ;
+    sh:property ex:ns1_dependsOnVariable,
+        ex:ns1_hasValuesOn,
+        ex:ns1_holdsSpecializationOfVariable,
+        ex:ns2_acronym,
+        ex:ns2_hasUnitOfMeasure,
+        ex:ns2_isMemberOf,
+        ex:rdfs_comment,
+        ex:rdfs_label ;
+    sh:targetClass ns1:Variable .
+
+ex:ns1_VariableSpecialization a sh:NodeShape ;
+    sh:nodeKind sh:BlankNodeOrIRI ;
+    sh:property ex:ns1_hasSelectedRegion,
+        ex:ns1_isSpecializationOn,
+        ex:rdfs_comment,
+        ex:rdfs_label ;
+    sh:targetClass ns1:VariableSpecialization .
+
+ex:ns2_Action a sh:NodeShape ;
+    sh:nodeKind sh:BlankNodeOrIRI ;
+    sh:property ex:ns1_hasOutput,
+        ex:ns2_hasComponent,
+        ex:ns2_isComponentOf,
+        ex:rdfs_comment,
+        ex:rdfs_label ;
+    sh:targetClass ns2:Action .
+
+ex:ns2_Amount a sh:NodeShape ;
+    sh:nodeKind sh:BlankNodeOrIRI ;
+    sh:targetClass ns2:Amount .
+
+ex:ns2_Collection a sh:NodeShape ;
+    sh:nodeKind sh:BlankNodeOrIRI ;
+    sh:property ex:ns2_hasMember,
+        ex:ns2_hasPart,
+        ex:rdfs_comment,
+        ex:rdfs_label ;
+    sh:targetClass ns2:Collection .
+
+ex:ns2_Concept a sh:NodeShape ;
+    sh:nodeKind sh:BlankNodeOrIRI ;
+    sh:property ex:ns2_classifies,
+        ex:ns2_inScheme,
+        ex:ns2_isMemberOf,
+        ex:rdfs_comment,
+        ex:rdfs_label ;
+    sh:targetClass ns2:Concept .
+
+ex:ns2_ConceptScheme a sh:NodeShape ;
+    sh:nodeKind sh:BlankNodeOrIRI ;
+    sh:property ex:ns2_defines,
+        ex:rdfs_label ;
+    sh:targetClass ns2:ConceptScheme .
+
+ex:ns2_Description a sh:NodeShape ;
+    sh:nodeKind sh:BlankNodeOrIRI ;
+    sh:property ex:ns2_defines,
+        ex:rdfs_comment,
+        ex:rdfs_label ;
+    sh:targetClass ns2:Description .
+
+ex:ns2_InformationRole a sh:NodeShape ;
+    sh:nodeKind sh:BlankNodeOrIRI ;
+    sh:property ex:ns2_hasExpectedType ;
+    sh:targetClass ns2:InformationRole .
+
+ex:ns2_Method a sh:NodeShape ;
+    sh:nodeKind sh:BlankNodeOrIRI ;
+    sh:property ex:ns2_altLabel,
+        ex:ns2_isSpecializedBy,
+        ex:rdfs_label ;
+    sh:targetClass ns2:Method .
+
+ex:ns2_Operation a sh:NodeShape ;
+    sh:nodeKind sh:BlankNodeOrIRI ;
+    sh:property ex:ns2_definesRole,
+        ex:ns2_isSpecializedBy,
+        ex:rdfs_comment,
+        ex:rdfs_label ;
+    sh:targetClass ns2:Operation .
+
+ex:ns2_Organization a sh:NodeShape ;
+    sh:nodeKind sh:BlankNodeOrIRI ;
+    sh:property ex:ns2_acronym,
+        ex:rdfs_label ;
+    sh:targetClass ns2:Organization .
+
+ex:ns2_UnitOfMeasure a sh:NodeShape ;
+    sh:nodeKind sh:BlankNodeOrIRI ;
+    sh:property ex:ns1_hasValuesOn,
+        ex:rdfs_label ;
+    sh:targetClass ns2:UnitOfMeasure .
+
+ex:ns3_ClimateModelIntercomparisonExperiment a sh:NodeShape ;
+    sh:nodeKind sh:BlankNodeOrIRI ;
+    sh:property ex:ns1_hasOutput,
+        ex:ns2_acronym,
+        ex:ns2_hasComponent,
+        ex:ns2_hasPart,
+        ex:ns2_isComponentOf,
+        ex:ns3_experimentId,
+        ex:ns3_hasMemberSimulation,
+        ex:ns3_refersToScenario,
+        ex:ns3_usesModel,
+        ex:rdfs_label ;
+    sh:targetClass ns3:ClimateModelIntercomparisonExperiment .
+
+ex:ns3_ConvectionPermittingClimateModel a sh:NodeShape ;
+    sh:nodeKind sh:BlankNodeOrIRI ;
+    sh:property ex:ns3_isMaintainedBy,
+        ex:rdfs_label ;
+    sh:targetClass ns3:ConvectionPermittingClimateModel .
+
+ex:ns3_DynamicalDownscaling a sh:NodeShape ;
+    sh:nodeKind sh:BlankNodeOrIRI ;
+    sh:property ex:ns1_hasOutput,
+        ex:ns2_hasComponent,
+        ex:ns3_hasMemberSimulation,
+        ex:ns3_isDownscalingOf,
+        ex:ns3_refersToScenario,
+        ex:ns3_usesModel,
+        ex:rdfs_comment,
+        ex:rdfs_label ;
+    sh:targetClass ns3:DynamicalDownscaling .
+
+ex:ns3_EnsembleProjection a sh:NodeShape ;
+    sh:nodeKind sh:BlankNodeOrIRI ;
+    sh:property ex:ns1_dependsOnVariable,
+        ex:ns1_holdsSpecializationOfVariable,
+        ex:ns1_isSpecializedAccordingTo,
+        ex:ns2_hasComponent,
+        ex:ns2_hasPart,
+        ex:ns2_isComponentOf,
+        ex:ns3_refersToGlobalWarmingLevel,
+        ex:ns3_refersToScenario,
+        ex:rdfs_label ;
+    sh:targetClass ns3:EnsembleProjection .
+
+ex:ns3_EnsembleProjectionProduction a sh:NodeShape ;
+    sh:nodeKind sh:BlankNodeOrIRI ;
+    sh:property ex:ns1_hasOutput,
+        ex:ns3_hasMemberSimulation,
+        ex:ns3_refersToGlobalWarmingLevel,
+        ex:ns3_refersToScenario,
+        ex:rdfs_label ;
+    sh:targetClass ns3:EnsembleProjectionProduction .
+
+ex:ns3_EnsembleSimulation a sh:NodeShape ;
+    sh:nodeKind sh:BlankNodeOrIRI ;
+    sh:property ex:ns1_hasOutput,
+        ex:ns2_acronym,
+        ex:ns2_hasComponent,
+        ex:ns2_hasPart,
+        ex:ns2_isComponentOf,
+        ex:ns3_experimentId,
+        ex:ns3_hasMemberSimulation,
+        ex:ns3_isDownscalingOf,
+        ex:ns3_refersToScenario,
+        ex:ns3_usesModel,
+        ex:rdfs_label ;
+    sh:targetClass ns3:EnsembleSimulation .
+
+ex:ns3_GlobalClimateModel a sh:NodeShape ;
+    sh:nodeKind sh:BlankNodeOrIRI ;
+    sh:property ex:ns3_isMaintainedBy,
+        ex:rdfs_label ;
+    sh:targetClass ns3:GlobalClimateModel .
+
+ex:ns3_GlobalClimateSimulation a sh:NodeShape ;
+    sh:nodeKind sh:BlankNodeOrIRI ;
+    sh:property ex:ns1_hasOutput,
+        ex:ns2_acronym,
+        ex:ns2_hasPart,
+        ex:ns2_isComponentOf,
+        ex:ns3_experimentId,
+        ex:ns3_hasMemberSimulation,
+        ex:ns3_refersToScenario,
+        ex:ns3_simulationConfigurationId,
+        ex:ns3_usesModel,
+        ex:rdfs_comment,
+        ex:rdfs_label ;
+    sh:targetClass ns3:GlobalClimateSimulation .
+
+ex:ns3_GreenhouseGasConcentrationPathway a sh:NodeShape ;
+    sh:nodeKind sh:BlankNodeOrIRI ;
+    sh:property ex:ns2_acronym,
+        ex:rdfs_comment,
+        ex:rdfs_isDefinedBy,
+        ex:rdfs_label ;
+    sh:targetClass ns3:GreenhouseGasConcentrationPathway .
+
+ex:ns3_HazardType a sh:NodeShape ;
+    sh:nodeKind sh:BlankNodeOrIRI ;
+    sh:property ex:ns2_isSpecializedBy,
+        ex:ns3_hasIndicator,
+        ex:rdfs_label ;
+    sh:targetClass ns3:HazardType .
+
+ex:ns3_PerturbedParameterClimateEnsembleSimulation a sh:NodeShape ;
+    sh:nodeKind sh:BlankNodeOrIRI ;
+    sh:property ex:ns1_hasOutput,
+        ex:ns3_hasMemberSimulation,
+        ex:ns3_refersToScenario,
+        ex:ns3_usesModel,
+        ex:rdfs_label ;
+    sh:targetClass ns3:PerturbedParameterClimateEnsembleSimulation .
+
+ex:ns3_ProbabilisticProjection a sh:NodeShape ;
+    sh:nodeKind sh:BlankNodeOrIRI ;
+    sh:property ex:ns1_dependsOnVariable,
+        ex:ns1_isSpecializationOfVariable,
+        ex:ns1_isSpecializedAccordingTo,
+        ex:rdfs_label ;
+    sh:targetClass ns3:ProbabilisticProjection .
+
+ex:ns3_RegionalClimateModel a sh:NodeShape ;
+    sh:nodeKind sh:BlankNodeOrIRI ;
+    sh:property ex:ns3_isMaintainedBy,
+        ex:rdfs_label ;
+    sh:targetClass ns3:RegionalClimateModel .
+
+ex:ns3_ScenarioBasedProjection a sh:NodeShape ;
+    sh:nodeKind sh:BlankNodeOrIRI ;
+    sh:property ex:ns1_dependsOnVariable,
+        ex:ns1_holdsSpecializationOfVariable,
+        ex:ns1_iSpecializationOfVariable,
+        ex:ns1_isSpecializedAccordingTo,
+        ex:ns2_hasComponent,
+        ex:ns2_hasPart,
+        ex:ns2_isComponentOf,
+        ex:ns3_outputId,
+        ex:ns3_refersToScenario,
+        ex:rdfs_comment,
+        ex:rdfs_label ;
+    sh:targetClass ns3:ScenarioBasedProjection .
+
+ex:ns3_SharedSocioeconomicPathway a sh:NodeShape ;
+    sh:nodeKind sh:BlankNodeOrIRI ;
+    sh:property ex:dct_title,
+        ex:ns2_acronym,
+        ex:rdfs_comment,
+        ex:rdfs_isDefinedBy,
+        ex:rdfs_label ;
+    sh:targetClass ns3:SharedSocioeconomicPathway .
+
+ex:ns3_SingleProjection a sh:NodeShape ;
+    sh:nodeKind sh:BlankNodeOrIRI ;
+    sh:property ex:ns1_dependsOnVariable,
+        ex:ns1_holdsSpecializationOfVariable,
+        ex:ns1_iSpecializationOfVariable,
+        ex:ns1_isSpecializationOfVariable,
+        ex:ns1_isSpecializedAccordingTo,
+        ex:ns2_hasComponent,
+        ex:ns2_hasPart,
+        ex:ns3_outputId,
+        ex:ns3_refersToGlobalWarmingLevel,
+        ex:ns3_refersToScenario,
+        ex:rdfs_comment,
+        ex:rdfs_label ;
+    sh:targetClass ns3:SingleProjection .
+
+ex:ns3_SingleProjectionProduction a sh:NodeShape ;
+    sh:nodeKind sh:BlankNodeOrIRI ;
+    sh:property ex:ns1_hasOutput,
+        ex:ns3_refersToGlobalWarmingLevel,
+        ex:ns3_refersToScenario,
+        ex:rdfs_label ;
+    sh:targetClass ns3:SingleProjectionProduction .
+
+ex:ns3_SingleSimulation a sh:NodeShape ;
+    sh:nodeKind sh:BlankNodeOrIRI ;
+    sh:property ex:ns1_hasOutput,
+        ex:ns3_isDownscalingOf,
+        ex:ns3_refersToScenario,
+        ex:ns3_simulationConfigurationId,
+        ex:ns3_usesModel,
+        ex:rdfs_comment,
+        ex:rdfs_label ;
+    sh:targetClass ns3:SingleSimulation .
+
+ex:ns3_StatisticalProjectionTransformation a sh:NodeShape ;
+    sh:nodeKind sh:BlankNodeOrIRI ;
+    sh:property ex:ns1_hasOutput,
+        ex:ns3_hasMemberSimulation,
+        ex:ns3_refersToGlobalWarmingLevel,
+        ex:ns3_refersToScenario,
+        ex:rdfs_label ;
+    sh:targetClass ns3:StatisticalProjectionTransformation .
+
+ex:owl_AnnotationProperty a sh:NodeShape ;
+    sh:nodeKind sh:BlankNodeOrIRI ;
+    sh:targetClass owl:AnnotationProperty .
+
+ex:owl_AsymmetricProperty a sh:NodeShape ;
+    sh:nodeKind sh:BlankNodeOrIRI ;
+    sh:property ex:owl_inverseOf,
+        ex:rdfs_comment,
+        ex:rdfs_domain,
+        ex:rdfs_isDefinedBy,
+        ex:rdfs_label,
+        ex:rdfs_range,
+        ex:rdfs_subPropertyOf ;
+    sh:targetClass owl:AsymmetricProperty .
+
+ex:owl_Class a sh:NodeShape ;
+    sh:nodeKind sh:BlankNodeOrIRI ;
+    sh:property ex:owl_disjointWith,
+        ex:owl_equivalentClass,
+        ex:owl_hasKey,
+        ex:owl_intersectionOf,
+        ex:owl_unionOf,
+        ex:owl_versionInfo,
+        ex:rdfs_comment,
+        ex:rdfs_isDefinedBy,
+        ex:rdfs_label,
+        ex:rdfs_subClassOf ;
+    sh:targetClass owl:Class .
+
+ex:owl_DatatypeProperty a sh:NodeShape ;
+    sh:nodeKind sh:BlankNodeOrIRI ;
+    sh:property ex:owl_versionInfo,
+        ex:rdfs_comment,
+        ex:rdfs_domain,
+        ex:rdfs_isDefinedBy,
+        ex:rdfs_label,
+        ex:rdfs_range,
+        ex:rdfs_subPropertyOf ;
+    sh:targetClass owl:DatatypeProperty .
+
+ex:owl_NamedIndividual a sh:NodeShape ;
+    sh:nodeKind sh:BlankNodeOrIRI ;
+    sh:property ex:dct_title,
+        ex:ns2_acronym,
+        ex:rdfs_comment,
+        ex:rdfs_isDefinedBy,
+        ex:rdfs_label ;
+    sh:targetClass owl:NamedIndividual .
+
+ex:owl_ObjectProperty a sh:NodeShape ;
+    sh:nodeKind sh:BlankNodeOrIRI ;
+    sh:property ex:owl_inverseOf,
+        ex:owl_propertyChainAxiom,
+        ex:rdfs_comment,
+        ex:rdfs_domain,
+        ex:rdfs_isDefinedBy,
+        ex:rdfs_label,
+        ex:rdfs_range,
+        ex:rdfs_subPropertyOf ;
+    sh:targetClass owl:ObjectProperty .
+
+ex:owl_Ontology a sh:NodeShape ;
+    sh:nodeKind sh:BlankNodeOrIRI ;
+    sh:property ex:dcat_keyword,
+        ex:dcat_theme,
+        ex:dce_description,
+        ex:dct_creator,
+        ex:dct_title,
+        ex:owl_imports,
+        ex:owl_versionIRI,
+        ex:rdfs_comment,
+        ex:rdfs_label ;
+    sh:targetClass owl:Ontology .
+
+ex:owl_ReflexiveProperty a sh:NodeShape ;
+    sh:nodeKind sh:BlankNodeOrIRI ;
+    sh:property ex:owl_inverseOf,
+        ex:rdfs_comment,
+        ex:rdfs_domain,
+        ex:rdfs_isDefinedBy,
+        ex:rdfs_label,
+        ex:rdfs_range,
+        ex:rdfs_subPropertyOf ;
+    sh:targetClass owl:ReflexiveProperty .
+
+ex:owl_Restriction a sh:NodeShape ;
+    sh:nodeKind sh:BlankNodeOrIRI ;
+    sh:property ex:owl_allValuesFrom,
+        ex:owl_cardinality,
+        ex:owl_hasSelf,
+        ex:owl_hasValue,
+        ex:owl_maxQualifiedCardinality,
+        ex:owl_onClass,
+        ex:owl_onDataRange,
+        ex:owl_onProperty,
+        ex:owl_qualifiedCardinality,
+        ex:owl_someValuesFrom ;
+    sh:targetClass owl:Restriction .
+
+ex:owl_SymmetricProperty a sh:NodeShape ;
+    sh:nodeKind sh:BlankNodeOrIRI ;
+    sh:property ex:owl_inverseOf,
+        ex:rdfs_comment,
+        ex:rdfs_domain,
+        ex:rdfs_isDefinedBy,
+        ex:rdfs_label,
+        ex:rdfs_range,
+        ex:rdfs_subPropertyOf ;
+    sh:targetClass owl:SymmetricProperty .
+
+ex:owl_TransitiveProperty a sh:NodeShape ;
+    sh:nodeKind sh:BlankNodeOrIRI ;
+    sh:property ex:owl_inverseOf,
+        ex:rdfs_comment,
+        ex:rdfs_domain,
+        ex:rdfs_isDefinedBy,
+        ex:rdfs_label,
+        ex:rdfs_range,
+        ex:rdfs_subPropertyOf ;
+    sh:targetClass owl:TransitiveProperty .
+
+ex:rdf_first a sh:PropertyShape ;
+    sh:path rdf:first .
+
+ex:rdf_rest a sh:PropertyShape ;
+    sh:path rdf:rest .
+
+ex:rdfs_Datatype a sh:NodeShape ;
+    sh:nodeKind sh:BlankNodeOrIRI ;
+    sh:property ex:owl_unionOf ;
+    sh:targetClass rdfs:Datatype .
+
+ex:dcat_keyword a sh:PropertyShape ;
+    sh:datatype rdf:langString ;
+    sh:nodeKind sh:Literal ;
+    sh:path dcat:keyword .
+
+ex:dcat_theme a sh:PropertyShape ;
+    sh:datatype rdf:langString ;
+    sh:nodeKind sh:Literal ;
+    sh:path dcat:theme .
+
+ex:dce_description a sh:PropertyShape ;
+    sh:nodeKind sh:IRI ;
+    sh:path dce:description .
+
+ex:dct_creator a sh:PropertyShape ;
+    sh:nodeKind sh:IRI ;
+    sh:path dct:creator .
+
+ex:ns1_aggregatesVariable a sh:PropertyShape ;
+    sh:class ns1:Continuum ;
+    sh:nodeKind sh:IRI ;
+    sh:path ns1:aggregatesVariable .
+
+ex:ns1_basedOnDimensionalSpace-class-0 sh:class ns1:Continuum .
+
+ex:ns1_basedOnDimensionalSpace-class-1 sh:class ns1:RegularBinning .
+
+ex:ns1_basedOnDimensionalSpace-class-2 sh:class ns1:SimpleRegularBinning .
+
+ex:ns1_basedOnDimensionalSpace-classlist-0 rdf:first ex:ns1_basedOnDimensionalSpace-class-0 ;
+    rdf:rest ex:ns1_basedOnDimensionalSpace-classlist-1 .
+
+ex:ns1_basedOnDimensionalSpace-classlist-1 rdf:first ex:ns1_basedOnDimensionalSpace-class-1 ;
+    rdf:rest ex:ns1_basedOnDimensionalSpace-classlist-2 .
+
+ex:ns1_basedOnDimensionalSpace-classlist-2 rdf:first ex:ns1_basedOnDimensionalSpace-class-2 ;
+    rdf:rest () .
+
+ex:ns1_definesAggregation a sh:PropertyShape ;
+    sh:class ns1:Aggregation ;
+    sh:nodeKind sh:IRI ;
+    sh:path ns1:definesAggregation .
+
+ex:ns1_dependsOnVariable-class-0 sh:class ns1:Continuum .
+
+ex:ns1_dependsOnVariable-class-1 sh:class ns1:DimensionalSpace .
+
+ex:ns1_dependsOnVariable-class-2 sh:class ns1:DiscreteDimensionalSpace .
+
+ex:ns1_dependsOnVariable-class-3 sh:class ns1:IndependentVariable .
+
+ex:ns1_dependsOnVariable-classlist-0 rdf:first ex:ns1_dependsOnVariable-class-0 ;
+    rdf:rest ex:ns1_dependsOnVariable-classlist-1 .
+
+ex:ns1_dependsOnVariable-classlist-1 rdf:first ex:ns1_dependsOnVariable-class-1 ;
+    rdf:rest ex:ns1_dependsOnVariable-classlist-2 .
+
+ex:ns1_dependsOnVariable-classlist-2 rdf:first ex:ns1_dependsOnVariable-class-2 ;
+    rdf:rest ex:ns1_dependsOnVariable-classlist-3 .
+
+ex:ns1_dependsOnVariable-classlist-3 rdf:first ex:ns1_dependsOnVariable-class-3 ;
+    rdf:rest () .
+
+ex:ns1_derivedFromVariable a sh:PropertyShape ;
+    sh:nodeKind sh:IRI ;
+    sh:or ex:ns1_derivedFromVariable-classlist-0 ;
+    sh:path ns1:derivedFromVariable .
+
+ex:ns1_derivedFromVariable-class-0 sh:class ns1:DependentVariable .
+
+ex:ns1_derivedFromVariable-class-1 sh:class ns1:Variable .
+
+ex:ns1_derivedFromVariable-classlist-0 rdf:first ex:ns1_derivedFromVariable-class-0 ;
+    rdf:rest ex:ns1_derivedFromVariable-classlist-1 .
+
+ex:ns1_derivedFromVariable-classlist-1 rdf:first ex:ns1_derivedFromVariable-class-1 ;
+    rdf:rest () .
+
+ex:ns1_hasDiscretization-class-0 sh:class ns1:RegularBinning .
+
+ex:ns1_hasDiscretization-class-1 sh:class ns1:RegularPeriodicBinning .
+
+ex:ns1_hasDiscretization-class-2 sh:class ns1:SimpleRegularBinning .
+
+ex:ns1_hasDiscretization-class-3 sh:class ns1:SinglePeriodicBinning .
+
+ex:ns1_hasDiscretization-classlist-0 rdf:first ex:ns1_hasDiscretization-class-0 ;
+    rdf:rest ex:ns1_hasDiscretization-classlist-1 .
+
+ex:ns1_hasDiscretization-classlist-1 rdf:first ex:ns1_hasDiscretization-class-1 ;
+    rdf:rest ex:ns1_hasDiscretization-classlist-2 .
+
+ex:ns1_hasDiscretization-classlist-2 rdf:first ex:ns1_hasDiscretization-class-2 ;
+    rdf:rest ex:ns1_hasDiscretization-classlist-3 .
+
+ex:ns1_hasDiscretization-classlist-3 rdf:first ex:ns1_hasDiscretization-class-3 ;
+    rdf:rest () .
+
+ex:ns1_hasEndDateTime a sh:PropertyShape ;
+    sh:path ns1:hasEndDateTime .
+
+ex:ns1_hasExactBoundingRegion-class-0 sh:class ns1:GeodeticRegion .
+
+ex:ns1_hasExactBoundingRegion-class-1 sh:class ns1:TemporalRegion .
+
+ex:ns1_hasExactBoundingRegion-classlist-0 rdf:first ex:ns1_hasExactBoundingRegion-class-0 ;
+    rdf:rest ex:ns1_hasExactBoundingRegion-classlist-1 .
+
+ex:ns1_hasExactBoundingRegion-classlist-1 rdf:first ex:ns1_hasExactBoundingRegion-class-1 ;
+    rdf:rest () .
+
+ex:ns1_hasOffsetValue a sh:PropertyShape ;
+    sh:datatype xmls:duration ;
+    sh:nodeKind sh:Literal ;
+    sh:path ns1:hasOffsetValue .
+
+ex:ns1_hasOutput-class-0 sh:class ns3:EnsembleProjection .
+
+ex:ns1_hasOutput-class-1 sh:class ns3:ScenarioBasedProjection .
+
+ex:ns1_hasOutput-class-2 sh:class ns3:SingleProjection .
+
+ex:ns1_hasOutput-class-3 sh:class ns1:Dataset .
+
+ex:ns1_hasOutput-classlist-0 rdf:first ex:ns1_hasOutput-class-0 ;
+    rdf:rest ex:ns1_hasOutput-classlist-1 .
+
+ex:ns1_hasOutput-classlist-1 rdf:first ex:ns1_hasOutput-class-1 ;
+    rdf:rest ex:ns1_hasOutput-classlist-2 .
+
+ex:ns1_hasOutput-classlist-2 rdf:first ex:ns1_hasOutput-class-2 ;
+    rdf:rest ex:ns1_hasOutput-classlist-3 .
+
+ex:ns1_hasOutput-classlist-3 rdf:first ex:ns1_hasOutput-class-3 ;
+    rdf:rest () .
+
+ex:ns1_hasReferencePoint a sh:PropertyShape ;
+    sh:class ns1:GeodeticPoint ;
+    sh:nodeKind sh:IRI ;
+    sh:path ns1:hasReferencePoint .
+
+ex:ns1_hasResolution a sh:PropertyShape ;
+    sh:class ns2:Amount ;
+    sh:nodeKind sh:IRI ;
+    sh:path ns1:hasResolution .
+
+ex:ns1_hasSelectedRegion a sh:PropertyShape ;
+    sh:nodeKind sh:IRI ;
+    sh:or ex:ns1_hasSelectedRegion-classlist-0 ;
+    sh:path ns1:hasSelectedRegion .
+
+ex:ns1_hasSelectedRegion-class-0 sh:class ns1:GeodeticRegion .
+
+ex:ns1_hasSelectedRegion-class-1 sh:class ns1:TemporalRegion .
+
+ex:ns1_hasSelectedRegion-classlist-0 rdf:first ex:ns1_hasSelectedRegion-class-0 ;
+    rdf:rest ex:ns1_hasSelectedRegion-classlist-1 .
+
+ex:ns1_hasSelectedRegion-classlist-1 rdf:first ex:ns1_hasSelectedRegion-class-1 ;
+    rdf:rest () .
+
+ex:ns1_hasStartDateTime a sh:PropertyShape ;
+    sh:path ns1:hasStartDateTime .
+
+ex:ns1_hasSubDimensionalSpace a sh:PropertyShape ;
+    sh:class ns1:Continuum ;
+    sh:nodeKind sh:IRI ;
+    sh:path ns1:hasSubDimensionalSpace .
+
+ex:ns1_hasSuggestedQuantization a sh:PropertyShape ;
+    sh:nodeKind sh:IRI ;
+    sh:or ex:ns1_hasSuggestedQuantization-classlist-0 ;
+    sh:path ns1:hasSuggestedQuantization .
+
+ex:ns1_hasSuggestedQuantization-class-0 sh:class ns1:RegularBinning .
+
+ex:ns1_hasSuggestedQuantization-class-1 sh:class ns1:SimpleRegularBinning .
+
+ex:ns1_hasSuggestedQuantization-classlist-0 rdf:first ex:ns1_hasSuggestedQuantization-class-0 ;
+    rdf:rest ex:ns1_hasSuggestedQuantization-classlist-1 .
+
+ex:ns1_hasSuggestedQuantization-classlist-1 rdf:first ex:ns1_hasSuggestedQuantization-class-1 ;
+    rdf:rest () .
+
+ex:ns1_hasValuesOn-class-0 sh:class ns1:Continuum .
+
+ex:ns1_hasValuesOn-class-1 sh:class ns1:DimensionalSpace .
+
+ex:ns1_hasValuesOn-class-2 sh:class ns1:DiscreteDimensionalSpace .
+
+ex:ns1_hasValuesOn-class-3 sh:class ns1:RegularBinning .
+
+ex:ns1_hasValuesOn-class-4 sh:class ns1:RegularPeriodicBinning .
+
+ex:ns1_hasValuesOn-class-5 sh:class ns1:SimpleRegularBinning .
+
+ex:ns1_hasValuesOn-class-6 sh:class ns1:SinglePeriodicBinning .
+
+ex:ns1_hasValuesOn-class-7 sh:class ns2:UnitOfMeasure .
+
+ex:ns1_hasValuesOn-classlist-0 rdf:first ex:ns1_hasValuesOn-class-0 ;
+    rdf:rest ex:ns1_hasValuesOn-classlist-1 .
+
+ex:ns1_hasValuesOn-classlist-1 rdf:first ex:ns1_hasValuesOn-class-1 ;
+    rdf:rest ex:ns1_hasValuesOn-classlist-2 .
+
+ex:ns1_hasValuesOn-classlist-2 rdf:first ex:ns1_hasValuesOn-class-2 ;
+    rdf:rest ex:ns1_hasValuesOn-classlist-3 .
+
+ex:ns1_hasValuesOn-classlist-3 rdf:first ex:ns1_hasValuesOn-class-3 ;
+    rdf:rest ex:ns1_hasValuesOn-classlist-4 .
+
+ex:ns1_hasValuesOn-classlist-4 rdf:first ex:ns1_hasValuesOn-class-4 ;
+    rdf:rest ex:ns1_hasValuesOn-classlist-5 .
+
+ex:ns1_hasValuesOn-classlist-5 rdf:first ex:ns1_hasValuesOn-class-5 ;
+    rdf:rest ex:ns1_hasValuesOn-classlist-6 .
+
+ex:ns1_hasValuesOn-classlist-6 rdf:first ex:ns1_hasValuesOn-class-6 ;
+    rdf:rest ex:ns1_hasValuesOn-classlist-7 .
+
+ex:ns1_hasValuesOn-classlist-7 rdf:first ex:ns1_hasValuesOn-class-7 ;
+    rdf:rest () .
+
+ex:ns1_holdsSpecializationOfVariable-class-0 sh:class ns1:DependentVariable .
+
+ex:ns1_holdsSpecializationOfVariable-class-1 sh:class ns1:Variable .
+
+ex:ns1_holdsSpecializationOfVariable-classlist-0 rdf:first ex:ns1_holdsSpecializationOfVariable-class-0 ;
+    rdf:rest ex:ns1_holdsSpecializationOfVariable-classlist-1 .
+
+ex:ns1_holdsSpecializationOfVariable-classlist-1 rdf:first ex:ns1_holdsSpecializationOfVariable-class-1 ;
+    rdf:rest () .
+
+ex:ns1_isEquivalentTo a sh:PropertyShape ;
+    sh:class ns1:DependentVariable ;
+    sh:nodeKind sh:IRI ;
+    sh:path ns1:isEquivalentTo .
+
+ex:ns1_isPointOf a sh:PropertyShape ;
+    sh:class ns1:Continuum ;
+    sh:nodeKind sh:IRI ;
+    sh:path ns1:isPointOf .
+
+ex:ns1_isRegionOf a sh:PropertyShape ;
+    sh:class ns1:Continuum ;
+    sh:nodeKind sh:IRI ;
+    sh:path ns1:isRegionOf .
+
+ex:ns1_isSpecializationOn a sh:PropertyShape ;
+    sh:class ns1:Continuum ;
+    sh:nodeKind sh:IRI ;
+    sh:path ns1:isSpecializationOn .
+
+ex:ns2_altLabel a sh:PropertyShape ;
+    sh:datatype rdf:langString ;
+    sh:nodeKind sh:Literal ;
+    sh:path ns2:altLabel .
+
+ex:ns2_classifies a sh:PropertyShape ;
+    sh:class ns1:DependentVariable ;
+    sh:nodeKind sh:IRI ;
+    sh:path ns2:classifies .
+
+ex:ns2_definesRole a sh:PropertyShape ;
+    sh:class ns2:InformationRole ;
+    sh:nodeKind sh:IRI ;
+    sh:path ns2:definesRole .
+
+ex:ns2_definition a sh:PropertyShape ;
+    sh:datatype xmls:string ;
+    sh:nodeKind sh:Literal ;
+    sh:path ns2:definition .
+
+ex:ns2_hasComponent-class-0 sh:class ns3:ClimateModelIntercomparisonExperiment .
+
+ex:ns2_hasComponent-class-1 sh:class ns3:DynamicalDownscaling .
+
+ex:ns2_hasComponent-class-2 sh:class ns3:EnsembleProjection .
+
+ex:ns2_hasComponent-class-3 sh:class ns3:EnsembleSimulation .
+
+ex:ns2_hasComponent-class-4 sh:class ns3:ScenarioBasedProjection .
+
+ex:ns2_hasComponent-class-5 sh:class ns3:SingleProjection .
+
+ex:ns2_hasComponent-class-6 sh:class ns3:SingleSimulation .
+
+ex:ns2_hasComponent-classlist-0 rdf:first ex:ns2_hasComponent-class-0 ;
+    rdf:rest ex:ns2_hasComponent-classlist-1 .
+
+ex:ns2_hasComponent-classlist-1 rdf:first ex:ns2_hasComponent-class-1 ;
+    rdf:rest ex:ns2_hasComponent-classlist-2 .
+
+ex:ns2_hasComponent-classlist-2 rdf:first ex:ns2_hasComponent-class-2 ;
+    rdf:rest ex:ns2_hasComponent-classlist-3 .
+
+ex:ns2_hasComponent-classlist-3 rdf:first ex:ns2_hasComponent-class-3 ;
+    rdf:rest ex:ns2_hasComponent-classlist-4 .
+
+ex:ns2_hasComponent-classlist-4 rdf:first ex:ns2_hasComponent-class-4 ;
+    rdf:rest ex:ns2_hasComponent-classlist-5 .
+
+ex:ns2_hasComponent-classlist-5 rdf:first ex:ns2_hasComponent-class-5 ;
+    rdf:rest ex:ns2_hasComponent-classlist-6 .
+
+ex:ns2_hasComponent-classlist-6 rdf:first ex:ns2_hasComponent-class-6 ;
+    rdf:rest () .
+
+ex:ns2_hasExpectedType a sh:PropertyShape ;
+    sh:path ns2:hasExpectedType .
+
+ex:ns2_hasMember a sh:PropertyShape ;
+    sh:nodeKind sh:IRI ;
+    sh:or ex:ns2_hasMember-classlist-0 ;
+    sh:path ns2:hasMember .
+
+ex:ns2_hasMember-class-0 sh:class ns1:DependentVariable .
+
+ex:ns2_hasMember-class-1 sh:class ns1:Variable .
+
+ex:ns2_hasMember-classlist-0 rdf:first ex:ns2_hasMember-class-0 ;
+    rdf:rest ex:ns2_hasMember-classlist-1 .
+
+ex:ns2_hasMember-classlist-1 rdf:first ex:ns2_hasMember-class-1 ;
+    rdf:rest () .
+
+ex:ns2_hasPart-class-0 sh:class ns3:GlobalClimateSimulation .
+
+ex:ns2_hasPart-class-1 sh:class ns3:PerturbedParameterClimateEnsembleSimulation .
+
+ex:ns2_hasPart-class-2 sh:class ns3:ScenarioBasedProjection .
+
+ex:ns2_hasPart-class-3 sh:class ns3:SingleProjection .
+
+ex:ns2_hasPart-class-4 sh:class ns2:Collection .
+
+ex:ns2_hasPart-classlist-0 rdf:first ex:ns2_hasPart-class-0 ;
+    rdf:rest ex:ns2_hasPart-classlist-1 .
+
+ex:ns2_hasPart-classlist-1 rdf:first ex:ns2_hasPart-class-1 ;
+    rdf:rest ex:ns2_hasPart-classlist-2 .
+
+ex:ns2_hasPart-classlist-2 rdf:first ex:ns2_hasPart-class-2 ;
+    rdf:rest ex:ns2_hasPart-classlist-3 .
+
+ex:ns2_hasPart-classlist-3 rdf:first ex:ns2_hasPart-class-3 ;
+    rdf:rest ex:ns2_hasPart-classlist-4 .
+
+ex:ns2_hasPart-classlist-4 rdf:first ex:ns2_hasPart-class-4 ;
+    rdf:rest () .
+
+ex:ns2_hasUnitOfMeasure-class-0 sh:class ns1:DimensionalSpace .
+
+ex:ns2_hasUnitOfMeasure-class-1 sh:class ns2:UnitOfMeasure .
+
+ex:ns2_hasUnitOfMeasure-classlist-0 rdf:first ex:ns2_hasUnitOfMeasure-class-0 ;
+    rdf:rest ex:ns2_hasUnitOfMeasure-classlist-1 .
+
+ex:ns2_hasUnitOfMeasure-classlist-1 rdf:first ex:ns2_hasUnitOfMeasure-class-1 ;
+    rdf:rest () .
+
+ex:ns2_isClassifiedBy a sh:PropertyShape ;
+    sh:class ns2:Concept ;
+    sh:nodeKind sh:IRI ;
+    sh:path ns2:isClassifiedBy .
+
+ex:ns2_isComponentOf-class-0 sh:class ns1:DataGeneratingProcess .
+
+ex:ns2_isComponentOf-class-1 sh:class ns1:Dataset .
+
+ex:ns2_isComponentOf-class-2 sh:class ns2:Action .
+
+ex:ns2_isComponentOf-classlist-0 rdf:first ex:ns2_isComponentOf-class-0 ;
+    rdf:rest ex:ns2_isComponentOf-classlist-1 .
+
+ex:ns2_isComponentOf-classlist-1 rdf:first ex:ns2_isComponentOf-class-1 ;
+    rdf:rest ex:ns2_isComponentOf-classlist-2 .
+
+ex:ns2_isComponentOf-classlist-2 rdf:first ex:ns2_isComponentOf-class-2 ;
+    rdf:rest () .
+
+ex:ns2_isConstituentOf a sh:PropertyShape ;
+    sh:class ns2:Concept ;
+    sh:nodeKind sh:IRI ;
+    sh:path ns2:isConstituentOf .
+
+ex:ns2_isRelatedToConcept a sh:PropertyShape ;
+    sh:class ns1:DependentVariable ;
+    sh:nodeKind sh:IRI ;
+    sh:path ns2:isRelatedToConcept .
+
+ex:ns2_isSpecializedBy-class-0 sh:class ns3:HazardType .
+
+ex:ns2_isSpecializedBy-class-1 sh:class ns2:Method .
+
+ex:ns2_isSpecializedBy-class-2 sh:class ns2:Operation .
+
+ex:ns2_isSpecializedBy-classlist-0 rdf:first ex:ns2_isSpecializedBy-class-0 ;
+    rdf:rest ex:ns2_isSpecializedBy-classlist-1 .
+
+ex:ns2_isSpecializedBy-classlist-1 rdf:first ex:ns2_isSpecializedBy-class-1 ;
+    rdf:rest ex:ns2_isSpecializedBy-classlist-2 .
+
+ex:ns2_isSpecializedBy-classlist-2 rdf:first ex:ns2_isSpecializedBy-class-2 ;
+    rdf:rest () .
+
+ex:ns3_hasIndicator a sh:PropertyShape ;
+    sh:class ns1:DependentVariable ;
+    sh:nodeKind sh:IRI ;
+    sh:path ns3:hasIndicator .
+
+ex:ns3_hasMemberSimulation-class-0 sh:class ns3:DynamicalDownscaling .
+
+ex:ns3_hasMemberSimulation-class-1 sh:class ns3:GlobalClimateSimulation .
+
+ex:ns3_hasMemberSimulation-class-2 sh:class ns3:SingleProjectionProduction .
+
+ex:ns3_hasMemberSimulation-class-3 sh:class ns3:SingleSimulation .
+
+ex:ns3_hasMemberSimulation-class-4 sh:class ns3:StatisticalProjectionTransformation .
+
+ex:ns3_hasMemberSimulation-classlist-0 rdf:first ex:ns3_hasMemberSimulation-class-0 ;
+    rdf:rest ex:ns3_hasMemberSimulation-classlist-1 .
+
+ex:ns3_hasMemberSimulation-classlist-1 rdf:first ex:ns3_hasMemberSimulation-class-1 ;
+    rdf:rest ex:ns3_hasMemberSimulation-classlist-2 .
+
+ex:ns3_hasMemberSimulation-classlist-2 rdf:first ex:ns3_hasMemberSimulation-class-2 ;
+    rdf:rest ex:ns3_hasMemberSimulation-classlist-3 .
+
+ex:ns3_hasMemberSimulation-classlist-3 rdf:first ex:ns3_hasMemberSimulation-class-3 ;
+    rdf:rest ex:ns3_hasMemberSimulation-classlist-4 .
+
+ex:ns3_hasMemberSimulation-classlist-4 rdf:first ex:ns3_hasMemberSimulation-class-4 ;
+    rdf:rest () .
+
+ex:ns3_isDownscalingOf-class-0 sh:class ns3:DynamicalDownscaling .
+
+ex:ns3_isDownscalingOf-class-1 sh:class ns3:EnsembleSimulation .
+
+ex:ns3_isDownscalingOf-class-2 sh:class ns3:GlobalClimateSimulation .
+
+ex:ns3_isDownscalingOf-class-3 sh:class ns3:SingleSimulation .
+
+ex:ns3_isDownscalingOf-classlist-0 rdf:first ex:ns3_isDownscalingOf-class-0 ;
+    rdf:rest ex:ns3_isDownscalingOf-classlist-1 .
+
+ex:ns3_isDownscalingOf-classlist-1 rdf:first ex:ns3_isDownscalingOf-class-1 ;
+    rdf:rest ex:ns3_isDownscalingOf-classlist-2 .
+
+ex:ns3_isDownscalingOf-classlist-2 rdf:first ex:ns3_isDownscalingOf-class-2 ;
+    rdf:rest ex:ns3_isDownscalingOf-classlist-3 .
+
+ex:ns3_isDownscalingOf-classlist-3 rdf:first ex:ns3_isDownscalingOf-class-3 ;
+    rdf:rest () .
+
+ex:ns3_refersToScenario-class-0 sh:class owl:NamedIndividual .
+
+ex:ns3_refersToScenario-class-1 sh:class ns3:GreenhouseGasConcentrationPathway .
+
+ex:ns3_refersToScenario-classlist-0 rdf:first ex:ns3_refersToScenario-class-0 ;
+    rdf:rest ex:ns3_refersToScenario-classlist-1 .
+
+ex:ns3_refersToScenario-classlist-1 rdf:first ex:ns3_refersToScenario-class-1 ;
+    rdf:rest () .
+
+ex:ns3_usesModel-class-0 sh:class ns3:ConvectionPermittingClimateModel .
+
+ex:ns3_usesModel-class-1 sh:class ns3:GlobalClimateModel .
+
+ex:ns3_usesModel-class-2 sh:class ns3:RegionalClimateModel .
+
+ex:ns3_usesModel-classlist-0 rdf:first ex:ns3_usesModel-class-0 ;
+    rdf:rest ex:ns3_usesModel-classlist-1 .
+
+ex:ns3_usesModel-classlist-1 rdf:first ex:ns3_usesModel-class-1 ;
+    rdf:rest ex:ns3_usesModel-classlist-2 .
+
+ex:ns3_usesModel-classlist-2 rdf:first ex:ns3_usesModel-class-2 ;
+    rdf:rest () .
+
+ex:owl_allValuesFrom a sh:PropertyShape ;
+    sh:path owl:allValuesFrom .
+
+ex:owl_cardinality a sh:PropertyShape ;
+    sh:nodeKind sh:Literal ;
+    sh:path owl:cardinality .
+
+ex:owl_disjointWith a sh:PropertyShape ;
+    sh:class owl:Class ;
+    sh:nodeKind sh:IRI ;
+    sh:path owl:disjointWith .
+
+ex:owl_equivalentClass a sh:PropertyShape ;
+    sh:path owl:equivalentClass .
+
+ex:owl_hasKey a sh:PropertyShape ;
+    sh:nodeKind sh:BlankNode ;
+    sh:path owl:hasKey .
+
+ex:owl_hasSelf a sh:PropertyShape ;
+    sh:datatype xmls:boolean ;
+    sh:nodeKind sh:Literal ;
+    sh:path owl:hasSelf .
+
+ex:owl_hasValue a sh:PropertyShape ;
+    sh:nodeKind sh:IRI ;
+    sh:or ex:owl_hasValue-classlist-0 ;
+    sh:path owl:hasValue .
+
+ex:owl_hasValue-class-0 sh:class ns2:Collection .
+
+ex:owl_hasValue-class-1 sh:class ns2:ConceptScheme .
+
+ex:owl_hasValue-class-2 sh:class ns2:Description .
+
+ex:owl_hasValue-classlist-0 rdf:first ex:owl_hasValue-class-0 ;
+    rdf:rest ex:owl_hasValue-classlist-1 .
+
+ex:owl_hasValue-classlist-1 rdf:first ex:owl_hasValue-class-1 ;
+    rdf:rest ex:owl_hasValue-classlist-2 .
+
+ex:owl_hasValue-classlist-2 rdf:first ex:owl_hasValue-class-2 ;
+    rdf:rest () .
+
+ex:owl_imports a sh:PropertyShape ;
+    sh:class owl:Ontology ;
+    sh:nodeKind sh:IRI ;
+    sh:path owl:imports .
+
+ex:owl_intersectionOf a sh:PropertyShape ;
+    sh:nodeKind sh:BlankNode ;
+    sh:path owl:intersectionOf .
+
+ex:owl_inverseOf-class-0 sh:class owl:AsymmetricProperty .
+
+ex:owl_inverseOf-class-1 sh:class owl:ObjectProperty .
+
+ex:owl_inverseOf-class-2 sh:class owl:ReflexiveProperty .
+
+ex:owl_inverseOf-class-3 sh:class owl:SymmetricProperty .
+
+ex:owl_inverseOf-class-4 sh:class owl:TransitiveProperty .
+
+ex:owl_inverseOf-classlist-0 rdf:first ex:owl_inverseOf-class-0 ;
+    rdf:rest ex:owl_inverseOf-classlist-1 .
+
+ex:owl_inverseOf-classlist-1 rdf:first ex:owl_inverseOf-class-1 ;
+    rdf:rest ex:owl_inverseOf-classlist-2 .
+
+ex:owl_inverseOf-classlist-2 rdf:first ex:owl_inverseOf-class-2 ;
+    rdf:rest ex:owl_inverseOf-classlist-3 .
+
+ex:owl_inverseOf-classlist-3 rdf:first ex:owl_inverseOf-class-3 ;
+    rdf:rest ex:owl_inverseOf-classlist-4 .
+
+ex:owl_inverseOf-classlist-4 rdf:first ex:owl_inverseOf-class-4 ;
+    rdf:rest () .
+
+ex:owl_maxQualifiedCardinality a sh:PropertyShape ;
+    sh:datatype xmls:nonNegativeInteger ;
+    sh:nodeKind sh:Literal ;
+    sh:path owl:maxQualifiedCardinality .
+
+ex:owl_onClass a sh:PropertyShape ;
+    sh:class owl:Class ;
+    sh:nodeKind sh:IRI ;
+    sh:path owl:onClass .
+
+ex:owl_onDataRange a sh:PropertyShape ;
+    sh:path owl:onDataRange .
+
+ex:owl_onProperty a sh:PropertyShape ;
+    sh:nodeKind sh:IRI ;
+    sh:or ex:owl_onProperty-classlist-0 ;
+    sh:path owl:onProperty .
+
+ex:owl_onProperty-class-0 sh:class owl:DatatypeProperty .
+
+ex:owl_onProperty-class-1 sh:class owl:ObjectProperty .
+
+ex:owl_onProperty-class-2 sh:class owl:ReflexiveProperty .
+
+ex:owl_onProperty-class-3 sh:class owl:TransitiveProperty .
+
+ex:owl_onProperty-classlist-0 rdf:first ex:owl_onProperty-class-0 ;
+    rdf:rest ex:owl_onProperty-classlist-1 .
+
+ex:owl_onProperty-classlist-1 rdf:first ex:owl_onProperty-class-1 ;
+    rdf:rest ex:owl_onProperty-classlist-2 .
+
+ex:owl_onProperty-classlist-2 rdf:first ex:owl_onProperty-class-2 ;
+    rdf:rest ex:owl_onProperty-classlist-3 .
+
+ex:owl_onProperty-classlist-3 rdf:first ex:owl_onProperty-class-3 ;
+    rdf:rest () .
+
+ex:owl_propertyChainAxiom a sh:PropertyShape ;
+    sh:nodeKind sh:BlankNode ;
+    sh:path owl:propertyChainAxiom .
+
+ex:owl_qualifiedCardinality a sh:PropertyShape ;
+    sh:datatype xmls:nonNegativeInteger ;
+    sh:nodeKind sh:Literal ;
+    sh:path owl:qualifiedCardinality .
+
+ex:owl_someValuesFrom a sh:PropertyShape ;
+    sh:class owl:Class ;
+    sh:nodeKind sh:IRI ;
+    sh:path owl:someValuesFrom .
+
+ex:owl_versionIRI a sh:PropertyShape ;
+    sh:nodeKind sh:IRI ;
+    sh:path owl:versionIRI .
+
+ex:rdfs_subClassOf a sh:PropertyShape ;
+    sh:path rdfs:subClassOf .
+
+ex:rdfs_subPropertyOf-class-0 sh:class owl:AsymmetricProperty .
+
+ex:rdfs_subPropertyOf-class-1 sh:class owl:DatatypeProperty .
+
+ex:rdfs_subPropertyOf-class-2 sh:class owl:ObjectProperty .
+
+ex:rdfs_subPropertyOf-class-3 sh:class owl:ReflexiveProperty .
+
+ex:rdfs_subPropertyOf-class-4 sh:class owl:TransitiveProperty .
+
+ex:rdfs_subPropertyOf-classlist-0 rdf:first ex:rdfs_subPropertyOf-class-0 ;
+    rdf:rest ex:rdfs_subPropertyOf-classlist-1 .
+
+ex:rdfs_subPropertyOf-classlist-1 rdf:first ex:rdfs_subPropertyOf-class-1 ;
+    rdf:rest ex:rdfs_subPropertyOf-classlist-2 .
+
+ex:rdfs_subPropertyOf-classlist-2 rdf:first ex:rdfs_subPropertyOf-class-2 ;
+    rdf:rest ex:rdfs_subPropertyOf-classlist-3 .
+
+ex:rdfs_subPropertyOf-classlist-3 rdf:first ex:rdfs_subPropertyOf-class-3 ;
+    rdf:rest ex:rdfs_subPropertyOf-classlist-4 .
+
+ex:rdfs_subPropertyOf-classlist-4 rdf:first ex:rdfs_subPropertyOf-class-4 ;
+    rdf:rest () .
+
+ex:gsp_asWKT a sh:PropertyShape ;
+    sh:nodeKind sh:Literal ;
+    sh:path gsp:asWKT .
+
+ex:ns1_hasDiscretization a sh:PropertyShape ;
+    sh:nodeKind sh:IRI ;
+    sh:or ex:ns1_hasDiscretization-classlist-0 ;
+    sh:path ns1:hasDiscretization .
+
+ex:ns1_hasInPeriodResolutionValue a sh:PropertyShape ;
+    sh:datatype xmls:duration ;
+    sh:nodeKind sh:Literal ;
+    sh:path ns1:hasInPeriodResolutionValue .
+
+ex:ns1_hasPeriodValue a sh:PropertyShape ;
+    sh:datatype xmls:duration ;
+    sh:nodeKind sh:Literal ;
+    sh:path ns1:hasPeriodValue .
+
+ex:ns1_iSpecializationOfVariable a sh:PropertyShape ;
+    sh:class ns1:Variable ;
+    sh:nodeKind sh:IRI ;
+    sh:path ns1:iSpecializationOfVariable .
+
+ex:ns1_isSpecializationOfVariable a sh:PropertyShape ;
+    sh:class ns1:Variable ;
+    sh:nodeKind sh:IRI ;
+    sh:path ns1:isSpecializationOfVariable .
+
+ex:ns2_defines a sh:PropertyShape ;
+    sh:class ns2:Concept ;
+    sh:nodeKind sh:IRI ;
+    sh:path ns2:defines .
+
+ex:ns2_hasUnitOfMeasure a sh:PropertyShape ;
+    sh:nodeKind sh:IRI ;
+    sh:or ex:ns2_hasUnitOfMeasure-classlist-0 ;
+    sh:path ns2:hasUnitOfMeasure .
+
+ex:ns2_inScheme a sh:PropertyShape ;
+    sh:class ns2:ConceptScheme ;
+    sh:nodeKind sh:IRI ;
+    sh:path ns2:inScheme .
+
+ex:ns2_isMemberOf a sh:PropertyShape ;
+    sh:class ns2:Collection ;
+    sh:nodeKind sh:IRI ;
+    sh:path ns2:isMemberOf .
+
+ex:ns3_outputId a sh:PropertyShape ;
+    sh:datatype xmls:string ;
+    sh:nodeKind sh:Literal ;
+    sh:path ns3:outputId .
+
+ex:ns3_simulationConfigurationId a sh:PropertyShape ;
+    sh:datatype xmls:string ;
+    sh:nodeKind sh:Literal ;
+    sh:path ns3:simulationConfigurationId .
+
+ex:owl_unionOf a sh:PropertyShape ;
+    sh:nodeKind sh:BlankNode ;
+    sh:path owl:unionOf .
+
+ex:owl_versionInfo a sh:PropertyShape ;
+    sh:datatype rdf:langString ;
+    sh:nodeKind sh:Literal ;
+    sh:path owl:versionInfo .
+
+ex:dct_title a sh:PropertyShape ;
+    sh:datatype rdf:langString ;
+    sh:nodeKind sh:Literal ;
+    sh:path dct:title .
+
+ex:ns1_hasExactBoundingRegion a sh:PropertyShape ;
+    sh:nodeKind sh:IRI ;
+    sh:or ex:ns1_hasExactBoundingRegion-classlist-0 ;
+    sh:path ns1:hasExactBoundingRegion .
+
+ex:ns1_hasResolutionValue a sh:PropertyShape ;
+    sh:nodeKind sh:Literal ;
+    sh:path ns1:hasResolutionValue .
+
+ex:ns2_isSpecializedBy a sh:PropertyShape ;
+    sh:nodeKind sh:IRI ;
+    sh:or ex:ns2_isSpecializedBy-classlist-0 ;
+    sh:path ns2:isSpecializedBy .
+
+ex:ns3_experimentId a sh:PropertyShape ;
+    sh:datatype xmls:string ;
+    sh:nodeKind sh:Literal ;
+    sh:path ns3:experimentId .
+
+ex:ns3_isDownscalingOf a sh:PropertyShape ;
+    sh:nodeKind sh:IRI ;
+    sh:or ex:ns3_isDownscalingOf-classlist-0 ;
+    sh:path ns3:isDownscalingOf .
+
+ex:ns3_isMaintainedBy a sh:PropertyShape ;
+    sh:class ns2:Organization ;
+    sh:nodeKind sh:IRI ;
+    sh:path ns3:isMaintainedBy .
+
+ex:ns1_isSpecializedAccordingTo a sh:PropertyShape ;
+    sh:class ns1:VariableSpecialization ;
+    sh:nodeKind sh:IRI ;
+    sh:path ns1:isSpecializedAccordingTo .
+
+ex:ns1_holdsSpecializationOfVariable a sh:PropertyShape ;
+    sh:nodeKind sh:IRI ;
+    sh:or ex:ns1_holdsSpecializationOfVariable-classlist-0 ;
+    sh:path ns1:holdsSpecializationOfVariable .
+
+ex:ns3_refersToGlobalWarmingLevel a sh:PropertyShape ;
+    sh:nodeKind sh:IRI ;
+    sh:path ns3:refersToGlobalWarmingLevel .
+
+ex:owl_inverseOf a sh:PropertyShape ;
+    sh:nodeKind sh:IRI ;
+    sh:or ex:owl_inverseOf-classlist-0 ;
+    sh:path owl:inverseOf .
+
+ex:ns1_dependsOnVariable a sh:PropertyShape ;
+    sh:nodeKind sh:IRI ;
+    sh:or ex:ns1_dependsOnVariable-classlist-0 ;
+    sh:path ns1:dependsOnVariable .
+
+ex:ns3_usesModel a sh:PropertyShape ;
+    sh:nodeKind sh:IRI ;
+    sh:or ex:ns3_usesModel-classlist-0 ;
+    sh:path ns3:usesModel .
+
+ex:rdfs_domain a sh:PropertyShape ;
+    sh:class owl:Class ;
+    sh:nodeKind sh:IRI ;
+    sh:path rdfs:domain .
+
+ex:rdfs_range a sh:PropertyShape ;
+    sh:path rdfs:range .
+
+ex:rdfs_subPropertyOf a sh:PropertyShape ;
+    sh:nodeKind sh:IRI ;
+    sh:or ex:rdfs_subPropertyOf-classlist-0 ;
+    sh:path rdfs:subPropertyOf .
+
+ex:ns1_basedOnDimensionalSpace a sh:PropertyShape ;
+    sh:nodeKind sh:IRI ;
+    sh:or ex:ns1_basedOnDimensionalSpace-classlist-0 ;
+    sh:path ns1:basedOnDimensionalSpace .
+
+ex:ns2_hasComponent a sh:PropertyShape ;
+    sh:nodeKind sh:IRI ;
+    sh:or ex:ns2_hasComponent-classlist-0 ;
+    sh:path ns2:hasComponent .
+
+ex:ns2_hasPart a sh:PropertyShape ;
+    sh:nodeKind sh:IRI ;
+    sh:or ex:ns2_hasPart-classlist-0 ;
+    sh:path ns2:hasPart .
+
+ex:ns2_isComponentOf a sh:PropertyShape ;
+    sh:nodeKind sh:IRI ;
+    sh:or ex:ns2_isComponentOf-classlist-0 ;
+    sh:path ns2:isComponentOf .
+
+ex:ns3_hasMemberSimulation a sh:PropertyShape ;
+    sh:nodeKind sh:IRI ;
+    sh:or ex:ns3_hasMemberSimulation-classlist-0 ;
+    sh:path ns3:hasMemberSimulation .
+
+ex:ns1_hasValuesOn a sh:PropertyShape ;
+    sh:nodeKind sh:IRI ;
+    sh:or ex:ns1_hasValuesOn-classlist-0 ;
+    sh:path ns1:hasValuesOn .
+
+ex:ns2_acronym a sh:PropertyShape ;
+    sh:nodeKind sh:Literal ;
+    sh:path ns2:acronym .
+
+ex:rdfs_isDefinedBy a sh:PropertyShape ;
+    sh:class owl:Ontology ;
+    sh:nodeKind sh:IRI ;
+    sh:path rdfs:isDefinedBy .
+
+ex:ns1_hasOutput a sh:PropertyShape ;
+    sh:nodeKind sh:IRI ;
+    sh:or ex:ns1_hasOutput-classlist-0 ;
+    sh:path ns1:hasOutput .
+
+ex:ns3_refersToScenario a sh:PropertyShape ;
+    sh:nodeKind sh:IRI ;
+    sh:or ex:ns3_refersToScenario-classlist-0 ;
+    sh:path ns3:refersToScenario .
+
+ex:rdfs_comment a sh:PropertyShape ;
+    sh:nodeKind sh:Literal ;
+    sh:path rdfs:comment .
+
+ex:rdfs_label a sh:PropertyShape ;
+    sh:nodeKind sh:Literal ;
+    sh:path rdfs:label .
+
