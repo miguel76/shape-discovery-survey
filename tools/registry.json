@@ -1,0 +1,7 @@
+{
+  "shexer":                  {"modes": ["file", "endpoint"], "input": "nt"},
+  "qse":                     {"modes": ["file"],             "input": "nt"},
+  "shaclgen":                {"modes": ["file"],             "input": "nt"},
+  "shacl-play":              {"modes": ["file", "endpoint"], "input": "nt"},
+  "linkml-schema-automator": {"modes": ["file"],             "input": "ttl"}
+}

@@ -1,0 +1,5 @@
+id	type	label	country	homepage
+http://example.org/toy/inst_ipsl	Institution	Institut Pierre-Simon Laplace|Pierre-Simon Laplace Institute	FR	
+http://example.org/toy/inst_mpi	Institution	Max Planck Institute for Meteorology	DE	
+http://example.org/toy/inst_ncar	Institution	National Center for Atmospheric Research	US	
+http://example.org/toy/inst_cmcc	Institution	Centro Euro-Mediterraneo sui Cambiamenti Climatici	IT	

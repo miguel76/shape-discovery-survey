@@ -1,0 +1,17 @@
+{
+  "tool": "linkml-schema-automator",
+  "mode": "file",
+  "source": "work/toy/data.ttl",
+  "command": [
+    "tools/linkml-schema-automator/run.sh",
+    "file",
+    "work/toy/data.ttl",
+    "results/toy/linkml-schema-automator"
+  ],
+  "exit_code": 0,
+  "timed_out": false,
+  "wall_seconds": 10.81,
+  "cpu_seconds": 10.74,
+  "peak_rss_mb": 238.7,
+  "has_output": true
+}

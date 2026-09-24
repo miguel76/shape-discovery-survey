@@ -1,0 +1,84 @@
+{
+  "run": "qse",
+  "tool": "qse",
+  "mode": "file",
+  "source": "work/toy/data.nt",
+  "command": [
+    "tools/qse/run.sh",
+    "file",
+    "work/toy/data.nt",
+    "results/toy/qse"
+  ],
+  "exit_code": 0,
+  "timed_out": false,
+  "wall_seconds": 2.4,
+  "cpu_seconds": 4.27,
+  "peak_rss_mb": 153.6,
+  "has_output": true,
+  "syntax": "ok",
+  "non_shacl_terms": [
+    "sh:NodeKind"
+  ],
+  "well_formedness": {
+    "conforms": true,
+    "violations": 0,
+    "focus_nodes": 0,
+    "by_component": {}
+  },
+  "profile": {
+    "triples": 355,
+    "node_shapes": 8,
+    "property_shapes": 34,
+    "constraint_usage": {
+      "sh:class": 11,
+      "sh:datatype": 17,
+      "sh:in": 8,
+      "sh:maxCount": 26,
+      "sh:minCount": 17,
+      "sh:node": 8,
+      "sh:or": 4
+    }
+  },
+  "self_validation": {
+    "conforms": false,
+    "violations": 72,
+    "focus_nodes": 18,
+    "by_component": {
+      "sh:NodeConstraintComponent": 29,
+      "sh:MinCountConstraintComponent": 16,
+      "sh:MaxCountConstraintComponent": 15,
+      "sh:InConstraintComponent": 11,
+      "sh:DatatypeConstraintComponent": 1
+    }
+  },
+  "reference": {
+    "pairs_extracted": 26,
+    "pairs_reference": 22,
+    "pairs_shared": 22,
+    "pair_precision": 0.846,
+    "pair_recall": 1.0,
+    "missing_pairs": [],
+    "constraint_agreement": {
+      "datatype": {
+        "agree": 12,
+        "of": 13
+      },
+      "class": {
+        "agree": 4,
+        "of": 6
+      },
+      "required": {
+        "agree": 18,
+        "of": 22
+      },
+      "functional": {
+        "agree": 15,
+        "of": 22
+      }
+    },
+    "reference_violations_found": {
+      "found": 2,
+      "of": 4
+    }
+  }
+}

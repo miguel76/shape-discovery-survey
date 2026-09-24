@@ -1,0 +1,77 @@
+{
+  "run": "linkml-schema-automator",
+  "tool": "linkml-schema-automator",
+  "mode": "file",
+  "source": "work/toy/data.ttl",
+  "command": [
+    "tools/linkml-schema-automator/run.sh",
+    "file",
+    "work/toy/data.ttl",
+    "results/toy/linkml-schema-automator"
+  ],
+  "exit_code": 0,
+  "timed_out": false,
+  "wall_seconds": 10.81,
+  "cpu_seconds": 10.74,
+  "peak_rss_mb": 238.7,
+  "has_output": true,
+  "syntax": "ok",
+  "non_shacl_terms": [],
+  "well_formedness": {
+    "conforms": true,
+    "violations": 0,
+    "focus_nodes": 0,
+    "by_component": {}
+  },
+  "profile": {
+    "triples": 276,
+    "node_shapes": 8,
+    "property_shapes": 42,
+    "constraint_usage": {
+      "sh:closed": 8,
+      "sh:datatype": 34,
+      "sh:maxCount": 34,
+      "sh:nodeKind": 34
+    }
+  },
+  "self_validation": {
+    "conforms": false,
+    "violations": 203,
+    "focus_nodes": 34,
+    "by_component": {
+      "sh:DatatypeConstraintComponent": 109,
+      "sh:NodeKindConstraintComponent": 90,
+      "sh:MaxCountConstraintComponent": 4
+    }
+  },
+  "reference": {
+    "pairs_extracted": 34,
+    "pairs_reference": 22,
+    "pairs_shared": 22,
+    "pair_precision": 0.647,
+    "pair_recall": 1.0,
+    "missing_pairs": [],
+    "constraint_agreement": {
+      "datatype": {
+        "agree": 9,
+        "of": 13
+      },
+      "class": {
+        "agree": 0,
+        "of": 6
+      },
+      "required": {
+        "agree": 6,
+        "of": 22
+      },
+      "functional": {
+        "agree": 18,
+        "of": 22
+      }
+    },
+    "reference_violations_found": {
+      "found": 1,
+      "of": 4
+    }
+  }
+}

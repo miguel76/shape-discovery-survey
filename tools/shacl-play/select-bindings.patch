@@ -1,0 +1,26 @@
+diff --git a/shacl-commons/src/main/java/fr/sparna/rdf/jena/QueryExecutionLocalService.java b/shacl-commons/src/main/java/fr/sparna/rdf/jena/QueryExecutionLocalService.java
+index f02b426..796a331 100644
+--- a/shacl-commons/src/main/java/fr/sparna/rdf/jena/QueryExecutionLocalService.java
++++ b/shacl-commons/src/main/java/fr/sparna/rdf/jena/QueryExecutionLocalService.java
+@@ -19,7 +19,7 @@ public class QueryExecutionLocalService implements QueryExecutionService {
+ 
+ 	@Override
+ 	public <R> R executeSelectQuery(String query, QuerySolution bindings, JenaResultSetHandler<R> resultSetHandler) {			
+-		try(QueryExecution queryExecution = QueryExecution.create(query, this.inputModel)) {
++		try(QueryExecution queryExecution = QueryExecution.create(QueryExecutionService.buildQueryWithBindings(query, bindings), this.inputModel)) {
+ 			if(log.isDebugEnabled()) {
+ 				log.debug(queryExecution.getQuery().serialize());
+ 			}
+diff --git a/shacl-commons/src/main/java/fr/sparna/rdf/jena/QueryExecutionRemoteService.java b/shacl-commons/src/main/java/fr/sparna/rdf/jena/QueryExecutionRemoteService.java
+index 08a4c52..a255e31 100644
+--- a/shacl-commons/src/main/java/fr/sparna/rdf/jena/QueryExecutionRemoteService.java
++++ b/shacl-commons/src/main/java/fr/sparna/rdf/jena/QueryExecutionRemoteService.java
+@@ -23,7 +23,7 @@ public class QueryExecutionRemoteService implements QueryExecutionService {
+ 
+     @Override
+     public <R> R executeSelectQuery(String query, QuerySolution bindings, JenaResultSetHandler<R> resultSetHandler) {
+-        try(QueryExecution queryExecution = QueryExecution.service(this.endpoint.toString(), query)) {
++        try(QueryExecution queryExecution = QueryExecution.service(this.endpoint.toString(), QueryExecutionService.buildQueryWithBindings(query, bindings))) {
+             if(LOGGER.isDebugEnabled()) {
+                 LOGGER.debug(queryExecution.getQuery().serialize());
+             }

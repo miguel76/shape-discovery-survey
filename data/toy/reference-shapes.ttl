@@ -1,0 +1,61 @@
+# Hand-written reference SHACL shapes for data/toy/toy.ttl.
+# They describe the *intended* schema, so ex:sim_bad and the string value of
+# ex:horizontalResolutionKm on ex:m_cmcc_cm2 are expected to be violations.
+
+@prefix ex:   <http://example.org/toy/> .
+@prefix exsh: <http://example.org/toy/shapes/> .
+@prefix sh:   <http://www.w3.org/ns/shacl#> .
+@prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
+
+exsh:InstitutionShape a sh:NodeShape ;
+    sh:targetClass ex:Institution ;
+    sh:property [ sh:path rdfs:label ; sh:minCount 1 ; sh:datatype rdf:langString ] ;
+    sh:property [ sh:path ex:country ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:string ; sh:pattern "^[A-Z]{2}$" ] ;
+    sh:property [ sh:path ex:homepage ; sh:maxCount 1 ; sh:nodeKind sh:IRI ] .
+
+exsh:PersonShape a sh:NodeShape ;
+    sh:targetClass ex:Person ;
+    sh:property [ sh:path ex:name ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:string ] ;
+    sh:property [ sh:path ex:email ; sh:maxCount 1 ; sh:datatype xsd:string ] ;
+    sh:property [ sh:path ex:affiliation ; sh:minCount 1 ; sh:class ex:Institution ] .
+
+exsh:ClimateModelShape a sh:NodeShape ;
+    sh:targetClass ex:ClimateModel ;
+    sh:property [ sh:path rdfs:label ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:string ] ;
+    sh:property [ sh:path ex:developedBy ; sh:minCount 1 ;
+                  sh:or ( [ sh:class ex:Institution ] [ sh:class ex:Person ] ) ] ;
+    sh:property [ sh:path ex:horizontalResolutionKm ; sh:maxCount 1 ; sh:datatype xsd:decimal ] ;
+    sh:property [ sh:path ex:releaseDate ; sh:maxCount 1 ; sh:datatype xsd:date ] .
+
+# EarthSystemModel instances are ClimateModels too (via rdfs:subClassOf,
+# which SHACL targetClass honours), so they inherit ClimateModelShape.
+exsh:EarthSystemModelShape a sh:NodeShape ;
+    sh:targetClass ex:EarthSystemModel ;
+    sh:node exsh:ClimateModelShape ;
+    sh:property [ sh:path ex:releaseDate ; sh:minCount 1 ] .
+
+exsh:ScenarioShape a sh:NodeShape ;
+    sh:targetClass ex:Scenario ;
+    sh:property [ sh:path rdfs:label ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:string ] ;
+    sh:property [ sh:path ex:radiativeForcing ; sh:maxCount 1 ; sh:datatype xsd:decimal ] .
+
+exsh:VariableShape a sh:NodeShape ;
+    sh:targetClass ex:Variable ;
+    sh:property [ sh:path rdfs:label ; sh:minCount 1 ; sh:datatype rdf:langString ] ;
+    sh:property [ sh:path ex:unit ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:string ] ;
+    sh:property [ sh:path ex:shortName ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:string ] .
+
+exsh:PeriodShape a sh:NodeShape ;
+    sh:property [ sh:path ex:startYear ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:integer ] ;
+    sh:property [ sh:path ex:endYear ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:integer ] .
+
+exsh:SimulationShape a sh:NodeShape ;
+    sh:targetClass ex:Simulation ;
+    sh:property [ sh:path ex:usesModel ; sh:minCount 1 ; sh:maxCount 1 ; sh:class ex:ClimateModel ] ;
+    sh:property [ sh:path ex:usesScenario ; sh:minCount 1 ; sh:maxCount 1 ; sh:class ex:Scenario ] ;
+    sh:property [ sh:path ex:outputVariable ; sh:minCount 1 ; sh:class ex:Variable ] ;
+    sh:property [ sh:path ex:period ; sh:minCount 1 ; sh:maxCount 1 ; sh:nodeKind sh:BlankNode ; sh:node exsh:PeriodShape ] ;
+    sh:property [ sh:path ex:author ; sh:minCount 1 ; sh:class ex:Person ] ;
+    sh:property [ sh:path ex:doi ; sh:maxCount 1 ; sh:datatype xsd:string ] .

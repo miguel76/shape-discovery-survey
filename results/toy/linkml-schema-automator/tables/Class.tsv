@@ -1,0 +1,8 @@
+id	type	subClassOf
+http://example.org/toy/ClimateModel	Class	
+http://example.org/toy/EarthSystemModel	Class	ClimateModel
+http://example.org/toy/Institution	Class	
+http://example.org/toy/Person	Class	
+http://example.org/toy/Scenario	Class	
+http://example.org/toy/Simulation	Class	
+http://example.org/toy/Variable	Class	

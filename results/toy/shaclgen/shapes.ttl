@@ -1,0 +1,196 @@
+@prefix ex: <http://www.example.org/> .
+@prefix ns1: <http://example.org/toy/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xmls: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:ns1_ClimateModel a sh:NodeShape ;
+    sh:nodeKind sh:BlankNodeOrIRI ;
+    sh:property ex:ns1_developedBy,
+        ex:ns1_horizontalResolutionKm,
+        ex:ns1_releaseDate,
+        ex:rdfs_label ;
+    sh:targetClass ns1:ClimateModel .
+
+ex:ns1_EarthSystemModel a sh:NodeShape ;
+    sh:nodeKind sh:BlankNodeOrIRI ;
+    sh:property ex:ns1_developedBy,
+        ex:ns1_horizontalResolutionKm,
+        ex:ns1_releaseDate,
+        ex:rdfs_label ;
+    sh:targetClass ns1:EarthSystemModel .
+
+ex:ns1_Institution a sh:NodeShape ;
+    sh:nodeKind sh:BlankNodeOrIRI ;
+    sh:property ex:ns1_country,
+        ex:ns1_homepage,
+        ex:rdfs_label ;
+    sh:targetClass ns1:Institution .
+
+ex:ns1_Person a sh:NodeShape ;
+    sh:nodeKind sh:BlankNodeOrIRI ;
+    sh:property ex:ns1_affiliation,
+        ex:ns1_email,
+        ex:ns1_name ;
+    sh:targetClass ns1:Person .
+
+ex:ns1_Scenario a sh:NodeShape ;
+    sh:nodeKind sh:BlankNodeOrIRI ;
+    sh:property ex:ns1_radiativeForcing,
+        ex:rdfs_label ;
+    sh:targetClass ns1:Scenario .
+
+ex:ns1_Simulation a sh:NodeShape ;
+    sh:nodeKind sh:BlankNodeOrIRI ;
+    sh:property ex:ns1_author,
+        ex:ns1_doi,
+        ex:ns1_outputVariable,
+        ex:ns1_period,
+        ex:ns1_usesModel,
+        ex:ns1_usesScenario ;
+    sh:targetClass ns1:Simulation .
+
+ex:ns1_Variable a sh:NodeShape ;
+    sh:nodeKind sh:BlankNodeOrIRI ;
+    sh:property ex:ns1_shortName,
+        ex:ns1_unit,
+        ex:rdfs_label ;
+    sh:targetClass ns1:Variable .
+
+ex:ns1_endYear a sh:PropertyShape ;
+    sh:datatype xmls:integer ;
+    sh:nodeKind sh:Literal ;
+    sh:path ns1:endYear .
+
+ex:ns1_startYear a sh:PropertyShape ;
+    sh:datatype xmls:integer ;
+    sh:nodeKind sh:Literal ;
+    sh:path ns1:startYear .
+
+ex:rdfs_Class a sh:NodeShape ;
+    sh:nodeKind sh:BlankNodeOrIRI ;
+    sh:property ex:rdfs_subClassOf ;
+    sh:targetClass rdfs:Class .
+
+ex:ns1_affiliation a sh:PropertyShape ;
+    sh:class ns1:Institution ;
+    sh:nodeKind sh:IRI ;
+    sh:path ns1:affiliation .
+
+ex:ns1_author a sh:PropertyShape ;
+    sh:class ns1:Person ;
+    sh:nodeKind sh:IRI ;
+    sh:path ns1:author .
+
+ex:ns1_country a sh:PropertyShape ;
+    sh:datatype xmls:string ;
+    sh:nodeKind sh:Literal ;
+    sh:path ns1:country .
+
+ex:ns1_developedBy-class-0 sh:class ns1:Institution .
+
+ex:ns1_developedBy-class-1 sh:class ns1:Person .
+
+ex:ns1_developedBy-classlist-0 rdf:first ex:ns1_developedBy-class-0 ;
+    rdf:rest ex:ns1_developedBy-classlist-1 .
+
+ex:ns1_developedBy-classlist-1 rdf:first ex:ns1_developedBy-class-1 ;
+    rdf:rest () .
+
+ex:ns1_doi a sh:PropertyShape ;
+    sh:datatype xmls:string ;
+    sh:nodeKind sh:Literal ;
+    sh:path ns1:doi .
+
+ex:ns1_email a sh:PropertyShape ;
+    sh:datatype xmls:string ;
+    sh:nodeKind sh:Literal ;
+    sh:path ns1:email .
+
+ex:ns1_homepage a sh:PropertyShape ;
+    sh:nodeKind sh:IRI ;
+    sh:path ns1:homepage .
+
+ex:ns1_name a sh:PropertyShape ;
+    sh:datatype xmls:string ;
+    sh:nodeKind sh:Literal ;
+    sh:path ns1:name .
+
+ex:ns1_outputVariable a sh:PropertyShape ;
+    sh:class ns1:Variable ;
+    sh:nodeKind sh:IRI ;
+    sh:path ns1:outputVariable .
+
+ex:ns1_period a sh:PropertyShape ;
+    sh:nodeKind sh:BlankNode ;
+    sh:path ns1:period .
+
+ex:ns1_radiativeForcing a sh:PropertyShape ;
+    sh:datatype xmls:decimal ;
+    sh:nodeKind sh:Literal ;
+    sh:path ns1:radiativeForcing .
+
+ex:ns1_shortName a sh:PropertyShape ;
+    sh:datatype xmls:string ;
+    sh:nodeKind sh:Literal ;
+    sh:path ns1:shortName .
+
+ex:ns1_unit a sh:PropertyShape ;
+    sh:datatype xmls:string ;
+    sh:nodeKind sh:Literal ;
+    sh:path ns1:unit .
+
+ex:ns1_usesModel a sh:PropertyShape ;
+    sh:nodeKind sh:IRI ;
+    sh:or ex:ns1_usesModel-classlist-0 ;
+    sh:path ns1:usesModel .
+
+ex:ns1_usesModel-class-0 sh:class ns1:ClimateModel .
+
+ex:ns1_usesModel-class-1 sh:class ns1:EarthSystemModel .
+
+ex:ns1_usesModel-classlist-0 rdf:first ex:ns1_usesModel-class-0 ;
+    rdf:rest ex:ns1_usesModel-classlist-1 .
+
+ex:ns1_usesModel-classlist-1 rdf:first ex:ns1_usesModel-class-1 ;
+    rdf:rest () .
+
+ex:ns1_usesScenario a sh:PropertyShape ;
+    sh:nodeKind sh:IRI ;
+    sh:or ex:ns1_usesScenario-classlist-0 ;
+    sh:path ns1:usesScenario .
+
+ex:ns1_usesScenario-class-0 sh:class ns1:Scenario .
+
+ex:ns1_usesScenario-class-1 sh:class ns1:Variable .
+
+ex:ns1_usesScenario-classlist-0 rdf:first ex:ns1_usesScenario-class-0 ;
+    rdf:rest ex:ns1_usesScenario-classlist-1 .
+
+ex:ns1_usesScenario-classlist-1 rdf:first ex:ns1_usesScenario-class-1 ;
+    rdf:rest () .
+
+ex:rdfs_subClassOf a sh:PropertyShape ;
+    sh:class rdfs:Class ;
+    sh:nodeKind sh:IRI ;
+    sh:path rdfs:subClassOf .
+
+ex:ns1_developedBy a sh:PropertyShape ;
+    sh:nodeKind sh:IRI ;
+    sh:or ex:ns1_developedBy-classlist-0 ;
+    sh:path ns1:developedBy .
+
+ex:ns1_horizontalResolutionKm a sh:PropertyShape ;
+    sh:nodeKind sh:Literal ;
+    sh:path ns1:horizontalResolutionKm .
+
+ex:ns1_releaseDate a sh:PropertyShape ;
+    sh:datatype xmls:date ;
+    sh:nodeKind sh:Literal ;
+    sh:path ns1:releaseDate .
+
+ex:rdfs_label a sh:PropertyShape ;
+    sh:nodeKind sh:Literal ;
+    sh:path rdfs:label .
+
