@@ -1,0 +1,5 @@
+id	type	name	email	affiliation
+http://example.org/toy/p_alice	Person	Alice Martin	alice@example.org	inst_ipsl
+http://example.org/toy/p_bob	Person	Bob Schmidt		inst_mpi
+http://example.org/toy/p_carla	Person	Carla Rossi	carla@example.org	inst_cmcc
+http://example.org/toy/p_dan	Person	Dan Brown		inst_mpi|inst_ncar

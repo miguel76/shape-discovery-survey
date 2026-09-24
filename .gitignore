@@ -1,0 +1,4 @@
+# tool installations (tools/*/install.sh) and large intermediate files
+.tools/
+work/
+__pycache__/

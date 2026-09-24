@@ -1,0 +1,134 @@
+# Toy knowledge graph for smoke-testing shape discovery tools.
+# Loosely inspired by the climate-change domain (see CCKG), it is small enough
+# to be inspected by hand but deliberately contains the kind of heterogeneity
+# that shape discovery tools must cope with:
+#   - a class hierarchy (ex:EarthSystemModel rdfs:subClassOf ex:ClimateModel)
+#     with some instances typed only with the subclass;
+#   - optional properties (ex:email, ex:doi, ex:homepage only on some nodes);
+#   - multi-valued properties (ex:outputVariable, ex:author, rdfs:label@lang);
+#   - a property whose values are mostly typed one way and occasionally another
+#     (ex:horizontalResolutionKm: decimal vs. one string);
+#   - a property pointing to two different classes (ex:developedBy -> Institution or Person);
+#   - a blank-node structured value (ex:period [ ex:startYear ; ex:endYear ]);
+#   - an IRI object with no rdf:type (ex:homepage);
+#   - one "dirty" node (ex:sim_bad lacks ex:usesModel, has a wrong-typed ex:usesScenario value).
+
+@prefix ex:   <http://example.org/toy/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
+
+# ------------------------------------------------------------------ schema
+ex:ClimateModel      a rdfs:Class .
+ex:EarthSystemModel  a rdfs:Class ; rdfs:subClassOf ex:ClimateModel .
+ex:Institution       a rdfs:Class .
+ex:Person            a rdfs:Class .
+ex:Scenario          a rdfs:Class .
+ex:Simulation        a rdfs:Class .
+ex:Variable          a rdfs:Class .
+
+# ------------------------------------------------------------ institutions
+ex:inst_ipsl a ex:Institution ;
+    rdfs:label "Institut Pierre-Simon Laplace"@fr , "Pierre-Simon Laplace Institute"@en ;
+    ex:country "FR" ;
+    ex:homepage <https://www.ipsl.fr/> .
+ex:inst_mpi a ex:Institution ;
+    rdfs:label "Max Planck Institute for Meteorology"@en ;
+    ex:country "DE" ;
+    ex:homepage <https://mpimet.mpg.de/> .
+ex:inst_ncar a ex:Institution ;
+    rdfs:label "National Center for Atmospheric Research"@en ;
+    ex:country "US" .
+ex:inst_cmcc a ex:Institution ;
+    rdfs:label "Centro Euro-Mediterraneo sui Cambiamenti Climatici"@it ;
+    ex:country "IT" .
+
+# ------------------------------------------------------------------ people
+ex:p_alice a ex:Person ;
+    ex:name "Alice Martin" ;
+    ex:email "alice@example.org" ;
+    ex:affiliation ex:inst_ipsl .
+ex:p_bob a ex:Person ;
+    ex:name "Bob Schmidt" ;
+    ex:affiliation ex:inst_mpi .
+ex:p_carla a ex:Person ;
+    ex:name "Carla Rossi" ;
+    ex:email "carla@example.org" ;
+    ex:affiliation ex:inst_cmcc .
+ex:p_dan a ex:Person ;
+    ex:name "Dan Brown" ;
+    ex:affiliation ex:inst_ncar , ex:inst_mpi .
+
+# ------------------------------------------------------------------ models
+ex:m_ipsl_cm6a a ex:ClimateModel , ex:EarthSystemModel ;
+    rdfs:label "IPSL-CM6A-LR" ;
+    ex:developedBy ex:inst_ipsl ;
+    ex:horizontalResolutionKm "250.0"^^xsd:decimal ;
+    ex:releaseDate "2018-06-01"^^xsd:date .
+ex:m_mpi_esm a ex:EarthSystemModel ;
+    rdfs:label "MPI-ESM1-2-HR" ;
+    ex:developedBy ex:inst_mpi ;
+    ex:horizontalResolutionKm "100.0"^^xsd:decimal ;
+    ex:releaseDate "2019-01-15"^^xsd:date .
+ex:m_cesm2 a ex:ClimateModel , ex:EarthSystemModel ;
+    rdfs:label "CESM2" ;
+    ex:developedBy ex:inst_ncar ;
+    ex:horizontalResolutionKm "100.0"^^xsd:decimal ;
+    ex:releaseDate "2018-09-01"^^xsd:date .
+ex:m_cmcc_cm2 a ex:ClimateModel ;
+    rdfs:label "CMCC-CM2-SR5" ;
+    ex:developedBy ex:inst_cmcc ;
+    ex:horizontalResolutionKm "approx. 100" .
+ex:m_toy a ex:ClimateModel ;
+    rdfs:label "Toy energy-balance model" ;
+    ex:developedBy ex:p_dan ;
+    ex:horizontalResolutionKm "5000.0"^^xsd:decimal .
+
+# --------------------------------------------------------------- scenarios
+ex:ssp126 a ex:Scenario ; rdfs:label "SSP1-2.6" ; ex:radiativeForcing "2.6"^^xsd:decimal .
+ex:ssp245 a ex:Scenario ; rdfs:label "SSP2-4.5" ; ex:radiativeForcing "4.5"^^xsd:decimal .
+ex:ssp585 a ex:Scenario ; rdfs:label "SSP5-8.5" ; ex:radiativeForcing "8.5"^^xsd:decimal .
+ex:historical a ex:Scenario ; rdfs:label "historical" .
+
+# --------------------------------------------------------------- variables
+ex:var_tas a ex:Variable ; rdfs:label "Near-Surface Air Temperature"@en ; ex:unit "K" ; ex:shortName "tas" .
+ex:var_pr  a ex:Variable ; rdfs:label "Precipitation"@en ; ex:unit "kg m-2 s-1" ; ex:shortName "pr" .
+ex:var_psl a ex:Variable ; rdfs:label "Sea Level Pressure"@en ; ex:unit "Pa" ; ex:shortName "psl" .
+ex:var_tos a ex:Variable ; rdfs:label "Sea Surface Temperature"@en ; ex:unit "degC" ; ex:shortName "tos" .
+
+# ------------------------------------------------------------- simulations
+ex:sim_1 a ex:Simulation ;
+    ex:usesModel ex:m_ipsl_cm6a ;
+    ex:usesScenario ex:ssp585 ;
+    ex:outputVariable ex:var_tas , ex:var_pr ;
+    ex:period [ ex:startYear 2015 ; ex:endYear 2100 ] ;
+    ex:author ex:p_alice ;
+    ex:doi "10.0000/sim.1" .
+ex:sim_2 a ex:Simulation ;
+    ex:usesModel ex:m_mpi_esm ;
+    ex:usesScenario ex:ssp245 ;
+    ex:outputVariable ex:var_tas , ex:var_psl , ex:var_tos ;
+    ex:period [ ex:startYear 2015 ; ex:endYear 2100 ] ;
+    ex:author ex:p_bob , ex:p_dan .
+ex:sim_3 a ex:Simulation ;
+    ex:usesModel ex:m_cesm2 ;
+    ex:usesScenario ex:ssp126 ;
+    ex:outputVariable ex:var_pr ;
+    ex:period [ ex:startYear 2015 ; ex:endYear 2300 ] ;
+    ex:author ex:p_dan ;
+    ex:doi "10.0000/sim.3" .
+ex:sim_4 a ex:Simulation ;
+    ex:usesModel ex:m_cmcc_cm2 ;
+    ex:usesScenario ex:historical ;
+    ex:outputVariable ex:var_tas , ex:var_tos ;
+    ex:period [ ex:startYear 1850 ; ex:endYear 2014 ] ;
+    ex:author ex:p_carla .
+ex:sim_5 a ex:Simulation ;
+    ex:usesModel ex:m_ipsl_cm6a ;
+    ex:usesScenario ex:historical ;
+    ex:outputVariable ex:var_tas ;
+    ex:period [ ex:startYear 1850 ; ex:endYear 2014 ] ;
+    ex:author ex:p_alice .
+ex:sim_bad a ex:Simulation ;
+    ex:usesScenario ex:var_pr ;
+    ex:outputVariable ex:var_tas ;
+    ex:author ex:p_bob .

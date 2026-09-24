@@ -1,0 +1,18 @@
+/home/user/shape-discovery-survey/.tools/linkml-venv/lib/python3.11/site-packages/quantulum3/classifier.py:27: UserWarning: Classifier dependencies not installed. Run `uv sync --extra classifier` or `pip install quantulum3[classifier]` to install them. The classifer helps to dissambiguate units.
+  warnings.warn(
+Writing 7 to /home/user/shape-discovery-survey/results/toy/linkml-schema-automator/tables/Class.tsv
+Writing 4 to /home/user/shape-discovery-survey/results/toy/linkml-schema-automator/tables/Institution.tsv
+Writing 4 to /home/user/shape-discovery-survey/results/toy/linkml-schema-automator/tables/Person.tsv
+Writing 4 to /home/user/shape-discovery-survey/results/toy/linkml-schema-automator/tables/ClimateModel.tsv
+Writing 3 to /home/user/shape-discovery-survey/results/toy/linkml-schema-automator/tables/EarthSystemModel.tsv
+Writing 4 to /home/user/shape-discovery-survey/results/toy/linkml-schema-automator/tables/Scenario.tsv
+Writing 4 to /home/user/shape-discovery-survey/results/toy/linkml-schema-automator/tables/Variable.tsv
+Writing 6 to /home/user/shape-discovery-survey/results/toy/linkml-schema-automator/tables/Simulation.tsv
+ERROR:linkml.generators.shaclgen:No URI for type http identifier
+ERROR:linkml.generators.shaclgen:No URI for type http identifier
+ERROR:linkml.generators.shaclgen:No URI for type http identifier
+ERROR:linkml.generators.shaclgen:No URI for type http identifier
+ERROR:linkml.generators.shaclgen:No URI for type http identifier
+ERROR:linkml.generators.shaclgen:No URI for type http identifier
+ERROR:linkml.generators.shaclgen:No URI for type http identifier
+ERROR:linkml.generators.shaclgen:No URI for type http identifier
