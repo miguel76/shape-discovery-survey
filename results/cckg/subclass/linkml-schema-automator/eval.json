@@ -1,0 +1,20 @@
+{
+  "run": "linkml-schema-automator",
+  "tool": "linkml-schema-automator",
+  "mode": "file",
+  "source": "work/cckg/subclass/data.ttl",
+  "command": [
+    "tools/linkml-schema-automator/run.sh",
+    "file",
+    "work/cckg/subclass/data.ttl",
+    "results/cckg/subclass/linkml-schema-automator"
+  ],
+  "exit_code": 1,
+  "timed_out": false,
+  "wall_seconds": 503.88,
+  "cpu_seconds": 499.23,
+  "peak_rss_mb": 11965.7,
+  "has_output": false,
+  "syntax": "error: FileNotFoundError: [Errno 2] No such file or directory: '/home/user/shape-discovery-survey/results/cckg/subclass/linkml-schema-automator/shapes.ttl'",
+  "inference": "subclass"
+}

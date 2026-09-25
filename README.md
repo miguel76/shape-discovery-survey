@@ -41,30 +41,41 @@ The full catalogue, including execution requirements and the reason for each exc
 ## Pipeline
 
 ```
-data/<kg>/kg.json ──► pipeline/run.py ──► results/<kg>/<tool>[@endpoint]/shapes.ttl ──► pipeline/evaluate.py ──► results/<kg>/summary.md
-   (dump files,        merge graphs and normalise with       + run.log, run.json            parse, SHACL vocabulary and
-    endpoint,          Jena riot; optionally serve the       (exit code, time, peak RSS)    SHACL-SHACL checks, profile,
-    reference shapes)  dump with Fuseki (TDB2);                                             self-validation (Jena SHACL),
-                       run tools/<tool>/run.sh                                              comparison with the reference shapes
+data/<kg>/kg.json ──► pipeline/run.py ──► results/<kg>/<regime>/<tool>[@endpoint]/shapes.ttl ──► pipeline/evaluate.py ──► results/<kg>/<regime>/summary.md
+   (dump files,        merge graphs; apply the               + run.log, run.json                   parse, SHACL vocabulary and       results/<kg>/summary.md
+    ontologies,        inference regime; optionally          (exit code, time, peak RSS)           SHACL-SHACL checks, profile,      (regimes compared)
+    endpoint,          serve the data with Fuseki (TDB2);                                          self-validation (Jena SHACL)
+    reference shapes)  run tools/<tool>/run.sh                                                     under the same regime,
+                                                                                                   comparison with the reference shapes
 ```
+
+The **inference regime** (`none`, `subclass` or `rdfs`) is applied identically to shape discovery
+and to validation (see [pipeline/regimes.py](pipeline/regimes.py)). Why this matters, and the
+pros and cons of inference-aware shapes, are discussed in [docs/inference.md](docs/inference.md).
 
 Requirements are bash, git, Python ≥ 3.10, Java ≥ 17 and Maven. Docker is not needed. Every tool
 is installed under `.tools/` at a pinned version:
 
 ```sh
 make install          # the tools, Fuseki, and the evaluation environment (~2 min)
-make run evaluate     # KG=toy by default; results in results/toy/
-make run evaluate KG=cckg RUN_ARGS="--endpoint --local-endpoint"
+make run evaluate     # KG=toy, INFERENCE=none by default; results in results/toy/none/
+make run evaluate KG=toy INFERENCE=subclass
+make run evaluate KG=cckg INFERENCE=rdfs RUN_ARGS="--endpoint --local-endpoint"
 ```
 
 On CCKG (4.7M triples) single steps peak at about 8 GB of RAM (a 16 GB machine is enough), and a full run takes a few hours, most of it spent in
 SHACLGEN, in sheXer's endpoint mode and in validating the KG against every set of shapes.
 `--local-endpoint` serves the dump with a local Fuseki. This sandbox cannot reach the public CCKG
-endpoint, and a local endpoint also keeps the load off the public one.
+endpoint, and a local endpoint also keeps the load off the public one. With a regime other than
+`none` it is required, since the entailments a remote endpoint exposes are unknown. The
+`subclass` and `rdfs` regimes double and triple the size of CCKG. Python tools are capped at
+`TOOL_VMEM_MB` (default 12288) of address space, so they fail with a `MemoryError` rather than
+exhausting the machine.
 
 To add a KG, create `data/<kg>/kg.json` (see [data/toy/kg.json](data/toy/kg.json) and the
 docstring of [pipeline/run.py](pipeline/run.py)). The file lists the dump files and, optionally,
-a SPARQL `endpoint` and `reference_shapes`. Then run `make run evaluate KG=<kg>`.
+the `ontologies` the KG uses but does not include (they feed the inference regimes only), a SPARQL
+`endpoint` and `reference_shapes`. Then run `make run evaluate KG=<kg>`.
 
 To add a tool, create `tools/<tool>/install.sh` and `tools/<tool>/run.sh`, where
 `run.sh (file INPUT | endpoint URL) OUTDIR` writes `OUTDIR/shapes.ttl`. Then register the tool in
@@ -83,5 +94,7 @@ needed a bug fix before its per-class results were meaningful.
 
 All five tools run on the CCKG dump, and sheXer and SHACL Play also run through a SPARQL
 endpoint. Getting there required fixes in three tools. The run also exposed defects in the CCKG
-data itself. See [results/cckg/summary.md](results/cckg/summary.md) and
-[docs/cckg-findings.md](docs/cckg-findings.md).
+data itself. The survey was repeated under three inference regimes; the `rdfs` closure triples the
+data and pushes some tools out of memory. See
+[results/cckg/summary.md](results/cckg/summary.md), [docs/cckg-findings.md](docs/cckg-findings.md)
+and, on inference, [docs/inference.md](docs/inference.md).

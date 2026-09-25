@@ -1,0 +1,354 @@
+name: example
+description: example
+id: https://w3id.org/example
+imports:
+- linkml:types
+prefixes:
+  linkml: https://w3id.org/linkml/
+  example: https://w3id.org/example
+default_prefix: example
+types:
+  http identifier:
+    typeof: string
+slots:
+  id:
+    annotations:
+      num_distinct_values:
+        tag: num_distinct_values
+        value: '7'
+    examples:
+    - value: http://example.org/toy/Variable
+    identifier: true
+    range: http identifier
+  type:
+    annotations:
+      num_distinct_values:
+        tag: num_distinct_values
+        value: '1'
+    examples:
+    - value: Class
+    slot_uri: http://www.w3.org/1999/02/22-rdf-syntax-ns#type
+    range: string
+  subClassOf:
+    annotations:
+      num_distinct_values:
+        tag: num_distinct_values
+        value: '1'
+    examples:
+    - value: ClimateModel
+    slot_uri: http://www.w3.org/2000/01/rdf-schema#subClassOf
+    range: string
+  label:
+    annotations:
+      num_distinct_values:
+        tag: num_distinct_values
+        value: '4'
+    examples:
+    - value: SSP5-8.5
+    slot_uri: http://www.w3.org/2000/01/rdf-schema#label
+    range: string
+  radiativeForcing:
+    annotations:
+      num_distinct_values:
+        tag: num_distinct_values
+        value: '3'
+    examples:
+    - value: '8.5'
+    slot_uri: http://example.org/toy/radiativeForcing
+    range: float
+  country:
+    annotations:
+      num_distinct_values:
+        tag: num_distinct_values
+        value: '4'
+    examples:
+    - value: US
+    slot_uri: http://example.org/toy/country
+    range: string
+  homepage:
+    annotations:
+      num_distinct_values:
+        tag: num_distinct_values
+        value: '0'
+    slot_uri: http://example.org/toy/homepage
+    range: string
+  developedBy:
+    annotations:
+      num_distinct_values:
+        tag: num_distinct_values
+        value: '5'
+    examples:
+    - value: p_dan
+    slot_uri: http://example.org/toy/developedBy
+    range: string
+  horizontalResolutionKm:
+    annotations:
+      num_distinct_values:
+        tag: num_distinct_values
+        value: '4'
+    examples:
+    - value: '5000.0'
+    slot_uri: http://example.org/toy/horizontalResolutionKm
+    range: string
+  releaseDate:
+    annotations:
+      num_distinct_values:
+        tag: num_distinct_values
+        value: '3'
+    examples:
+    - value: '2019-01-15'
+    slot_uri: http://example.org/toy/releaseDate
+    range: date
+  affiliation:
+    annotations:
+      num_distinct_values:
+        tag: num_distinct_values
+        value: '4'
+    examples:
+    - value: inst_ncar|inst_mpi
+    slot_uri: http://example.org/toy/affiliation
+    range: string
+    multivalued: true
+  email:
+    annotations:
+      num_distinct_values:
+        tag: num_distinct_values
+        value: '2'
+    examples:
+    - value: carla@example.org
+    slot_uri: http://example.org/toy/email
+    range: string
+  name:
+    annotations:
+      num_distinct_values:
+        tag: num_distinct_values
+        value: '4'
+    examples:
+    - value: Dan Brown
+    slot_uri: http://example.org/toy/name
+    range: string
+  author:
+    annotations:
+      num_distinct_values:
+        tag: num_distinct_values
+        value: '4'
+    examples:
+    - value: p_bob
+    slot_uri: http://example.org/toy/author
+    range: string
+    multivalued: true
+  doi:
+    annotations:
+      num_distinct_values:
+        tag: num_distinct_values
+        value: '2'
+    examples:
+    - value: sim.3
+    slot_uri: http://example.org/toy/doi
+    range: string
+  outputVariable:
+    annotations:
+      num_distinct_values:
+        tag: num_distinct_values
+        value: '4'
+    examples:
+    - value: var_tas
+    slot_uri: http://example.org/toy/outputVariable
+    range: string
+    multivalued: true
+  period:
+    annotations:
+      num_distinct_values:
+        tag: num_distinct_values
+        value: '5'
+    examples:
+    - value: n11d34941f05742fa945cdc32bf8622f7b5
+    slot_uri: http://example.org/toy/period
+    range: string
+  usesModel:
+    annotations:
+      num_distinct_values:
+        tag: num_distinct_values
+        value: '4'
+    examples:
+    - value: m_ipsl_cm6a
+    slot_uri: http://example.org/toy/usesModel
+    range: string
+  usesScenario:
+    annotations:
+      num_distinct_values:
+        tag: num_distinct_values
+        value: '5'
+    examples:
+    - value: var_pr
+    slot_uri: http://example.org/toy/usesScenario
+    range: string
+  shortName:
+    annotations:
+      num_distinct_values:
+        tag: num_distinct_values
+        value: '4'
+    examples:
+    - value: tos
+    slot_uri: http://example.org/toy/shortName
+    range: string
+  unit:
+    annotations:
+      num_distinct_values:
+        tag: num_distinct_values
+        value: '4'
+    examples:
+    - value: degC
+    slot_uri: http://example.org/toy/unit
+    range: string
+classes:
+  Class:
+    slots:
+    - id
+    - type
+    - subClassOf
+    class_uri: http://www.w3.org/2000/01/rdf-schema#Class
+    unique_keys:
+      subClassOf_key:
+        unique_key_name: subClassOf_key
+        unique_key_slots:
+        - subClassOf
+  Scenario:
+    slots:
+    - id
+    - type
+    - label
+    - radiativeForcing
+    class_uri: http://example.org/toy/Scenario
+    unique_keys:
+      label_key:
+        unique_key_name: label_key
+        unique_key_slots:
+        - label
+      radiativeForcing_key:
+        unique_key_name: radiativeForcing_key
+        unique_key_slots:
+        - radiativeForcing
+  Institution:
+    slots:
+    - id
+    - country
+    - type
+    - label
+    - homepage
+    class_uri: http://example.org/toy/Institution
+    unique_keys:
+      country_key:
+        unique_key_name: country_key
+        unique_key_slots:
+        - country
+      label_key:
+        unique_key_name: label_key
+        unique_key_slots:
+        - label
+      homepage_key:
+        unique_key_name: homepage_key
+        unique_key_slots:
+        - homepage
+  ClimateModel:
+    slots:
+    - id
+    - developedBy
+    - horizontalResolutionKm
+    - releaseDate
+    - type
+    - label
+    class_uri: http://example.org/toy/ClimateModel
+    unique_keys:
+      developedBy_key:
+        unique_key_name: developedBy_key
+        unique_key_slots:
+        - developedBy
+      releaseDate_key:
+        unique_key_name: releaseDate_key
+        unique_key_slots:
+        - releaseDate
+      label_key:
+        unique_key_name: label_key
+        unique_key_slots:
+        - label
+  EarthSystemModel:
+    slots:
+    - id
+    - developedBy
+    - horizontalResolutionKm
+    - releaseDate
+    - type
+    - label
+    class_uri: http://example.org/toy/EarthSystemModel
+    unique_keys:
+      developedBy_key:
+        unique_key_name: developedBy_key
+        unique_key_slots:
+        - developedBy
+      releaseDate_key:
+        unique_key_name: releaseDate_key
+        unique_key_slots:
+        - releaseDate
+      label_key:
+        unique_key_name: label_key
+        unique_key_slots:
+        - label
+  Person:
+    slots:
+    - id
+    - affiliation
+    - email
+    - name
+    - type
+    class_uri: http://example.org/toy/Person
+    unique_keys:
+      email_key:
+        unique_key_name: email_key
+        unique_key_slots:
+        - email
+      name_key:
+        unique_key_name: name_key
+        unique_key_slots:
+        - name
+  Simulation:
+    slots:
+    - id
+    - author
+    - doi
+    - outputVariable
+    - period
+    - usesModel
+    - usesScenario
+    - type
+    class_uri: http://example.org/toy/Simulation
+    unique_keys:
+      doi_key:
+        unique_key_name: doi_key
+        unique_key_slots:
+        - doi
+      period_key:
+        unique_key_name: period_key
+        unique_key_slots:
+        - period
+  Variable:
+    slots:
+    - id
+    - shortName
+    - unit
+    - type
+    - label
+    class_uri: http://example.org/toy/Variable
+    unique_keys:
+      shortName_key:
+        unique_key_name: shortName_key
+        unique_key_slots:
+        - shortName
+      unit_key:
+        unique_key_name: unit_key
+        unique_key_slots:
+        - unit
+      label_key:
+        unique_key_name: label_key
+        unique_key_slots:
+        - label

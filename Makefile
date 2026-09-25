@@ -1,6 +1,8 @@
 # Shape discovery survey pipeline. Requirements: bash, git, Python >= 3.10,
 # Java >= 17, Maven. See README.md.
 KG ?= toy
+# inference regime applied to both discovery and validation: none, subclass or rdfs
+INFERENCE ?= none
 TOOLS := $(shell python3 -c "import json;print(' '.join(json.load(open('tools/registry.json'))))")
 TOOLS_HOME ?= $(CURDIR)/.tools
 RUN_ARGS ?= --endpoint
@@ -23,9 +25,9 @@ install-%: FORCE
 
 # run all tools on data/$(KG) (file input, plus SPARQL-endpoint input where supported)
 run:
-	$(PY) pipeline/run.py $(KG) $(RUN_ARGS)
+	$(PY) pipeline/run.py $(KG) --inference $(INFERENCE) $(RUN_ARGS)
 
 evaluate:
-	$(PY) pipeline/evaluate.py $(KG)
+	$(PY) pipeline/evaluate.py $(KG) --inference $(INFERENCE)
 
 FORCE:

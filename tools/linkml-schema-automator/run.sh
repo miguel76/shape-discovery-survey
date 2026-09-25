@@ -5,6 +5,7 @@
 # then `gen-shacl` turns the LinkML schema into SHACL.
 set -euo pipefail
 source "$(dirname "$0")/../common.sh"
+limit_memory
 [ "$1" = file ] || { echo "linkml-schema-automator: only 'file' mode is supported" >&2; exit 2; }
 out="$3"; mkdir -p "$out"
 bin="$TOOLS_HOME/linkml-venv/bin"

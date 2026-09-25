@@ -1,0 +1,9 @@
+Class,Frequency
+http://www.w3.org/2000/01/rdf-schema#Class,7
+http://example.org/toy/Scenario,4
+http://example.org/toy/Institution,4
+http://example.org/toy/ClimateModel,5
+http://example.org/toy/EarthSystemModel,3
+http://example.org/toy/Person,4
+http://example.org/toy/Simulation,6
+http://example.org/toy/Variable,4

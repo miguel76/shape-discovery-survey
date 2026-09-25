@@ -1,0 +1,17 @@
+{
+  "tool": "qse-pruned",
+  "mode": "file",
+  "source": "work/cckg/subclass/data.nt",
+  "command": [
+    "tools/qse-pruned/run.sh",
+    "file",
+    "work/cckg/subclass/data.nt",
+    "results/cckg/subclass/qse-pruned"
+  ],
+  "exit_code": 0,
+  "timed_out": false,
+  "wall_seconds": 66.16,
+  "cpu_seconds": 103.43,
+  "peak_rss_mb": 5621.7,
+  "has_output": true
+}

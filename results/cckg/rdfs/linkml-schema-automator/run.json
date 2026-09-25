@@ -1,0 +1,17 @@
+{
+  "tool": "linkml-schema-automator",
+  "mode": "file",
+  "source": "work/cckg/rdfs/data.ttl",
+  "command": [
+    "tools/linkml-schema-automator/run.sh",
+    "file",
+    "work/cckg/rdfs/data.ttl",
+    "results/cckg/rdfs/linkml-schema-automator"
+  ],
+  "exit_code": 1,
+  "timed_out": false,
+  "wall_seconds": 392.27,
+  "cpu_seconds": 384.97,
+  "peak_rss_mb": 11970.2,
+  "has_output": false
+}

@@ -1,0 +1,17 @@
+{
+  "tool": "shaclgen",
+  "mode": "file",
+  "source": "work/cckg/subclass/data.nt",
+  "command": [
+    "tools/shaclgen/run.sh",
+    "file",
+    "work/cckg/subclass/data.nt",
+    "results/cckg/subclass/shaclgen"
+  ],
+  "exit_code": 0,
+  "timed_out": false,
+  "wall_seconds": 8320.45,
+  "cpu_seconds": 8240.6,
+  "peak_rss_mb": 10123.4,
+  "has_output": true
+}

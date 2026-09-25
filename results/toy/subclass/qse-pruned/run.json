@@ -1,0 +1,17 @@
+{
+  "tool": "qse-pruned",
+  "mode": "file",
+  "source": "work/toy/subclass/data.nt",
+  "command": [
+    "tools/qse-pruned/run.sh",
+    "file",
+    "work/toy/subclass/data.nt",
+    "results/toy/subclass/qse-pruned"
+  ],
+  "exit_code": 0,
+  "timed_out": false,
+  "wall_seconds": 1.8,
+  "cpu_seconds": 3.2,
+  "peak_rss_mb": 143.5,
+  "has_output": false
+}

@@ -1,0 +1,81 @@
+{
+  "run": "shaclgen",
+  "tool": "shaclgen",
+  "mode": "file",
+  "source": "work/toy/none/data.nt",
+  "command": [
+    "tools/shaclgen/run.sh",
+    "file",
+    "work/toy/none/data.nt",
+    "results/toy/none/shaclgen"
+  ],
+  "exit_code": 0,
+  "timed_out": false,
+  "wall_seconds": 0.8,
+  "cpu_seconds": 0.75,
+  "peak_rss_mb": 40.4,
+  "has_output": true,
+  "syntax": "ok",
+  "non_shacl_terms": [],
+  "well_formedness": {
+    "conforms": true,
+    "violations": 0,
+    "focus_nodes": 0,
+    "by_component": {}
+  },
+  "profile": {
+    "triples": 148,
+    "node_shapes": 8,
+    "property_shapes": 21,
+    "class_path_pairs": 26,
+    "pairs_repeated_from_superclass": 4,
+    "constraint_usage": {
+      "sh:class": 10,
+      "sh:datatype": 10,
+      "sh:nodeKind": 29,
+      "sh:or": 3
+    }
+  },
+  "self_validation": {
+    "conforms": true,
+    "violations": 0,
+    "focus_nodes": 0,
+    "validated_focus_nodes": 34,
+    "target_focus_nodes": 34,
+    "partial": false,
+    "seconds": 0,
+    "by_component": {},
+    "top_path_components": {}
+  },
+  "reference": {
+    "pairs_extracted": 26,
+    "pairs_reference": 22,
+    "pairs_shared": 22,
+    "pair_precision": 0.846,
+    "pair_recall": 1.0,
+    "missing_pairs": [],
+    "constraint_agreement": {
+      "datatype": {
+        "agree": 8,
+        "of": 13
+      },
+      "class": {
+        "agree": 4,
+        "of": 6
+      },
+      "required": {
+        "agree": 6,
+        "of": 22
+      },
+      "functional": {
+        "agree": 7,
+        "of": 22
+      }
+    },
+    "reference_violations_found": {
+      "found": 0,
+      "of": 5
+    }
+  },
+  "inference": "none"
+}

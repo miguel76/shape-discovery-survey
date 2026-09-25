@@ -1,0 +1,56 @@
+{
+  "run": "shacl-play",
+  "tool": "shacl-play",
+  "mode": "file",
+  "source": "work/cckg/rdfs/data.nt",
+  "command": [
+    "tools/shacl-play/run.sh",
+    "file",
+    "work/cckg/rdfs/data.nt",
+    "results/cckg/rdfs/shacl-play"
+  ],
+  "exit_code": 0,
+  "timed_out": false,
+  "wall_seconds": 6408.77,
+  "cpu_seconds": 6839.97,
+  "peak_rss_mb": 4921.4,
+  "has_output": true,
+  "syntax": "ok",
+  "non_shacl_terms": [],
+  "well_formedness": {
+    "conforms": true,
+    "violations": 0,
+    "focus_nodes": 0,
+    "by_component": {}
+  },
+  "profile": {
+    "triples": 26050,
+    "node_shapes": 79,
+    "property_shapes": 1040,
+    "class_path_pairs": 1040,
+    "pairs_repeated_from_superclass": 960,
+    "constraint_usage": {
+      "sh:class": 6196,
+      "sh:datatype": 337,
+      "sh:hasValue": 31,
+      "sh:in": 26,
+      "sh:languageIn": 76,
+      "sh:maxCount": 645,
+      "sh:minCount": 160,
+      "sh:nodeKind": 1060,
+      "sh:or": 817
+    }
+  },
+  "self_validation": {
+    "conforms": true,
+    "violations": 0,
+    "focus_nodes": 0,
+    "validated_focus_nodes": 654288,
+    "target_focus_nodes": 654288,
+    "partial": false,
+    "seconds": 1446,
+    "by_component": {},
+    "top_path_components": {}
+  },
+  "inference": "rdfs"
+}

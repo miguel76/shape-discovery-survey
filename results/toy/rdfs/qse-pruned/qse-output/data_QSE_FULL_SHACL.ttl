@@ -1,0 +1,378 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://shaclshapes.org/ClassShape> rdf:type <http://www.w3.org/ns/shacl#NodeShape> ;
+  <http://shaclshapes.org/support> "7"^^xsd:int ;
+  <http://www.w3.org/ns/shacl#property> <http://shaclshapes.org/instanceTypeClassShapeProperty> ;
+  <http://www.w3.org/ns/shacl#property> <http://shaclshapes.org/subClassOfClassShapeProperty> ;
+  <http://www.w3.org/ns/shacl#targetClass> rdfs:Class .
+
+<http://shaclshapes.org/ClimateModelShape> rdf:type <http://www.w3.org/ns/shacl#NodeShape> ;
+  <http://shaclshapes.org/support> "5"^^xsd:int ;
+  <http://www.w3.org/ns/shacl#property> <http://shaclshapes.org/developedByClimateModelShapeProperty> ;
+  <http://www.w3.org/ns/shacl#property> <http://shaclshapes.org/horizontalResolutionKmClimateModelShapeProperty> ;
+  <http://www.w3.org/ns/shacl#property> <http://shaclshapes.org/instanceTypeClimateModelShapeProperty> ;
+  <http://www.w3.org/ns/shacl#property> <http://shaclshapes.org/labelClimateModelShapeProperty> ;
+  <http://www.w3.org/ns/shacl#property> <http://shaclshapes.org/releaseDateClimateModelShapeProperty> ;
+  <http://www.w3.org/ns/shacl#targetClass> <http://example.org/toy/ClimateModel> .
+
+<http://shaclshapes.org/EarthSystemModelShape> rdf:type <http://www.w3.org/ns/shacl#NodeShape> ;
+  <http://shaclshapes.org/support> "3"^^xsd:int ;
+  <http://www.w3.org/ns/shacl#property> <http://shaclshapes.org/developedByEarthSystemModelShapeProperty> ;
+  <http://www.w3.org/ns/shacl#property> <http://shaclshapes.org/horizontalResolutionKmEarthSystemModelShapeProperty> ;
+  <http://www.w3.org/ns/shacl#property> <http://shaclshapes.org/instanceTypeEarthSystemModelShapeProperty> ;
+  <http://www.w3.org/ns/shacl#property> <http://shaclshapes.org/labelEarthSystemModelShapeProperty> ;
+  <http://www.w3.org/ns/shacl#property> <http://shaclshapes.org/releaseDateEarthSystemModelShapeProperty> ;
+  <http://www.w3.org/ns/shacl#targetClass> <http://example.org/toy/EarthSystemModel> .
+
+<http://shaclshapes.org/InstitutionShape> rdf:type <http://www.w3.org/ns/shacl#NodeShape> ;
+  <http://shaclshapes.org/support> "4"^^xsd:int ;
+  <http://www.w3.org/ns/shacl#property> <http://shaclshapes.org/countryInstitutionShapeProperty> ;
+  <http://www.w3.org/ns/shacl#property> <http://shaclshapes.org/homepageInstitutionShapeProperty> ;
+  <http://www.w3.org/ns/shacl#property> <http://shaclshapes.org/instanceTypeInstitutionShapeProperty> ;
+  <http://www.w3.org/ns/shacl#property> <http://shaclshapes.org/labelInstitutionShapeProperty> ;
+  <http://www.w3.org/ns/shacl#targetClass> <http://example.org/toy/Institution> .
+
+<http://shaclshapes.org/PersonShape> rdf:type <http://www.w3.org/ns/shacl#NodeShape> ;
+  <http://shaclshapes.org/support> "4"^^xsd:int ;
+  <http://www.w3.org/ns/shacl#property> <http://shaclshapes.org/affiliationPersonShapeProperty> ;
+  <http://www.w3.org/ns/shacl#property> <http://shaclshapes.org/emailPersonShapeProperty> ;
+  <http://www.w3.org/ns/shacl#property> <http://shaclshapes.org/instanceTypePersonShapeProperty> ;
+  <http://www.w3.org/ns/shacl#property> <http://shaclshapes.org/namePersonShapeProperty> ;
+  <http://www.w3.org/ns/shacl#targetClass> <http://example.org/toy/Person> .
+
+<http://shaclshapes.org/ScenarioShape> rdf:type <http://www.w3.org/ns/shacl#NodeShape> ;
+  <http://shaclshapes.org/support> "4"^^xsd:int ;
+  <http://www.w3.org/ns/shacl#property> <http://shaclshapes.org/instanceTypeScenarioShapeProperty> ;
+  <http://www.w3.org/ns/shacl#property> <http://shaclshapes.org/labelScenarioShapeProperty> ;
+  <http://www.w3.org/ns/shacl#property> <http://shaclshapes.org/radiativeForcingScenarioShapeProperty> ;
+  <http://www.w3.org/ns/shacl#targetClass> <http://example.org/toy/Scenario> .
+
+<http://shaclshapes.org/SimulationShape> rdf:type <http://www.w3.org/ns/shacl#NodeShape> ;
+  <http://shaclshapes.org/support> "6"^^xsd:int ;
+  <http://www.w3.org/ns/shacl#property> <http://shaclshapes.org/authorSimulationShapeProperty> ;
+  <http://www.w3.org/ns/shacl#property> <http://shaclshapes.org/doiSimulationShapeProperty> ;
+  <http://www.w3.org/ns/shacl#property> <http://shaclshapes.org/instanceTypeSimulationShapeProperty> ;
+  <http://www.w3.org/ns/shacl#property> <http://shaclshapes.org/outputVariableSimulationShapeProperty> ;
+  <http://www.w3.org/ns/shacl#property> <http://shaclshapes.org/periodSimulationShapeProperty> ;
+  <http://www.w3.org/ns/shacl#property> <http://shaclshapes.org/usesModelSimulationShapeProperty> ;
+  <http://www.w3.org/ns/shacl#property> <http://shaclshapes.org/usesScenarioSimulationShapeProperty> ;
+  <http://www.w3.org/ns/shacl#targetClass> <http://example.org/toy/Simulation> .
+
+<http://shaclshapes.org/VariableShape> rdf:type <http://www.w3.org/ns/shacl#NodeShape> ;
+  <http://shaclshapes.org/support> "4"^^xsd:int ;
+  <http://www.w3.org/ns/shacl#property> <http://shaclshapes.org/instanceTypeVariableShapeProperty> ;
+  <http://www.w3.org/ns/shacl#property> <http://shaclshapes.org/labelVariableShapeProperty> ;
+  <http://www.w3.org/ns/shacl#property> <http://shaclshapes.org/shortNameVariableShapeProperty> ;
+  <http://www.w3.org/ns/shacl#property> <http://shaclshapes.org/unitVariableShapeProperty> ;
+  <http://www.w3.org/ns/shacl#targetClass> <http://example.org/toy/Variable> .
+
+<http://shaclshapes.org/affiliationPersonShapeProperty> rdf:type <http://www.w3.org/ns/shacl#PropertyShape> ;
+  <http://shaclshapes.org/confidence> 1E0 ;
+  <http://shaclshapes.org/support> "4"^^xsd:int ;
+  <http://www.w3.org/ns/shacl#NodeKind> <http://www.w3.org/ns/shacl#IRI> ;
+  <http://www.w3.org/ns/shacl#class> <http://example.org/toy/Institution> ;
+  <http://www.w3.org/ns/shacl#maxCount> 1 ;
+  <http://www.w3.org/ns/shacl#minCount> 1 ;
+  <http://www.w3.org/ns/shacl#node> <http://shaclshapes.org/InstitutionShape> ;
+  <http://www.w3.org/ns/shacl#path> <http://example.org/toy/affiliation> .
+
+<http://shaclshapes.org/authorSimulationShapeProperty> rdf:type <http://www.w3.org/ns/shacl#PropertyShape> ;
+  <http://shaclshapes.org/confidence> 1E0 ;
+  <http://shaclshapes.org/support> "6"^^xsd:int ;
+  <http://www.w3.org/ns/shacl#NodeKind> <http://www.w3.org/ns/shacl#IRI> ;
+  <http://www.w3.org/ns/shacl#class> <http://example.org/toy/Person> ;
+  <http://www.w3.org/ns/shacl#maxCount> 1 ;
+  <http://www.w3.org/ns/shacl#minCount> 1 ;
+  <http://www.w3.org/ns/shacl#node> <http://shaclshapes.org/PersonShape> ;
+  <http://www.w3.org/ns/shacl#path> <http://example.org/toy/author> .
+
+<http://shaclshapes.org/countryInstitutionShapeProperty> rdf:type <http://www.w3.org/ns/shacl#PropertyShape> ;
+  <http://shaclshapes.org/confidence> 1E0 ;
+  <http://shaclshapes.org/support> "4"^^xsd:int ;
+  <http://www.w3.org/ns/shacl#NodeKind> <http://www.w3.org/ns/shacl#Literal> ;
+  <http://www.w3.org/ns/shacl#datatype> xsd:string ;
+  <http://www.w3.org/ns/shacl#maxCount> 1 ;
+  <http://www.w3.org/ns/shacl#minCount> 1 ;
+  <http://www.w3.org/ns/shacl#path> <http://example.org/toy/country> .
+
+<http://shaclshapes.org/developedByClimateModelShapeProperty> rdf:type <http://www.w3.org/ns/shacl#PropertyShape> ;
+  <http://www.w3.org/ns/shacl#maxCount> 1 ;
+  <http://www.w3.org/ns/shacl#node> <http://shaclshapes.org/InstitutionShape> ;
+  <http://www.w3.org/ns/shacl#or> ( [
+    <http://shaclshapes.org/confidence> 8E-1 ;
+    <http://shaclshapes.org/support> "4"^^xsd:int ;
+    <http://www.w3.org/ns/shacl#NodeKind> <http://www.w3.org/ns/shacl#IRI> ;
+    <http://www.w3.org/ns/shacl#class> <http://example.org/toy/Institution> ;
+  ] [
+    <http://shaclshapes.org/confidence> 2E-1 ;
+    <http://shaclshapes.org/support> "1"^^xsd:int ;
+    <http://www.w3.org/ns/shacl#NodeKind> <http://www.w3.org/ns/shacl#IRI> ;
+    <http://www.w3.org/ns/shacl#class> <http://example.org/toy/Person> ;
+  ] ) ;
+  <http://www.w3.org/ns/shacl#path> <http://example.org/toy/developedBy> .
+
+<http://shaclshapes.org/developedByEarthSystemModelShapeProperty> rdf:type <http://www.w3.org/ns/shacl#PropertyShape> ;
+  <http://shaclshapes.org/confidence> 1E0 ;
+  <http://shaclshapes.org/support> "3"^^xsd:int ;
+  <http://www.w3.org/ns/shacl#NodeKind> <http://www.w3.org/ns/shacl#IRI> ;
+  <http://www.w3.org/ns/shacl#class> <http://example.org/toy/Institution> ;
+  <http://www.w3.org/ns/shacl#maxCount> 1 ;
+  <http://www.w3.org/ns/shacl#minCount> 1 ;
+  <http://www.w3.org/ns/shacl#node> <http://shaclshapes.org/InstitutionShape> ;
+  <http://www.w3.org/ns/shacl#path> <http://example.org/toy/developedBy> .
+
+<http://shaclshapes.org/doiSimulationShapeProperty> rdf:type <http://www.w3.org/ns/shacl#PropertyShape> ;
+  <http://shaclshapes.org/confidence> 3.3333E-1 ;
+  <http://shaclshapes.org/support> "2"^^xsd:int ;
+  <http://www.w3.org/ns/shacl#NodeKind> <http://www.w3.org/ns/shacl#Literal> ;
+  <http://www.w3.org/ns/shacl#datatype> xsd:string ;
+  <http://www.w3.org/ns/shacl#maxCount> 1 ;
+  <http://www.w3.org/ns/shacl#path> <http://example.org/toy/doi> .
+
+<http://shaclshapes.org/emailPersonShapeProperty> rdf:type <http://www.w3.org/ns/shacl#PropertyShape> ;
+  <http://shaclshapes.org/confidence> 5E-1 ;
+  <http://shaclshapes.org/support> "2"^^xsd:int ;
+  <http://www.w3.org/ns/shacl#NodeKind> <http://www.w3.org/ns/shacl#Literal> ;
+  <http://www.w3.org/ns/shacl#datatype> xsd:string ;
+  <http://www.w3.org/ns/shacl#maxCount> 1 ;
+  <http://www.w3.org/ns/shacl#path> <http://example.org/toy/email> .
+
+<http://shaclshapes.org/homepageInstitutionShapeProperty> rdf:type <http://www.w3.org/ns/shacl#PropertyShape> ;
+  <http://shaclshapes.org/confidence> 5E-1 ;
+  <http://shaclshapes.org/support> "2"^^xsd:int ;
+  <http://www.w3.org/ns/shacl#NodeKind> <http://www.w3.org/ns/shacl#IRI> ;
+  <http://www.w3.org/ns/shacl#maxCount> 1 ;
+  <http://www.w3.org/ns/shacl#minCount> 1 ;
+  <http://www.w3.org/ns/shacl#path> <http://example.org/toy/homepage> .
+
+<http://shaclshapes.org/horizontalResolutionKmClimateModelShapeProperty> rdf:type <http://www.w3.org/ns/shacl#PropertyShape> ;
+  <http://www.w3.org/ns/shacl#maxCount> 1 ;
+  <http://www.w3.org/ns/shacl#or> ( [
+    <http://shaclshapes.org/confidence> 8E-1 ;
+    <http://shaclshapes.org/support> "4"^^xsd:int ;
+    <http://www.w3.org/ns/shacl#NodeKind> <http://www.w3.org/ns/shacl#Literal> ;
+    <http://www.w3.org/ns/shacl#datatype> xsd:decimal ;
+  ] [
+    <http://shaclshapes.org/confidence> 2E-1 ;
+    <http://shaclshapes.org/support> "1"^^xsd:int ;
+    <http://www.w3.org/ns/shacl#NodeKind> <http://www.w3.org/ns/shacl#Literal> ;
+    <http://www.w3.org/ns/shacl#datatype> xsd:string ;
+  ] ) ;
+  <http://www.w3.org/ns/shacl#path> <http://example.org/toy/horizontalResolutionKm> .
+
+<http://shaclshapes.org/horizontalResolutionKmEarthSystemModelShapeProperty> rdf:type <http://www.w3.org/ns/shacl#PropertyShape> ;
+  <http://shaclshapes.org/confidence> 1E0 ;
+  <http://shaclshapes.org/support> "3"^^xsd:int ;
+  <http://www.w3.org/ns/shacl#NodeKind> <http://www.w3.org/ns/shacl#Literal> ;
+  <http://www.w3.org/ns/shacl#datatype> xsd:decimal ;
+  <http://www.w3.org/ns/shacl#maxCount> 1 ;
+  <http://www.w3.org/ns/shacl#minCount> 1 ;
+  <http://www.w3.org/ns/shacl#path> <http://example.org/toy/horizontalResolutionKm> .
+
+<http://shaclshapes.org/instanceTypeClassShapeProperty> rdf:type <http://www.w3.org/ns/shacl#PropertyShape> ;
+  <http://shaclshapes.org/confidence> 1E0 ;
+  <http://shaclshapes.org/support> "7"^^xsd:int ;
+  <http://www.w3.org/ns/shacl#in> ( rdfs:Class ) ;
+  <http://www.w3.org/ns/shacl#path> rdf:type .
+
+<http://shaclshapes.org/instanceTypeClimateModelShapeProperty> rdf:type <http://www.w3.org/ns/shacl#PropertyShape> ;
+  <http://shaclshapes.org/confidence> 1E0 ;
+  <http://shaclshapes.org/support> "5"^^xsd:int ;
+  <http://www.w3.org/ns/shacl#in> ( <http://example.org/toy/ClimateModel> ) ;
+  <http://www.w3.org/ns/shacl#path> rdf:type .
+
+<http://shaclshapes.org/instanceTypeEarthSystemModelShapeProperty> rdf:type <http://www.w3.org/ns/shacl#PropertyShape> ;
+  <http://shaclshapes.org/confidence> 1E0 ;
+  <http://shaclshapes.org/support> "3"^^xsd:int ;
+  <http://www.w3.org/ns/shacl#in> ( <http://example.org/toy/EarthSystemModel> ) ;
+  <http://www.w3.org/ns/shacl#path> rdf:type .
+
+<http://shaclshapes.org/instanceTypeInstitutionShapeProperty> rdf:type <http://www.w3.org/ns/shacl#PropertyShape> ;
+  <http://shaclshapes.org/confidence> 1E0 ;
+  <http://shaclshapes.org/support> "4"^^xsd:int ;
+  <http://www.w3.org/ns/shacl#in> ( <http://example.org/toy/Institution> ) ;
+  <http://www.w3.org/ns/shacl#path> rdf:type .
+
+<http://shaclshapes.org/instanceTypePersonShapeProperty> rdf:type <http://www.w3.org/ns/shacl#PropertyShape> ;
+  <http://shaclshapes.org/confidence> 1E0 ;
+  <http://shaclshapes.org/support> "4"^^xsd:int ;
+  <http://www.w3.org/ns/shacl#in> ( <http://example.org/toy/Person> ) ;
+  <http://www.w3.org/ns/shacl#path> rdf:type .
+
+<http://shaclshapes.org/instanceTypeScenarioShapeProperty> rdf:type <http://www.w3.org/ns/shacl#PropertyShape> ;
+  <http://shaclshapes.org/confidence> 1E0 ;
+  <http://shaclshapes.org/support> "4"^^xsd:int ;
+  <http://www.w3.org/ns/shacl#in> ( <http://example.org/toy/Scenario> ) ;
+  <http://www.w3.org/ns/shacl#path> rdf:type .
+
+<http://shaclshapes.org/instanceTypeSimulationShapeProperty> rdf:type <http://www.w3.org/ns/shacl#PropertyShape> ;
+  <http://shaclshapes.org/confidence> 1E0 ;
+  <http://shaclshapes.org/support> "6"^^xsd:int ;
+  <http://www.w3.org/ns/shacl#in> ( <http://example.org/toy/Simulation> ) ;
+  <http://www.w3.org/ns/shacl#path> rdf:type .
+
+<http://shaclshapes.org/instanceTypeVariableShapeProperty> rdf:type <http://www.w3.org/ns/shacl#PropertyShape> ;
+  <http://shaclshapes.org/confidence> 1E0 ;
+  <http://shaclshapes.org/support> "4"^^xsd:int ;
+  <http://www.w3.org/ns/shacl#in> ( <http://example.org/toy/Variable> ) ;
+  <http://www.w3.org/ns/shacl#path> rdf:type .
+
+<http://shaclshapes.org/labelClimateModelShapeProperty> rdf:type <http://www.w3.org/ns/shacl#PropertyShape> ;
+  <http://shaclshapes.org/confidence> 1E0 ;
+  <http://shaclshapes.org/support> "5"^^xsd:int ;
+  <http://www.w3.org/ns/shacl#NodeKind> <http://www.w3.org/ns/shacl#Literal> ;
+  <http://www.w3.org/ns/shacl#datatype> xsd:string ;
+  <http://www.w3.org/ns/shacl#maxCount> 1 ;
+  <http://www.w3.org/ns/shacl#minCount> 1 ;
+  <http://www.w3.org/ns/shacl#path> rdfs:label .
+
+<http://shaclshapes.org/labelEarthSystemModelShapeProperty> rdf:type <http://www.w3.org/ns/shacl#PropertyShape> ;
+  <http://shaclshapes.org/confidence> 1E0 ;
+  <http://shaclshapes.org/support> "3"^^xsd:int ;
+  <http://www.w3.org/ns/shacl#NodeKind> <http://www.w3.org/ns/shacl#Literal> ;
+  <http://www.w3.org/ns/shacl#datatype> xsd:string ;
+  <http://www.w3.org/ns/shacl#maxCount> 1 ;
+  <http://www.w3.org/ns/shacl#minCount> 1 ;
+  <http://www.w3.org/ns/shacl#path> rdfs:label .
+
+<http://shaclshapes.org/labelInstitutionShapeProperty> rdf:type <http://www.w3.org/ns/shacl#PropertyShape> ;
+  <http://shaclshapes.org/confidence> 1E0 ;
+  <http://shaclshapes.org/support> "4"^^xsd:int ;
+  <http://www.w3.org/ns/shacl#NodeKind> <http://www.w3.org/ns/shacl#Literal> ;
+  <http://www.w3.org/ns/shacl#datatype> rdf:langString ;
+  <http://www.w3.org/ns/shacl#maxCount> 1 ;
+  <http://www.w3.org/ns/shacl#minCount> 1 ;
+  <http://www.w3.org/ns/shacl#path> rdfs:label .
+
+<http://shaclshapes.org/labelScenarioShapeProperty> rdf:type <http://www.w3.org/ns/shacl#PropertyShape> ;
+  <http://shaclshapes.org/confidence> 1E0 ;
+  <http://shaclshapes.org/support> "4"^^xsd:int ;
+  <http://www.w3.org/ns/shacl#NodeKind> <http://www.w3.org/ns/shacl#Literal> ;
+  <http://www.w3.org/ns/shacl#datatype> xsd:string ;
+  <http://www.w3.org/ns/shacl#maxCount> 1 ;
+  <http://www.w3.org/ns/shacl#minCount> 1 ;
+  <http://www.w3.org/ns/shacl#path> rdfs:label .
+
+<http://shaclshapes.org/labelVariableShapeProperty> rdf:type <http://www.w3.org/ns/shacl#PropertyShape> ;
+  <http://shaclshapes.org/confidence> 1E0 ;
+  <http://shaclshapes.org/support> "4"^^xsd:int ;
+  <http://www.w3.org/ns/shacl#NodeKind> <http://www.w3.org/ns/shacl#Literal> ;
+  <http://www.w3.org/ns/shacl#datatype> rdf:langString ;
+  <http://www.w3.org/ns/shacl#maxCount> 1 ;
+  <http://www.w3.org/ns/shacl#minCount> 1 ;
+  <http://www.w3.org/ns/shacl#path> rdfs:label .
+
+<http://shaclshapes.org/namePersonShapeProperty> rdf:type <http://www.w3.org/ns/shacl#PropertyShape> ;
+  <http://shaclshapes.org/confidence> 1E0 ;
+  <http://shaclshapes.org/support> "4"^^xsd:int ;
+  <http://www.w3.org/ns/shacl#NodeKind> <http://www.w3.org/ns/shacl#Literal> ;
+  <http://www.w3.org/ns/shacl#datatype> xsd:string ;
+  <http://www.w3.org/ns/shacl#maxCount> 1 ;
+  <http://www.w3.org/ns/shacl#minCount> 1 ;
+  <http://www.w3.org/ns/shacl#path> <http://example.org/toy/name> .
+
+<http://shaclshapes.org/outputVariableSimulationShapeProperty> rdf:type <http://www.w3.org/ns/shacl#PropertyShape> ;
+  <http://shaclshapes.org/confidence> 1E0 ;
+  <http://shaclshapes.org/support> "6"^^xsd:int ;
+  <http://www.w3.org/ns/shacl#NodeKind> <http://www.w3.org/ns/shacl#IRI> ;
+  <http://www.w3.org/ns/shacl#class> <http://example.org/toy/Variable> ;
+  <http://www.w3.org/ns/shacl#maxCount> 1 ;
+  <http://www.w3.org/ns/shacl#minCount> 1 ;
+  <http://www.w3.org/ns/shacl#node> <http://shaclshapes.org/VariableShape> ;
+  <http://www.w3.org/ns/shacl#path> <http://example.org/toy/outputVariable> .
+
+<http://shaclshapes.org/periodSimulationShapeProperty> rdf:type <http://www.w3.org/ns/shacl#PropertyShape> ;
+  <http://shaclshapes.org/confidence> 8.3333E-1 ;
+  <http://shaclshapes.org/support> "5"^^xsd:int ;
+  <http://www.w3.org/ns/shacl#NodeKind> <http://www.w3.org/ns/shacl#IRI> ;
+  <http://www.w3.org/ns/shacl#maxCount> 1 ;
+  <http://www.w3.org/ns/shacl#minCount> 1 ;
+  <http://www.w3.org/ns/shacl#path> <http://example.org/toy/period> .
+
+<http://shaclshapes.org/radiativeForcingScenarioShapeProperty> rdf:type <http://www.w3.org/ns/shacl#PropertyShape> ;
+  <http://shaclshapes.org/confidence> 7.5E-1 ;
+  <http://shaclshapes.org/support> "3"^^xsd:int ;
+  <http://www.w3.org/ns/shacl#NodeKind> <http://www.w3.org/ns/shacl#Literal> ;
+  <http://www.w3.org/ns/shacl#datatype> xsd:decimal ;
+  <http://www.w3.org/ns/shacl#maxCount> 1 ;
+  <http://www.w3.org/ns/shacl#path> <http://example.org/toy/radiativeForcing> .
+
+<http://shaclshapes.org/releaseDateClimateModelShapeProperty> rdf:type <http://www.w3.org/ns/shacl#PropertyShape> ;
+  <http://shaclshapes.org/confidence> 6E-1 ;
+  <http://shaclshapes.org/support> "3"^^xsd:int ;
+  <http://www.w3.org/ns/shacl#NodeKind> <http://www.w3.org/ns/shacl#Literal> ;
+  <http://www.w3.org/ns/shacl#datatype> xsd:date ;
+  <http://www.w3.org/ns/shacl#maxCount> 1 ;
+  <http://www.w3.org/ns/shacl#path> <http://example.org/toy/releaseDate> .
+
+<http://shaclshapes.org/releaseDateEarthSystemModelShapeProperty> rdf:type <http://www.w3.org/ns/shacl#PropertyShape> ;
+  <http://shaclshapes.org/confidence> 1E0 ;
+  <http://shaclshapes.org/support> "3"^^xsd:int ;
+  <http://www.w3.org/ns/shacl#NodeKind> <http://www.w3.org/ns/shacl#Literal> ;
+  <http://www.w3.org/ns/shacl#datatype> xsd:date ;
+  <http://www.w3.org/ns/shacl#maxCount> 1 ;
+  <http://www.w3.org/ns/shacl#minCount> 1 ;
+  <http://www.w3.org/ns/shacl#path> <http://example.org/toy/releaseDate> .
+
+<http://shaclshapes.org/shortNameVariableShapeProperty> rdf:type <http://www.w3.org/ns/shacl#PropertyShape> ;
+  <http://shaclshapes.org/confidence> 1E0 ;
+  <http://shaclshapes.org/support> "4"^^xsd:int ;
+  <http://www.w3.org/ns/shacl#NodeKind> <http://www.w3.org/ns/shacl#Literal> ;
+  <http://www.w3.org/ns/shacl#datatype> xsd:string ;
+  <http://www.w3.org/ns/shacl#maxCount> 1 ;
+  <http://www.w3.org/ns/shacl#minCount> 1 ;
+  <http://www.w3.org/ns/shacl#path> <http://example.org/toy/shortName> .
+
+<http://shaclshapes.org/subClassOfClassShapeProperty> rdf:type <http://www.w3.org/ns/shacl#PropertyShape> ;
+  <http://shaclshapes.org/confidence> 1.4286E-1 ;
+  <http://shaclshapes.org/support> "1"^^xsd:int ;
+  <http://www.w3.org/ns/shacl#NodeKind> <http://www.w3.org/ns/shacl#IRI> ;
+  <http://www.w3.org/ns/shacl#class> rdfs:Class ;
+  <http://www.w3.org/ns/shacl#maxCount> 1 ;
+  <http://www.w3.org/ns/shacl#node> <http://shaclshapes.org/ClassShape> ;
+  <http://www.w3.org/ns/shacl#path> rdfs:subClassOf .
+
+<http://shaclshapes.org/unitVariableShapeProperty> rdf:type <http://www.w3.org/ns/shacl#PropertyShape> ;
+  <http://shaclshapes.org/confidence> 1E0 ;
+  <http://shaclshapes.org/support> "4"^^xsd:int ;
+  <http://www.w3.org/ns/shacl#NodeKind> <http://www.w3.org/ns/shacl#Literal> ;
+  <http://www.w3.org/ns/shacl#datatype> xsd:string ;
+  <http://www.w3.org/ns/shacl#maxCount> 1 ;
+  <http://www.w3.org/ns/shacl#minCount> 1 ;
+  <http://www.w3.org/ns/shacl#path> <http://example.org/toy/unit> .
+
+<http://shaclshapes.org/usesModelSimulationShapeProperty> rdf:type <http://www.w3.org/ns/shacl#PropertyShape> ;
+  <http://www.w3.org/ns/shacl#maxCount> 1 ;
+  <http://www.w3.org/ns/shacl#node> <http://shaclshapes.org/ClimateModelShape> ;
+  <http://www.w3.org/ns/shacl#or> ( [
+    <http://shaclshapes.org/confidence> 8.3333E-1 ;
+    <http://shaclshapes.org/support> "5"^^xsd:int ;
+    <http://www.w3.org/ns/shacl#NodeKind> <http://www.w3.org/ns/shacl#IRI> ;
+    <http://www.w3.org/ns/shacl#class> <http://example.org/toy/ClimateModel> ;
+  ] [
+    <http://shaclshapes.org/confidence> 6.6667E-1 ;
+    <http://shaclshapes.org/support> "4"^^xsd:int ;
+    <http://www.w3.org/ns/shacl#NodeKind> <http://www.w3.org/ns/shacl#IRI> ;
+    <http://www.w3.org/ns/shacl#class> <http://example.org/toy/EarthSystemModel> ;
+  ] ) ;
+  <http://www.w3.org/ns/shacl#path> <http://example.org/toy/usesModel> .
+
+<http://shaclshapes.org/usesScenarioSimulationShapeProperty> rdf:type <http://www.w3.org/ns/shacl#PropertyShape> ;
+  <http://www.w3.org/ns/shacl#maxCount> 1 ;
+  <http://www.w3.org/ns/shacl#node> <http://shaclshapes.org/ScenarioShape> ;
+  <http://www.w3.org/ns/shacl#or> ( [
+    <http://shaclshapes.org/confidence> 8.3333E-1 ;
+    <http://shaclshapes.org/support> "5"^^xsd:int ;
+    <http://www.w3.org/ns/shacl#NodeKind> <http://www.w3.org/ns/shacl#IRI> ;
+    <http://www.w3.org/ns/shacl#class> <http://example.org/toy/Scenario> ;
+  ] [
+    <http://shaclshapes.org/confidence> 1.6667E-1 ;
+    <http://shaclshapes.org/support> "1"^^xsd:int ;
+    <http://www.w3.org/ns/shacl#NodeKind> <http://www.w3.org/ns/shacl#IRI> ;
+    <http://www.w3.org/ns/shacl#class> <http://example.org/toy/Variable> ;
+  ] ) ;
+  <http://www.w3.org/ns/shacl#path> <http://example.org/toy/usesScenario> .
+
+

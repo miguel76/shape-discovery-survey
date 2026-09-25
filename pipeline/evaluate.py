@@ -1,35 +1,39 @@
 #!/usr/bin/env python3
 """Evaluate the shapes produced by pipeline/run.py for a KG.
 
-usage: pipeline/evaluate.py KG
+usage: pipeline/evaluate.py KG [--inference none|subclass|rdfs]
 
-For each results/<KG>/<run>/shapes.ttl it computes:
+For each results/<KG>/<regime>/<run>/shapes.ttl it computes:
   * syntax      - does the output parse as RDF (Turtle)?
   * vocabulary  - IRIs in the sh: namespace that are not SHACL terms, or are
                   used as predicates without being SHACL properties (e.g.
                   sh:dataType or sh:NodeKind instead of sh:datatype / sh:nodeKind):
                   validators silently ignore them, so the constraint is lost;
   * well-formed - violations of the SHACL-SHACL meta-shapes;
-  * profile     - number of node/property shapes and constraint components used;
+  * profile     - number of node/property shapes and constraint components used, and
+                  how many (target class, path) pairs repeat a path that is also
+                  constrained on a superclass of the class (redundancy with respect
+                  to the class hierarchy of the KG and its `ontologies`);
   * self-validation - validating the KG itself against the extracted shapes
-                  (Jena SHACL via ShaclStats.java, no inference): shapes that
-                  describe the data should mostly conform, and the violations
-                  are the "suspicious" nodes. Done twice: on the KG as is (SHACL
-                  semantics: sh:targetClass also reaches instances of subclasses
-                  through rdfs:subClassOf triples in the data) and on the KG
-                  without rdfs:subClassOf triples ("explicit typing", the view
-                  the tools extract from);
-  * reference   - if data/<KG>/kg.json names reference shapes: overlap of
+                  (Jena SHACL via ShaclStats.java) under the same inference
+                  regime the shapes were extracted under (pipeline/regimes.py):
+                  shapes that describe the data should mostly conform, and the
+                  violations are the "suspicious" nodes;
+  * reference   - if data/<KG>/kg.json names reference shapes (and, optionally, the
+                  `reference_regime` they are written for; `reference_inference`
+                  is accepted as an alias): overlap of
                   (target class, path) pairs and agreement of the main
                   constraints on the shared pairs, plus how many of the
-                  violations found by the reference shapes are also found.
+                  violations found by the reference shapes (validated under the
+                  same regime) are also found.
 
-Writes results/<KG>/<run>/eval.json and results/<KG>/summary.md.
+Writes results/<KG>/<regime>/<run>/eval.json, results/<KG>/<regime>/summary.md and
+results/<KG>/summary.md, which compares the regimes evaluated so far.
 Environment: JAVA_XMX (heap for validation, default 8g), VALIDATION_BUDGET
 (seconds per shapes file after which only a random sample of focus nodes has
 been validated, default 3600), VALIDATION_TIMEOUT (hard limit, default budget +
-1 hour). Validation results in work/<KG>/validation/ are reused while newer than
-both the data and the shapes.
+1 hour). Validation results in work/<KG>/<regime>/validation/ are reused while
+newer than both the data and the shapes.
 """
 import argparse
 import json
@@ -42,6 +46,8 @@ from pathlib import Path
 import pyshacl
 from rdflib import RDF, RDFS, SH, Graph, URIRef
 from rdflib.collection import Collection
+
+from regimes import REGIMES, validation_data
 
 ROOT = Path(__file__).resolve().parent.parent
 ASSETS = Path(pyshacl.__file__).parent / "assets"
@@ -90,16 +96,19 @@ def property_shapes(g):
     return set(g.subjects(SH.path, None))
 
 
-def profile(g):
+def profile(g, hierarchy=None):
     usage = Counter()
     for p in COMPONENT_PARAMS:
         n = len(set(g.subjects(p, None)))
         if n:
             usage[g.qname(p)] = n
+    table = constraint_table(g)
     return {
         "triples": len(g),
         "node_shapes": len(node_shapes(g)),
         "property_shapes": len(property_shapes(g)),
+        "class_path_pairs": len(table),
+        "pairs_repeated_from_superclass": inherited_pairs(table, hierarchy or {}),
         "constraint_usage": dict(sorted(usage.items())),
     }
 
@@ -145,6 +154,38 @@ def constraint_table(g):
                 else:
                     table[key] = c
     return table
+
+
+def class_hierarchy(work):
+    """{class: all its named superclasses}, from the rdfs:subClassOf triples between IRIs in
+    the dump and in the kg.json `ontologies` (work/<KG>/data.nt, work/<KG>/ontologies.nt)."""
+    parents = {}
+    for f in (work / "data.nt", work / "ontologies.nt"):
+        if not f.exists():
+            continue
+        with open(f, "rb") as src:
+            for line in src:
+                if b" <http://www.w3.org/2000/01/rdf-schema#subClassOf> <" not in line or not line.startswith(b"<"):
+                    continue
+                sub, _, sup = line.decode().split(" ", 3)[:3]
+                parents.setdefault(sub[1:-1], set()).add(sup[1:-1])
+    closure = {}
+
+    def supers(c, seen):
+        for p in parents.get(c, ()):
+            if p not in seen:
+                seen.add(p)
+                supers(p, seen)
+        return seen
+
+    for c in parents:
+        closure[c] = supers(c, set()) - {c}
+    return closure
+
+
+def inherited_pairs(table, hierarchy):
+    """(class, path) pairs whose path is also constrained on a superclass of the class."""
+    return sum(1 for c, path in table if any((s, path) in table for s in hierarchy.get(c, ())))
 
 
 def compare_to_reference(table, ref):
@@ -204,25 +245,6 @@ def validate_kg(data_file, shapes_file, out_file, focus_paths=False):
     return res
 
 
-def without_subclass_axioms(data_file):
-    """The dump without rdfs:subClassOf triples, so sh:targetClass only reaches explicitly typed nodes."""
-    dest = data_file.with_name("data-explicit.nt")
-    if not dest.exists() or dest.stat().st_mtime < data_file.stat().st_mtime:
-        with open(dest, "wb") as f:
-            subprocess.run(["grep", "-v", "-F", f" <{RDFS.subClassOf}> ", str(data_file)], stdout=f)
-    return dest
-
-
-def rdfs_closure(data_file):
-    """Materialise RDFS entailments with riot, using the KG itself as the vocabulary."""
-    dest = data_file.with_name("data-rdfs.nt")
-    if not dest.exists() or dest.stat().st_mtime < data_file.stat().st_mtime:
-        with open(dest, "wb") as f:
-            subprocess.run(["java", "-cp", str(JENA_JAR), "riotcmd.riot", f"--rdfs={data_file}",
-                            "--output=ntriples", str(data_file)], stdout=f, check=True)
-    return dest
-
-
 def validate(data, shapes, inference="none"):
     """pySHACL validation of in-memory graphs (used for the small shapes-vs-meta-shapes check)."""
     try:
@@ -245,24 +267,27 @@ def validate(data, shapes, inference="none"):
 def main():
     p = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     p.add_argument("kg")
+    p.add_argument("--inference", choices=REGIMES, default="none",
+                   help="inference regime the shapes were extracted under (default: none)")
     args = p.parse_args()
 
-    kg_dir, results = ROOT / "data" / args.kg, ROOT / "results" / args.kg
+    kg_dir, results = ROOT / "data" / args.kg, ROOT / "results" / args.kg / args.inference
     kg = json.loads((kg_dir / "kg.json").read_text())
-    data_file = ROOT / "work" / args.kg / "data.nt"
-    explicit_file = without_subclass_axioms(data_file)
-    val_dir = ROOT / "work" / args.kg / "validation"
+    work = ROOT / "work" / args.kg
+    data_file = validation_data(work, args.inference,
+                                lambda msg: print(msg.replace(str(ROOT) + os.sep, ""), flush=True))
+    val_dir = work / args.inference / "validation"
     val_dir.mkdir(parents=True, exist_ok=True)
     vocab = shacl_vocabulary()
+    hierarchy = class_hierarchy(work)
     meta_shapes = Graph().parse(ASSETS / "shacl-shacl.ttl")
 
     ref_table, ref_validation = None, None
     if kg.get("reference_shapes"):
         ref = load(kg_dir / kg["reference_shapes"])
         ref_table = constraint_table(ref)
-        ref_data = rdfs_closure(data_file) if kg.get("reference_inference") == "rdfs" else data_file
         print("[validate] reference shapes", flush=True)
-        ref_validation = validate_kg(ref_data, kg_dir / kg["reference_shapes"], val_dir / "reference.json",
+        ref_validation = validate_kg(data_file, kg_dir / kg["reference_shapes"], val_dir / "reference.json",
                                      focus_paths=True)
 
     evaluations = {}
@@ -273,44 +298,48 @@ def main():
             g = load(shapes_file)
         except Exception as e:
             ev["syntax"] = f"error: {type(e).__name__}: {e}"[:500]
+            ev["inference"] = args.inference
+            (run_dir / "eval.json").write_text(json.dumps(ev, indent=2, default=list) + "\n")
             evaluations[run_dir.name] = ev
             continue
         ev["syntax"] = "ok"
         ev["non_shacl_terms"] = misused_shacl_terms(g, vocab)
         wf = validate(g, meta_shapes)
         ev["well_formedness"] = {k: v for k, v in wf.items() if not k.startswith("_")}
-        ev["profile"] = profile(g)
+        ev["profile"] = profile(g, hierarchy)
         print(f"[validate] {run_dir.name}", flush=True)
         sv = validate_kg(data_file, shapes_file, val_dir / f"{run_dir.name}.json",
                          focus_paths=ref_table is not None)
         ev["self_validation"] = {k: v for k, v in sv.items() if not k.startswith("_")}
-        print(f"[validate] {run_dir.name} (explicit typing)", flush=True)
-        sve = validate_kg(explicit_file, shapes_file, val_dir / f"{run_dir.name}.explicit.json")
-        ev["self_validation_explicit"] = {k: v for k, v in sve.items() if not k.startswith("_")}
         if ref_table is not None:
             ev["reference"] = compare_to_reference(constraint_table(g), ref_table)
             if "_focus_paths" in sv and "_focus_paths" in (ref_validation or {}):
                 expected = ref_validation["_focus_paths"]
                 ev["reference"]["reference_violations_found"] = {
                     "found": len(expected & sv["_focus_paths"]), "of": len(expected)}
+        ev["inference"] = args.inference
         (run_dir / "eval.json").write_text(json.dumps(ev, indent=2, default=list) + "\n")
         evaluations[run_dir.name] = ev
 
-    write_summary(results / "summary.md", args.kg, kg, evaluations, ref_validation)
+    write_summary(results / "summary.md", args.kg, args.inference, kg, evaluations, ref_validation)
+    write_regime_comparison(results.parent / "summary.md", args.kg, kg)
     print((results / "summary.md").read_text())
 
 
-def write_summary(path, name, kg, evs, ref_validation):
-    lines = [f"# Results for `{name}`", "", kg.get("description", ""), "",
+def write_summary(path, name, regime, kg, evs, ref_validation):
+    lines = [f"# Results for `{name}`, inference regime `{regime}`", "", kg.get("description", ""), "",
+             f"Shapes extracted and validated under the `{regime}` regime (see `pipeline/regimes.py`). "
              "Generated by `pipeline/evaluate.py`; see `eval.json` in each run directory for details.", "",
              "## Execution and output profile", "",
-             "| run | exit | wall s | peak RSS MB | node shapes | property shapes | non-SHACL terms | SHACL-SHACL violations |",
-             "|---|---|---|---|---|---|---|---|"]
+             "| run | exit | wall s | peak RSS MB | node shapes | property shapes | (class, path) pairs | "
+             "of which also on a superclass | non-SHACL terms | SHACL-SHACL violations |",
+             "|---|---|---|---|---|---|---|---|---|---|"]
     for r, ev in evs.items():
         pr = ev.get("profile", {})
         wf = ev.get("well_formedness", {})
         lines.append(f"| {r} | {ev['exit_code']}{' (timeout)' if ev['timed_out'] else ''} | {ev['wall_seconds']} | "
                      f"{ev['peak_rss_mb']} | {pr.get('node_shapes', '-')} | {pr.get('property_shapes', '-')} | "
+                     f"{pr.get('class_path_pairs', '-')} | {pr.get('pairs_repeated_from_superclass', '-')} | "
                      f"{', '.join(ev.get('non_shacl_terms', [])) or '-'} | "
                      f"{wf.get('violations', wf.get('error', '-'))} |")
     lines += ["", "## Constraint components used (number of shapes using each)", ""]
@@ -320,6 +349,10 @@ def write_summary(path, name, kg, evs, ref_validation):
         u = ev.get("profile", {}).get("constraint_usage", {})
         lines.append(f"| {r} | " + " | ".join(str(u.get(c, "")) for c in comps) + " |")
     lines += ["", "## Validating the KG against the extracted shapes", ""]
+    ref_regime = kg.get("reference_regime", kg.get("reference_inference"))
+    if ref_validation is not None and ref_regime and ref_regime != regime:
+        lines += [f"Note: the reference shapes are written for the `{ref_regime}` regime; here they are "
+                  f"validated under `{regime}`, like the extracted shapes.", ""]
     if ref_validation is not None:
         lines += [f"Reference shapes: {ref_validation.get('violations')} violations on "
                   f"{ref_validation.get('focus_nodes')} focus nodes "
@@ -337,20 +370,6 @@ def write_summary(path, name, kg, evs, ref_validation):
         lines.append(f"| {r} | {sv.get('conforms', '-')} | {sv.get('violations', '-')} | {sv.get('focus_nodes', '-')} | "
                      f"{', '.join(f'{k}: {v}' for k, v in sv.get('by_component', {}).items()) or '-'} | "
                      f"{str(rv['found']) + '/' + str(rv['of']) if rv else '-'} |")
-    lines += ["", "### Explicit typing (without `rdfs:subClassOf` triples in the data)", "",
-              "The tools profile the explicitly typed instances of each class, whereas SHACL's `sh:targetClass` "
-              "also reaches instances of subclasses. Removing the `rdfs:subClassOf` triples from the data graph "
-              "validates each shape only on the nodes it was learned from.", "",
-              "| run | conforms | violations | focus nodes | by component |", "|---|---|---|---|---|"]
-    for r, ev in evs.items():
-        sv = ev.get("self_validation_explicit", {})
-        if "error" in sv:
-            lines.append(f"| {r} | error: {sv['error'][:80]} | | | |")
-            continue
-        if sv.get("partial"):
-            r = f"{r} (sample: {sv['validated_focus_nodes']}/{sv['target_focus_nodes']} focus nodes)"
-        lines.append(f"| {r} | {sv.get('conforms', '-')} | {sv.get('violations', '-')} | {sv.get('focus_nodes', '-')} | "
-                     f"{', '.join(f'{k}: {v}' for k, v in sv.get('by_component', {}).items()) or '-'} |")
     if any("reference" in ev for ev in evs.values()):
         lines += ["", "## Comparison with the reference shapes", "",
                   "Pairs are (target class, property path) with an IRI path, excluding `rdf:type`. "
@@ -365,6 +384,46 @@ def write_summary(path, name, kg, evs, ref_validation):
             lines.append(f"| {r} | {ref['pairs_extracted']} | {ref['pairs_shared']} | {ref['pair_precision']} | "
                          f"{ref['pair_recall']} | " + " | ".join(f"{ca[k]['agree']}/{ca[k]['of']}" for k in
                                                                 ("datatype", "class", "required", "functional")) + " |")
+    path.write_text("\n".join(lines) + "\n")
+
+
+def write_regime_comparison(path, name, kg):
+    """results/<KG>/summary.md: one row per run, one column group per evaluated regime."""
+    table = {}
+    regimes = [r for r in REGIMES if (path.parent / r / "summary.md").exists()]
+    for regime in regimes:
+        for ev_file in sorted((path.parent / regime).glob("*/eval.json")):
+            ev = json.loads(ev_file.read_text())
+            table.setdefault(ev["run"], {})[regime] = ev
+    lines = [f"# Results for `{name}`: inference regimes compared", "", kg.get("description", ""), "",
+             "Each regime is applied to both shape discovery and validation (see `pipeline/regimes.py`); "
+             "details per regime in " + ", ".join(f"[`{r}/summary.md`]({r}/summary.md)" for r in regimes) + ".", "",
+             "Each cell: node shapes / property shapes; (target class, property) pairs constrained, and how "
+             "many of them are also constrained on a superclass of the class; then, validating the KG "
+             "against the extracted shapes, the share of focus nodes with at least one violation and the "
+             "violations per focus node (over a random sample when validation hit its time budget).", "",
+             "| run | " + " | ".join(regimes) + " |", "|---|" + "---|" * len(regimes)]
+
+    def cell(ev):
+        if ev is None:
+            return "-"
+        pr, sv = ev.get("profile", {}), ev.get("self_validation", {})
+        if not ev.get("has_output"):
+            return "no output"
+        head = (f"{pr.get('node_shapes', '?')} / {pr.get('property_shapes', '?')} shapes, "
+                f"{pr.get('class_path_pairs', '?')} pairs ({pr.get('pairs_repeated_from_superclass', '?')} also on a superclass)")
+        if "error" in sv:
+            return f"{head}; validation error"
+        # rates over the validated focus nodes stay comparable when validation stopped on a sample
+        validated = sv.get("validated_focus_nodes") or sv.get("target_focus_nodes") or 0
+        if not validated:
+            return f"{head}; {sv.get('violations', 0):,} violations"
+        return (f"{head}; {100 * sv.get('focus_nodes', 0) / validated:.1f}% of "
+                f"{'a sample of ' if sv.get('partial') else ''}{validated:,} focus nodes flagged, "
+                f"{sv.get('violations', 0) / validated:.2f} violations per node")
+
+    for run in sorted(table):
+        lines.append(f"| {run} | " + " | ".join(cell(table[run].get(r)) for r in regimes) + " |")
     path.write_text("\n".join(lines) + "\n")
 
 

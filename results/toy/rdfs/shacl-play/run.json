@@ -1,0 +1,17 @@
+{
+  "tool": "shacl-play",
+  "mode": "file",
+  "source": "work/toy/rdfs/data.nt",
+  "command": [
+    "tools/shacl-play/run.sh",
+    "file",
+    "work/toy/rdfs/data.nt",
+    "results/toy/rdfs/shacl-play"
+  ],
+  "exit_code": 0,
+  "timed_out": false,
+  "wall_seconds": 2.41,
+  "cpu_seconds": 4.89,
+  "peak_rss_mb": 204.7,
+  "has_output": true
+}

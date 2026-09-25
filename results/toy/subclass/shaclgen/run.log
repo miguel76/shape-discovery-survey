@@ -1,0 +1,75 @@
+2026-09-25 06:24:51.024 | INFO     | shaclgen.shaclgen:gen_graph:119 - Start Extraction of the Data Graph
+2026-09-25 06:24:51.025 | INFO     | shaclgen.shaclgen:gen_graph:120 - Classes …
+2026-09-25 06:24:51.090 | DEBUG    | shaclgen.shaclgen:extract_classes:30 - Class: http://www.w3.org/2000/01/rdf-schema#Class
+2026-09-25 06:24:51.091 | DEBUG    | shaclgen.shaclgen:extract_classes:30 - Class: http://example.org/toy/Scenario
+2026-09-25 06:24:51.091 | DEBUG    | shaclgen.shaclgen:extract_classes:30 - Class: http://example.org/toy/Institution
+2026-09-25 06:24:51.091 | DEBUG    | shaclgen.shaclgen:extract_classes:30 - Class: http://example.org/toy/ClimateModel
+2026-09-25 06:24:51.091 | DEBUG    | shaclgen.shaclgen:extract_classes:30 - Class: http://example.org/toy/EarthSystemModel
+2026-09-25 06:24:51.091 | DEBUG    | shaclgen.shaclgen:extract_classes:30 - Class: http://example.org/toy/Person
+2026-09-25 06:24:51.091 | DEBUG    | shaclgen.shaclgen:extract_classes:30 - Class: http://example.org/toy/Simulation
+2026-09-25 06:24:51.092 | DEBUG    | shaclgen.shaclgen:extract_classes:30 - Class: http://example.org/toy/Variable
+2026-09-25 06:24:51.092 | INFO     | shaclgen.shaclgen:gen_graph:122 - Properties …
+2026-09-25 06:24:51.096 | DEBUG    | shaclgen.shaclgen:extract_props:37 - Property: http://example.org/toy/period
+2026-09-25 06:24:51.096 | DEBUG    | shaclgen.shaclgen:extract_props_subj_types:56 - Property subject types: http://example.org/toy/period
+2026-09-25 06:24:51.098 | DEBUG    | shaclgen.shaclgen:extract_props_obj_types:73 - Property object types: http://example.org/toy/period
+2026-09-25 06:24:51.110 | DEBUG    | shaclgen.shaclgen:extract_props:37 - Property: http://www.w3.org/2000/01/rdf-schema#label
+2026-09-25 06:24:51.110 | DEBUG    | shaclgen.shaclgen:extract_props_subj_types:56 - Property subject types: http://www.w3.org/2000/01/rdf-schema#label
+2026-09-25 06:24:51.113 | DEBUG    | shaclgen.shaclgen:extract_props_obj_types:73 - Property object types: http://www.w3.org/2000/01/rdf-schema#label
+2026-09-25 06:24:51.125 | DEBUG    | shaclgen.shaclgen:extract_props:37 - Property: http://example.org/toy/country
+2026-09-25 06:24:51.125 | DEBUG    | shaclgen.shaclgen:extract_props_subj_types:56 - Property subject types: http://example.org/toy/country
+2026-09-25 06:24:51.128 | DEBUG    | shaclgen.shaclgen:extract_props_obj_types:73 - Property object types: http://example.org/toy/country
+2026-09-25 06:24:51.151 | DEBUG    | shaclgen.shaclgen:extract_props:37 - Property: http://example.org/toy/usesModel
+2026-09-25 06:24:51.152 | DEBUG    | shaclgen.shaclgen:extract_props_subj_types:56 - Property subject types: http://example.org/toy/usesModel
+2026-09-25 06:24:51.154 | DEBUG    | shaclgen.shaclgen:extract_props_obj_types:73 - Property object types: http://example.org/toy/usesModel
+2026-09-25 06:24:51.165 | DEBUG    | shaclgen.shaclgen:extract_props:37 - Property: http://example.org/toy/usesScenario
+2026-09-25 06:24:51.165 | DEBUG    | shaclgen.shaclgen:extract_props_subj_types:56 - Property subject types: http://example.org/toy/usesScenario
+2026-09-25 06:24:51.168 | DEBUG    | shaclgen.shaclgen:extract_props_obj_types:73 - Property object types: http://example.org/toy/usesScenario
+2026-09-25 06:24:51.178 | DEBUG    | shaclgen.shaclgen:extract_props:37 - Property: http://example.org/toy/developedBy
+2026-09-25 06:24:51.178 | DEBUG    | shaclgen.shaclgen:extract_props_subj_types:56 - Property subject types: http://example.org/toy/developedBy
+2026-09-25 06:24:51.181 | DEBUG    | shaclgen.shaclgen:extract_props_obj_types:73 - Property object types: http://example.org/toy/developedBy
+2026-09-25 06:24:51.192 | DEBUG    | shaclgen.shaclgen:extract_props:37 - Property: http://example.org/toy/horizontalResolutionKm
+2026-09-25 06:24:51.192 | DEBUG    | shaclgen.shaclgen:extract_props_subj_types:56 - Property subject types: http://example.org/toy/horizontalResolutionKm
+2026-09-25 06:24:51.194 | DEBUG    | shaclgen.shaclgen:extract_props_obj_types:73 - Property object types: http://example.org/toy/horizontalResolutionKm
+2026-09-25 06:24:51.205 | DEBUG    | shaclgen.shaclgen:extract_props:37 - Property: http://example.org/toy/radiativeForcing
+2026-09-25 06:24:51.205 | DEBUG    | shaclgen.shaclgen:extract_props_subj_types:56 - Property subject types: http://example.org/toy/radiativeForcing
+2026-09-25 06:24:51.207 | DEBUG    | shaclgen.shaclgen:extract_props_obj_types:73 - Property object types: http://example.org/toy/radiativeForcing
+2026-09-25 06:24:51.218 | DEBUG    | shaclgen.shaclgen:extract_props:37 - Property: http://example.org/toy/outputVariable
+2026-09-25 06:24:51.218 | DEBUG    | shaclgen.shaclgen:extract_props_subj_types:56 - Property subject types: http://example.org/toy/outputVariable
+2026-09-25 06:24:51.220 | DEBUG    | shaclgen.shaclgen:extract_props_obj_types:73 - Property object types: http://example.org/toy/outputVariable
+2026-09-25 06:24:51.231 | DEBUG    | shaclgen.shaclgen:extract_props:37 - Property: http://example.org/toy/endYear
+2026-09-25 06:24:51.231 | DEBUG    | shaclgen.shaclgen:extract_props_subj_types:56 - Property subject types: http://example.org/toy/endYear
+2026-09-25 06:24:51.234 | DEBUG    | shaclgen.shaclgen:extract_props_obj_types:73 - Property object types: http://example.org/toy/endYear
+2026-09-25 06:24:51.245 | DEBUG    | shaclgen.shaclgen:extract_props:37 - Property: http://example.org/toy/affiliation
+2026-09-25 06:24:51.245 | DEBUG    | shaclgen.shaclgen:extract_props_subj_types:56 - Property subject types: http://example.org/toy/affiliation
+2026-09-25 06:24:51.247 | DEBUG    | shaclgen.shaclgen:extract_props_obj_types:73 - Property object types: http://example.org/toy/affiliation
+2026-09-25 06:24:51.258 | DEBUG    | shaclgen.shaclgen:extract_props:37 - Property: http://example.org/toy/author
+2026-09-25 06:24:51.258 | DEBUG    | shaclgen.shaclgen:extract_props_subj_types:56 - Property subject types: http://example.org/toy/author
+2026-09-25 06:24:51.260 | DEBUG    | shaclgen.shaclgen:extract_props_obj_types:73 - Property object types: http://example.org/toy/author
+2026-09-25 06:24:51.271 | DEBUG    | shaclgen.shaclgen:extract_props:37 - Property: http://example.org/toy/shortName
+2026-09-25 06:24:51.271 | DEBUG    | shaclgen.shaclgen:extract_props_subj_types:56 - Property subject types: http://example.org/toy/shortName
+2026-09-25 06:24:51.274 | DEBUG    | shaclgen.shaclgen:extract_props_obj_types:73 - Property object types: http://example.org/toy/shortName
+2026-09-25 06:24:51.284 | DEBUG    | shaclgen.shaclgen:extract_props:37 - Property: http://example.org/toy/doi
+2026-09-25 06:24:51.285 | DEBUG    | shaclgen.shaclgen:extract_props_subj_types:56 - Property subject types: http://example.org/toy/doi
+2026-09-25 06:24:51.287 | DEBUG    | shaclgen.shaclgen:extract_props_obj_types:73 - Property object types: http://example.org/toy/doi
+2026-09-25 06:24:51.297 | DEBUG    | shaclgen.shaclgen:extract_props:37 - Property: http://example.org/toy/homepage
+2026-09-25 06:24:51.297 | DEBUG    | shaclgen.shaclgen:extract_props_subj_types:56 - Property subject types: http://example.org/toy/homepage
+2026-09-25 06:24:51.299 | DEBUG    | shaclgen.shaclgen:extract_props_obj_types:73 - Property object types: http://example.org/toy/homepage
+2026-09-25 06:24:51.310 | DEBUG    | shaclgen.shaclgen:extract_props:37 - Property: http://example.org/toy/unit
+2026-09-25 06:24:51.311 | DEBUG    | shaclgen.shaclgen:extract_props_subj_types:56 - Property subject types: http://example.org/toy/unit
+2026-09-25 06:24:51.313 | DEBUG    | shaclgen.shaclgen:extract_props_obj_types:73 - Property object types: http://example.org/toy/unit
+2026-09-25 06:24:51.323 | DEBUG    | shaclgen.shaclgen:extract_props:37 - Property: http://example.org/toy/startYear
+2026-09-25 06:24:51.323 | DEBUG    | shaclgen.shaclgen:extract_props_subj_types:56 - Property subject types: http://example.org/toy/startYear
+2026-09-25 06:24:51.326 | DEBUG    | shaclgen.shaclgen:extract_props_obj_types:73 - Property object types: http://example.org/toy/startYear
+2026-09-25 06:24:51.337 | DEBUG    | shaclgen.shaclgen:extract_props:37 - Property: http://example.org/toy/releaseDate
+2026-09-25 06:24:51.337 | DEBUG    | shaclgen.shaclgen:extract_props_subj_types:56 - Property subject types: http://example.org/toy/releaseDate
+2026-09-25 06:24:51.340 | DEBUG    | shaclgen.shaclgen:extract_props_obj_types:73 - Property object types: http://example.org/toy/releaseDate
+2026-09-25 06:24:51.350 | DEBUG    | shaclgen.shaclgen:extract_props:37 - Property: http://example.org/toy/name
+2026-09-25 06:24:51.350 | DEBUG    | shaclgen.shaclgen:extract_props_subj_types:56 - Property subject types: http://example.org/toy/name
+2026-09-25 06:24:51.353 | DEBUG    | shaclgen.shaclgen:extract_props_obj_types:73 - Property object types: http://example.org/toy/name
+2026-09-25 06:24:51.363 | DEBUG    | shaclgen.shaclgen:extract_props:37 - Property: http://www.w3.org/2000/01/rdf-schema#subClassOf
+2026-09-25 06:24:51.363 | DEBUG    | shaclgen.shaclgen:extract_props_subj_types:56 - Property subject types: http://www.w3.org/2000/01/rdf-schema#subClassOf
+2026-09-25 06:24:51.366 | DEBUG    | shaclgen.shaclgen:extract_props_obj_types:73 - Property object types: http://www.w3.org/2000/01/rdf-schema#subClassOf
+2026-09-25 06:24:51.377 | DEBUG    | shaclgen.shaclgen:extract_props:37 - Property: http://example.org/toy/email
+2026-09-25 06:24:51.377 | DEBUG    | shaclgen.shaclgen:extract_props_subj_types:56 - Property subject types: http://example.org/toy/email
+2026-09-25 06:24:51.380 | DEBUG    | shaclgen.shaclgen:extract_props_obj_types:73 - Property object types: http://example.org/toy/email
+2026-09-25 06:24:51.391 | INFO     | shaclgen.shaclgen:gen_graph:124 - Write resulting SHACL Graph …

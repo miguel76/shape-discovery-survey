@@ -1,0 +1,17 @@
+{
+  "tool": "shaclgen",
+  "mode": "file",
+  "source": "work/cckg/rdfs/data.nt",
+  "command": [
+    "tools/shaclgen/run.sh",
+    "file",
+    "work/cckg/rdfs/data.nt",
+    "results/cckg/rdfs/shaclgen"
+  ],
+  "exit_code": 1,
+  "timed_out": false,
+  "wall_seconds": 600.19,
+  "cpu_seconds": 594.01,
+  "peak_rss_mb": 12184.3,
+  "has_output": false
+}

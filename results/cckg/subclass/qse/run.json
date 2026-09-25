@@ -1,0 +1,17 @@
+{
+  "tool": "qse",
+  "mode": "file",
+  "source": "work/cckg/subclass/data.nt",
+  "command": [
+    "tools/qse/run.sh",
+    "file",
+    "work/cckg/subclass/data.nt",
+    "results/cckg/subclass/qse"
+  ],
+  "exit_code": 0,
+  "timed_out": false,
+  "wall_seconds": 67.3,
+  "cpu_seconds": 110.8,
+  "peak_rss_mb": 5509.7,
+  "has_output": true
+}

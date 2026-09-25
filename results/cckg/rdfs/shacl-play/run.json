@@ -1,0 +1,17 @@
+{
+  "tool": "shacl-play",
+  "mode": "file",
+  "source": "work/cckg/rdfs/data.nt",
+  "command": [
+    "tools/shacl-play/run.sh",
+    "file",
+    "work/cckg/rdfs/data.nt",
+    "results/cckg/rdfs/shacl-play"
+  ],
+  "exit_code": 0,
+  "timed_out": false,
+  "wall_seconds": 6408.77,
+  "cpu_seconds": 6839.97,
+  "peak_rss_mb": 4921.4,
+  "has_output": true
+}

@@ -1,0 +1,165 @@
+{
+  "run": "qse-pruned",
+  "tool": "qse-pruned",
+  "mode": "file",
+  "source": "work/toy/none/data.nt",
+  "command": [
+    "tools/qse-pruned/run.sh",
+    "file",
+    "work/toy/none/data.nt",
+    "results/toy/none/qse-pruned"
+  ],
+  "exit_code": 0,
+  "timed_out": false,
+  "wall_seconds": 2.0,
+  "cpu_seconds": 3.2,
+  "peak_rss_mb": 153.3,
+  "has_output": false,
+  "syntax": "ok",
+  "non_shacl_terms": [],
+  "well_formedness": {
+    "conforms": true,
+    "violations": 0,
+    "focus_nodes": 0,
+    "by_component": {}
+  },
+  "profile": {
+    "triples": 0,
+    "node_shapes": 0,
+    "property_shapes": 0,
+    "class_path_pairs": 0,
+    "pairs_repeated_from_superclass": 0,
+    "constraint_usage": {}
+  },
+  "self_validation": {
+    "conforms": true,
+    "violations": 0,
+    "focus_nodes": 0,
+    "validated_focus_nodes": 0,
+    "target_focus_nodes": 0,
+    "partial": false,
+    "seconds": 0,
+    "by_component": {},
+    "top_path_components": {}
+  },
+  "reference": {
+    "pairs_extracted": 0,
+    "pairs_reference": 22,
+    "pairs_shared": 0,
+    "pair_precision": 0.0,
+    "pair_recall": 0.0,
+    "missing_pairs": [
+      [
+        "http://example.org/toy/ClimateModel",
+        "http://example.org/toy/developedBy"
+      ],
+      [
+        "http://example.org/toy/ClimateModel",
+        "http://example.org/toy/horizontalResolutionKm"
+      ],
+      [
+        "http://example.org/toy/ClimateModel",
+        "http://example.org/toy/releaseDate"
+      ],
+      [
+        "http://example.org/toy/ClimateModel",
+        "http://www.w3.org/2000/01/rdf-schema#label"
+      ],
+      [
+        "http://example.org/toy/EarthSystemModel",
+        "http://example.org/toy/releaseDate"
+      ],
+      [
+        "http://example.org/toy/Institution",
+        "http://example.org/toy/country"
+      ],
+      [
+        "http://example.org/toy/Institution",
+        "http://example.org/toy/homepage"
+      ],
+      [
+        "http://example.org/toy/Institution",
+        "http://www.w3.org/2000/01/rdf-schema#label"
+      ],
+      [
+        "http://example.org/toy/Person",
+        "http://example.org/toy/affiliation"
+      ],
+      [
+        "http://example.org/toy/Person",
+        "http://example.org/toy/email"
+      ],
+      [
+        "http://example.org/toy/Person",
+        "http://example.org/toy/name"
+      ],
+      [
+        "http://example.org/toy/Scenario",
+        "http://example.org/toy/radiativeForcing"
+      ],
+      [
+        "http://example.org/toy/Scenario",
+        "http://www.w3.org/2000/01/rdf-schema#label"
+      ],
+      [
+        "http://example.org/toy/Simulation",
+        "http://example.org/toy/author"
+      ],
+      [
+        "http://example.org/toy/Simulation",
+        "http://example.org/toy/doi"
+      ],
+      [
+        "http://example.org/toy/Simulation",
+        "http://example.org/toy/outputVariable"
+      ],
+      [
+        "http://example.org/toy/Simulation",
+        "http://example.org/toy/period"
+      ],
+      [
+        "http://example.org/toy/Simulation",
+        "http://example.org/toy/usesModel"
+      ],
+      [
+        "http://example.org/toy/Simulation",
+        "http://example.org/toy/usesScenario"
+      ],
+      [
+        "http://example.org/toy/Variable",
+        "http://example.org/toy/shortName"
+      ],
+      [
+        "http://example.org/toy/Variable",
+        "http://example.org/toy/unit"
+      ],
+      [
+        "http://example.org/toy/Variable",
+        "http://www.w3.org/2000/01/rdf-schema#label"
+      ]
+    ],
+    "constraint_agreement": {
+      "datatype": {
+        "agree": 0,
+        "of": 0
+      },
+      "class": {
+        "agree": 0,
+        "of": 0
+      },
+      "required": {
+        "agree": 0,
+        "of": 0
+      },
+      "functional": {
+        "agree": 0,
+        "of": 0
+      }
+    },
+    "reference_violations_found": {
+      "found": 0,
+      "of": 5
+    }
+  },
+  "inference": "none"
+}

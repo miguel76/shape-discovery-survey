@@ -1,0 +1,37 @@
+Picked up JAVA_TOOL_OPTIONS: -Djavax.net.ssl.trustStore=/etc/ssl/certs/java/cacerts -Djavax.net.ssl.trustStoreType=JKS -Dhttps.proxyHost=127.0.0.1 -Dhttps.proxyPort=39839 -Dhttp.nonProxyHosts=localhost|127.0.0.1|::1|127.*|0.*|::|169.254.*|api.anthropic.com|api-staging.anthropic.com|api-pr-preview.anthropic.com|mcp-proxy.anthropic.com|mcp-proxy-staging.anthropic.com|registry.npmjs.org|jsr.io|npm.jsr.io|pypi.org|files.pythonhosted.org|index.crates.io|proxy.golang.org|host.docker.internal|10.*|172.16.*|172.17.*|172.18.*|172.19.*|172.20.*|172.21.*|172.22.*|172.23.*|172.24.*|172.25.*|172.26.*|172.27.*|172.28.*|172.29.*|172.30.*|172.31.*|192.168.*|100.64.0.0/10|*.svc.cluster.local|*.svc.cluster.local -Djdk.http.auth.tunneling.disabledSchemes= -Djdk.http.auth.proxying.disabledSchemes=
+Benchmark Initiated for /home/user/shape-discovery-survey/work/toy/subclass/data.nt
+2026/09/25 06:24:47
+invoked::firstPass()
+Time Elapsed firstPass 0 sec , 0 min
+***** Total Parsing Time 0 sec , 0 min *****
+Time Elapsed secondPhase 0 sec , 0 min
+***** Total Parsing Time 0 sec , 0 min *****
+Time Elapsed computeSupportConfidence 0 sec , 0 min
+***** Total Parsing Time 0 sec , 0 min *****
+/home/user/shape-discovery-survey/results/toy/subclass/qse/qse-output/db_default created successfully.
+Invoked:: PostConstraintsAnnotator
+MODEL:: DEFAULT - SIZE: 367
+::: ShapesExtractor ~ WRITING MODEL TO FILE: /home/user/shape-discovery-survey/results/toy/subclass/qse/qse-output/data_QSE_FULL.ttl
+writeModelToFile  - 0 - 0
+::: ShapesExtractor ~ PRETTY FORMATTING TURTLE FILE: /home/user/shape-discovery-survey/results/toy/subclass/qse/qse-output/data_QSE_FULL_SHACL.ttl
+Pretty Formatting
+prettyFormatTurtle  - 0 - 0
+/home/user/shape-discovery-survey/results/toy/subclass/qse/qse-output/db_0.1_100 created successfully.
+Invoked:: PostConstraintsAnnotator
+MODEL:: CUSTOM - SIZE: 0 | PARAMS: 10.0 - 100
+::: ShapesExtractor ~ WRITING MODEL TO FILE: /home/user/shape-discovery-survey/results/toy/subclass/qse/qse-output/data_QSE_0.1_100.ttl
+writeModelToFile  - 0 - 0
+::: ShapesExtractor ~ PRETTY FORMATTING TURTLE FILE: /home/user/shape-discovery-survey/results/toy/subclass/qse/qse-output/data_QSE_0.1_100_SHACL.ttl
+Pretty Formatting
+prettyFormatTurtle  - 0 - 0
+Time Elapsed 0.1_100 0 sec , 0 min
+***** Total Parsing Time 0 sec , 0 min *****
+Time Elapsed extractSHACLShapes-Time.For.Pruning.Only 0 sec , 0 min
+***** Total Parsing Time 0 sec , 0 min *****
+[DATASET, Confidence, Support, COUNT_MCC, MIN_CC, AVG_CC, COUNT_CC, MIN_MCC, COUNT_PS, MIN_LC, AVG_MCC, COUNT_NS, AVG_LC, MAX_LC, AVG_PS, MAX_CC, MAX_PS, MAX_MCC, COUNT_LC, MIN_PS, ]
+Done
+Time Elapsed extractSHACLShapes 1 sec , 0 min
+***** Total Parsing Time 1 sec , 0 min *****
+STATS: 
+	No. of Classes: 8
+2026/09/25 06:24:48

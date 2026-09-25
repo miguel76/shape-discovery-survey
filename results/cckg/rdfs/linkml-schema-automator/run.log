@@ -1,0 +1,46 @@
+/home/user/shape-discovery-survey/.tools/linkml-venv/lib/python3.11/site-packages/quantulum3/classifier.py:27: UserWarning: Classifier dependencies not installed. Run `uv sync --extra classifier` or `pip install quantulum3[classifier]` to install them. The classifer helps to dissambiguate units.
+  warnings.warn(
+MemoryError
+
+During handling of the above exception, another exception occurred:
+
+MemoryError
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/user/shape-discovery-survey/.tools/linkml-venv/lib/python3.11/site-packages/rdflib/plugins/parsers/notation3.py", line 791, in statement
+  File "/home/user/shape-discovery-survey/.tools/linkml-venv/lib/python3.11/site-packages/rdflib/plugins/parsers/notation3.py", line 1159, in property_list
+  File "/home/user/shape-discovery-survey/.tools/linkml-venv/lib/python3.11/site-packages/rdflib/plugins/parsers/notation3.py", line 783, in makeStatement
+MemoryError
+
+During handling of the above exception, another exception occurred:
+
+MemoryError
+
+During handling of the above exception, another exception occurred:
+
+MemoryError
+
+During handling of the above exception, another exception occurred:
+
+MemoryError
+
+During handling of the above exception, another exception occurred:
+
+MemoryError
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+  File "/home/user/shape-discovery-survey/.tools/linkml-venv/lib/python3.11/site-packages/click/core.py", line 1631, in __call__
+  File "/home/user/shape-discovery-survey/.tools/linkml-venv/lib/python3.11/site-packages/click/core.py", line 1552, in main
+  File "/home/user/shape-discovery-survey/.tools/linkml-venv/lib/python3.11/site-packages/click/core.py", line 2032, in invoke
+  File "/home/user/shape-discovery-survey/.tools/linkml-venv/lib/python3.11/site-packages/click/core.py", line 1415, in invoke
+  File "/home/user/shape-discovery-survey/.tools/linkml-venv/lib/python3.11/site-packages/click/core.py", line 910, in invoke
+  File "/home/user/shape-discovery-survey/.tools/linkml-venv/lib/python3.11/site-packages/schema_automator/cli.py", line 568, in generalize_rdf
+  File "/home/user/shape-discovery-survey/.tools/linkml-venv/lib/python3.11/site-packages/schema_automator/generalizers/rdf_data_generalizer.py", line 37, in convert
+    g.parse(file, **kwargs)
+  File "/home/user/shape-discovery-survey/.tools/linkml-venv/lib/python3.11/site-packages/rdflib/graph.py", line 1660, in parse
+MemoryError

@@ -1,0 +1,17 @@
+{
+  "tool": "qse",
+  "mode": "file",
+  "source": "work/toy/rdfs/data.nt",
+  "command": [
+    "tools/qse/run.sh",
+    "file",
+    "work/toy/rdfs/data.nt",
+    "results/toy/rdfs/qse"
+  ],
+  "exit_code": 0,
+  "timed_out": false,
+  "wall_seconds": 1.81,
+  "cpu_seconds": 3.26,
+  "peak_rss_mb": 155.3,
+  "has_output": true
+}

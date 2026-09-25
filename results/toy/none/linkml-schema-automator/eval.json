@@ -1,0 +1,109 @@
+{
+  "run": "linkml-schema-automator",
+  "tool": "linkml-schema-automator",
+  "mode": "file",
+  "source": "work/toy/none/data.ttl",
+  "command": [
+    "tools/linkml-schema-automator/run.sh",
+    "file",
+    "work/toy/none/data.ttl",
+    "results/toy/none/linkml-schema-automator"
+  ],
+  "exit_code": 0,
+  "timed_out": false,
+  "wall_seconds": 6.81,
+  "cpu_seconds": 7.06,
+  "peak_rss_mb": 237.1,
+  "has_output": true,
+  "syntax": "ok",
+  "non_shacl_terms": [],
+  "well_formedness": {
+    "conforms": true,
+    "violations": 0,
+    "focus_nodes": 0,
+    "by_component": {}
+  },
+  "profile": {
+    "triples": 281,
+    "node_shapes": 8,
+    "property_shapes": 42,
+    "class_path_pairs": 34,
+    "pairs_repeated_from_superclass": 5,
+    "constraint_usage": {
+      "sh:closed": 8,
+      "sh:datatype": 34,
+      "sh:maxCount": 39,
+      "sh:nodeKind": 34
+    }
+  },
+  "self_validation": {
+    "conforms": false,
+    "violations": 197,
+    "focus_nodes": 34,
+    "validated_focus_nodes": 34,
+    "target_focus_nodes": 34,
+    "partial": false,
+    "seconds": 0,
+    "by_component": {
+      "sh:DatatypeConstraintComponent": 105,
+      "sh:NodeKindConstraintComponent": 87,
+      "sh:MaxCountConstraintComponent": 5
+    },
+    "top_path_components": {
+      "<http://www.w3.org/1999/02/22-rdf-syntax-ns#type> sh:DatatypeConstraintComponent": 40,
+      "<http://www.w3.org/1999/02/22-rdf-syntax-ns#type> sh:NodeKindConstraintComponent": 40,
+      "<http://example.org/toy/outputVariable> sh:DatatypeConstraintComponent": 10,
+      "<http://example.org/toy/outputVariable> sh:NodeKindConstraintComponent": 10,
+      "<http://www.w3.org/2000/01/rdf-schema#label> sh:DatatypeConstraintComponent": 9,
+      "<http://example.org/toy/developedBy> sh:DatatypeConstraintComponent": 7,
+      "<http://example.org/toy/developedBy> sh:NodeKindConstraintComponent": 7,
+      "<http://example.org/toy/author> sh:NodeKindConstraintComponent": 7,
+      "<http://example.org/toy/author> sh:DatatypeConstraintComponent": 7,
+      "<http://example.org/toy/usesScenario> sh:NodeKindConstraintComponent": 6,
+      "<http://example.org/toy/horizontalResolutionKm> sh:DatatypeConstraintComponent": 6,
+      "<http://example.org/toy/usesScenario> sh:DatatypeConstraintComponent": 6,
+      "<http://example.org/toy/period> sh:NodeKindConstraintComponent": 5,
+      "<http://example.org/toy/affiliation> sh:DatatypeConstraintComponent": 5,
+      "<http://example.org/toy/affiliation> sh:NodeKindConstraintComponent": 5,
+      "<http://example.org/toy/usesModel> sh:NodeKindConstraintComponent": 5,
+      "<http://example.org/toy/usesModel> sh:DatatypeConstraintComponent": 5,
+      "<http://example.org/toy/period> sh:DatatypeConstraintComponent": 5,
+      "<http://www.w3.org/1999/02/22-rdf-syntax-ns#type> sh:MaxCountConstraintComponent": 4,
+      "<http://example.org/toy/radiativeForcing> sh:DatatypeConstraintComponent": 3,
+      "<http://example.org/toy/homepage> sh:NodeKindConstraintComponent": 2,
+      "<http://example.org/toy/homepage> sh:DatatypeConstraintComponent": 2,
+      "<http://www.w3.org/2000/01/rdf-schema#label> sh:MaxCountConstraintComponent": 1
+    }
+  },
+  "reference": {
+    "pairs_extracted": 34,
+    "pairs_reference": 22,
+    "pairs_shared": 22,
+    "pair_precision": 0.647,
+    "pair_recall": 1.0,
+    "missing_pairs": [],
+    "constraint_agreement": {
+      "datatype": {
+        "agree": 9,
+        "of": 13
+      },
+      "class": {
+        "agree": 0,
+        "of": 6
+      },
+      "required": {
+        "agree": 6,
+        "of": 22
+      },
+      "functional": {
+        "agree": 18,
+        "of": 22
+      }
+    },
+    "reference_violations_found": {
+      "found": 2,
+      "of": 5
+    }
+  },
+  "inference": "none"
+}

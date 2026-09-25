@@ -1,0 +1,17 @@
+{
+  "tool": "qse-pruned",
+  "mode": "file",
+  "source": "work/toy/none/data.nt",
+  "command": [
+    "tools/qse-pruned/run.sh",
+    "file",
+    "work/toy/none/data.nt",
+    "results/toy/none/qse-pruned"
+  ],
+  "exit_code": 0,
+  "timed_out": false,
+  "wall_seconds": 2.0,
+  "cpu_seconds": 3.2,
+  "peak_rss_mb": 153.3,
+  "has_output": false
+}
