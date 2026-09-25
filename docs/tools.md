@@ -66,6 +66,27 @@ Notes on execution requirements and workarounds (details in each `tools/<name>/`
   (128 KiB), so `run.sh` raises the limit before calling the CLI. The per-class tables (hundreds of
   MB on CCKG) go to a temporary directory.
 
+### Scaling with the inference regime (CCKG)
+
+The `subclass` and `rdfs` regimes (see [inference.md](inference.md)) grow CCKG from 4.7M triples
+to 9.5M and 15M:
+
+| tool | `none` (4.7M) | `subclass` (9.5M) | `rdfs` (15M) |
+|---|---|---|---|
+| sheXer (file) | 1.5 min, 1.6 GB | 3.4 min, 3.5 GB | 8 min, 6.2 GB |
+| sheXer (endpoint) | 38 min, 7.7 GB | killed by the OOM killer after 41 min (10.4 GB of cached graph, plus Fuseki) | not run |
+| QSE | 33 s, 2.6 GB | 67 s, 5.5 GB | 2.1 min, 7.2 GB |
+| SHACLGEN | 38 min, 6.1 GB | 2.3 h, 10.1 GB | out of memory (12 GB cap) after 10 min |
+| SHACL Play! (file) | 2.8 min, 2.8 GB | 49 min, 4.4 GB | 1.8 h, 4.9 GB |
+| SHACL Play! (endpoint) | 3.2 min | 29 min | not run |
+| schema-automator | 11 min, 7.4 GB | out of memory (12 GB cap) | out of memory (12 GB cap) |
+
+Two more robustness problems surfaced here:
+- **sheXer** crashes when an `rdf:type` value is a blank node, which RDFS inference over OWL class
+  expressions produces. The regimes drop such types (see `pipeline/regimes.py`).
+- **Jena riot**'s RDFS closure contains generalized triples with literal subjects, which its own
+  Turtle writer rejects. The regimes drop those too.
+
 ## Candidates not yet running
 
 | Tool | Why it is relevant | Blocker / requirements | Next step |

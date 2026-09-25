@@ -1,0 +1,72 @@
+{
+  "run": "shaclgen",
+  "tool": "shaclgen",
+  "mode": "file",
+  "source": "work/cckg/subclass/data.nt",
+  "command": [
+    "tools/shaclgen/run.sh",
+    "file",
+    "work/cckg/subclass/data.nt",
+    "results/cckg/subclass/shaclgen"
+  ],
+  "exit_code": 0,
+  "timed_out": false,
+  "wall_seconds": 8320.45,
+  "cpu_seconds": 8240.6,
+  "peak_rss_mb": 10123.4,
+  "has_output": true,
+  "syntax": "ok",
+  "non_shacl_terms": [],
+  "well_formedness": {
+    "conforms": true,
+    "violations": 0,
+    "focus_nodes": 0,
+    "by_component": {}
+  },
+  "profile": {
+    "triples": 2496,
+    "node_shapes": 89,
+    "property_shapes": 92,
+    "class_path_pairs": 788,
+    "pairs_repeated_from_superclass": 644,
+    "constraint_usage": {
+      "sh:class": 375,
+      "sh:datatype": 16,
+      "sh:nodeKind": 171,
+      "sh:or": 46
+    }
+  },
+  "self_validation": {
+    "conforms": false,
+    "violations": 1568626,
+    "focus_nodes": 114577,
+    "validated_focus_nodes": 594982,
+    "target_focus_nodes": 594982,
+    "partial": false,
+    "seconds": 1071,
+    "by_component": {
+      "sh:OrConstraintComponent": 1568625,
+      "sh:ClassConstraintComponent": 1
+    },
+    "top_path_components": {
+      "<https://w3id.org/hacid/onto/data/holdsSpecializationOfVariable> sh:OrConstraintComponent": 634472,
+      "<https://w3id.org/hacid/onto/data/isSpecializationOfVariable> sh:OrConstraintComponent": 543064,
+      "<https://w3id.org/hacid/onto/data/iSpecializationOfVariable> sh:OrConstraintComponent": 359838,
+      "<https://w3id.org/hacid/onto/top-level/hasPart> sh:OrConstraintComponent": 26037,
+      "<https://w3id.org/hacid/onto/ccso/isDownscalingOf> sh:OrConstraintComponent": 1716,
+      "<https://w3id.org/hacid/onto/data/isSpecializedAccordingTo> sh:OrConstraintComponent": 1098,
+      "<https://w3id.org/hacid/onto/data/dependsOnVariable> sh:OrConstraintComponent": 1098,
+      "<https://w3id.org/hacid/onto/ccso/hasMemberSimulation> sh:OrConstraintComponent": 838,
+      "<https://w3id.org/hacid/onto/data/derivedFromVariable> sh:OrConstraintComponent": 120,
+      "<https://w3id.org/hacid/onto/data/hasOutput> sh:OrConstraintComponent": 112,
+      "<https://w3id.org/hacid/onto/top-level/hasUnitOfMeasure> sh:OrConstraintComponent": 84,
+      "<https://w3id.org/hacid/onto/data/hasValuesOn> sh:OrConstraintComponent": 84,
+      "<https://w3id.org/hacid/onto/data/hasExactBoundingRegion> sh:OrConstraintComponent": 40,
+      "<http://www.w3.org/2002/07/owl#onProperty> sh:OrConstraintComponent": 15,
+      "<https://w3id.org/hacid/onto/data/basedOnDimensionalSpace> sh:OrConstraintComponent": 8,
+      "<http://www.w3.org/2002/07/owl#someValuesFrom> sh:ClassConstraintComponent": 1,
+      "<http://www.w3.org/2000/01/rdf-schema#subPropertyOf> sh:OrConstraintComponent": 1
+    }
+  },
+  "inference": "subclass"
+}

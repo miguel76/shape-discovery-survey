@@ -1,0 +1,104 @@
+{
+  "run": "qse",
+  "tool": "qse",
+  "mode": "file",
+  "source": "work/toy/rdfs/data.nt",
+  "command": [
+    "tools/qse/run.sh",
+    "file",
+    "work/toy/rdfs/data.nt",
+    "results/toy/rdfs/qse"
+  ],
+  "exit_code": 0,
+  "timed_out": false,
+  "wall_seconds": 1.81,
+  "cpu_seconds": 3.26,
+  "peak_rss_mb": 155.3,
+  "has_output": true,
+  "syntax": "ok",
+  "non_shacl_terms": [
+    "sh:NodeKind"
+  ],
+  "well_formedness": {
+    "conforms": true,
+    "violations": 0,
+    "focus_nodes": 0,
+    "by_component": {}
+  },
+  "profile": {
+    "triples": 355,
+    "node_shapes": 8,
+    "property_shapes": 34,
+    "class_path_pairs": 26,
+    "pairs_repeated_from_superclass": 4,
+    "constraint_usage": {
+      "sh:class": 11,
+      "sh:datatype": 17,
+      "sh:in": 8,
+      "sh:maxCount": 26,
+      "sh:minCount": 17,
+      "sh:node": 8,
+      "sh:or": 4
+    }
+  },
+  "self_validation": {
+    "conforms": false,
+    "violations": 35,
+    "focus_nodes": 17,
+    "validated_focus_nodes": 34,
+    "target_focus_nodes": 34,
+    "partial": false,
+    "seconds": 0,
+    "by_component": {
+      "sh:NodeConstraintComponent": 20,
+      "sh:MaxCountConstraintComponent": 6,
+      "sh:InConstraintComponent": 6,
+      "sh:MinCountConstraintComponent": 3
+    },
+    "top_path_components": {
+      "<http://www.w3.org/1999/02/22-rdf-syntax-ns#type> sh:InConstraintComponent": 6,
+      "<http://example.org/toy/developedBy> sh:NodeConstraintComponent": 6,
+      "<http://example.org/toy/usesModel> sh:NodeConstraintComponent": 5,
+      "<http://example.org/toy/author> sh:NodeConstraintComponent": 5,
+      "<http://example.org/toy/affiliation> sh:NodeConstraintComponent": 3,
+      "<http://example.org/toy/outputVariable> sh:MaxCountConstraintComponent": 3,
+      "<http://example.org/toy/homepage> sh:MinCountConstraintComponent": 2,
+      "<http://example.org/toy/affiliation> sh:MaxCountConstraintComponent": 1,
+      "<http://example.org/toy/usesScenario> sh:NodeConstraintComponent": 1,
+      "<http://example.org/toy/author> sh:MaxCountConstraintComponent": 1,
+      "<http://www.w3.org/2000/01/rdf-schema#label> sh:MaxCountConstraintComponent": 1,
+      "<http://example.org/toy/period> sh:MinCountConstraintComponent": 1
+    }
+  },
+  "reference": {
+    "pairs_extracted": 26,
+    "pairs_reference": 22,
+    "pairs_shared": 22,
+    "pair_precision": 0.846,
+    "pair_recall": 1.0,
+    "missing_pairs": [],
+    "constraint_agreement": {
+      "datatype": {
+        "agree": 12,
+        "of": 13
+      },
+      "class": {
+        "agree": 4,
+        "of": 6
+      },
+      "required": {
+        "agree": 18,
+        "of": 22
+      },
+      "functional": {
+        "agree": 15,
+        "of": 22
+      }
+    },
+    "reference_violations_found": {
+      "found": 2,
+      "of": 4
+    }
+  },
+  "inference": "rdfs"
+}

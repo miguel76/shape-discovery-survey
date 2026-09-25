@@ -1,0 +1,1 @@
+/home/user/shape-discovery-survey/tools/shexer/run.sh: line 8:  6769 Killed                  "$TOOLS_HOME/shexer-venv/bin/python" "$REPO_ROOT/tools/shexer/run_shexer.py" "$src" "$out" "${extra[@]}"

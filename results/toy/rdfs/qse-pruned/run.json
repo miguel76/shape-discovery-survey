@@ -1,0 +1,17 @@
+{
+  "tool": "qse-pruned",
+  "mode": "file",
+  "source": "work/toy/rdfs/data.nt",
+  "command": [
+    "tools/qse-pruned/run.sh",
+    "file",
+    "work/toy/rdfs/data.nt",
+    "results/toy/rdfs/qse-pruned"
+  ],
+  "exit_code": 0,
+  "timed_out": false,
+  "wall_seconds": 1.8,
+  "cpu_seconds": 3.27,
+  "peak_rss_mb": 156.8,
+  "has_output": false
+}

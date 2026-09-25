@@ -1,0 +1,90 @@
+{
+  "run": "shexer",
+  "tool": "shexer",
+  "mode": "file",
+  "source": "work/toy/none/data.nt",
+  "command": [
+    "tools/shexer/run.sh",
+    "file",
+    "work/toy/none/data.nt",
+    "results/toy/none/shexer"
+  ],
+  "exit_code": 0,
+  "timed_out": false,
+  "wall_seconds": 0.4,
+  "cpu_seconds": 0.31,
+  "peak_rss_mb": 42.5,
+  "has_output": true,
+  "syntax": "ok",
+  "non_shacl_terms": [
+    "sh:dataType"
+  ],
+  "well_formedness": {
+    "conforms": true,
+    "violations": 0,
+    "focus_nodes": 0,
+    "by_component": {}
+  },
+  "profile": {
+    "triples": 305,
+    "node_shapes": 8,
+    "property_shapes": 37,
+    "class_path_pairs": 26,
+    "pairs_repeated_from_superclass": 4,
+    "constraint_usage": {
+      "sh:in": 10,
+      "sh:maxCount": 33,
+      "sh:minCount": 27,
+      "sh:node": 5,
+      "sh:nodeKind": 4
+    }
+  },
+  "self_validation": {
+    "conforms": false,
+    "violations": 19,
+    "focus_nodes": 5,
+    "validated_focus_nodes": 34,
+    "target_focus_nodes": 34,
+    "partial": false,
+    "seconds": 0,
+    "by_component": {
+      "sh:InConstraintComponent": 11,
+      "sh:MaxCountConstraintComponent": 8
+    },
+    "top_path_components": {
+      "<http://www.w3.org/1999/02/22-rdf-syntax-ns#type> sh:InConstraintComponent": 11,
+      "<http://www.w3.org/1999/02/22-rdf-syntax-ns#type> sh:MaxCountConstraintComponent": 8
+    }
+  },
+  "reference": {
+    "pairs_extracted": 26,
+    "pairs_reference": 22,
+    "pairs_shared": 22,
+    "pair_precision": 0.846,
+    "pair_recall": 1.0,
+    "missing_pairs": [],
+    "constraint_agreement": {
+      "datatype": {
+        "agree": 0,
+        "of": 13
+      },
+      "class": {
+        "agree": 0,
+        "of": 6
+      },
+      "required": {
+        "agree": 20,
+        "of": 22
+      },
+      "functional": {
+        "agree": 19,
+        "of": 22
+      }
+    },
+    "reference_violations_found": {
+      "found": 0,
+      "of": 5
+    }
+  },
+  "inference": "none"
+}

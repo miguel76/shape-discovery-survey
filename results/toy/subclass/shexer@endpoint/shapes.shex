@@ -1,0 +1,108 @@
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX : <http://weso.es/shapes/>
+PREFIX sh: <http://www.w3.org/ns/shacl#>
+
+:ClimateModel
+{
+   rdf:type  [<http://example.org/toy/ClimateModel>]    //  <http://weso.es/shexer/ontology/ratio_property_usage>  1.000  ;
+   rdfs:label  xsd:string    //  <http://weso.es/shexer/ontology/ratio_property_usage>  1.000  ;
+   <http://example.org/toy/developedBy>  IRI    //  <http://weso.es/shexer/ontology/ratio_property_usage>  1.000
+    //  rdfs:comment  " 80.0 % obj: @weso-s:Institution. Cardinality: {1}"
+    //  rdfs:comment  " 20.0 % obj: @weso-s:Person. Cardinality: {1}"  ;
+   <http://example.org/toy/horizontalResolutionKm>  xsd:integer  ?  //  <http://weso.es/shexer/ontology/ratio_property_usage>  0.800
+    //  rdfs:comment  " 80.0 % obj: xsd:integer. Cardinality: {1}"  ;
+   rdf:type  [<http://example.org/toy/EarthSystemModel>]  ?  //  <http://weso.es/shexer/ontology/ratio_property_usage>  0.600
+    //  rdfs:comment  " 60.0 % obj: <http://example.org/toy/EarthSystemModel>. Cardinality: {1}"  ;
+   <http://example.org/toy/releaseDate>  xsd:string  ?  //  <http://weso.es/shexer/ontology/ratio_property_usage>  0.600
+    //  rdfs:comment  " 60.0 % obj: xsd:string. Cardinality: {1}"  ;
+   <http://example.org/toy/horizontalResolutionKm>  xsd:string  ?  //  <http://weso.es/shexer/ontology/ratio_property_usage>  0.200
+    //  rdfs:comment  " 20.0 % obj: xsd:string. Cardinality: {1}"  
+}  
+
+
+:Variable
+{
+   rdf:type  [<http://example.org/toy/Variable>]    //  <http://weso.es/shexer/ontology/ratio_property_usage>  1.000  ;
+   rdfs:label  xsd:string    //  <http://weso.es/shexer/ontology/ratio_property_usage>  1.000  ;
+   <http://example.org/toy/shortName>  xsd:string    //  <http://weso.es/shexer/ontology/ratio_property_usage>  1.000  ;
+   <http://example.org/toy/unit>  xsd:string    //  <http://weso.es/shexer/ontology/ratio_property_usage>  1.000  
+}  
+
+
+:EarthSystemModel
+{
+   rdf:type  [<http://example.org/toy/ClimateModel>]    //  <http://weso.es/shexer/ontology/ratio_property_usage>  1.000  ;
+   rdf:type  [<http://example.org/toy/EarthSystemModel>]    //  <http://weso.es/shexer/ontology/ratio_property_usage>  1.000  ;
+   rdfs:label  xsd:string    //  <http://weso.es/shexer/ontology/ratio_property_usage>  1.000  ;
+   <http://example.org/toy/developedBy>  @:Institution    //  <http://weso.es/shexer/ontology/ratio_property_usage>  1.000  ;
+   <http://example.org/toy/horizontalResolutionKm>  xsd:integer    //  <http://weso.es/shexer/ontology/ratio_property_usage>  1.000  ;
+   <http://example.org/toy/releaseDate>  xsd:string    //  <http://weso.es/shexer/ontology/ratio_property_usage>  1.000  
+}  
+
+
+:Institution
+{
+   rdf:type  [<http://example.org/toy/Institution>]    //  <http://weso.es/shexer/ontology/ratio_property_usage>  1.000  ;
+   rdfs:label  xsd:string  +  //  <http://weso.es/shexer/ontology/ratio_property_usage>  1.000
+    //  rdfs:comment  " 75.0 % obj: xsd:string. Cardinality: {1}"
+    //  rdfs:comment  " 25.0 % obj: xsd:string. Cardinality: {2}"  ;
+   <http://example.org/toy/country>  xsd:string    //  <http://weso.es/shexer/ontology/ratio_property_usage>  1.000  ;
+   <http://example.org/toy/homepage>  IRI  ?  //  <http://weso.es/shexer/ontology/ratio_property_usage>  0.500
+    //  rdfs:comment  " 50.0 % obj: IRI. Cardinality: {1}"  
+}  
+
+
+:Simulation
+{
+   rdf:type  [<http://example.org/toy/Simulation>]    //  <http://weso.es/shexer/ontology/ratio_property_usage>  1.000  ;
+   <http://example.org/toy/author>  @:Person  +  //  <http://weso.es/shexer/ontology/ratio_property_usage>  1.000
+    //  rdfs:comment  " 83.33333333333334 % obj: @weso-s:Person. Cardinality: {1}"
+    //  rdfs:comment  " 16.666666666666664 % obj: @weso-s:Person. Cardinality: {2}"  ;
+   <http://example.org/toy/outputVariable>  @:Variable  +  //  <http://weso.es/shexer/ontology/ratio_property_usage>  1.000
+    //  rdfs:comment  " 50.0 % obj: @weso-s:Variable. Cardinality: {1}"
+    //  rdfs:comment  " 33.33333333333333 % obj: @weso-s:Variable. Cardinality: {2}"
+    //  rdfs:comment  " 16.666666666666664 % obj: @weso-s:Variable. Cardinality: {3}"  ;
+   <http://example.org/toy/usesScenario>  IRI    //  <http://weso.es/shexer/ontology/ratio_property_usage>  1.000
+    //  rdfs:comment  " 83.33333333333334 % obj: @weso-s:Scenario. Cardinality: {1}"
+    //  rdfs:comment  " 16.666666666666664 % obj: @weso-s:Variable. Cardinality: {1}"  ;
+   <http://example.org/toy/period>  xsd:string  ?  //  <http://weso.es/shexer/ontology/ratio_property_usage>  0.833
+    //  rdfs:comment  " 83.33333333333334 % obj: xsd:string. Cardinality: {1}"  ;
+   <http://example.org/toy/usesModel>  @:ClimateModel  ?  //  <http://weso.es/shexer/ontology/ratio_property_usage>  0.833
+    //  rdfs:comment  " 83.33333333333334 % obj: @weso-s:ClimateModel. Cardinality: {1}"
+    //  rdfs:comment  " 66.66666666666666 % obj: @weso-s:EarthSystemModel. Cardinality: {1}"  ;
+   <http://example.org/toy/doi>  xsd:string  ?  //  <http://weso.es/shexer/ontology/ratio_property_usage>  0.333
+    //  rdfs:comment  " 33.33333333333333 % obj: xsd:string. Cardinality: {1}"  
+}  
+
+
+:Scenario
+{
+   rdf:type  [<http://example.org/toy/Scenario>]    //  <http://weso.es/shexer/ontology/ratio_property_usage>  1.000  ;
+   rdfs:label  xsd:string    //  <http://weso.es/shexer/ontology/ratio_property_usage>  1.000  ;
+   <http://example.org/toy/radiativeForcing>  xsd:float  ?  //  <http://weso.es/shexer/ontology/ratio_property_usage>  0.750
+    //  rdfs:comment  " 75.0 % obj: xsd:float. Cardinality: {1}"  
+}  
+
+
+:Class
+{
+   rdf:type  [rdfs:Class]    //  <http://weso.es/shexer/ontology/ratio_property_usage>  1.000  ;
+   rdfs:subClassOf  @:Class  ?  //  <http://weso.es/shexer/ontology/ratio_property_usage>  0.143
+    //  rdfs:comment  " 14.285714285714285 % obj: @weso-s:Class. Cardinality: {1}"  
+}  
+
+
+:Person
+{
+   rdf:type  [<http://example.org/toy/Person>]    //  <http://weso.es/shexer/ontology/ratio_property_usage>  1.000  ;
+   <http://example.org/toy/affiliation>  @:Institution  +  //  <http://weso.es/shexer/ontology/ratio_property_usage>  1.000
+    //  rdfs:comment  " 75.0 % obj: @weso-s:Institution. Cardinality: {1}"
+    //  rdfs:comment  " 25.0 % obj: @weso-s:Institution. Cardinality: {2}"  ;
+   <http://example.org/toy/name>  xsd:string    //  <http://weso.es/shexer/ontology/ratio_property_usage>  1.000  ;
+   <http://example.org/toy/email>  xsd:string  ?  //  <http://weso.es/shexer/ontology/ratio_property_usage>  0.500
+    //  rdfs:comment  " 50.0 % obj: xsd:string. Cardinality: {1}"  
+}  
+
+

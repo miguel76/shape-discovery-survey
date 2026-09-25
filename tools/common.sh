@@ -20,3 +20,10 @@ python_venv() {
     [ -x "$dir/bin/python" ] || python3 -m venv "$dir"
     "$dir/bin/pip" install -q --disable-pip-version-check "$@"
 }
+
+# limit_memory: cap the address space of Python-based tools (TOOL_VMEM_MB, default
+# 12288) so that a run on a large KG fails with MemoryError instead of triggering
+# the kernel OOM killer. Not used for Java tools, whose heap is set with -Xmx.
+limit_memory() {
+    ulimit -v $(( ${TOOL_VMEM_MB:-12288} * 1024 ))
+}

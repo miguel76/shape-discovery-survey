@@ -1,0 +1,20 @@
+{
+  "run": "shexer@endpoint",
+  "tool": "shexer",
+  "mode": "endpoint",
+  "source": "http://localhost:3030/kg/sparql",
+  "command": [
+    "tools/shexer/run.sh",
+    "endpoint",
+    "http://localhost:3030/kg/sparql",
+    "results/cckg/subclass/shexer@endpoint"
+  ],
+  "exit_code": 137,
+  "timed_out": false,
+  "wall_seconds": 2435.0,
+  "cpu_seconds": 1144.4,
+  "peak_rss_mb": 10412.0,
+  "has_output": false,
+  "syntax": "error: FileNotFoundError: [Errno 2] No such file or directory: '/home/user/shape-discovery-survey/results/cckg/subclass/shexer@endpoint/shapes.ttl'",
+  "inference": "subclass"
+}

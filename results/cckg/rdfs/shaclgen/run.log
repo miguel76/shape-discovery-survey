@@ -1,0 +1,16 @@
+Traceback (most recent call last):
+  File "/home/user/shape-discovery-survey/tools/shaclgen/run_shaclgen.py", line 40, in <module>
+    source = Graph().parse(args.input, format=guess_format(args.input))
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/shape-discovery-survey/.tools/shaclgen-venv/lib/python3.11/site-packages/rdflib/graph.py", line 1660, in parse
+    parser.parse(source, self, **args)
+  File "/home/user/shape-discovery-survey/.tools/shaclgen-venv/lib/python3.11/site-packages/rdflib/plugins/parsers/ntriples.py", line 388, in parse
+    parser.parse(f, **kwargs)
+  File "/home/user/shape-discovery-survey/.tools/shaclgen-venv/lib/python3.11/site-packages/rdflib/plugins/parsers/ntriples.py", line 199, in parse
+    self.line = self.readline()
+                ^^^^^^^^^^^^^^^
+  File "/home/user/shape-discovery-survey/.tools/shaclgen-venv/lib/python3.11/site-packages/rdflib/plugins/parsers/ntriples.py", line 237, in readline
+    buffer = self.file.read(bufsiz)  # type: ignore[union-attr]
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen codecs>", line 520, in read
+MemoryError

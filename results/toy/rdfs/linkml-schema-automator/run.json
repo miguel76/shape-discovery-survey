@@ -1,0 +1,17 @@
+{
+  "tool": "linkml-schema-automator",
+  "mode": "file",
+  "source": "work/toy/rdfs/data.ttl",
+  "command": [
+    "tools/linkml-schema-automator/run.sh",
+    "file",
+    "work/toy/rdfs/data.ttl",
+    "results/toy/rdfs/linkml-schema-automator"
+  ],
+  "exit_code": 0,
+  "timed_out": false,
+  "wall_seconds": 6.81,
+  "cpu_seconds": 7.04,
+  "peak_rss_mb": 236.9,
+  "has_output": true
+}

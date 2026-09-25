@@ -1,0 +1,17 @@
+{
+  "tool": "shaclgen",
+  "mode": "file",
+  "source": "work/toy/subclass/data.nt",
+  "command": [
+    "tools/shaclgen/run.sh",
+    "file",
+    "work/toy/subclass/data.nt",
+    "results/toy/subclass/shaclgen"
+  ],
+  "exit_code": 0,
+  "timed_out": false,
+  "wall_seconds": 0.8,
+  "cpu_seconds": 0.76,
+  "peak_rss_mb": 40.5,
+  "has_output": true
+}

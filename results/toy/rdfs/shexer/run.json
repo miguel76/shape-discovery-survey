@@ -1,0 +1,17 @@
+{
+  "tool": "shexer",
+  "mode": "file",
+  "source": "work/toy/rdfs/data.nt",
+  "command": [
+    "tools/shexer/run.sh",
+    "file",
+    "work/toy/rdfs/data.nt",
+    "results/toy/rdfs/shexer"
+  ],
+  "exit_code": 0,
+  "timed_out": false,
+  "wall_seconds": 0.4,
+  "cpu_seconds": 0.32,
+  "peak_rss_mb": 42.7,
+  "has_output": true
+}

@@ -1,7 +1,9 @@
 {
   "name": "toy",
   "description": "Hand-made toy KG (141 triples) for smoke-testing the pipeline; see toy.ttl header.",
-  "files": ["toy.ttl"],
+  "files": [
+    "toy.ttl"
+  ],
   "reference_shapes": "reference-shapes.ttl",
-  "reference_inference": "rdfs"
+  "reference_regime": "subclass"
 }

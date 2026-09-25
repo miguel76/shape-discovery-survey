@@ -1,0 +1,7 @@
+Dataset,Method,Second,Minute,SecondTotal,MinuteTotal,MaxCard,DatasetPath
+data,firstPass,0,0,0,0,true,/home/user/shape-discovery-survey/work/toy/subclass/data.nt
+data,secondPhase,0,0,0,0,true,/home/user/shape-discovery-survey/work/toy/subclass/data.nt
+data,computeSupportConfidence,0,0,0,0,true,/home/user/shape-discovery-survey/work/toy/subclass/data.nt
+data,0.1_100,0,0,0,0,true,/home/user/shape-discovery-survey/work/toy/subclass/data.nt
+data,extractSHACLShapes-Time.For.Pruning.Only,0,0,0,0,true,/home/user/shape-discovery-survey/work/toy/subclass/data.nt
+data,extractSHACLShapes,1,0,1,0,true,/home/user/shape-discovery-survey/work/toy/subclass/data.nt

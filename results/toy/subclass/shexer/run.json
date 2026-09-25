@@ -1,0 +1,17 @@
+{
+  "tool": "shexer",
+  "mode": "file",
+  "source": "work/toy/subclass/data.nt",
+  "command": [
+    "tools/shexer/run.sh",
+    "file",
+    "work/toy/subclass/data.nt",
+    "results/toy/subclass/shexer"
+  ],
+  "exit_code": 0,
+  "timed_out": false,
+  "wall_seconds": 0.4,
+  "cpu_seconds": 0.33,
+  "peak_rss_mb": 42.6,
+  "has_output": true
+}

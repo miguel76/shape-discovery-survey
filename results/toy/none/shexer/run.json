@@ -1,0 +1,17 @@
+{
+  "tool": "shexer",
+  "mode": "file",
+  "source": "work/toy/none/data.nt",
+  "command": [
+    "tools/shexer/run.sh",
+    "file",
+    "work/toy/none/data.nt",
+    "results/toy/none/shexer"
+  ],
+  "exit_code": 0,
+  "timed_out": false,
+  "wall_seconds": 0.4,
+  "cpu_seconds": 0.31,
+  "peak_rss_mb": 42.5,
+  "has_output": true
+}

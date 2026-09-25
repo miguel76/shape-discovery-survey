@@ -1,0 +1,17 @@
+{
+  "tool": "shacl-play",
+  "mode": "file",
+  "source": "work/toy/none/data.nt",
+  "command": [
+    "tools/shacl-play/run.sh",
+    "file",
+    "work/toy/none/data.nt",
+    "results/toy/none/shacl-play"
+  ],
+  "exit_code": 0,
+  "timed_out": false,
+  "wall_seconds": 4.87,
+  "cpu_seconds": 4.69,
+  "peak_rss_mb": 200.9,
+  "has_output": true
+}

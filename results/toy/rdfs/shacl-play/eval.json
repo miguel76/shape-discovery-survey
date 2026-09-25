@@ -1,0 +1,85 @@
+{
+  "run": "shacl-play",
+  "tool": "shacl-play",
+  "mode": "file",
+  "source": "work/toy/rdfs/data.nt",
+  "command": [
+    "tools/shacl-play/run.sh",
+    "file",
+    "work/toy/rdfs/data.nt",
+    "results/toy/rdfs/shacl-play"
+  ],
+  "exit_code": 0,
+  "timed_out": false,
+  "wall_seconds": 2.41,
+  "cpu_seconds": 4.89,
+  "peak_rss_mb": 204.7,
+  "has_output": true,
+  "syntax": "ok",
+  "non_shacl_terms": [],
+  "well_formedness": {
+    "conforms": true,
+    "violations": 0,
+    "focus_nodes": 0,
+    "by_component": {}
+  },
+  "profile": {
+    "triples": 349,
+    "node_shapes": 7,
+    "property_shapes": 25,
+    "class_path_pairs": 25,
+    "pairs_repeated_from_superclass": 4,
+    "constraint_usage": {
+      "sh:class": 9,
+      "sh:datatype": 17,
+      "sh:in": 14,
+      "sh:languageIn": 2,
+      "sh:maxCount": 21,
+      "sh:minCount": 18,
+      "sh:nodeKind": 25,
+      "sh:or": 3
+    }
+  },
+  "self_validation": {
+    "conforms": true,
+    "violations": 0,
+    "focus_nodes": 0,
+    "validated_focus_nodes": 27,
+    "target_focus_nodes": 27,
+    "partial": false,
+    "seconds": 0,
+    "by_component": {},
+    "top_path_components": {}
+  },
+  "reference": {
+    "pairs_extracted": 25,
+    "pairs_reference": 22,
+    "pairs_shared": 22,
+    "pair_precision": 0.88,
+    "pair_recall": 1.0,
+    "missing_pairs": [],
+    "constraint_agreement": {
+      "datatype": {
+        "agree": 12,
+        "of": 13
+      },
+      "class": {
+        "agree": 5,
+        "of": 6
+      },
+      "required": {
+        "agree": 19,
+        "of": 22
+      },
+      "functional": {
+        "agree": 19,
+        "of": 22
+      }
+    },
+    "reference_violations_found": {
+      "found": 0,
+      "of": 4
+    }
+  },
+  "inference": "rdfs"
+}

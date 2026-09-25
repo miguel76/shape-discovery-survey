@@ -7,8 +7,12 @@ directory. To reproduce:
 
 ```sh
 make install
-make run evaluate KG=cckg RUN_ARGS="--endpoint --local-endpoint"
+make run evaluate KG=cckg INFERENCE=none RUN_ARGS="--endpoint --local-endpoint"
+make run evaluate KG=cckg INFERENCE=subclass RUN_ARGS="--endpoint --local-endpoint"
+VALIDATION_BUDGET=1800 make run evaluate KG=cckg INFERENCE=rdfs RUN_ARGS=
 ```
+
+The `subclass` and `rdfs` evaluations here used a 30-minute validation budget per set of shapes.
 
 ## Input
 
@@ -21,7 +25,7 @@ make run evaluate KG=cckg RUN_ARGS="--endpoint --local-endpoint"
   this sandbox (egress policy). The endpoint runs therefore use a local Fuseki serving the dump
   from a TDB2 store (`--local-endpoint`).
 
-## Execution
+## Execution (regime `none`)
 
 | run | status | wall time | peak RSS | node / property shapes |
 |---|---|---|---|---|
@@ -63,42 +67,34 @@ What it took to get there:
 
 No reference shapes exist for CCKG yet, so the evaluation is limited to the checks listed below.
 
-| run | violations (SHACL semantics) | nodes flagged | violations (explicit typing) | nodes flagged |
-|---|---|---|---|---|
-| sheXer | 7,854,479 | 592,474 | 2,762,556 | 589,829 |
-| QSE, full | 13,085,660 | 592,454 | 6,214,119 | 592,357 |
-| QSE, pruned | 6,837,851 | 589,597 | 3,613,203 | 586,034 |
-| SHACLGEN | 366,302 | 114,577 | 295,625 | 114,577 |
-| SHACL Play! | 4,016,867 | 586,920 | **295,607** | **114,559** |
-| schema-automator | 20,113,053 | 594,982 | 9,077,179 | 594,980 |
+**A correction to the first version of this document.** The first version reported that almost
+every node violates the shapes extracted from it, and it blamed mostly "subclass reach". That was
+an inconsistency in the pipeline, not a property of the tools. Discovery used only the asserted
+types, but validation ran on a data graph that contains the ontology's `rdfs:subClassOf` triples,
+which SHACL Core follows for `sh:targetClass` and `sh:class`. The pipeline now applies one
+*inference regime* to both phases (see [inference.md](inference.md)). The figures below are for the
+coherent regimes. [`results/cckg/summary.md`](../results/cckg/summary.md) has them side by side.
 
-Endpoint runs give the same numbers as file runs, except for a handful of sheXer nodes. Out of 595k
-typed nodes, almost every one violates the shapes that were extracted from it. Three causes explain
-most of this.
+### Regime `none` (asserted triples only)
 
-**1. Subclass reach (all tools).** CCKG types most nodes only with their most specific class. A
-few explicitly typed nodes belong to very generic classes that sit at the top of the hierarchy:
+| run | nodes flagged | violations | violations per node |
+|---|---|---|---|
+| SHACL Play! (file and endpoint) | 114,559 (19.3%) | 295,607 | 0.50 |
+| SHACLGEN | 114,577 (19.3%) | 295,625 | 0.50 |
+| sheXer (file and endpoint) | 589,829 (99.1%) | 2,762,556 | 4.64 |
+| QSE, pruned | 586,034 (98.6%) | 3,613,203 | 6.08 |
+| QSE, full | 592,357 (99.6%) | 6,214,119 | 10.44 |
+| schema-automator | 594,980 (100%) | 9,077,179 | 15.26 |
 
-| class | explicit instances | additional instances through `rdfs:subClassOf` |
-|---|---|---|
-| `top-level:Concept` | 48 | +586,784 |
-| `data:Variable` | 6,143 | +578,132 |
-| `data:Dataset` | 2 | +573,448 |
-| `data:DataGeneratingProcess` | 2 | +4,991 |
+Two different pictures remain:
 
-Every tool learns a class's shape from its explicitly typed instances. SHACL's `sh:targetClass`
-then applies that shape to every instance of every subclass, because the ontology's
-`rdfs:subClassOf` triples are part of the data graph. For example, a `Dataset` shape learned from 2
-nodes, with `minCount 1` on `rdfs:comment` and `isMemberOf`, is applied to 573k projections. The
-"explicit typing" column removes the `rdfs:subClassOf` triples, so each shape is checked only on the
-nodes it was learned from.
+**1. Descriptive tools flag the same, real problems.** SHACL Play and SHACLGEN flag practically the
+same 114.6k nodes. Almost all of their violations are `sh:class Variable` on the three
+variable-specialization properties, and the flagged values are undefined variables (D4). Two tools
+with quite different algorithms flagging the same nodes is a useful signal that the problem is in
+the data.
 
-This variant has a side effect: `sh:class C` then also rejects values typed only with a subclass
-of `C`. For SHACL Play and SHACLGEN that affects only a handful of values (for example 7
-`DependentVariable`s). Their `sh:class` violations on the three variable-specialization properties
-all come from untyped values, i.e. the dangling references in D4.
-
-**2. Tool-specific constraints that the data contradicts** (these remain under explicit typing):
+**2. Tool-specific constraints that the data contradicts:**
 - **QSE** emits `sh:maxCount 1` on `data:dependsOnVariable` for `SingleProjection`, although
   568,858 subjects have exactly 2 values. It only ever emits `minCount 1` and `maxCount 1`, and in
   the full output it adds `minCount 1` even to constraints with confidence 0.0001 (50 of 514,792
@@ -107,17 +103,60 @@ all come from untyped values, i.e. the dangling references in D4.
   does not remove these constraints. The toy KG showed the same pattern. The root cause in
   `ShapesExtractor` has not been traced yet.
 - **sheXer** turns each `rdf:type` value into its own property shape (`sh:in ( C )`,
-  `maxCount 1`), which fails on nodes with several types. Examples are a `SingleProjection` that is
-  also a `ScenarioBasedProjection`, and QSE's `rdf:type` `sh:in` likewise. This accounts for 2.2M
-  of its 2.8M explicit-typing violations.
+  `maxCount 1`), which fails on every node with several types, for example a `SingleProjection`
+  that is also a `ScenarioBasedProjection`. This accounts for 2.2M of its 2.8M violations.
 - **schema-automator** checks IRIs as `xsd:string` literals, adds `sh:closed`, and builds `sh:in`
   lists from table samples, so it rejects every node.
 
-**3. Real problems in the data.** SHACL Play and SHACLGEN are the closest to descriptive: they
-flag 114.6k nodes under explicit typing. The largest group of their remaining violations is
-`sh:class Variable` on the variable-specialization properties, and the flagged values are
-undefined variables (D4). Two tools with quite different algorithms flagging the same nodes is a
-useful signal that the problem is in the data.
+### Regime `subclass` (plus `rdf:type` along the subclass closure)
+
+The data grows from 4.7M to 9.5M triples. Where validation hit its 30-minute budget, the rates are
+over a random sample of focus nodes.
+
+| run | node / property shapes | (class, property) pairs, of which also on a superclass | nodes flagged | violations per node |
+|---|---|---|---|---|
+| SHACL Play! (file and endpoint) | 77 / 710 | 710, 644 (91%) | 19.3% | 2.64 |
+| SHACLGEN | 89 / 92 | 788, 644 (82%) | 19.3% | 2.64 |
+| sheXer (file) | 89 / 1,788 | 788, 644 (82%) | 100% (sample of 88k) | 2,357 |
+| QSE, pruned | 45 / 290 | 249, 198 (80%) | 100% (sample of 301k) | 103 |
+| QSE, full | 88 / 870 | 788, 644 (82%) | 100% (sample of 94k) | 143 |
+| sheXer (endpoint), schema-automator | out of memory | | | |
+
+- **Shapes for abstract classes appear.** The ~30 abstract classes, such as `ccso:Projection`
+  and `top-level:Entity`, now have shapes learned from all their members. For example, sheXer's
+  `Dataset` shape describes 573k datasets (13 properties, none required) instead of 2 (2 properties,
+  both required).
+- **Redundancy grows.** The share of pairs that repeat a superclass constraint rises from about
+  30–40% to 80–91%.
+- **The descriptive tools flag the same nodes as under `none`,** but each problem is now reported
+  about 5 times, once per superclass shape that repeats the constraint.
+- **sheXer's per-type `rdf:type` shapes explode.** A `SingleProjection` carries about 10 types, and
+  each `rdf:type sh:in ( C )` shape rejects the other 9, on each of the ~10 node shapes that target
+  the node: 184M `sh:in` and 23M `maxCount` violations on `rdf:type`.
+
+### Regime `rdfs` (full RDFS closure)
+
+The data grows to 15.1M triples. Most of the growth is subproperty triples (3.15M
+`top-level:associatedWith`, 424k `data:derivedFromVariable`, 166k `hasPart`/`hasProperPart`) and
+domain/range typing. Discovery ran on the file only.
+
+| run | node / property shapes | (class, property) pairs, of which also on a superclass | nodes flagged | violations per node |
+|---|---|---|---|---|
+| SHACL Play! | 79 / 1,040 | 1,040, 960 (92%) | **0%** of 654,288 | 0 |
+| sheXer | 92 / 2,173 | 1,118, 960 (86%) | 100% (sample of 2.5k) | 2,982 |
+| QSE, pruned | 47 / 444 | 401, 342 (85%) | 91.6% (sample of 14k) | 178 |
+| QSE, full | 91 / 1,202 | 1,118, 960 (86%) | 100% (sample of 11k) | 187 |
+| SHACLGEN, schema-automator | out of memory | | | |
+
+- **SHACL Play's shapes find no violations at all, because the inference hides D4.** The 287
+  undefined variables are values of properties whose `rdfs:range` is `data:Variable`. Under RDFS
+  they are therefore typed as `Variable`, and `sh:class data:Variable` passes. Inference based on
+  domains and ranges makes the data conform by construction wherever a constraint matches a
+  declared range, which is exactly where discovered shapes would otherwise detect errors.
+- **Shapes describe the ontology's inferred properties too.** `Dataset` now has 19 constrained
+  properties, including superproperties such as `top-level:associatedWith`.
+- **Validation cost explodes for `sh:node`-heavy shapes.** `sh:node` checks now traverse millions
+  of inferred `associatedWith` links. sheXer's shapes validated only 2.5k nodes in 30 minutes.
 
 ## Data defects found in CCKG
 
@@ -131,11 +170,12 @@ These defects came to light while running and debugging the tools. The counts co
 | D4 | Dangling references: variables used as values of `data:holdsSpecializationOfVariable`, `data:isSpecializationOfVariable` or `data:iSpecializationOfVariable` but never defined or typed. 281 are MIP variables (e.g. `variables/mip/rv850`) and 6 are CF standard names (e.g. `variables/cf/atmosphere_relative_vorticity`, referenced from the CMOR tables). | referenced from the CMOR tables and the datasets | 287 IRIs, about 290k violations | `sh:class` violations in SHACL Play and SHACLGEN |
 | D5 | Misspelled property `data:iSpecializationOfVariable` (the ontology declares `data:isSpecializationOfVariable`). | all of `cordex-cmip5/datasets` (`ukcp18` uses the right IRI) | 145,461 triples | validation breakdown by property path |
 | D6 | HACID properties used but not declared in the dump's ontology graphs: `ccso:outputId` (3,014), `data:hasSelectedRegion` (2,230), `ccso:simulationConfigurationId` (641), `ccso:experimentId` (93), `top-level:hasExpectedType` (65), `top-level:altLabel` (42). These may just be missing from the ontology. | several graphs | 6,085 triples | cross-check of predicates against the ontology |
+| D7 | `data:hasStartDateTime` and `data:hasEndDateTime` declare `rdfs:range xsd:datetime` (lower-case t, not an XSD datatype; the intended IRI is `xsd:dateTime`), and `xsd:datetime` is declared an `owl:Class`. | `onto/data` graph | 3 axioms; 686 literal values are affected (the other 3,670 values of these properties are `file://` IRIs, see D3) | the RDFS closure: the range rule types their literal values with `xsd:datetime` |
 
-The distribution of explicit types described under cause 1 (a few instances of the generic
-classes, most nodes typed only with a leaf class) is a modelling choice rather than a defect. It
-does decide how any SHACL shapes for CCKG will behave: it matters whether they are meant to be
-validated with the ontology in the data graph.
+CCKG types most nodes only with their most specific class, while a few nodes are typed explicitly
+with very generic classes (2 `data:Dataset`s, 48 `top-level:Concept`s). This is a modelling choice
+rather than a defect, but it decides how any SHACL shapes for CCKG behave. With the ontology in the
+data graph, SHACL applies a `Dataset` shape to 573,450 nodes. Without it, the shape applies to 2.
 
 ## Tool bugs found (to report upstream)
 
@@ -149,10 +189,14 @@ validated with the ontology in the data graph.
 
 ## Next steps
 
-1. **Reference shapes for CCKG.** The evaluation has no ground truth yet. A useful starting point
-   is SHACL Play's shapes intersected with sheXer's cardinalities. Decide whether the shapes
-   should be validated with the ontology in the data graph (cause 1).
+1. **Reference shapes for CCKG.** The evaluation has no ground truth yet. The reference shapes
+   should state the regime they are written for (`reference_regime` in `kg.json`, ideally also
+   `sh:entailment` in the shapes graph). `subclass` is the natural choice if shapes are meant to be
+   written at the level of abstract classes. A useful starting point is SHACL Play's `subclass`
+   shapes with the constraints each class inherits from its superclasses removed, plus sheXer's
+   cardinalities.
 2. **Fix or report the data defects D1–D6** in the CCKG build.
-3. **An extraction variant on RDFS-materialised data**, so that tools learn from inferred types
-   and generic-class shapes describe all their instances.
+3. **Factor discovered shapes along the class hierarchy** (drop constraints already stated on a
+   superclass). None of the tools does this, and it is what would turn inference into less
+   redundancy rather than more (see [inference.md](inference.md)).
 4. Report the tool bugs upstream. Look into QSE's cardinality extraction and its query-based mode.

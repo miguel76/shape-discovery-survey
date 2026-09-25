@@ -1,7 +1,9 @@
 # Toy KG run: findings
 
-The run reproduces with `make install && make run evaluate KG=toy`. The numbers are in
-[`results/toy/summary.md`](../results/toy/summary.md) and the per-run `eval.json` files. The toy
+The run reproduces with `make install && make run evaluate KG=toy`, which uses the `none` inference
+regime. The numbers are in [`results/toy/none/summary.md`](../results/toy/none/summary.md) and the
+per-run `eval.json` files. [`results/toy/summary.md`](../results/toy/summary.md) compares the
+three regimes (see [inference.md](inference.md)). The toy
 KG ([`data/toy/toy.ttl`](../data/toy/toy.ttl), 141 triples) was built to include the typical
 difficulties listed in its header. The hand-written
 [reference shapes](../data/toy/reference-shapes.ttl) flag exactly 4 intended defects on 2 nodes:
@@ -27,7 +29,7 @@ and uses at most 240 MB RSS. Every output parses and passes the SHACL-SHACL meta
   design, but it means the constraint checks shape conformance, not class membership.
 - Each `rdf:type` value becomes its own property shape (`sh:in (C)`, `minCount 1`, `maxCount 1`).
   The SHACL output keeps `minCount 1` even where ShExC says `?` (for example, `EarthSystemModel` on
-  `:ClimateModel` has a usage ratio of 0.5). On multi-typed nodes this gives 20 violations on the
+  `:ClimateModel` has a usage ratio of 0.5). On multi-typed nodes this gives 19 violations (`none` regime) on the
   tool's own input, even though sheXer's default *all-compliant* mode promises none.
 - Cardinalities are the most accurate of all tools: required 20/22, functional 19/22.
 
@@ -40,7 +42,7 @@ and uses at most 240 MB RSS. Every output parses and passes the SHACL-SHACL meta
   values: `homepage` gets `minCount 1` at confidence 0.5, `rdfs:label` gets `maxCount 1` although
   one institution has 2 labels, and `author` gets `maxCount 1` although one simulation has 2 authors.
   Together with `sh:node` references that fail whenever the referenced node's shape fails, this
-  gives 34 violations on its own input. This needs a closer look at the `min_cardinality`/`max_cardinality`
+  gives 33 violations on its own input (`none` regime). This needs a closer look at the `min_cardinality`/`max_cardinality`
   options before drawing conclusions. With the default pruning thresholds (confidence 0.1, support
   100) the pruned file is empty, because every class has fewer than 100 instances.
 - It uses `sh:or` for mixed value types, for example `developedBy` pointing to Institution or
@@ -51,12 +53,11 @@ and uses at most 240 MB RSS. Every output parses and passes the SHACL-SHACL meta
   functional 19/22.
 - It needed a patch: upstream, every SELECT query ignores its bindings (see
   [tools.md](tools.md)).
-- Adds `sh:in` enumerations for properties with at most 3 distinct values. These enumerations are
-  computed from explicitly typed instances. SHACL's `sh:targetClass` also reaches subclass
-  instances through `rdfs:subClassOf` in the data, so `ex:m_mpi_esm`, which is typed only as
-  `EarthSystemModel`, violates the `ClimateModel` enumerations. That causes the only 2 violations;
-  with the `rdfs:subClassOf` triples removed from the data ("explicit typing" in the summary), its
-  shapes conform.
+- Adds `sh:in` enumerations for properties with at most 3 distinct values. In the first run these
+  caused its only 2 violations. The enumerations were computed from explicitly typed instances, but
+  validation also applied them to `ex:m_mpi_esm` (typed only as `EarthSystemModel`) through
+  SHACL's built-in `rdfs:subClassOf` semantics. That was an inconsistency in the pipeline, not in
+  the tool. With the same inference regime in both phases, its shapes conform in every regime.
 - Its output adds display hints (`sh:name`, `rdfs:label`, random background colours), so two runs are not
   byte-identical.
 
@@ -68,7 +69,7 @@ and uses at most 240 MB RSS. Every output parses and passes the SHACL-SHACL meta
 
 **LinkML schema-automator → gen-shacl**
 - Going through tables loses the RDF typing. IRIs become `xsd:string` literals and no `sh:class`
-  constraints are produced, which gives 204 violations on its own input. Its shapes are also
+  constraints are produced, which gives 197 violations on its own input (`none` regime). Its shapes are also
   `sh:closed`.
 - LinkML slots are global, and each slot's definition (range, `multivalued`) appears to come from
   whichever class table is processed last. The result therefore depends on the order of the input
@@ -82,7 +83,7 @@ The first version of the evaluator used pySHACL and counted 72 self-validation v
 pySHACL copies the inner results of `sh:node` checks into the top-level report, and the same result
 can appear several times. For example, it reported the Person `ex:p_dan` as missing an Institution
 `homepage`, and it listed the missing `homepage` of `ex:inst_ncar` 7 times. The SHACL spec expects a single `sh:NodeConstraintComponent`
-result on the outer focus node. The evaluator now validates with Jena SHACL, which gives 34, and Jena
+result on the outer focus node. The evaluator now validates with Jena SHACL, which gives 34 on the same data, and Jena
 also scales to KGs with millions of triples.
 
 ## Cross-cutting lessons for the survey
@@ -91,8 +92,11 @@ also scales to KGs with millions of triples.
    terms that parse fine and pass SHACL-SHACL but have no effect. The evaluator now reports them as
    "non-SHACL terms".
 2. **Subclass semantics.** Tools profile explicitly typed instances, but SHACL validation targets
-   subclass instances too. The survey KGs should include class hierarchies. The comparison should
-   use the same inference regime that is intended for validation.
+   subclass instances too whenever `rdfs:subClassOf` triples are in the data graph. The pipeline now
+   applies one inference regime to both discovery and validation (see [inference.md](inference.md)).
+   The reference shapes are written for the `subclass` regime. Under `none` they flag a correct node
+   (`ex:m_mpi_esm` as a `usesModel` value), so the regime has to be stated together with any set of
+   shapes.
 3. **Descriptive vs. prescriptive shapes.** Validating the KG against its own extracted shapes is a
    cheap signal of how faithfully a tool describes the data. Comparing the violations with the
    reference violations (the last column of the validation table) shows how useful the tool is for

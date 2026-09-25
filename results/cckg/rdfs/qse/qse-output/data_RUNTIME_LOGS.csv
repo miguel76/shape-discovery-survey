@@ -1,0 +1,7 @@
+Dataset,Method,Second,Minute,SecondTotal,MinuteTotal,MaxCard,DatasetPath
+data,firstPass,18,0,18,0,true,/home/user/shape-discovery-survey/work/cckg/rdfs/data.nt
+data,secondPhase,51,0,69,0,true,/home/user/shape-discovery-survey/work/cckg/rdfs/data.nt
+data,computeSupportConfidence,34,0,103,0,true,/home/user/shape-discovery-survey/work/cckg/rdfs/data.nt
+data,0.1_100,4,0,107,0,true,/home/user/shape-discovery-survey/work/cckg/rdfs/data.nt
+data,extractSHACLShapes-Time.For.Pruning.Only,4,0,111,0,true,/home/user/shape-discovery-survey/work/cckg/rdfs/data.nt
+data,extractSHACLShapes,18,0,129,0,true,/home/user/shape-discovery-survey/work/cckg/rdfs/data.nt
