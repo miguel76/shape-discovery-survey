@@ -9,30 +9,32 @@ Shapes extracted and validated under the `rdfs` regime (see `pipeline/regimes.py
 | run | exit | wall s | peak RSS MB | node shapes | property shapes | (class, path) pairs | of which also on a superclass | non-SHACL terms | SHACL-SHACL violations |
 |---|---|---|---|---|---|---|---|---|---|
 | linkml-schema-automator | 1 | 392.27 | 11970.2 | - | - | - | - | - | - |
-| qse | 0 | 127.06 | 7222.1 | 91 | 1202 | 1118 | 960 | sh:NodeKind | 1 |
-| qse-pruned | 0 | 119.14 | 6369.4 | 47 | 444 | 401 | 342 | sh:NodeKind | 1 |
-| shacl-play | 0 | 6408.77 | 4921.4 | 79 | 1040 | 1040 | 960 | - | 0 |
 | shaclgen | 1 | 600.19 | 12184.3 | - | - | - | - | - | - |
-| shexer | 0 | 473.65 | 6181.8 | 92 | 2173 | 1118 | 960 | sh:dataType | 0 |
+| shexer | 0 | 552.01 | 6325.8 | 93 | 2114 | 1058 | 896 | sh:dataType | 0 |
+| shexer+factored | 0 | 552.01 | 6325.8 | 77 | 1055 | 625 | 463 | sh:dataType | 0 |
 
 ## Constraint components used (number of shapes using each)
 
-| run | sh:class | sh:datatype | sh:hasValue | sh:in | sh:languageIn | sh:maxCount | sh:minCount | sh:node | sh:nodeKind | sh:or |
-|---|---|---|---|---|---|---|---|---|---|---|
-| linkml-schema-automator |  |  |  |  |  |  |  |  |  |  |
-| qse | 7745 | 357 |  | 91 |  | 350 | 198 | 810 |  | 860 |
-| qse-pruned | 3259 | 78 |  | 47 |  | 80 | 86 | 273 |  | 332 |
-| shacl-play | 6196 | 337 | 31 | 26 | 76 | 645 | 160 |  | 1060 | 817 |
-| shaclgen |  |  |  |  |  |  |  |  |  |  |
-| shexer |  |  |  | 1030 |  | 1787 | 1215 | 801 | 6 |  |
+| run | sh:in | sh:maxCount | sh:minCount | sh:node | sh:nodeKind |
+|---|---|---|---|---|---|
+| linkml-schema-automator |  |  |  |  |  |
+| shaclgen |  |  |  |  |  |
+| shexer | 1043 | 1722 | 1235 | 717 | 5 |
+| shexer+factored | 424 | 759 | 535 | 391 | 5 |
 
 ## Validating the KG against the extracted shapes
 
 | run | conforms | violations | focus nodes | by component | reference violations also found |
 |---|---|---|---|---|---|
 | linkml-schema-automator | - | - | - | - | - |
-| qse (sample: 11334/654743 focus nodes) | False | 2123423 | 11334 | sh:NodeConstraintComponent: 1189189, sh:InConstraintComponent: 923164, sh:MaxCountConstraintComponent: 10377, sh:MinCountConstraintComponent: 408, sh:OrConstraintComponent: 281, sh:ClassConstraintComponent: 4 | - |
-| qse-pruned (sample: 13885/654643 focus nodes) | False | 2476695 | 12718 | sh:NodeConstraintComponent: 1345420, sh:InConstraintComponent: 1130272, sh:MinCountConstraintComponent: 483, sh:DatatypeConstraintComponent: 293, sh:OrConstraintComponent: 224, sh:ClassConstraintComponent: 2, sh:MaxCountConstraintComponent: 1 | - |
-| shacl-play | True | 0 | 0 | - | - |
 | shaclgen | - | - | - | - | - |
-| shexer (sample: 2461/654743 focus nodes) | False | 7338056 | 2461 | sh:InConstraintComponent: 6458715, sh:MaxCountConstraintComponent: 669257, sh:NodeConstraintComponent: 210084 | - |
+| shexer (sample: 240/599213 focus nodes) | False | 808143 | 240 | sh:InConstraintComponent: 719879, sh:MaxCountConstraintComponent: 72770, sh:NodeConstraintComponent: 15494 | - |
+| shexer+factored (sample: 240/599213 focus nodes) | False | 495717 | 240 | sh:InConstraintComponent: 444737, sh:MaxCountConstraintComponent: 44945, sh:NodeConstraintComponent: 6035 | - |
+
+## Factoring along the class hierarchy
+
+Each `+factored` run holds the shapes of the run above with the constraints implied by superclass shapes removed (`pipeline/factor.py`, `docs/factoring.md`). Factoring preserves which (focus node, path) pairs have violations, so the nodes flagged must be the same; violations can drop, since the same problem is no longer reported once per superclass.
+
+| run | constraints | removed | property shapes | node shapes | shapes left intact (referenced / sibling-dependent / other targets) | nodes flagged (original → factored) | violations (original → factored) |
+|---|---|---|---|---|---|---|---|
+| shexer | 4,722 | 2,608 (55%) | 2114 → 1055 | 93 → 77 | 33 / 0 / 0 | 240 (100.0% of a sample) → 240 (100.0% of a sample) | 808,143 → 495,717 |

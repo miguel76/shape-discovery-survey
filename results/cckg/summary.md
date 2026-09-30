@@ -18,4 +18,4 @@ Each cell: node shapes / property shapes; (target class, property) pairs constra
 | shacl-play.prev-dump+factored | - | 64 / 228 shapes, 228 pairs (162 also on a superclass); 19.5% of 595,454 focus nodes flagged, 0.31 violations per node | - |
 | shaclgen | - | - | no output |
 | shexer | 60 / 415 shapes, 305 pairs (103 also on a superclass); 99.0% of 595,912 focus nodes flagged, 5.23 violations per node | 90 / 1732 shapes, 729 pairs (590 also on a superclass); 100.0% of a sample of 27,014 focus nodes flagged, 2366.20 violations per node | 93 / 2114 shapes, 1058 pairs (896 also on a superclass); 100.0% of a sample of 240 focus nodes flagged, 3367.26 violations per node |
-| shexer+factored | - | 73 / 794 shapes, 422 pairs (283 also on a superclass); 100.0% of a sample of 27,014 focus nodes flagged, 1489.21 violations per node | - |
+| shexer+factored | - | 73 / 794 shapes, 422 pairs (283 also on a superclass); 100.0% of a sample of 27,014 focus nodes flagged, 1489.21 violations per node | 77 / 1055 shapes, 625 pairs (463 also on a superclass); 100.0% of a sample of 240 focus nodes flagged, 2065.49 violations per node |
