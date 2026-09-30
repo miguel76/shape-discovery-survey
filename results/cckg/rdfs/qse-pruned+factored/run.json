@@ -1,0 +1,18 @@
+{
+  "tool": "qse-pruned",
+  "mode": "file",
+  "source": "work/cckg/rdfs/data.nt",
+  "command": [
+    "tools/qse-pruned/run.sh",
+    "file",
+    "work/cckg/rdfs/data.nt",
+    "results/cckg/rdfs/qse-pruned"
+  ],
+  "exit_code": 0,
+  "timed_out": false,
+  "wall_seconds": 146.86,
+  "cpu_seconds": 215.09,
+  "peak_rss_mb": 8192.6,
+  "has_output": true,
+  "factored_from": "qse-pruned"
+}

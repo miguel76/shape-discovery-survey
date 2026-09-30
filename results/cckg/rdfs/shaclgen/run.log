@@ -1,3 +1,9 @@
+Failed to convert Literal lexical form to value. Datatype=http://www.w3.org/2001/XMLSchema#dateTime, Converter=<built-in method fromisoformat of type object at 0xa1e4c0>
+Traceback (most recent call last):
+  File "/home/user/shape-discovery-survey/.tools/shaclgen-venv/lib/python3.11/site-packages/rdflib/term.py", line 2262, in _castLexicalToPython
+    return conv_func(lexical)  # type: ignore[arg-type]
+           ^^^^^^^^^^^^^^^^^^
+ValueError: year 0 is out of range
 Traceback (most recent call last):
   File "/home/user/shape-discovery-survey/tools/shaclgen/run_shaclgen.py", line 40, in <module>
     source = Graph().parse(args.input, format=guess_format(args.input))

@@ -22,52 +22,52 @@ enums:
     permissible_values:
       Class:
         description: Class
-        meaning: http://www.w3.org/2002/07/owl#Class
+        meaning: http://www.w3.org/2000/01/rdf-schema#Class
   isDefinedBy_enum:
     permissible_values:
+      top-level:
+        description: top-level
+        meaning: https://w3id.org/hacid/onto/top-level
       ccso:
         description: ccso
         meaning: https://w3id.org/hacid/onto/ccso
       data:
         description: data
         meaning: https://w3id.org/hacid/onto/data
-      top-level:
-        description: top-level
-        meaning: https://w3id.org/hacid/onto/top-level
   inScheme_enum:
     permissible_values:
       Climate-ADAPT:
         description: Climate-ADAPT
         meaning: https://w3id.org/hacid/data/cs/Climate-ADAPT
-      Copernicus-CCS:
-        description: Copernicus-CCS
-        meaning: https://w3id.org/hacid/data/cs/Copernicus-CCS
       ETCCDI:
         description: ETCCDI
         meaning: https://w3id.org/hacid/data/cs/ETCCDI
+      Copernicus-CCS:
+        description: Copernicus-CCS
+        meaning: https://w3id.org/hacid/data/cs/Copernicus-CCS
       UK-CRI:
         description: UK-CRI
         meaning: https://w3id.org/hacid/data/cs/UK-CRI
   dependsOnVariable_enum:
     permissible_values:
+      geodetic:
+        description: geodetic
+        meaning: https://w3id.org/hacid/data/cs/dimensions/geodetic
+      heatwaveMethod:
+        description: heatwaveMethod
+        meaning: https://w3id.org/hacid/data/cs/climdex/parameters/heatwaveMethod
       time:
         description: time
         meaning: https://w3id.org/hacid/onto/top-level/time
       baseTemperature:
         description: baseTemperature
         meaning: https://w3id.org/hacid/data/cs/climdex/parameters/baseTemperature
-      heatwaveMethod:
-        description: heatwaveMethod
-        meaning: https://w3id.org/hacid/data/cs/climdex/parameters/heatwaveMethod
-      minimumLength:
-        description: minimumLength
-        meaning: https://w3id.org/hacid/data/cs/climdex/parameters/minimumLength
-      geodetic:
-        description: geodetic
-        meaning: https://w3id.org/hacid/data/cs/dimensions/geodetic
       minimumPrecipitation:
         description: minimumPrecipitation
         meaning: https://w3id.org/hacid/data/cs/climdex/parameters/minimumPrecipitation
+      minimumLength:
+        description: minimumLength
+        meaning: https://w3id.org/hacid/data/cs/climdex/parameters/minimumLength
   aggregatesVariable_enum:
     permissible_values:
       time:
@@ -75,21 +75,21 @@ enums:
         meaning: https://w3id.org/hacid/onto/top-level/time
   hasSuggestedQuantization_enum:
     permissible_values:
+      P1M:
+        description: P1M
+        meaning: https://w3id.org/hacid/data/cs/dimensions/time/reference-frames/gregorian/quantizations/regular/P1M
+      P1Y:
+        description: P1Y
+        meaning: https://w3id.org/hacid/data/cs/dimensions/time/reference-frames/gregorian/quantizations/regular/P1Y
       P1D:
         description: P1D
         meaning: https://w3id.org/hacid/data/cs/dimensions/time/reference-frames/gregorian/quantizations/regular/P1D
       P6M:
         description: P6M
         meaning: https://w3id.org/hacid/data/cs/dimensions/time/reference-frames/gregorian/quantizations/regular/P6M
-      P1Y:
-        description: P1Y
-        meaning: https://w3id.org/hacid/data/cs/dimensions/time/reference-frames/gregorian/regions/2010-01-01T00:00:00Z-2099-11-31T00:00:00Z/quantized/regular/P1Y
-      P1M:
-        description: P1M
-        meaning: https://w3id.org/hacid/data/cs/dimensions/time/reference-frames/gregorian/regions/2010-01-01T00:00:00Z-2099-11-31T00:00:00Z/quantized/regular/P1M
       P3M:
         description: P3M
-        meaning: https://w3id.org/hacid/data/cs/dimensions/time/reference-frames/gregorian/regions/2010-01-01T00:00:00Z-2099-11-31T00:00:00Z/quantized/regular/P3M
+        meaning: https://w3id.org/hacid/data/cs/dimensions/time/reference-frames/gregorian/quantizations/regular/P3M
   isMemberOf_enum:
     permissible_values:
       domains:
@@ -97,119 +97,119 @@ enums:
         meaning: https://w3id.org/hacid/data/cs/cordex/domains
   basedOnDimensionalSpace_enum:
     permissible_values:
-      -103.39,43.48:
-        description: -103.39,43.48
-        meaning: https://w3id.org/hacid/data/cs/dimensions/geodetic/reference-frames/rotated-WGS84/-103.39,43.48
-      -64.78,77.61:
-        description: -64.78,77.61
-        meaning: https://w3id.org/hacid/data/cs/dimensions/geodetic/reference-frames/rotated-WGS84/-64.78,77.61
+      P1M:
+        description: P1M
+        meaning: https://w3id.org/hacid/data/cs/dimensions/time/reference-frames/gregorian/quantizations/regular/P1M
       -166.92,6.08:
         description: -166.92,6.08
         meaning: https://w3id.org/hacid/data/cs/dimensions/geodetic/reference-frames/rotated-WGS84/-166.92,6.08
-      141.38,60.31:
-        description: 141.38,60.31
-        meaning: https://w3id.org/hacid/data/cs/dimensions/geodetic/reference-frames/rotated-WGS84/141.38,60.31
-      -56.06,70.6:
-        description: -56.06,70.6
-        meaning: https://w3id.org/hacid/data/cs/dimensions/geodetic/reference-frames/rotated-WGS84/-56.06,70.6
-      PT1H:
-        description: PT1H
-        meaning: https://w3id.org/hacid/data/cs/dimensions/time/reference-frames/gregorian/quantizations/regular/PT1H
       PT3H:
         description: PT3H
         meaning: https://w3id.org/hacid/data/cs/dimensions/time/reference-frames/gregorian/quantizations/regular/PT3H
       180.0,90.0:
         description: 180.0,90.0
         meaning: https://w3id.org/hacid/data/cs/dimensions/geodetic/reference-frames/rotated-WGS84/180.0,90.0
-      113.98,75.74:
-        description: 113.98,75.74
-        meaning: https://w3id.org/hacid/data/cs/dimensions/geodetic/reference-frames/rotated-WGS84/113.98,75.74
-      P1M:
-        description: P1M
-        meaning: https://w3id.org/hacid/data/cs/dimensions/time/reference-frames/gregorian/regions/2010-01-01T00:00:00Z-2099-11-31T00:00:00Z/quantized/regular/P1M
-      -123.34,79.95:
-        description: -123.34,79.95
-        meaning: https://w3id.org/hacid/data/cs/dimensions/geodetic/reference-frames/rotated-WGS84/-123.34,79.95
-      0.0,6.55:
-        description: 0.0,6.55
-        meaning: https://w3id.org/hacid/data/cs/dimensions/geodetic/reference-frames/rotated-WGS84/0.0,6.55
-      83.0,42.5:
-        description: 83.0,42.5
-        meaning: https://w3id.org/hacid/data/cs/dimensions/geodetic/reference-frames/rotated-WGS84/83.0,42.5
-      198.0,39.25:
-        description: 198.0,39.25
-        meaning: https://w3id.org/hacid/data/cs/dimensions/geodetic/reference-frames/rotated-WGS84/198.0,39.25
-      P1D:
-        description: P1D
-        meaning: https://w3id.org/hacid/data/cs/dimensions/time/reference-frames/gregorian/quantizations/regular/P1D
-      PT6H:
-        description: PT6H
-        meaning: https://w3id.org/hacid/data/cs/dimensions/time/reference-frames/gregorian/quantizations/regular/PT6H
       gregorian:
         description: gregorian
         meaning: https://w3id.org/hacid/data/cs/dimensions/time/reference-frames/gregorian
-      WGS84:
-        description: WGS84
-        meaning: https://w3id.org/hacid/data/cs/dimensions/geodetic/reference-frames/WGS84
-      P2M:
-        description: P2M
-        meaning: https://w3id.org/hacid/data/cs/dimensions/time/reference-frames/gregorian/quantizations/regular/P3M/P2M
-      -162.0,39.25:
-        description: -162.0,39.25
-        meaning: https://w3id.org/hacid/data/cs/dimensions/geodetic/reference-frames/rotated-WGS84/-162.0,39.25
-  hasDiscretization_enum:
-    permissible_values:
+      141.38,60.31:
+        description: 141.38,60.31
+        meaning: https://w3id.org/hacid/data/cs/dimensions/geodetic/reference-frames/rotated-WGS84/141.38,60.31
       P1D:
         description: P1D
         meaning: https://w3id.org/hacid/data/cs/dimensions/time/reference-frames/gregorian/quantizations/regular/P1D
-      '0.22':
-        description: '0.22'
-        meaning: https://w3id.org/hacid/data/cs/dimensions/geodetic/quantizations/regular-angle/0.22
-      '0.11':
-        description: '0.11'
-        meaning: https://w3id.org/hacid/data/cs/dimensions/geodetic/quantizations/regular-angle/0.11
-      '0.125':
-        description: '0.125'
-        meaning: https://w3id.org/hacid/data/cs/dimensions/geodetic/quantizations/regular-angle/0.125
-      '0.25':
-        description: '0.25'
-        meaning: https://w3id.org/hacid/data/cs/dimensions/geodetic/quantizations/regular-angle/0.25
-      PT6H:
-        description: PT6H
-        meaning: https://w3id.org/hacid/data/cs/dimensions/time/reference-frames/gregorian/quantizations/regular/PT6H
-      P20Y:
-        description: P20Y
-        meaning: https://w3id.org/hacid/data/cs/dimensions/time/reference-frames/gregorian/quantizations/regular/P20Y
-      P1M:
-        description: P1M
-        meaning: https://w3id.org/hacid/data/cs/dimensions/time/reference-frames/gregorian/regions/2010-01-01T00:00:00Z-2099-11-31T00:00:00Z/quantized/regular/P1M
-      P1Y:
-        description: P1Y
-        meaning: https://w3id.org/hacid/data/cs/dimensions/time/reference-frames/gregorian/regions/2010-01-01T00:00:00Z-2099-11-31T00:00:00Z/quantized/regular/P1Y
-      P2M:
-        description: P2M
-        meaning: https://w3id.org/hacid/data/cs/dimensions/time/reference-frames/gregorian/quantizations/regular/P3M/P2M
-      '0.44':
-        description: '0.44'
-        meaning: https://w3id.org/hacid/data/cs/dimensions/geodetic/quantizations/regular-angle/0.44
+      -162.0,39.25:
+        description: -162.0,39.25
+        meaning: https://w3id.org/hacid/data/cs/dimensions/geodetic/reference-frames/rotated-WGS84/-162.0,39.25
+      113.98,75.74:
+        description: 113.98,75.74
+        meaning: https://w3id.org/hacid/data/cs/dimensions/geodetic/reference-frames/rotated-WGS84/113.98,75.74
+      WGS84:
+        description: WGS84
+        meaning: https://w3id.org/hacid/data/cs/dimensions/geodetic/reference-frames/WGS84
+      -64.78,77.61:
+        description: -64.78,77.61
+        meaning: https://w3id.org/hacid/data/cs/dimensions/geodetic/reference-frames/rotated-WGS84/-64.78,77.61
       PT1H:
         description: PT1H
         meaning: https://w3id.org/hacid/data/cs/dimensions/time/reference-frames/gregorian/quantizations/regular/PT1H
-      regular:
-        description: regular
-        meaning: https://w3id.org/hacid/data/cs/dimensions/time/reference-frames/gregorian/regions/1850-01-01T00:00:00+00:00-2006-01-01T00:00:00+00:00/regular
+      -123.34,79.95:
+        description: -123.34,79.95
+        meaning: https://w3id.org/hacid/data/cs/dimensions/geodetic/reference-frames/rotated-WGS84/-123.34,79.95
+      198.0,39.25:
+        description: 198.0,39.25
+        meaning: https://w3id.org/hacid/data/cs/dimensions/geodetic/reference-frames/rotated-WGS84/198.0,39.25
+      83.0,42.5:
+        description: 83.0,42.5
+        meaning: https://w3id.org/hacid/data/cs/dimensions/geodetic/reference-frames/rotated-WGS84/83.0,42.5
+      PT6H:
+        description: PT6H
+        meaning: https://w3id.org/hacid/data/cs/dimensions/time/reference-frames/gregorian/quantizations/regular/PT6H
+      -56.06,70.6:
+        description: -56.06,70.6
+        meaning: https://w3id.org/hacid/data/cs/dimensions/geodetic/reference-frames/rotated-WGS84/-56.06,70.6
+      0.0,6.55:
+        description: 0.0,6.55
+        meaning: https://w3id.org/hacid/data/cs/dimensions/geodetic/reference-frames/rotated-WGS84/0.0,6.55
+      P2M:
+        description: P2M
+        meaning: https://w3id.org/hacid/data/cs/dimensions/time/reference-frames/gregorian/quantizations/regular/P3M/P2M
+      -103.39,43.48:
+        description: -103.39,43.48
+        meaning: https://w3id.org/hacid/data/cs/dimensions/geodetic/reference-frames/rotated-WGS84/-103.39,43.48
+  hasDiscretization_enum:
+    permissible_values:
+      PT6H:
+        description: PT6H
+        meaning: https://w3id.org/hacid/data/cs/dimensions/time/reference-frames/gregorian/quantizations/regular/PT6H
+      P1M:
+        description: P1M
+        meaning: https://w3id.org/hacid/data/cs/dimensions/time/reference-frames/gregorian/quantizations/regular/P1M
+      '0.125':
+        description: '0.125'
+        meaning: https://w3id.org/hacid/data/cs/dimensions/geodetic/quantizations/regular-angle/0.125
       PT3H:
         description: PT3H
         meaning: https://w3id.org/hacid/data/cs/dimensions/time/reference-frames/gregorian/quantizations/regular/PT3H
-      '0.5':
-        description: '0.5'
-        meaning: https://w3id.org/hacid/data/cs/dimensions/geodetic/quantizations/regular-angle/0.5
-      P3M:
-        description: P3M
-        meaning: https://w3id.org/hacid/data/cs/dimensions/time/reference-frames/gregorian/regions/2010-01-01T00:00:00Z-2099-11-31T00:00:00Z/quantized/regular/P3M
+      '0.44':
+        description: '0.44'
+        meaning: https://w3id.org/hacid/data/cs/dimensions/geodetic/quantizations/regular-angle/0.44
+      '0.22':
+        description: '0.22'
+        meaning: https://w3id.org/hacid/data/cs/dimensions/geodetic/quantizations/regular-angle/0.22
+      PT1H:
+        description: PT1H
+        meaning: https://w3id.org/hacid/data/cs/dimensions/time/reference-frames/gregorian/quantizations/regular/PT1H
+      P1Y:
+        description: P1Y
+        meaning: https://w3id.org/hacid/data/cs/dimensions/time/reference-frames/gregorian/quantizations/regular/P1Y
+      P1D:
+        description: P1D
+        meaning: https://w3id.org/hacid/data/cs/dimensions/time/reference-frames/gregorian/quantizations/regular/P1D
       P30Y:
         description: P30Y
         meaning: https://w3id.org/hacid/data/cs/dimensions/time/reference-frames/gregorian/quantizations/regular/P30Y
+      P20Y:
+        description: P20Y
+        meaning: https://w3id.org/hacid/data/cs/dimensions/time/reference-frames/gregorian/quantizations/regular/P20Y
+      P3M:
+        description: P3M
+        meaning: https://w3id.org/hacid/data/cs/dimensions/time/reference-frames/gregorian/quantizations/regular/P3M
+      P2M:
+        description: P2M
+        meaning: https://w3id.org/hacid/data/cs/dimensions/time/reference-frames/gregorian/quantizations/regular/P3M/P2M
+      regular:
+        description: regular
+        meaning: https://w3id.org/hacid/data/cs/dimensions/time/reference-frames/gregorian/regions/1850-01-01T00:00:00+00:00-2006-01-01T00:00:00+00:00/regular
+      '0.25':
+        description: '0.25'
+        meaning: https://w3id.org/hacid/data/cs/dimensions/geodetic/quantizations/regular-angle/0.25
+      '0.5':
+        description: '0.5'
+        meaning: https://w3id.org/hacid/data/cs/dimensions/geodetic/quantizations/regular-angle/0.5
+      '0.11':
+        description: '0.11'
+        meaning: https://w3id.org/hacid/data/cs/dimensions/geodetic/quantizations/regular-angle/0.11
   isSpecializationOn_enum:
     permissible_values:
       geodetic:
@@ -222,151 +222,89 @@ enums:
     permissible_values:
       specialization:
         description: specialization
-        meaning: https://w3id.org/hacid/data/cs/dimensions/time/reference-frames/gregorian/regions/2010-01-01T00:00:00Z-2099-11-31T00:00:00Z/specialization
+        meaning: https://w3id.org/hacid/data/cs/dimensions/time/reference-frames/gregorian/regions/2009-12-01T00:00:00Z-2099-12-01T00:00:00Z/specialization
   refersToScenario_enum:
     permissible_values:
-      RCP6:
-        description: RCP6
-        meaning: https://w3id.org/hacid/data/cs/scenarios/RCP/RCP6
-      RCP4.5:
-        description: RCP4.5
-        meaning: https://w3id.org/hacid/data/cs/scenarios/RCP/RCP4.5
-      RCP2.6:
-        description: RCP2.6
-        meaning: https://w3id.org/hacid/data/cs/scenarios/RCP/RCP2.6
       RCP8.5:
         description: RCP8.5
         meaning: https://w3id.org/hacid/data/cs/scenarios/RCP/RCP8.5
-  isComponentOf_enum:
+      RCP6:
+        description: RCP6
+        meaning: https://w3id.org/hacid/data/cs/scenarios/RCP/RCP6
+      RCP2.6:
+        description: RCP2.6
+        meaning: https://w3id.org/hacid/data/cs/scenarios/RCP/RCP2.6
+      RCP4.5:
+        description: RCP4.5
+        meaning: https://w3id.org/hacid/data/cs/scenarios/RCP/RCP4.5
+  productId_enum:
     permissible_values:
-      output:
-        description: output
-        meaning: https://w3id.org/hacid/data/cs/ukcp18/land-rcm/datasets/rcp85/output
-  outputId_enum:
-    permissible_values:
-      unsolicited:
-        description: unsolicited
       output1:
         description: output1
       output2:
         description: output2
+      unsolicited:
+        description: unsolicited
       output:
         description: output
         meaning: https://w3id.org/hacid/data/cs/ukcp18/land-rcm/datasets/rcp85/output
   refersToGlobalWarmingLevel_enum:
     permissible_values:
-      GWL4:
-        description: GWL4
-        meaning: https://w3id.org/hacid/data/cs/GWLs/GWL4
       GWL2:
         description: GWL2
         meaning: https://w3id.org/hacid/data/cs/GWLs/GWL2
-  isSpecializationOfVariable_enum:
-    permissible_values:
-      jetlat:
-        description: jetlat
-        meaning: https://w3id.org/hacid/data/cs/variables/mip/jetlat
-      var__:
-        description: var__
-        meaning: https://w3id.org/hacid/data/cs/variables/mip/var__
-      rls:
-        description: rls
-        meaning: https://w3id.org/hacid/data/cs/variables/mip/rls
-      psl:
-        description: psl
-        meaning: https://w3id.org/hacid/data/cs/variables/mip/psl
-      vas:
-        description: vas
-        meaning: https://w3id.org/hacid/data/cs/variables/mip/vas
-      sfcWind:
-        description: sfcWind
-        meaning: https://w3id.org/hacid/data/cs/variables/mip/sfcWind
-      flashrate:
-        description: flashrate
-        meaning: https://w3id.org/hacid/data/cs/variables/mip/flashrate
-      huss:
-        description: huss
-        meaning: https://w3id.org/hacid/data/cs/variables/mip/huss
-      mrrob:
-        description: mrrob
-        meaning: https://w3id.org/hacid/data/cs/variables/mip/mrrob
-      mrso:
-        description: mrso
-        meaning: https://w3id.org/hacid/data/cs/variables/mip/mrso
-      tasmin:
-        description: tasmin
-        meaning: https://w3id.org/hacid/data/cs/variables/mip/tasmin
-      ensemble_member:
-        description: ensemble_member
-        meaning: https://w3id.org/hacid/data/cs/variables/mip/ensemble_member
-      wtype30:
-        description: wtype30
-        meaning: https://w3id.org/hacid/data/cs/variables/mip/wtype30
-      pr:
-        description: pr
-        meaning: https://w3id.org/hacid/data/cs/variables/mip/pr
-      evspsblsoi:
-        description: evspsblsoi
-        meaning: https://w3id.org/hacid/data/cs/variables/mip/evspsblsoi
-      evspsblveg:
-        description: evspsblveg
-        meaning: https://w3id.org/hacid/data/cs/variables/mip/evspsblveg
-      rss:
-        description: rss
-        meaning: https://w3id.org/hacid/data/cs/variables/mip/rss
-      clt:
-        description: clt
-        meaning: https://w3id.org/hacid/data/cs/variables/mip/clt
-      wsgmax10m:
-        description: wsgmax10m
-        meaning: https://w3id.org/hacid/data/cs/variables/mip/wsgmax10m
-      jetstr:
-        description: jetstr
-        meaning: https://w3id.org/hacid/data/cs/variables/mip/jetstr
-      uas:
-        description: uas
-        meaning: https://w3id.org/hacid/data/cs/variables/mip/uas
-      mrros:
-        description: mrros
-        meaning: https://w3id.org/hacid/data/cs/variables/mip/mrros
-      evspsbl:
-        description: evspsbl
-        meaning: https://w3id.org/hacid/data/cs/variables/mip/evspsbl
-      wtype8:
-        description: wtype8
-        meaning: https://w3id.org/hacid/data/cs/variables/mip/wtype8
-      subsurface_runoff_flux:
-        description: subsurface_runoff_flux
-        meaning: https://w3id.org/hacid/data/cs/variables/cf/subsurface_runoff_flux
-      air_pressure_at_sea_level:
-        description: air_pressure_at_sea_level
-        meaning: https://w3id.org/hacid/data/cs/variables/mip/air_pressure_at_sea_level
-      naodjf:
-        description: naodjf
-        meaning: https://w3id.org/hacid/data/cs/variables/mip/naodjf
-      hurs:
-        description: hurs
-        meaning: https://w3id.org/hacid/data/cs/variables/mip/hurs
-      tasmax:
-        description: tasmax
-        meaning: https://w3id.org/hacid/data/cs/variables/mip/tasmax
-      prsn:
-        description: prsn
-        meaning: https://w3id.org/hacid/data/cs/variables/mip/prsn
-      beta:
-        description: beta
-        meaning: https://w3id.org/hacid/data/cs/variables/mip/beta
-      tas:
-        description: tas
-        meaning: https://w3id.org/hacid/data/cs/variables/mip/tas
-      snw:
-        description: snw
-        meaning: https://w3id.org/hacid/data/cs/variables/mip/snw
+      GWL4:
+        description: GWL4
+        meaning: https://w3id.org/hacid/data/cs/GWLs/GWL4
   hasOutput_enum:
     permissible_values:
       output:
         description: output
         meaning: https://w3id.org/hacid/data/cs/ukcp18/land-rcm/datasets/rcp85/output
+  isSpecializationOfVariable_enum:
+    permissible_values:
+      tasminAnom:
+        description: tasminAnom
+        meaning: https://w3id.org/hacid/data/cs/variables/mip/tasminAnom
+      pr5day:
+        description: pr5day
+        meaning: https://w3id.org/hacid/data/cs/variables/mip/pr5day
+      cltAnom:
+        description: cltAnom
+        meaning: https://w3id.org/hacid/data/cs/variables/mip/cltAnom
+      hussAnom:
+        description: hussAnom
+        meaning: https://w3id.org/hacid/data/cs/variables/mip/hussAnom
+      tasmax:
+        description: tasmax
+        meaning: https://w3id.org/hacid/data/cs/variables/mip/tasmax
+      prAnom:
+        description: prAnom
+        meaning: https://w3id.org/hacid/data/cs/variables/mip/prAnom
+      rssAnom:
+        description: rssAnom
+        meaning: https://w3id.org/hacid/data/cs/variables/mip/rssAnom
+      tasAnom:
+        description: tasAnom
+        meaning: https://w3id.org/hacid/data/cs/variables/mip/tasAnom
+      air_temperature:
+        description: air_temperature
+        meaning: https://w3id.org/hacid/data/cs/variables/cf/air_temperature
+      rlsAnom:
+        description: rlsAnom
+        meaning: https://w3id.org/hacid/data/cs/variables/mip/rlsAnom
+      pr1day:
+        description: pr1day
+        meaning: https://w3id.org/hacid/data/cs/variables/mip/pr1day
+      pslAnom:
+        description: pslAnom
+        meaning: https://w3id.org/hacid/data/cs/variables/mip/pslAnom
+      tasmaxAnom:
+        description: tasmaxAnom
+        meaning: https://w3id.org/hacid/data/cs/variables/mip/tasmaxAnom
+      rsdsAnom:
+        description: rsdsAnom
+        meaning: https://w3id.org/hacid/data/cs/variables/mip/rsdsAnom
   isPointOf_enum:
     permissible_values:
       WGS84:
@@ -374,219 +312,210 @@ enums:
         meaning: https://w3id.org/hacid/data/cs/dimensions/geodetic/reference-frames/WGS84
   usesModel_enum:
     permissible_values:
-      REMO2015:
-        description: REMO2015
-        meaning: https://w3id.org/hacid/data/cs/models/REMO2015
-      WRF360K:
-        description: WRF360K
-        meaning: https://w3id.org/hacid/data/cs/models/WRF360K
-      CCLM5-0-15:
-        description: CCLM5-0-15
-        meaning: https://w3id.org/hacid/data/cs/models/CCLM5-0-15
-      CanRCM4:
-        description: CanRCM4
-        meaning: https://w3id.org/hacid/data/cs/models/CanRCM4
-      ALADIN53:
-        description: ALADIN53
-        meaning: https://w3id.org/hacid/data/cs/models/ALADIN53
-      HIRHAM5:
-        description: HIRHAM5
-        meaning: https://w3id.org/hacid/data/cs/models/HIRHAM5
-      WRF360L:
-        description: WRF360L
-        meaning: https://w3id.org/hacid/data/cs/models/WRF360L
-      CCAM-1704:
-        description: CCAM-1704
-        meaning: https://w3id.org/hacid/data/cs/models/CCAM-1704
-      WRF341E:
-        description: WRF341E
-        meaning: https://w3id.org/hacid/data/cs/models/WRF341E
-      CRCM5:
-        description: CRCM5
-        meaning: https://w3id.org/hacid/data/cs/models/CRCM5
-      WRF381P:
-        description: WRF381P
-        meaning: https://w3id.org/hacid/data/cs/models/WRF381P
-      RRCM:
-        description: RRCM
-        meaning: https://w3id.org/hacid/data/cs/models/RRCM
-      HadREM3-GA7-05:
-        description: HadREM3-GA7-05
-        meaning: https://w3id.org/hacid/data/cs/models/HadREM3-GA7-05
-      WRF331F:
-        description: WRF331F
-        meaning: https://w3id.org/hacid/data/cs/models/WRF331F
-      RACMO21P:
-        description: RACMO21P
-        meaning: https://w3id.org/hacid/data/cs/models/RACMO21P
-      CCAM:
-        description: CCAM
-        meaning: https://w3id.org/hacid/data/cs/models/CCAM
-      MAR311:
-        description: MAR311
-        meaning: https://w3id.org/hacid/data/cs/models/MAR311
-      COSMO-crCLIM-v1-1:
-        description: COSMO-crCLIM-v1-1
-        meaning: https://w3id.org/hacid/data/cs/models/COSMO-crCLIM-v1-1
-      RegCM4-4:
-        description: RegCM4-4
-        meaning: https://w3id.org/hacid/data/cs/models/RegCM4-4
-      ALARO-0:
-        description: ALARO-0
-        meaning: https://w3id.org/hacid/data/cs/models/ALARO-0
-      RCA4:
-        description: RCA4
-        meaning: https://w3id.org/hacid/data/cs/models/RCA4
-      ALADIN63:
-        description: ALADIN63
-        meaning: https://w3id.org/hacid/data/cs/models/ALADIN63
-      CCAM-2008:
-        description: CCAM-2008
-        meaning: https://w3id.org/hacid/data/cs/models/CCAM-2008
-      RACMO22T:
-        description: RACMO22T
-        meaning: https://w3id.org/hacid/data/cs/models/RACMO22T
-      BOM-SDM:
-        description: BOM-SDM
-        meaning: https://w3id.org/hacid/data/cs/models/BOM-SDM
-      REMO2009:
-        description: REMO2009
-        meaning: https://w3id.org/hacid/data/cs/models/REMO2009
-      ALADIN52:
-        description: ALADIN52
-        meaning: https://w3id.org/hacid/data/cs/models/ALADIN52
-      RegCM4-3:
-        description: RegCM4-3
-        meaning: https://w3id.org/hacid/data/cs/models/RegCM4-3
-      RACMO22E:
-        description: RACMO22E
-        meaning: https://w3id.org/hacid/data/cs/models/RACMO22E
-      CCLM4-21-2:
-        description: CCLM4-21-2
-        meaning: https://w3id.org/hacid/data/cs/models/CCLM4-21-2
-      WRF351:
-        description: WRF351
-        meaning: https://w3id.org/hacid/data/cs/models/WRF351
-      WRF361H:
-        description: WRF361H
-        meaning: https://w3id.org/hacid/data/cs/models/WRF361H
-      WRF341I:
-        description: WRF341I
-        meaning: https://w3id.org/hacid/data/cs/models/WRF341I
-      Eta:
-        description: Eta
-        meaning: https://w3id.org/hacid/data/cs/models/Eta
-      RegCM4-6:
-        description: RegCM4-6
-        meaning: https://w3id.org/hacid/data/cs/models/RegCM4-6
-      RegCM4-7:
-        description: RegCM4-7
-        meaning: https://w3id.org/hacid/data/cs/models/RegCM4-7
-      WRF360J:
-        description: WRF360J
-        meaning: https://w3id.org/hacid/data/cs/models/WRF360J
-      CCLM5-0-2:
-        description: CCLM5-0-2
-        meaning: https://w3id.org/hacid/data/cs/models/CCLM5-0-2
-      WRF:
-        description: WRF
-        meaning: https://w3id.org/hacid/data/cs/models/WRF
-      CCLM4-8-17:
-        description: CCLM4-8-17
-        meaning: https://w3id.org/hacid/data/cs/models/CCLM4-8-17
-      RegCM4:
-        description: RegCM4
-        meaning: https://w3id.org/hacid/data/cs/models/RegCM4
-      CCLM5-0-6:
-        description: CCLM5-0-6
-        meaning: https://w3id.org/hacid/data/cs/models/CCLM5-0-6
-      DeepESD-EE:
-        description: DeepESD-EE
-        meaning: https://w3id.org/hacid/data/cs/models/DeepESD-EE
-      RCA4-SN:
-        description: RCA4-SN
-        meaning: https://w3id.org/hacid/data/cs/models/RCA4-SN
-      CCLM4-8-17-CLM3-5:
-        description: CCLM4-8-17-CLM3-5
-        meaning: https://w3id.org/hacid/data/cs/models/CCLM4-8-17-CLM3-5
-  simulationConfigurationId_enum:
+      FGOALS-s2:
+        description: FGOALS-s2
+        meaning: https://w3id.org/hacid/data/cs/models/FGOALS-s2
+      GFDL-CM2.1:
+        description: GFDL-CM2.1
+        meaning: https://w3id.org/hacid/data/cs/models/GFDL-CM2.1
+      MRI-ESM1:
+        description: MRI-ESM1
+        meaning: https://w3id.org/hacid/data/cs/models/MRI-ESM1
+      HadCM3:
+        description: HadCM3
+        meaning: https://w3id.org/hacid/data/cs/models/HadCM3
+      CSIRO-Mk3L-1-2:
+        description: CSIRO-Mk3L-1-2
+        meaning: https://w3id.org/hacid/data/cs/models/CSIRO-Mk3L-1-2
+      HadGEM2-CC:
+        description: HadGEM2-CC
+        meaning: https://w3id.org/hacid/data/cs/models/HadGEM2-CC
+      CMCC-CMS:
+        description: CMCC-CMS
+        meaning: https://w3id.org/hacid/data/cs/models/CMCC-CMS
+      CMCC-CESM:
+        description: CMCC-CESM
+        meaning: https://w3id.org/hacid/data/cs/models/CMCC-CESM
+      HadGEM3-GC3.05:
+        description: HadGEM3-GC3.05
+        meaning: https://w3id.org/hacid/data/cs/models/HadGEM3-GC3.05
+      MPI-ESM-MR:
+        description: MPI-ESM-MR
+        meaning: https://w3id.org/hacid/data/cs/models/MPI-ESM-MR
+      MIROC5:
+        description: MIROC5
+        meaning: https://w3id.org/hacid/data/cs/models/MIROC5
+      CMCC-CM:
+        description: CMCC-CM
+        meaning: https://w3id.org/hacid/data/cs/models/CMCC-CM
+      ACCESS1.3:
+        description: ACCESS1.3
+        meaning: https://w3id.org/hacid/data/cs/models/ACCESS1.3
+      ACCESS1.0:
+        description: ACCESS1.0
+        meaning: https://w3id.org/hacid/data/cs/models/ACCESS1.0
+      CNRM-CM5:
+        description: CNRM-CM5
+        meaning: https://w3id.org/hacid/data/cs/models/CNRM-CM5
+      GISS-E2-R-CC:
+        description: GISS-E2-R-CC
+        meaning: https://w3id.org/hacid/data/cs/models/GISS-E2-R-CC
+      MRI-CGCM3:
+        description: MRI-CGCM3
+        meaning: https://w3id.org/hacid/data/cs/models/MRI-CGCM3
+      GISS-E2-R:
+        description: GISS-E2-R
+        meaning: https://w3id.org/hacid/data/cs/models/GISS-E2-R
+      MPI-ESM-LR:
+        description: MPI-ESM-LR
+        meaning: https://w3id.org/hacid/data/cs/models/MPI-ESM-LR
+      IPSL-CM5A-LR:
+        description: IPSL-CM5A-LR
+        meaning: https://w3id.org/hacid/data/cs/models/IPSL-CM5A-LR
+      CNRM-CM5-2:
+        description: CNRM-CM5-2
+        meaning: https://w3id.org/hacid/data/cs/models/CNRM-CM5-2
+      MPI-ESM-P:
+        description: MPI-ESM-P
+        meaning: https://w3id.org/hacid/data/cs/models/MPI-ESM-P
+      NorESM1-ME:
+        description: NorESM1-ME
+        meaning: https://w3id.org/hacid/data/cs/models/NorESM1-ME
+      GFDL-ESM2M:
+        description: GFDL-ESM2M
+        meaning: https://w3id.org/hacid/data/cs/models/GFDL-ESM2M
+      CSIRO-Mk3.6.0:
+        description: CSIRO-Mk3.6.0
+        meaning: https://w3id.org/hacid/data/cs/models/CSIRO-Mk3.6.0
+      HadGEM2-ES:
+        description: HadGEM2-ES
+        meaning: https://w3id.org/hacid/data/cs/models/HadGEM2-ES
+      NorESM1-M:
+        description: NorESM1-M
+        meaning: https://w3id.org/hacid/data/cs/models/NorESM1-M
+      INM-CM4:
+        description: INM-CM4
+        meaning: https://w3id.org/hacid/data/cs/models/INM-CM4
+      CanESM2:
+        description: CanESM2
+        meaning: https://w3id.org/hacid/data/cs/models/CanESM2
+      IPSL-CM5A-MR:
+        description: IPSL-CM5A-MR
+        meaning: https://w3id.org/hacid/data/cs/models/IPSL-CM5A-MR
+      GFDL-ESM2G:
+        description: GFDL-ESM2G
+        meaning: https://w3id.org/hacid/data/cs/models/GFDL-ESM2G
+      MIROC-ESM-CHEM:
+        description: MIROC-ESM-CHEM
+        meaning: https://w3id.org/hacid/data/cs/models/MIROC-ESM-CHEM
+      HadGEM2-AO:
+        description: HadGEM2-AO
+        meaning: https://w3id.org/hacid/data/cs/models/HadGEM2-AO
+      EC-EARTH:
+        description: EC-EARTH
+        meaning: https://w3id.org/hacid/data/cs/models/EC-EARTH
+      GISS-E2-H-CC:
+        description: GISS-E2-H-CC
+        meaning: https://w3id.org/hacid/data/cs/models/GISS-E2-H-CC
+      GFDL-CM3:
+        description: GFDL-CM3
+        meaning: https://w3id.org/hacid/data/cs/models/GFDL-CM3
+      GISS-E2-H:
+        description: GISS-E2-H
+        meaning: https://w3id.org/hacid/data/cs/models/GISS-E2-H
+      IPSL-CM5B-LR:
+        description: IPSL-CM5B-LR
+        meaning: https://w3id.org/hacid/data/cs/models/IPSL-CM5B-LR
+      FGOALS-g2:
+        description: FGOALS-g2
+        meaning: https://w3id.org/hacid/data/cs/models/FGOALS-g2
+      MIROC-ESM:
+        description: MIROC-ESM
+        meaning: https://w3id.org/hacid/data/cs/models/MIROC-ESM
+      MIROC4h:
+        description: MIROC4h
+        meaning: https://w3id.org/hacid/data/cs/models/MIROC4h
+      CanCM4:
+        description: CanCM4
+        meaning: https://w3id.org/hacid/data/cs/models/CanCM4
+  componentIdentifier_enum:
     permissible_values:
-      r12i1p1:
-        description: r12i1p1
-      r3i1p3:
-        description: r3i1p3
-      r2i1p2:
-        description: r2i1p2
-      r6i1p2:
-        description: r6i1p2
-      r14i1p1:
-        description: r14i1p1
-      r6i1p1:
-        description: r6i1p1
-      r2i1p3:
-        description: r2i1p3
-      r1i2p1:
-        description: r1i2p1
-      r13i1p1:
-        description: r13i1p1
-      r1i1p124:
-        description: r1i1p124
-      r4i1p2:
-        description: r4i1p2
-      r3i1p1:
-        description: r3i1p1
-      r4i1p1:
-        description: r4i1p1
-      r1i1p128:
-        description: r1i1p128
-      r2i1p1:
-        description: r2i1p1
-      r5i1p2:
-        description: r5i1p2
-      r1i1p2:
-        description: r1i1p2
-      r0i0p0:
-        description: r0i0p0
-      r1i1p1:
-        description: r1i1p1
-      r2i2p1:
-        description: r2i2p1
-      r9i1p1:
-        description: r9i1p1
       r6i1p3:
         description: r6i1p3
       r5i1p1:
         description: r5i1p1
-      r7i1p1:
-        description: r7i1p1
-      r1i1p121:
-        description: r1i1p121
-      r1i1p123:
-        description: r1i1p123
-      r4i1p3:
-        description: r4i1p3
-      r11i1p1:
-        description: r11i1p1
-      r3i1p2:
-        description: r3i1p2
-      r8i1p1:
-        description: r8i1p1
       r10i1p1:
         description: r10i1p1
+      r2i1p3:
+        description: r2i1p3
+      r1i1p124:
+        description: r1i1p124
+      r3i1p3:
+        description: r3i1p3
+      r12i1p1:
+        description: r12i1p1
+      r4i1p2:
+        description: r4i1p2
+      r7i1p1:
+        description: r7i1p1
+      r1i1p2:
+        description: r1i1p2
       r1i1p127:
         description: r1i1p127
-      r1i1p125:
-        description: r1i1p125
+      r11i1p1:
+        description: r11i1p1
+      r1i1p128:
+        description: r1i1p128
+      r9i1p1:
+        description: r9i1p1
+      r3i1p2:
+        description: r3i1p2
+      r1i1p1:
+        description: r1i1p1
       r1i1p3:
         description: r1i1p3
-      r3i2p1:
-        description: r3i2p1
-      r5i1p3:
-        description: r5i1p3
-      r1i1p122:
-        description: r1i1p122
       r1i1p126:
         description: r1i1p126
+      r1i2p1:
+        description: r1i2p1
+      r6i1p2:
+        description: r6i1p2
+      r1i1p125:
+        description: r1i1p125
+      r14i1p1:
+        description: r14i1p1
+      r13i1p1:
+        description: r13i1p1
+      r2i2p1:
+        description: r2i2p1
+      r4i1p3:
+        description: r4i1p3
+      r4i1p1:
+        description: r4i1p1
+      r6i1p1:
+        description: r6i1p1
+      r8i1p1:
+        description: r8i1p1
+      r3i1p1:
+        description: r3i1p1
+      r5i1p2:
+        description: r5i1p2
+      r5i1p3:
+        description: r5i1p3
+      r1i1p121:
+        description: r1i1p121
+      r0i0p0:
+        description: r0i0p0
+      r1i1p122:
+        description: r1i1p122
+      r2i1p1:
+        description: r2i1p1
+      r2i1p2:
+        description: r2i1p2
+      r1i1p123:
+        description: r1i1p123
+      r3i2p1:
+        description: r3i2p1
   definesRole_enum:
     permissible_values:
       associated-data:
@@ -620,9 +549,9 @@ slots:
     annotations:
       num_distinct_values:
         tag: num_distinct_values
-        value: '139'
+        value: '137'
     examples:
-    - value: La classe per rappresentare un anno.|The class for representing a year.
+    - value: The class for representing a year.|La classe per rappresentare un anno.
     slot_uri: http://www.w3.org/2000/01/rdf-schema#comment
     range: string
     multivalued: true
@@ -639,7 +568,7 @@ slots:
     annotations:
       num_distinct_values:
         tag: num_distinct_values
-        value: '165'
+        value: '163'
     examples:
     - value: Anno|Year
     slot_uri: http://www.w3.org/2000/01/rdf-schema#label
@@ -649,9 +578,9 @@ slots:
     annotations:
       num_distinct_values:
         tag: num_distinct_values
-        value: '88'
+        value: '87'
     examples:
-    - value: TemporalEntity|nc06c1f566e8648aaad4beca2226662d0b56
+    - value: TemporalEntity|nc4c0f1a156f040d6bc2440e8e93c958ab56
     slot_uri: http://www.w3.org/2000/01/rdf-schema#subClassOf
     range: string
     multivalued: true
@@ -670,7 +599,7 @@ slots:
         tag: num_distinct_values
         value: '3'
     examples:
-    - value: nc06c1f566e8648aaad4beca2226662d0b54
+    - value: nc4c0f1a156f040d6bc2440e8e93c958ab54
     slot_uri: http://www.w3.org/2002/07/owl#equivalentClass
     range: string
   versionInfo:
@@ -679,7 +608,7 @@ slots:
         tag: num_distinct_values
         value: '2'
     examples:
-    - value: stabile|stable
+    - value: stable|stabile
     slot_uri: http://www.w3.org/2002/07/owl#versionInfo
     range: string
     multivalued: true
@@ -689,17 +618,8 @@ slots:
         tag: num_distinct_values
         value: '1'
     examples:
-    - value: nc06c1f566e8648aaad4beca2226662d0b53
+    - value: nc4c0f1a156f040d6bc2440e8e93c958ab53
     slot_uri: http://www.w3.org/2002/07/owl#hasKey
-    range: string
-  unionOf:
-    annotations:
-      num_distinct_values:
-        tag: num_distinct_values
-        value: '4'
-    examples:
-    - value: nc06c1f566e8648aaad4beca2226662d0b31861
-    slot_uri: http://www.w3.org/2002/07/owl#unionOf
     range: string
   intersectionOf:
     annotations:
@@ -707,14 +627,23 @@ slots:
         tag: num_distinct_values
         value: '2'
     examples:
-    - value: nc06c1f566e8648aaad4beca2226662d0b1721
+    - value: nc4c0f1a156f040d6bc2440e8e93c958ab68
     slot_uri: http://www.w3.org/2002/07/owl#intersectionOf
+    range: string
+  unionOf:
+    annotations:
+      num_distinct_values:
+        tag: num_distinct_values
+        value: '4'
+    examples:
+    - value: nc4c0f1a156f040d6bc2440e8e93c958ab109
+    slot_uri: http://www.w3.org/2002/07/owl#unionOf
     range: string
   domain:
     annotations:
       num_distinct_values:
         tag: num_distinct_values
-        value: '61'
+        value: '62'
     examples:
     - value: Description
     slot_uri: http://www.w3.org/2000/01/rdf-schema#domain
@@ -723,7 +652,7 @@ slots:
     annotations:
       num_distinct_values:
         tag: num_distinct_values
-        value: '60'
+        value: '61'
     examples:
     - value: Concept
     slot_uri: http://www.w3.org/2000/01/rdf-schema#range
@@ -732,7 +661,7 @@ slots:
     annotations:
       num_distinct_values:
         tag: num_distinct_values
-        value: '40'
+        value: '39'
     examples:
     - value: associatedWith
     slot_uri: http://www.w3.org/2000/01/rdf-schema#subPropertyOf
@@ -742,7 +671,7 @@ slots:
     annotations:
       num_distinct_values:
         tag: num_distinct_values
-        value: '101'
+        value: '102'
     examples:
     - value: specializes
     slot_uri: http://www.w3.org/2002/07/owl#inverseOf
@@ -753,7 +682,7 @@ slots:
         tag: num_distinct_values
         value: '1'
     examples:
-    - value: nc06c1f566e8648aaad4beca2226662d0b30
+    - value: nc4c0f1a156f040d6bc2440e8e93c958ab30
     slot_uri: http://www.w3.org/2002/07/owl#propertyChainAxiom
     range: string
   derivedFromVariable:
@@ -810,7 +739,7 @@ slots:
         tag: num_distinct_values
         value: '30'
     examples:
-    - value: FireWeatherIndex|Wildfire:DailyHazardAssessment|MetOfficeFireDanger
+    - value: MetOfficeFireDanger|Wildfire:DailyHazardAssessment|FireWeatherIndex
     slot_uri: https://w3id.org/hacid/onto/top-level/isRelatedToConcept
     range: string
     multivalued: true
@@ -838,7 +767,7 @@ slots:
         tag: num_distinct_values
         value: '6'
     examples:
-    - value: minimumLength|geodetic|time
+    - value: geodetic|minimumLength|time
     slot_uri: https://w3id.org/hacid/onto/data/dependsOnVariable
     range: dependsOnVariable_enum
     multivalued: true
@@ -875,18 +804,18 @@ slots:
         tag: num_distinct_values
         value: '1428'
     examples:
-    - value: sivoln|cltmodis|hfdsl|nh4os|minpblz|od550bb|zsatarag|thetao|limncalc|co|mrsow|expcalc|phypico|nwdFracLut|tnhusd|sfo3|rld4co2|zmtnt|cw|htovgyre|phypos|zmswaero|xvelbase|od550csaer|rivo|fNloss|ta850|somint|diftrelo|pan|clwvic|emibvoc|cMisc|bacc|nLitterSubSurf|ptp|ocontemptend|twap|icem|vmo|phydiaz|so|pr|dissi14cabio|dfe|clcalipso2|rsutcsbnd|intpbfe|fco2antt|clcalipsoliq|reffrains|od550so4so|siitdsnconc|vegHeightCrop|chlos|tas|fHarvestToAtmos|soga|cLitterAbove|cProduct|prcprof|opottempmint|wetdust|ttop|wetoa|cLand|rsutcsaf|fDeforestToProduct|o2sat|clivi|od550ss|nLeaf|npp|pabigthetao|strbasemag|dtauc|hursmin|n2oglobal|cSoilTree|dsw|raLeaf|siforcetilty|prsnsn|gppGrass|sfcWind|pastureFracC3|zsatcalc|rsdcs4co2|phydiazos|phyfeos|conccn|fNgas|fNnetmin|fldcapacity|siflcondbot|snm|sidmassevapsubl|sfdsi|simassacrossline|vsfpr|fsitherm|sifllatstop|vegHeightPasture|fN2O|fco2nat|simass|fracLut|cli|sidragtop|tasmin|sos|sihc|siflswdbot|va|wfcorr|fddtdisi|loadbc|cldicemxrat|tsIs|sidmasstranx|wbptemp|hfds|dissi13cos|bddtdisi|netAtmosLandC14Flux|pr18O|zvelsurf|sf6|c14Veg|rsu|hus|mrsfl|epfe100|sidconcth|intpbn|intpn2|wetnh4|fgcfc11|cSoil|tran|flandice|thetaot|sndmassmelt|fNgasFire|cfc11global|graz|rsdsdiff|dpco2abio|dpco2|fsfe|fNup|dmc|snicemIs|fbddtdife|tauvpbl|rootd|gppc13|dtesn|od550bc|evs|hus850|prsn2h|osaltdiff|mrtws|cSoilSlow|frfe|tslsiLut|hursminCrop|nLitterSurf|cls|eminox|sidmasstrany|hursmax|rsdscsafbnd|ccb|phycalc|mrroLut|fVegLitterSenescence|cWood|rsds|reffsnowc|sblnosn|sftgrf|clw|ocfriver|snicem|c4PftFrac|clwmodis|fAnthDisturb|swtoacsdust|mrlso|prlsns|uo|concdust|nRoot|no3os|msftyzmpa|cfc12|raShrub|vsf|fescav|siarean|lwp|ksat|opottemppsmadvect|sftof|clhcalipso|tob|utendnogw|ccn|sios|cOther|od550oa|tnkebto|rh|ua100m|omldamax|abs550aer|dissicabioos|darag|tnhusc|fLulccAtmLut|mrsosLut|no3|jpdftaureliqmodis|no2|tntrs|evspsbl|co3os|cldnvi|fg14co2|fddtdip|lwtoaasdust|snd|hfssLut|mmrdust|fNProduct|fbddtdin|tpf|tntpbl|siitdthick|limirrmisc|albisccp|o3|intppdiaz|emiaoa|fNdep|wetnoy|phynos|demc|pso|fNgasNonFire|nh50|osaltpadvect|rsdsIs|zmicroos|rldcs4co2|lwsrfcsdust|snwc|tslsi|ygwdparam|baresoilFrac|intvadse|ocontemprmadvect|clcalipso|fbddtdisi|lwsrfasdust|tsl|toz|clws|sltovgyre|hno3|siitdconc|zmesoos|co3abio|physi|prc|slthick|chldiazos|treeFrac|cLeaf|zos|fNVegSoil|gppShrub|bfe|bsios|diftrbbo|mmroa|physios|fLuc|dryss|vwap|sidconcdyn|hussLut|sfriver|albsn|conccmcn|cfadLidarsr532|intpbsi|ocontemppadvect|isop|rlut|clivic|siforcecorioly|clc|wetlandCH4prod|fVegSoilSenescence|exparag|sirdgthick|pastureFracC4|hfsifrazil|tropoz|cropFrac|bry|snw|wetss|vas|reffclws|rsusIs|lossn2o|pathetao|wa|msftyrhompa|tnpeo|tntd|rsd4co2|rsucs|agesno|msftmzsmpa|h2o|mrsos|vsfsit|wilt|fddtdic|siforcetiltx|photo1d|volo|phalf|dissi14c|clis|dcw|detoc|tntc|zg1000|gppLut|evspsblveg|rsucsbnd|cldwatmxrat|ficeberg|sltovovrt|rsdcsbnd|phabioos|co23D|treeFracPrimEver|nppWood|sivols|depdust|pr17O|clwvi|hfrunoffds|c2h6|dmsos|intdoc|loadnh4|deptho|dpo2|vegFrac|vegHeight|lwtoacsaer|hfrainds|simprefrozen|tntrl|tosga|acabf|gpp|baccos|prsn17O|fVegFire|utendepfd|ut|rlds|reffclic|cTotFireLut|dissicnat|sfo3max|fediss|bddtdife|fgsf6|sci|spco2abio|rsdt|limfediat|tsns|pnitrate|sidmasssi|tatp|fNOx|mrso|sidmassgrowthbot|zmlwaero|dslw|orogIs|difvmo|friver|intparag|intpcalcite|lai|zmicro|tnhusa|rhLut|cVegTree|pastureFrac|rac14|rsutaf|evspsblsoi|tnhus|rlutaf|epn100|tauvcorr|orog|sndmasssubl|prsn|clcalipsoice|sidmassdyn|c14Land|zfullo|modelCellAreai|prhmax|sitemptop|t2|ta700|chepsoa|swsrfcsdust|clic|calc|c13Land|rhc13|sfno2|od870aer|tendacabf|nLitterCwd|aod550volso4|od550dust|tgs|jpdftaureicemodis|snc|lon|cllcalipso|netAtmosLandCO2Flux|mmrbc|necbLut|sisali|rainmxrat|rlucs|fric|tauupbl|epp100|rhc14|siltfrac|limirrdiat|co3abioos|difvso|cltc|si|sicompstren|areacellr|fProductDecomp|rlntds|emibc|chldiaz|thkcello|mrsofc|tasminCrop|siv|tasmax|osaltpsmadvect|siu|phymiscos|fFireAll|jo3|intppcalc|od865dust|icfriver|rls|difvmfdo|fHarvest|hflsLut|snmsl|opottemppadvect|maxpblz|zmiscos|cLitterSubSurf|epc100|sisnthick|fahLut|hfssIs|fracOutLut|aoanh|hfcorr|dtes|nVeg|utendogw|mmrpm1|columnmassflux|rsut4co2|sftgif|icemIs|lat|t20d|dgw|pon|irrLut|fVegSoil|albc|siflsenstop|od550soa|intppdiat|uas|cropFracC3|mlotstmin|cLitterShrub|zostoga|hcfc22global|zo2min|fbddtdip|snmIs|phycalcos|remoc|libmassbffl|cfadDbze94|areacello|limfepico|huss|tntscpbl|c13Veg|reffclwtop|eminh3|nProduct|prbigthetao|vegHeightTree|sftflf|rlutcs|sw2H|xgwdparam|v2|hurs|swtoafluxaerocs|noy|calcos|phyfe|tcs|zfull|emiss|rlutcsaf|sifllwdtop|rv850|cSoilMedium|zmla|jno2|msftyz|fNfert|emiaco|co3satcalc|mrfsofr|opottempdiff|zmeso|fLitterSoil|phyc|rzwc|sitimefrac|siconc|iareagr|rsut|sconcss|ppdiat|fddtdife|rsuscsafbnd|expp|tnhusscpbl|dryo3|fCLandToOcean|siforceintstry|wfo|dissicnatos|so2|hcl|swsrfasdust|rsdscsbnd|treeFracBdlEvg|nppStem|od443dust|rsuscs|tendlicalvf|airmass|lwsffluxaero|dms|clmisr|cLitterGrass|cct|clisccp|treeFracSecEver|limfecalc|rlusLut|rlut4co2|dryoa|qgwr|difvho|mmrso4|rhGrass|ch3coch3|emidms|bs550aer|zg10|emiso4|sootsn|od550no3|rldsIs|mrro|phypicoos|rac13|siflfwdrain|limnmisc|utendwtem|prcsh|cSoilFast|drynoy|meanage|lossco|hfgeoubed|cheaqpso4|c3PftFrac|od440aer|sispeed|osaltpmdiff|volcello|nMineralNH4|prw2H|fLulccResidueLut|co2mass|bddtdin|aerssabnd|tauucorr|utendvtem|c13Soil|hur|ares|hfrs|aerasymbnd|phyn|c13Litter|msftmrhompa|aeroptbnd|zg|cSoilPools|ztp|tnta|cLitterBelow|wap2|sconcso4|o2satos|sistremax|ph|oxprod|hfdsnb|epfz|hfibthermds|fgcfc12|vegHeightGrass|froc|bsi|hfls|rsdcsaf|tntrlcs|talknatos|residualFrac|rsdcs|sistresave|sfpm25|va100m|emiso2|zooc|cSoilAbove1m|fLitterFire|swtoaasdust|prraIs|rsdoabsorb|vsfriver|mfo|msftmrho|nMineralNO3|basin|wetlandCH4|psl|reffsnows|flashrate|c3h6|rlu4co2|eow|pctisccp|mcd|pflw|pop|siflfwbot|mrroIs|bddtdip|opottemprmadvect|aragos|rld|dmlt|rsutcs|bfeos|co3satarag|areacellg|tnhusmp|cdnc|rhShrub|cSoilLut|vtem|sisnhc|popos|cfc12global|sndmasssi|frn|pr2h|sfcWindmax|lwsnl|bddtdic|sistrxubot|snicefreez|rlu|expsi|pbo|epsi100|clwc|sifb|raOther|phycos|bigthetao|pbfe|sisnconc|ec550aer|cCwd|limfediaz|rivi|difvmto|treeFracSecDec|xvelsurf|intpbp|nLitter|difmxylo|tntscp|rsus|wetlandCH4cons|tauu|tntmp|dissi13c|cRoot|fddtalk|msftbarot|sitempsnic|clmcalipso|prthetao|esn|yvelmean|zg100|libmassbfgr|intppnitrate|sistryubot|hfsso|fgo2|chlmiscos|nMineral|sweLut|mmrss|tsn|sisnmass|co3satcalcos|dissicos|osalttend|clayfrac|iareafl|xvelmean|gppTree|fgdms|mlotst|vsfevap|prra|sistrydtop|clt|emiisop|prsnIs|drynh4|limnpico|dpco2nat|mcu|rGrowth|tauvo|dfeos|wap500|sw18O|ch4|treeFracNdlEvg|cLitterCwd|loadsoa|talknat|cldncl|mrlqso|hfss|reffsclwtop|phyp|fFireNat|nbp|wo|pod0|ec|cl|mrros|lim|ta|cfc113global|rsdscsdiff|ps|zhalf|osaltrmadvect|fFire|siextentn|dcalc|tsnIs|umo|cSoilShrub|emianox|tos|rsutcsafbnd|dissocos|vortmean|limfemisc|rldscs|sw|fVegLitterMortality|sivol|sistrxdtop|pcalc|msftyzsmpa|rlusIs|cLitterTree|topg|oh|rsutcs4co2|ci|sidivvel|hfbasin|tnpeot|difmxybo|swsffluxaero|mmraerh2o|litemptop|dems|fDeforestToAtmos|ppcalc|difvmbo|rsucsafbnd|raRoot|rsdo|diftrxybo|prsn18O|fgco2|cStem|lifmassbf|phos|o3loss|ponos|ocontemppsmadvect|cLitterLut|dissi14cabioos|rsuscsaf|co3sataragos|fGrazing|loadss|mlotstmax|cProductLut|pfull|cLitterSurf|mrsoLut|sidragbot|lithk|ua10|uv|wetso4|masscello|raStem|chlcalc|limnsw|rsucs4co2|snmassacrossline|phymisc|emilnox|wap|mrfso|cVegGrass|snowmxrat|diftrebo|fLulccProductLut|litempbotgr|tntogw|mrsol|nppTree|reffgrpls|tntrscs|opottemppmdiff|o3prod|phnat|o2|siforceintstrx|sndmassdyn|o3ste|reffrainc|sncIs|concnmcn|expc|diftrblo|ppdiaz|sirdgconc|msftyrho|phnatos|intvaw|thetaot300|limirrpico|sidmassgrowthwat|wsgmax10m|tntr|siforcecoriolx|scldncl|vt|cly|tSoilPools|bddtalk|pp|eparag100|ta500|mrsll|sisaltmass|gppc14|emivoc|lossch4|msftmz|sidmassth|parasolRefl|loadso4|licalvf|o2os|co3natos|siitdsnthick|limndiat|chlcalcos|chl|dissicabio|albdiffbnd|smc|oxloss|cod|sconcdust|siage|reffclis|sossq|dissoc|agessc|co3nat|rlucs4co2|siflswdtop|hfevapds|tdps|zmisc|zg500|treeFracNdlDcd|masso|ppos|rsdcsafbnd|rhTree|sedustCI|mmrno3|zhalfo|evu|fHarvestToProduct|detocos|sipr|epcalc100|fg14co2abio|dispkexyfo|sbl|evspsblpot|ugrido|wtem|vo|sandfrac|tau|mrroLi|nppOther|prrc|yvelbase|fVegLitter|hflsIs|nLand|nppRoot|wetnh3|mmrpm2p5|hfbasinpmadv|nSoil|c2h2|psitem|cSoilLevels|ch4global|drivw|c14Litter|nh4|zvelbase|rlus|chlpicoos|wetlandFrac|es|emioa|netAtmosLandC13Flux|msftmzmpa|pppico|cropFracC4|cltisccp|co2s|mc|limndiaz|nudgincswe|ho2|chlmisc|fddtdin|chepasoa|sitempbot|nStem|limirrcalc|vmrox|rtmt|fgco2abio|loadoa|tnhusscp|hcho|burntFractionAll|zossq|laiLut|fNLitterSoil|phydiat|tnt|grpllsprof|grassFrac|arag|rss|sftlf|cfc11|dtaus|raTree|loadno3|opottemptend|od550so4|sidmassmelttop|epfy|lwtoacsdust|tasIs|siareas|rldcs|fgco2nat|dsn|sndmasssnf|shrubFrac|rsusLut|edt|wetbc|chldiat|climodis|thetaot2000|siflsensupbot|talkos|po4|wetso2|rlutcs4co2|emico|fNVegLitter|fNAnthDisturb|fBNF|prveg|loadpoa|fNLandToOcean|md|no|intpp|siconca|htovovrt|hfx|spco2|solbnd|rhSoil|pbsi|cLitter|albdirbnd|sw17O|simpconc|ocontempmint|prCrop|siflcondtop|vsfcorr|intpppico|sifllwutop|fsn|rsdscsaf|tntnogw|vqint|hfbasinpmdiff|intdic|rsdscs|fracInLut|cnc|mmrsoa|parag|ppmisc|landCoverFrac|cVegLut|vtendnogw|rsuscsbnd|intppmisc|sza|jo2|hfy|hfsnthermds|sidmasslat|drybc|intuaw|uqint|difvtrbo|hfbasinpadv|nppLeaf|talk|chegpso4|fg13co2|limirrdiaz|rsu4co2|cVeg|reffclwc|od550aer|sob|grassFracC4|od550aerso|rMaint|mlotstsq|sidmassmeltbot|tossq|wfonocorr|vtendogw|tnpeotb|fco2fos|ra|tasLut|drydust|fVegSoilMortality|bldep|dispkevfo|c3h8|nOther|mmrnh4|siextents|wmo|grplmxrat|tr|drynh3|dmso|hfdsn|emidust|hfsbl|vegHeightShrub|chlpico|ocontempdiff|diabdrag|cltcalipso|tauuo|intuadse|rsucsaf|litemptopIs|spco2nat|dryso2|tnhuspbl|litempbotfl|nppShrub|wsgmax100m|fbddtalk|expfe|bigthetaoga|simpmass|nppGrass|treeFracBdlDcd|diftrxylo|phabio|rsd|snicefreezIs|n2o|prsnc|snrefr|obvfsq|tauv|siareaacrossline|cldnci|mmrpm10|thetaoga|cSoilGrass|sishevel|dryso4|rhLitter|treeFracPrimDec|dissic|rootdsl|prw18O|o2min|fbddtdic|zoocos|siflswutop|c14Soil|wtd|po4os|tsland|chldiatos|u2|sblIs|intpoc|mrrob|areacella|tendlibmassbf|ocontemppmdiff|prw|ts|sosga|co2|od550aerh2o|co3|prrsn|nep|reffcclwtop|thetaot700|uwap|expn|nppLut|lwtoafluxaerocs|prw17O|sltbasin|yvelsurf|hfbasinpsmadv|difvtrto|prlsprof|hflso|sithick|raLut|od550lt1aer|hfmlt|tasmaxCrop|grassFracC3|cVegShrub|ua|vt100|phydiatos|fProductDecompLut|raGrass|nudgincsm|hfgeou|rsntds|sndmasswindrif|loaddust|fNleach|acabfIs|ccldncl
+    - value: pabigthetao|ttop|po4|shrubFrac|intppmisc|opottemppadvect|clws|prlsns|tas|wo|mlotst|tosga|vegHeightTree|nppStem|pon|somint|o3loss|dems|cLitterSurf|reffclwtop|netAtmosLandCO2Flux|fgco2abio|hcl|epfz|reffclic|sfcWindmax|qgwr|c14Soil|cTotFireLut|tasmaxCrop|wmo|grassFracC3|reffsclwtop|fVegSoil|wa|thetaot2000|xgwdparam|sftgif|rlut4co2|sncIs|cProduct|siitdconc|co2s|parag|wtem|dissi14cabioos|loadbc|tasIs|jno2|limnpico|od550csaer|prra|fescav|talkos|mrsos|difmxylo|htovgyre|siforceintstry|sifllwutop|mrsosLut|phycalc|libmassbffl|ppcalc|sfo3max|frn|intvaw|oxprod|uwap|sconcso4|dissicabio|isop|nLitterCwd|po4os|fLitterSoil|reffsnowc|chl|mmrbc|nLitterSubSurf|ocontemppmdiff|spco2|siflswutop|spco2abio|sistrydtop|cProductLut|sidmasssi|epcalc100|expcalc|c13Veg|dsn|cfc113global|rldcs4co2|c13Land|msftmz|utendnogw|epfy|wetso2|prlsprof|siflswdtop|lon|sedustCI|fGrazing|hcfc22global|ocontemppsmadvect|sishevel|c3PftFrac|hfds|difvmo|sistremax|tntc|hfssLut|fldcapacity|zmeso|vegHeight|no|ch4|acabf|tasminCrop|difvmbo|sisaltmass|phyc|dryo3|evu|tslsi|nppGrass|agesno|hfbasinpsmadv|dissicnatos|dissi14c|fProductDecompLut|dissicnat|fNVegLitter|talknat|obvfsq|rsuscsaf|cfadDbze94|albsn|prsn17O|phypos|expp|netAtmosLandC14Flux|pflw|clic|bigthetao|limndiaz|rsutaf|sidmasstranx|mlotstmax|tsnIs|wtd|dispkevfo|cLitterCwd|clivi|fbddtdife|fLulccProductLut|chlmiscos|snmIs|hfsnthermds|sivoln|limirrcalc|pp|ua|columnmassflux|wap2|bldep|cSoilTree|dissi13c|tnkebto|lwsrfcsdust|clwmodis|fFireNat|sifb|fddtdic|ocfriver|treeFracNdlDcd|diftrxybo|hursminCrop|tr|rlu4co2|wetdust|prcprof|cdnc|cSoilSlow|sithick|cLeaf|reffrainc|fFireAll|sistrxdtop|noy|tnhusc|smc|sivol|tntpbl|cSoilShrub|sitempsnic|zmiscos|lithk|detocos|rMaint|chldiaz|sltovovrt|utendogw|difvmto|mmrpm10|hflso|prsnIs|ygwdparam|lwsffluxaero|rivo|treeFracPrimDec|litempbotfl|physios|emiaoa|dpo2|prw2H|intuadse|ta|wap|fsitherm|limnsw|o2os|esn|chegpso4|tnt|msftmrho|reffclwc|dtes|rsutcs4co2|nLeaf|clcalipso2|rsd|vo|yvelbase|treeFracSecEver|dcalc|rivi|spco2nat|fNloss|lwsnl|simpconc|hfgeoubed|rsut|fNOx|rsd4co2|od550soa|soga|fLulccResidueLut|lwtoafluxaerocs|rlds|tgs|tdps|limfemisc|intpbp|ponos|dmc|flandice|co3|talk|eparag100|cRoot|siforcecoriolx|sblIs|osalttend|hfrunoffds|siflsenstop|fProductDecomp|vortmean|fgo2|zmla|fsn|od550bb|cLitter|tsl|fbddtdisi|cltisccp|aod550volso4|ut|raRoot|sidmasstrany|zg10|diabdrag|dmso|litemptop|fLitterFire|nep|nStem|fAnthDisturb|sipr|ra|vsfevap|mrroLi|lwsrfasdust|phydiat|epfe100|froc|sndmasssnf|wetnoy|od550aer|ocontemptend|cLitterGrass|siarean|ccb|treeFracPrimEver|cropFracC3|phnat|tnhusscp|tnpeot|mlotstmin|cLitterShrub|sisnmass|sidmassevapsubl|loaddust|xvelmean|limirrmisc|hfrainds|intdic|dmsos|hus|rsdcs4co2|fric|nwdFracLut|hfy|nVeg|ccn|raShrub|rootd|c14Land|cli|pod0|phymisc|tntscpbl|bigthetaoga|c14Veg|calc|snicefreezIs|sweLut|deptho|siflcondbot|grassFracC4|tasmax|lossco|intpbn|airmass|loadss|msftyzmpa|v2|bacc|wfonocorr|cSoilPools|diftrbbo|no3|nppTree|cltc|tnhusd|sisnthick|msftmzmpa|treeFracNdlEvg|snmsl|cWood|hur|rss|bddtdic|ccldncl|chlcalcos|mrrob|ppos|hfdsn|tnhusa|emivoc|rsdt|limirrpico|nudgincsm|libmassbfgr|nLitter|residualFrac|zmtnt|tpf|fddtalk|demc|rsus|vegHeightCrop|sftflf|siitdsnthick|tnhuspbl|sistrxubot|no2|siflfwbot|phabioos|rsdcsbnd|swtoaasdust|icemIs|rlusLut|mcd|od550aerh2o|tossq|acabfIs|loadpoa|n2o|treeFracBdlDcd|siflcondtop|cw|dpco2|tsIs|rhLitter|fgdms|masscello|hfsso|rlutaf|fNProduct|rldsIs|va100m|pbfe|evspsbl|sconcss|mrsofc|snd|sios|raStem|rac14|tntrlcs|co3satcalcos|tntrs|icfriver|rlut|snicemIs|phyfeos|fco2fos|intpoc|rootdsl|zmlwaero|o2sat|phalf|zmisc|fBNF|intppdiaz|ocontemprmadvect|diftrelo|clmisr|chldiazos|swsrfasdust|zsatarag|laiLut|cSoilFast|solbnd|climodis|nppOther|sidivvel|mrros|nppWood|od550no3|tauvpbl|pfull|hurs|ppdiat|aeroptbnd|phynos|fbddtdip|agessc|simprefrozen|fNAnthDisturb|vtem|sndmasswindrif|albisccp|rsdscsbnd|rhTree|rainmxrat|fVegSoilSenescence|opottemppmdiff|fco2antt|wsgmax10m|evspsblveg|chldiat|cropFrac|baccos|siu|lat|limfecalc|mrtws|sndmasssi|zoocos|fbddtdic|umo|difvtrto|nLitterSurf|zg100|abs550aer|swtoacsdust|lwtoacsdust|co3sataragos|tntd|fNleach|osaltpadvect|rld4co2|rlus|fbddtdin|loadsoa|volo|cfc11|n2oglobal|reffclis|pcalc|evspsblsoi|ho2|zvelsurf|vqint|emiso4|detoc|hcho|loadno3|msftyzsmpa|phycalcos|od550ss|fracOutLut|vt100|yvelsurf|co3os|mmrso4|sisnhc|ugrido|loadoa|o2|iareafl|prCrop|siage|sftlf|topg|intpp|zhalfo|concnmcn|chlpicoos|drybc|albdiffbnd|rsntds|clis|raOther|od550oa|mmrpm1|cllcalipso|emico|areacellr|phyfe|ocontemppadvect|hfx|zostoga|reffcclwtop|aoanh|xvelbase|cnc|frfe|aerasymbnd|tendlicalvf|od550lt1aer|phydiatos|cVegGrass|sltbasin|mrsol|nh4os|tatp|pastureFrac|prw18O|conccmcn|nppLeaf|snw|c3h6|dtesn|tntogw|oxloss|treeFracSecDec|msftyrhompa|rhc13|tauuo|mc|mrsll|phos|thetaot700|hursmin|tendacabf|bddtdip|nh50|phydiaz|sidmasslat|lifmassbf|vsfpr|dissicabioos|rlu|ppmisc|rld|rsdoabsorb|cLitterSubSurf|prveg|licalvf|tob|evs|rhShrub|sidragtop|fNup|fLuc|prcsh|msftyz|hfbasinpmadv|cldnci|wetbc|rsdscs|iareagr|fFire|sihc|mmrpm2p5|mmrnh4|t20d|od550bc|pbo|limfepico|zg500|tasmin|fLulccAtmLut|irrLut|snm|sndmassmelt|mrlso|burntFractionAll|rsucsafbnd|fNnetmin|siforceintstrx|arag|fHarvest|simassacrossline|sirdgthick|sblnosn|rhSoil|tauupbl|intdoc|fddtdife|rsu|gppc14|rls|cStem|cfadLidarsr532|cltcalipso|expfe|rsutcsafbnd|chlos|modelCellAreai|bry|orog|mrso|evspsblpot|fVegLitterSenescence|phnatos|vegHeightGrass|sidmassgrowthwat|ficeberg|rh|vas|cod|sf6|nOther|flashrate|co3satarag|msftmzsmpa|cfc12global|diftrxylo|tran|sispeed|vsf|o3prod|epp100|dslw|fracLut|mrlqso|mmrdust|gppGrass|intpbsi|slthick|bfe|siareas|thetaoga|pr2h|ua10|uqint|grplmxrat|dryso2|utendepfd|limnmisc|lossn2o|diftrebo|zmswaero|emiisop|sw|litempbotgr|intuaw|cSoilLut|sw17O|wetoa|minpblz|ci|cVegTree|co3abioos|prsnsn|fddtdisi|hus850|uas|omldamax|raLeaf|sfdsi|wetso4|raTree|dtauc|vtendnogw|rsdcsaf|fHarvestToAtmos|sci|fsfe|dispkexyfo|fVegLitter|cldncl|meanage|wetlandCH4prod|sootsn|nMineral|jo2|rsutcs|pppico|sistresave|rlntds|siflswdbot|snwc|od550aerso|sistryubot|sidmassdyn|conccn|opottemptend|va|od550so4so|tsn|sza|siextents|fddtdin|sos|hfdsl|fNLandToOcean|tnhusmp|sfno2|simass|sossq|cls|osaltdiff|intpppico|friver|nLand|emianox|hno3|prw|u2|netAtmosLandC13Flux|zsatcalc|uo|talknatos|fg14co2|rsdscsdiff|clhcalipso|aragos|edt|rlucs4co2|epn100|cSoilGrass|lwp|siforcetiltx|nMineralNH4|hfsifrazil|phypico|eminox|treeFracBdlEvg|lossch4|so2|prsn2h|hfssIs|nProduct|o2min|opottemprmadvect|rsusLut|wfcorr|dpco2abio|clisccp|rsucsbnd|fgco2nat|clw|osaltpsmadvect|sirdgconc|mmrsoa|reffrains|tauu|opottempmint|bddtdin|rsut4co2|areacello|fediss|eminh3|litemptopIs|sidmassmelttop|basin|rsuscs|co2|msftyrho|prrc|necbLut|phymiscos|cSoil|dissicos|clc|depdust|cLand|difmxybo|epc100|siflfwdrain|co|nppRoot|pctisccp|drynoy|dfe|mmroa|tnhus|cropFracC4|sidragbot|sconcdust|sidconcdyn|rsdcs|drydust|rldscs|intparag|limfediaz|o2satos|diftrblo|masso|sivols|sfcWind|osaltpmdiff|zossq|zg1000|zmesoos|wetlandCH4cons|tntmp|chepsoa|wfo|ztp|fNLitterSoil|fg14co2abio|tauucorr|cSoilAbove1m|grassFrac|vsfriver|co3natos|mrsoLut|prsnc|vsfcorr|dtaus|intppdiat|opottempdiff|mrroIs|tsland|rtmt|rv850|ta500|dissi14cabio|prhmax|od443dust|photo1d|c2h6|co2mass|siitdthick|wsgmax100m|vwap|aerssabnd|tauvcorr|expsi|phyp|cLitterAbove|tau|cldnvi|drivw|tos|wetnh3|cfc12|rsuscsbnd|hfibthermds|limirrdiat|tauvo|siextentn|jo3|clwvi|fVegSoilMortality|t2|bsios|mrro|co3nat|sitempbot|c3h8|cldwatmxrat|c13Soil|phabio|rldcs|wilt|fDeforestToProduct|nSoil|c2h2|sndmassdyn|od550dust|siltfrac|pso|fracInLut|intpn2|siforcecorioly|cLitterBelow|msftmrhompa|emilnox|sftof|bddtdife|sifllatstop|ec550aer|reffclws|sfpm25|phycos|pr18O|fNgasFire|fbddtalk|emiso2|ch3coch3|zvelbase|hfss|drynh4|rlusIs|htovovrt|tSoilPools|darag|sw18O|zos|sicompstren|rsdo|swsffluxaero|fco2nat|zo2min|maxpblz|swsrfcsdust|sosga|md|siitdsnconc|lwtoacsaer|dcw|dryss|cSoilMedium|dissocos|o3ste|hfmlt|psitem|fN2O|cheaqpso4|emiaco|emidms|dryoa|mmrno3|pr|pan|limirrdiaz|areacellg|hfbasin|dryso4|wetnh4|tnpeotb|zmicro|prsn|rsdscsaf|wap500|zfullo|siconc|es|jpdftaureliqmodis|fNfert|epsi100|nh4|tropoz|huss|sandfrac|rhLut|clcalipsoice|ocontempmint|intpcalcite|jpdftaureicemodis|mfo|sfo3|sidconcth|sidmassgrowthbot|tslsiLut|snc|thkcello|popos|hussLut|rsutcsaf|sisali|clwvic|bsi|cLitterTree|vmo|emibc|loadnh4|sw2H|chlmisc|cltmodis|od550so4|intppcalc|cSoilLevels|dsw|sbl|mcu|zhalf|eow|zfull|icem|volcello|fahLut|ares|tasLut|tauv|osaltrmadvect|wetss|difvmfdo|limncalc|bddtalk|dpco2nat|rlutcs4co2|zmicroos|chlcalc|clmcalipso|snrefr|prsn18O|cVeg|hflsLut|phydiazos|ppdiaz|nudgincswe|dfeos|thetao|baresoilFrac|rlutcsaf|clcalipso|mrsfl|gppTree|reffsnows|mrsow|rsuscsafbnd|chepasoa|rsdscsafbnd|snicem|prraIs|sltovgyre|strbasemag|albdirbnd|ocontempdiff|exparag|gppShrub|nMineralNO3|tsns|wetlandFrac|sitemptop|cOther|physi|fHarvestToProduct|clivic|rlucs|sndmasssubl|concdust|ptp|snowmxrat|sifllwdtop|ph|fDeforestToAtmos|drynh3|nppShrub|hfevapds|npp|cVegLut|rsdcsafbnd|rsutcsbnd|albc|fgcfc11|intpbfe|difvtrbo|tendlibmassbf|swtoafluxaerocs|cfc11global|c14Litter|nRoot|tnpeo|ec|prrsn|limfediat|snicefreez|fgcfc12|emidust|cCwd|difvso|pnitrate|parasolRefl|reffgrpls|sidmassmeltbot|wbptemp|gppc13|vt|phypicoos|vmrox|no3os|psl|rsucs|raLut|fVegLitterMortality|intppnitrate|scldncl|dmlt|pathetao|emiss|rac13|tntnogw|mrfso|emioa|uv|intvadse|hflsIs|pastureFracC3|tcs|opottemppsmadvect|hfrs|fNVegSoil|gppLut|clcalipsoliq|loadso4|rhGrass|vegHeightShrub|hfbasinpmdiff|fNdep|lim|hfcorr|raGrass|fNgas|mlotstsq|utendwtem|pop|ps|rlutcs|tnhusscpbl|tnta|siconca|od440aer|siareaacrossline|calcos|dissoc|bfeos|snmassacrossline|twap|landCoverFrac|sitimefrac|hfdsnb|fgsf6|grpllsprof|sftgrf|wetlandCH4|rsu4co2|emibvoc|zg|tntrl|siforcetilty|ta850|hfls|tntr|co23D|c4PftFrac|vegFrac|sisnconc|thetaot300|dgw|hursmax|od870aer|fCLandToOcean|clwc|so|pr17O|expc|cly|ch4global|prw17O|clayfrac|fg13co2|xvelsurf|vsfsit|fgco2|cct|h2o|hfgeou|o3|fVegFire|pbsi|gpp|prbigthetao|c13Litter|dms|prthetao|mrfsofr|utendvtem|bddtdisi|vegHeightPasture|dissi13cos|rzwc|mrroLut|mmrss|cl|limndiat|ta700|siflsensupbot|oh|rhc14|simpmass|ts|graz|lai|fddtdip|rsucs4co2|chldiatos|thetaot|sfriver|co3satcalc|rsucsaf|phyn|ua100m|bs550aer|rsusIs|difvho|dissic|rsdsIs|treeFrac|siv|si|nppLut|tntscp|cLitterLut|yvelmean|fNgasNonFire|orogIs|toz|areacella|clt|hfsbl|expn|cMisc|od865dust|lwtoaasdust|rsdsdiff|vtendogw|chlpico|nbp|hfbasinpadv|pastureFracC4|cldicemxrat|cVegShrub|zooc|co3abio|msftbarot|mmraerh2o|sob|prc|rsds|remoc|ksat|tntrscs|rGrowth|sidmassth
     slot_uri: https://w3id.org/hacid/onto/top-level/hasMember
     range: string
     multivalued: true
-  hasPart:
+  hasComponent:
     annotations:
       num_distinct_values:
         tag: num_distinct_values
         value: '2'
     examples:
     - value: mip
-    slot_uri: https://w3id.org/hacid/onto/top-level/hasPart
+    slot_uri: https://w3id.org/hacid/onto/top-level/hasComponent
     range: string
   defines:
     annotations:
@@ -894,7 +823,7 @@ slots:
         tag: num_distinct_values
         value: '4'
     examples:
-    - value: Biodiversity%2FEcosystems|Marine%20Ecosystems|Tourism|Transport
+    - value: Tourism|Marine%20Ecosystems|Transport|Biodiversity%2FEcosystems
     slot_uri: https://w3id.org/hacid/onto/top-level/defines
     range: string
     multivalued: true
@@ -923,7 +852,7 @@ slots:
         tag: num_distinct_values
         value: '63'
     examples:
-    - value: R99pTOT|R95pTOT|RXdday|WSDI|CDD|SPEI|TMm|HWA%28EHF%2FTx90%2FTn90%29|HWF%28EHF%2FTx90%2FTn90%29|TXgt50p|HWM%28EHF%2FTx90%2FTn90%29|CWN_ECF|HWN%28EHF%2FTx90%2FTn90%29|CWF_ECF|TXdTNd|CWA_ECF|WSDId|CWM_ECF|TXbdTNbd|TXm|CWD_ECF|SPI|SDII|PRCPTOT|R20mm|HWD%28EHF%2FTx90%2FTn90%29|CSDId
+    - value: SDII|CWM_ECF|RXdday|HWF%28EHF%2FTx90%2FTn90%29|CWN_ECF|R99pTOT|R20mm|WSDI|TMm|CSDId|TXgt50p|PRCPTOT|CDD|WSDId|TXbdTNbd|TXdTNd|R95pTOT|HWA%28EHF%2FTx90%2FTn90%29|HWD%28EHF%2FTx90%2FTn90%29|CWD_ECF|SPI|CWA_ECF|CWF_ECF|HWM%28EHF%2FTx90%2FTn90%29|HWN%28EHF%2FTx90%2FTn90%29|SPEI|TXm
     slot_uri: https://w3id.org/hacid/onto/top-level/classifies
     range: string
     multivalued: true
@@ -952,14 +881,14 @@ slots:
         tag: num_distinct_values
         value: '17'
     examples:
-    - value: regular
+    - value: P1D
     slot_uri: https://w3id.org/hacid/onto/data/hasDiscretization
     range: hasDiscretization_enum
   hasExactBoundingRegion:
     annotations:
       num_distinct_values:
         tag: num_distinct_values
-        value: '2230'
+        value: '2553'
     examples:
     - value: all
     slot_uri: https://w3id.org/hacid/onto/data/hasExactBoundingRegion
@@ -977,9 +906,9 @@ slots:
     annotations:
       num_distinct_values:
         tag: num_distinct_values
-        value: '2230'
+        value: '2553'
     examples:
-    - value: ceda_ukcp18_metadata_merged.jsonld-2101-01-01T00:00:00+00:00
+    - value: 3015-01-01T00:00:00Z-3065-01-31T00:00:00Z
     slot_uri: https://w3id.org/hacid/onto/data/hasSelectedRegion
     range: string
   isSpecializationOn:
@@ -1000,16 +929,6 @@ slots:
     - value: specialization
     slot_uri: https://w3id.org/hacid/onto/data/isSpecializedAccordingTo
     range: isSpecializedAccordingTo_enum
-  hasComponent:
-    annotations:
-      num_distinct_values:
-        tag: num_distinct_values
-        value: '5169'
-    examples:
-    - value: cordex.output.WAS-44i.NorESM1-M.rcp85.RCA4.v2.r0i0p0|cordex.output.WAS-44i.NorESM1-M.rcp85.RCA4.v2.r1i1p1
-    slot_uri: https://w3id.org/hacid/onto/top-level/hasComponent
-    range: string
-    multivalued: true
   refersToScenario:
     annotations:
       num_distinct_values:
@@ -1019,15 +938,6 @@ slots:
     - value: RCP8.5
     slot_uri: https://w3id.org/hacid/onto/ccso/refersToScenario
     range: refersToScenario_enum
-  isComponentOf:
-    annotations:
-      num_distinct_values:
-        tag: num_distinct_values
-        value: '1'
-    examples:
-    - value: output
-    slot_uri: https://w3id.org/hacid/onto/top-level/isComponentOf
-    range: isComponentOf_enum
   refersToGlobalWarmingLevel:
     annotations:
       num_distinct_values:
@@ -1037,34 +947,25 @@ slots:
     - value: GWL4
     slot_uri: https://w3id.org/hacid/onto/ccso/refersToGlobalWarmingLevel
     range: string
-  outputId:
+  productId:
     annotations:
       num_distinct_values:
         tag: num_distinct_values
         value: '4'
     examples:
-    - value: output
-    slot_uri: https://w3id.org/hacid/onto/ccso/outputId
-    range: outputId_enum
-  iSpecializationOfVariable:
+    - value: output2
+    slot_uri: https://w3id.org/hacid/onto/ccso/productId
+    range: productId_enum
+  isSpecializationOfVariable:
     annotations:
       num_distinct_values:
         tag: num_distinct_values
         value: '209'
     examples:
     - value: zg500
-    slot_uri: https://w3id.org/hacid/onto/data/iSpecializationOfVariable
+    slot_uri: https://w3id.org/hacid/onto/data/isSpecializationOfVariable
     range: string
     multivalued: true
-  isSpecializationOfVariable:
-    annotations:
-      num_distinct_values:
-        tag: num_distinct_values
-        value: '33'
-    examples:
-    - value: wtype8
-    slot_uri: https://w3id.org/hacid/onto/data/isSpecializationOfVariable
-    range: isSpecializationOfVariable_enum
   hasOutput:
     annotations:
       num_distinct_values:
@@ -1074,16 +975,6 @@ slots:
     - value: output
     slot_uri: https://w3id.org/hacid/onto/data/hasOutput
     range: hasOutput_enum
-  hasMemberSimulation:
-    annotations:
-      num_distinct_values:
-        tag: num_distinct_values
-        value: '106'
-    examples:
-    - value: ukcp18.indices.rcp85.22|ukcp18.indices.rcp85.17|ukcp18.indices.rcp85.04|ukcp18.indices.rcp85.23|ukcp18.indices.rcp85.03|ukcp18.indices.rcp85.02|ukcp18.indices.rcp85.25|ukcp18.indices.rcp85.07|ukcp18.indices.rcp85.09|ukcp18.indices.rcp85.18|ukcp18.indices.rcp85.28|ukcp18.indices.rcp85.08|ukcp18.indices.rcp85.27|ukcp18.indices.rcp85.24|ukcp18.indices.rcp85.06|ukcp18.indices.rcp85.15|ukcp18.indices.rcp85.11|ukcp18.indices.rcp85.20|ukcp18.indices.rcp85.05|ukcp18.indices.rcp85.19|ukcp18.indices.rcp85.01|ukcp18.indices.rcp85.21|ukcp18.indices.rcp85.26|ukcp18.indices.rcp85.12|ukcp18.indices.rcp85.14|ukcp18.indices.rcp85.16|ukcp18.indices.rcp85.10|ukcp18.indices.rcp85.13
-    slot_uri: https://w3id.org/hacid/onto/ccso/hasMemberSimulation
-    range: string
-    multivalued: true
   hasSubDimensionalSpace:
     annotations:
       num_distinct_values:
@@ -1162,22 +1053,20 @@ slots:
     annotations:
       num_distinct_values:
         tag: num_distinct_values
-        value: '94'
+        value: '2037'
     examples:
-    - value: '2101-01-01T00:00:00+00:00'
+    - value: '3065-01-31T00:00:00+00:00'
     slot_uri: https://w3id.org/hacid/onto/data/hasEndDateTime
-    range: string
-    multivalued: true
+    range: date
   hasStartDateTime:
     annotations:
       num_distinct_values:
         tag: num_distinct_values
-        value: '79'
+        value: '1354'
     examples:
-    - value: ceda_ukcp18_metadata_merged.jsonld
+    - value: '3015-01-01T00:00:00+00:00'
     slot_uri: https://w3id.org/hacid/onto/data/hasStartDateTime
-    range: string
-    multivalued: true
+    range: identifier
   hasInPeriodResolutionValue:
     annotations:
       num_distinct_values:
@@ -1202,7 +1091,7 @@ slots:
         tag: num_distinct_values
         value: '109'
     examples:
-    - value: MeanWindSpeed|ExtremeWindDays
+    - value: ExtremeWindDays|MeanWindSpeed
     slot_uri: https://w3id.org/hacid/onto/ccso/hasIndicator
     range: string
     multivalued: true
@@ -1212,18 +1101,18 @@ slots:
         tag: num_distinct_values
         value: '41'
     examples:
-    - value: ExtratropicalCyclones|SevereThunderstorms|TropicalCyclones|Gales|Tornado
+    - value: TropicalCyclones|SevereThunderstorms|Gales|ExtratropicalCyclones|Tornado
     slot_uri: https://w3id.org/hacid/onto/top-level/isSpecializedBy
     range: string
     multivalued: true
-  experimentId:
+  componentIdentifier:
     annotations:
       num_distinct_values:
         tag: num_distinct_values
         value: '93'
     examples:
     - value: volcIn2010
-    slot_uri: https://w3id.org/hacid/onto/ccso/experimentId
+    slot_uri: https://w3id.org/hacid/onto/top-level/componentIdentifier
     range: string
   usesModel:
     annotations:
@@ -1231,27 +1120,9 @@ slots:
         tag: num_distinct_values
         value: '45'
     examples:
-    - value: RCA4
+    - value: RegCM4-4
     slot_uri: https://w3id.org/hacid/onto/ccso/usesModel
-    range: usesModel_enum
-  isDownscalingOf:
-    annotations:
-      num_distinct_values:
-        tag: num_distinct_values
-        value: '2'
-    examples:
-    - value: ukcp18.global.rcp85
-    slot_uri: https://w3id.org/hacid/onto/ccso/isDownscalingOf
     range: string
-  simulationConfigurationId:
-    annotations:
-      num_distinct_values:
-        tag: num_distinct_values
-        value: '38'
-    examples:
-    - value: r1i1p1
-    slot_uri: https://w3id.org/hacid/onto/ccso/simulationConfigurationId
-    range: simulationConfigurationId_enum
   isMaintainedBy:
     annotations:
       num_distinct_values:
@@ -1270,13 +1141,22 @@ slots:
     - value: 'SSP5: Fossil-Fueled Development (Taking the Highway)'
     slot_uri: http://purl.org/dc/terms/title
     range: identifier
+  isDownscalingOf:
+    annotations:
+      num_distinct_values:
+        tag: num_distinct_values
+        value: '186'
+    examples:
+    - value: cmip5.MPI-ESM-LR.rcp85.r1i1p1
+    slot_uri: https://w3id.org/hacid/onto/ccso/isDownscalingOf
+    range: string
   altLabel:
     annotations:
       num_distinct_values:
         tag: num_distinct_values
-        value: '42'
+        value: '571'
     examples:
-    - value: Time slicing|Time sampling
+    - value: grid_northward_wind
     slot_uri: https://w3id.org/hacid/onto/top-level/altLabel
     range: string
     multivalued: true
@@ -1321,7 +1201,7 @@ slots:
     annotations:
       num_distinct_values:
         tag: num_distinct_values
-        value: '2'
+        value: '3'
     examples:
     - value: top-level
     slot_uri: http://www.w3.org/2002/07/owl#imports
@@ -1340,7 +1220,7 @@ slots:
         tag: num_distinct_values
         value: '4'
     examples:
-    - value: climate model simulations|climate variables|climate services|climate
+    - value: climate model simulations|climate services|climate variables|climate
         models
     slot_uri: http://www.w3.org/ns/dcat#keyword
     range: string
@@ -1354,23 +1234,23 @@ slots:
     - value: Climate services
     slot_uri: http://www.w3.org/ns/dcat#theme
     range: string
-  allValuesFrom:
-    annotations:
-      num_distinct_values:
-        tag: num_distinct_values
-        value: '17'
-    examples:
-    - value: decimal
-    slot_uri: http://www.w3.org/2002/07/owl#allValuesFrom
-    range: string
   onProperty:
     annotations:
       num_distinct_values:
         tag: num_distinct_values
         value: '30'
     examples:
-    - value: onDatatype
+    - value: withRestrictions
     slot_uri: http://www.w3.org/2002/07/owl#onProperty
+    range: string
+  someValuesFrom:
+    annotations:
+      num_distinct_values:
+        tag: num_distinct_values
+        value: '11'
+    examples:
+    - value: Entity
+    slot_uri: http://www.w3.org/2002/07/owl#someValuesFrom
     range: string
   hasValue:
     annotations:
@@ -1378,8 +1258,26 @@ slots:
         tag: num_distinct_values
         value: '10'
     examples:
-    - value: GlobalWarmingLevel
+    - value: RiskRating
     slot_uri: http://www.w3.org/2002/07/owl#hasValue
+    range: string
+  cardinality:
+    annotations:
+      num_distinct_values:
+        tag: num_distinct_values
+        value: '1'
+    examples:
+    - value: '1'
+    slot_uri: http://www.w3.org/2002/07/owl#cardinality
+    range: integer
+  allValuesFrom:
+    annotations:
+      num_distinct_values:
+        tag: num_distinct_values
+        value: '17'
+    examples:
+    - value: Collection
+    slot_uri: http://www.w3.org/2002/07/owl#allValuesFrom
     range: string
   maxQualifiedCardinality:
     annotations:
@@ -1390,23 +1288,23 @@ slots:
     - value: '1'
     slot_uri: http://www.w3.org/2002/07/owl#maxQualifiedCardinality
     range: integer
+  onDataRange:
+    annotations:
+      num_distinct_values:
+        tag: num_distinct_values
+        value: '3'
+    examples:
+    - value: nc4c0f1a156f040d6bc2440e8e93c958ab79
+    slot_uri: http://www.w3.org/2002/07/owl#onDataRange
+    range: string
   onClass:
     annotations:
       num_distinct_values:
         tag: num_distinct_values
         value: '2'
     examples:
-    - value: DataSchema
+    - value: UnitOfMeasure
     slot_uri: http://www.w3.org/2002/07/owl#onClass
-    range: string
-  someValuesFrom:
-    annotations:
-      num_distinct_values:
-        tag: num_distinct_values
-        value: '11'
-    examples:
-    - value: Projection
-    slot_uri: http://www.w3.org/2002/07/owl#someValuesFrom
     range: string
   qualifiedCardinality:
     annotations:
@@ -1426,24 +1324,6 @@ slots:
     - value: 'true'
     slot_uri: http://www.w3.org/2002/07/owl#hasSelf
     range: boolean
-  cardinality:
-    annotations:
-      num_distinct_values:
-        tag: num_distinct_values
-        value: '1'
-    examples:
-    - value: '1'
-    slot_uri: http://www.w3.org/2002/07/owl#cardinality
-    range: integer
-  onDataRange:
-    annotations:
-      num_distinct_values:
-        tag: num_distinct_values
-        value: '3'
-    examples:
-    - value: gYear
-    slot_uri: http://www.w3.org/2002/07/owl#onDataRange
-    range: string
 classes:
   AnnotationProperty:
     slots:
@@ -1462,9 +1342,9 @@ classes:
     - equivalentClass
     - versionInfo
     - hasKey
-    - unionOf
     - intersectionOf
-    class_uri: http://www.w3.org/2002/07/owl#Class
+    - unionOf
+    class_uri: http://www.w3.org/2000/01/rdf-schema#Class
     unique_keys:
       comment_key:
         unique_key_name: comment_key
@@ -1482,14 +1362,14 @@ classes:
         unique_key_name: hasKey_key
         unique_key_slots:
         - hasKey
-      unionOf_key:
-        unique_key_name: unionOf_key
-        unique_key_slots:
-        - unionOf
       intersectionOf_key:
         unique_key_name: intersectionOf_key
         unique_key_slots:
         - intersectionOf
+      unionOf_key:
+        unique_key_name: unionOf_key
+        unique_key_slots:
+        - unionOf
   ObjectProperty:
     slots:
     - id
@@ -1554,7 +1434,7 @@ classes:
     - hasMember
     - comment
     - label
-    - hasPart
+    - hasComponent
     class_uri: https://w3id.org/hacid/onto/top-level/Collection
     unique_keys:
       comment_key:
@@ -1565,10 +1445,10 @@ classes:
         unique_key_name: label_key
         unique_key_slots:
         - label
-      hasPart_key:
-        unique_key_name: hasPart_key
+      hasComponent_key:
+        unique_key_name: hasComponent_key
         unique_key_slots:
-        - hasPart
+        - hasComponent
   ConceptScheme:
     slots:
     - id
@@ -1697,19 +1577,13 @@ classes:
     - hasComponent
     - refersToScenario
     - dependsOnVariable
-    - isComponentOf
     - refersToGlobalWarmingLevel
-    - hasPart
     class_uri: https://w3id.org/hacid/onto/ccso/EnsembleProjection
     unique_keys:
       label_key:
         unique_key_name: label_key
         unique_key_slots:
         - label
-      hasComponent_key:
-        unique_key_name: hasComponent_key
-        unique_key_slots:
-        - hasComponent
       refersToGlobalWarmingLevel_key:
         unique_key_name: refersToGlobalWarmingLevel_key
         unique_key_slots:
@@ -1722,39 +1596,31 @@ classes:
     - holdsSpecializationOfVariable
     - isSpecializedAccordingTo
     - hasComponent
-    - outputId
+    - productId
     - dependsOnVariable
     - refersToScenario
     - comment
-    - hasPart
-    - isComponentOf
-    - iSpecializationOfVariable
+    - isSpecializationOfVariable
     class_uri: https://w3id.org/hacid/onto/ccso/ScenarioBasedProjection
     unique_keys:
       label_key:
         unique_key_name: label_key
         unique_key_slots:
         - label
-      hasComponent_key:
-        unique_key_name: hasComponent_key
-        unique_key_slots:
-        - hasComponent
   SingleProjection:
     slots:
     - id
     - type
     - label
-    - outputId
+    - productId
     - dependsOnVariable
     - holdsSpecializationOfVariable
     - isSpecializedAccordingTo
     - hasComponent
     - refersToScenario
     - comment
-    - hasPart
-    - iSpecializationOfVariable
-    - refersToGlobalWarmingLevel
     - isSpecializationOfVariable
+    - refersToGlobalWarmingLevel
     class_uri: https://w3id.org/hacid/onto/ccso/SingleProjection
     unique_keys:
       label_key:
@@ -1765,10 +1631,6 @@ classes:
         unique_key_name: hasComponent_key
         unique_key_slots:
         - hasComponent
-      hasPart_key:
-        unique_key_name: hasPart_key
-        unique_key_slots:
-        - hasPart
   SingleProjectionProduction:
     slots:
     - id
@@ -1790,7 +1652,7 @@ classes:
     - label
     - refersToGlobalWarmingLevel
     - hasOutput
-    - hasMemberSimulation
+    - hasComponent
     - refersToScenario
     class_uri: https://w3id.org/hacid/onto/ccso/StatisticalProjectionTransformation
     unique_keys:
@@ -1798,18 +1660,18 @@ classes:
         unique_key_name: label_key
         unique_key_slots:
         - label
-      hasMemberSimulation_key:
-        unique_key_name: hasMemberSimulation_key
+      hasComponent_key:
+        unique_key_name: hasComponent_key
         unique_key_slots:
-        - hasMemberSimulation
+        - hasComponent
   EnsembleProjectionProduction:
     slots:
     - id
     - type
     - label
-    - hasMemberSimulation
     - refersToGlobalWarmingLevel
     - hasOutput
+    - hasComponent
     - refersToScenario
     class_uri: https://w3id.org/hacid/onto/ccso/EnsembleProjectionProduction
     unique_keys:
@@ -1817,14 +1679,56 @@ classes:
         unique_key_name: label_key
         unique_key_slots:
         - label
-      hasMemberSimulation_key:
-        unique_key_name: hasMemberSimulation_key
-        unique_key_slots:
-        - hasMemberSimulation
       refersToGlobalWarmingLevel_key:
         unique_key_name: refersToGlobalWarmingLevel_key
         unique_key_slots:
         - refersToGlobalWarmingLevel
+      hasComponent_key:
+        unique_key_name: hasComponent_key
+        unique_key_slots:
+        - hasComponent
+      refersToScenario_key:
+        unique_key_name: refersToScenario_key
+        unique_key_slots:
+        - refersToScenario
+  ProbabilisticProjection:
+    slots:
+    - id
+    - type
+    - label
+    - holdsSpecializationOfVariable
+    - hasComponent
+    - refersToScenario
+    - dependsOnVariable
+    - isSpecializationOfVariable
+    - isSpecializedAccordingTo
+    class_uri: https://w3id.org/hacid/onto/ccso/ProbabilisticProjection
+    unique_keys:
+      label_key:
+        unique_key_name: label_key
+        unique_key_slots:
+        - label
+      hasComponent_key:
+        unique_key_name: hasComponent_key
+        unique_key_slots:
+        - hasComponent
+      refersToScenario_key:
+        unique_key_name: refersToScenario_key
+        unique_key_slots:
+        - refersToScenario
+  ProbabilisticProjectionProduction:
+    slots:
+    - id
+    - type
+    - label
+    - hasOutput
+    - refersToScenario
+    class_uri: https://w3id.org/hacid/onto/ccso/ProbabilisticProjectionProduction
+    unique_keys:
+      label_key:
+        unique_key_name: label_key
+        unique_key_slots:
+        - label
       refersToScenario_key:
         unique_key_name: refersToScenario_key
         unique_key_slots:
@@ -2051,61 +1955,46 @@ classes:
         unique_key_name: isSpecializedBy_key
         unique_key_slots:
         - isSpecializedBy
-  EnsembleSimulation:
+  ClimateModelIntercomparisonExperiment:
     slots:
     - id
     - type
     - label
-    - experimentId
     - acronym
-    - isComponentOf
-    - hasMemberSimulation
+    - componentIdentifier
     - hasOutput
-    - hasPart
+    - hasComponent
     - refersToScenario
     - usesModel
-    - hasComponent
-    - isDownscalingOf
-    class_uri: https://w3id.org/hacid/onto/ccso/EnsembleSimulation
+    class_uri: https://w3id.org/hacid/onto/ccso/ClimateModelIntercomparisonExperiment
     unique_keys:
       label_key:
         unique_key_name: label_key
         unique_key_slots:
         - label
-      experimentId_key:
-        unique_key_name: experimentId_key
-        unique_key_slots:
-        - experimentId
       acronym_key:
         unique_key_name: acronym_key
         unique_key_slots:
         - acronym
-      hasPart_key:
-        unique_key_name: hasPart_key
+      componentIdentifier_key:
+        unique_key_name: componentIdentifier_key
         unique_key_slots:
-        - hasPart
+        - componentIdentifier
       hasComponent_key:
         unique_key_name: hasComponent_key
         unique_key_slots:
         - hasComponent
-      isDownscalingOf_key:
-        unique_key_name: isDownscalingOf_key
-        unique_key_slots:
-        - isDownscalingOf
   GlobalClimateSimulation:
     slots:
     - id
     - type
     - label
-    - experimentId
     - acronym
-    - isComponentOf
-    - hasMemberSimulation
+    - componentIdentifier
     - hasOutput
-    - hasPart
+    - hasComponent
     - refersToScenario
     - comment
-    - simulationConfigurationId
     - usesModel
     class_uri: https://w3id.org/hacid/onto/ccso/GlobalClimateSimulation
     unique_keys:
@@ -2113,60 +2002,17 @@ classes:
         unique_key_name: label_key
         unique_key_slots:
         - label
-      experimentId_key:
-        unique_key_name: experimentId_key
-        unique_key_slots:
-        - experimentId
       acronym_key:
         unique_key_name: acronym_key
         unique_key_slots:
         - acronym
-      hasPart_key:
-        unique_key_name: hasPart_key
-        unique_key_slots:
-        - hasPart
-  ClimateModelIntercomparisonExperiment:
-    slots:
-    - id
-    - type
-    - label
-    - experimentId
-    - hasMemberSimulation
-    - hasOutput
-    - acronym
-    - hasPart
-    - isComponentOf
-    - refersToScenario
-    - usesModel
-    - hasComponent
-    class_uri: https://w3id.org/hacid/onto/ccso/ClimateModelIntercomparisonExperiment
-    unique_keys:
-      label_key:
-        unique_key_name: label_key
-        unique_key_slots:
-        - label
-      experimentId_key:
-        unique_key_name: experimentId_key
-        unique_key_slots:
-        - experimentId
-      acronym_key:
-        unique_key_name: acronym_key
-        unique_key_slots:
-        - acronym
-      hasPart_key:
-        unique_key_name: hasPart_key
-        unique_key_slots:
-        - hasPart
-      hasComponent_key:
-        unique_key_name: hasComponent_key
-        unique_key_slots:
-        - hasComponent
   Dataset:
     slots:
     - id
     - type
     - comment
     - label
+    - hasComponent
     class_uri: https://w3id.org/hacid/onto/top-level/Dataset
     unique_keys:
       comment_key:
@@ -2177,6 +2023,10 @@ classes:
         unique_key_name: label_key
         unique_key_slots:
         - label
+      hasComponent_key:
+        unique_key_name: hasComponent_key
+        unique_key_slots:
+        - hasComponent
   DataGeneratingProcess:
     slots:
     - id
@@ -2184,7 +2034,7 @@ classes:
     - comment
     - label
     - hasOutput
-    - isComponentOf
+    - hasComponent
     class_uri: https://w3id.org/hacid/onto/data/DataGeneratingProcess
     unique_keys:
       comment_key:
@@ -2195,10 +2045,10 @@ classes:
         unique_key_name: label_key
         unique_key_slots:
         - label
-      isComponentOf_key:
-        unique_key_name: isComponentOf_key
+      hasComponent_key:
+        unique_key_name: hasComponent_key
         unique_key_slots:
-        - isComponentOf
+        - hasComponent
   Action:
     slots:
     - id
@@ -2206,7 +2056,6 @@ classes:
     - comment
     - label
     - hasOutput
-    - isComponentOf
     - hasComponent
     class_uri: https://w3id.org/hacid/onto/top-level/Action
     unique_keys:
@@ -2360,9 +2209,9 @@ classes:
     - type
     - comment
     - label
-    - simulationConfigurationId
     - usesModel
     - hasOutput
+    - componentIdentifier
     - refersToScenario
     - isDownscalingOf
     class_uri: https://w3id.org/hacid/onto/ccso/SingleSimulation
@@ -2376,9 +2225,9 @@ classes:
     - id
     - type
     - label
-    - hasMemberSimulation
     - usesModel
     - hasOutput
+    - hasComponent
     - refersToScenario
     class_uri: https://w3id.org/hacid/onto/ccso/PerturbedParameterClimateEnsembleSimulation
     unique_keys:
@@ -2386,14 +2235,14 @@ classes:
         unique_key_name: label_key
         unique_key_slots:
         - label
-      hasMemberSimulation_key:
-        unique_key_name: hasMemberSimulation_key
-        unique_key_slots:
-        - hasMemberSimulation
       hasOutput_key:
         unique_key_name: hasOutput_key
         unique_key_slots:
         - hasOutput
+      hasComponent_key:
+        unique_key_name: hasComponent_key
+        unique_key_slots:
+        - hasComponent
   DynamicalDownscaling:
     slots:
     - id
@@ -2403,7 +2252,6 @@ classes:
     - isDownscalingOf
     - usesModel
     - hasOutput
-    - hasMemberSimulation
     - hasComponent
     - refersToScenario
     class_uri: https://w3id.org/hacid/onto/ccso/DynamicalDownscaling
@@ -2416,20 +2264,30 @@ classes:
         unique_key_name: hasComponent_key
         unique_key_slots:
         - hasComponent
-  ProbabilisticProjection:
+  EnsembleSimulation:
     slots:
     - id
     - type
     - label
-    - dependsOnVariable
-    - isSpecializationOfVariable
-    - isSpecializedAccordingTo
-    class_uri: https://w3id.org/hacid/onto/ccso/ProbabilisticProjection
+    - usesModel
+    - hasOutput
+    - hasComponent
+    - refersToScenario
+    - isDownscalingOf
+    class_uri: https://w3id.org/hacid/onto/ccso/EnsembleSimulation
     unique_keys:
       label_key:
         unique_key_name: label_key
         unique_key_slots:
         - label
+      hasComponent_key:
+        unique_key_name: hasComponent_key
+        unique_key_slots:
+        - hasComponent
+      isDownscalingOf_key:
+        unique_key_name: isDownscalingOf_key
+        unique_key_slots:
+        - isDownscalingOf
   UnitOfMeasure:
     slots:
     - id
@@ -2437,6 +2295,11 @@ classes:
     - label
     - hasValuesOn
     class_uri: https://w3id.org/hacid/onto/top-level/UnitOfMeasure
+    unique_keys:
+      hasValuesOn_key:
+        unique_key_name: hasValuesOn_key
+        unique_key_slots:
+        - hasValuesOn
   Amount:
     slots:
     - id
@@ -2451,8 +2314,9 @@ classes:
     - hasValuesOn
     - hasUnitOfMeasure
     - isMemberOf
+    - altLabel
     - dependsOnVariable
-    - holdsSpecializationOfVariable
+    - isSpecializationOfVariable
     - acronym
     class_uri: https://w3id.org/hacid/onto/data/Variable
     unique_keys:
@@ -2513,6 +2377,31 @@ classes:
         unique_key_name: isSpecializedBy_key
         unique_key_slots:
         - isSpecializedBy
+  DatatypeProperty:
+    slots:
+    - id
+    - type
+    - comment
+    - domain
+    - isDefinedBy
+    - label
+    - range
+    - subPropertyOf
+    - versionInfo
+    class_uri: http://www.w3.org/2002/07/owl#DatatypeProperty
+    unique_keys:
+      comment_key:
+        unique_key_name: comment_key
+        unique_key_slots:
+        - comment
+      label_key:
+        unique_key_name: label_key
+        unique_key_slots:
+        - label
+      versionInfo_key:
+        unique_key_name: versionInfo_key
+        unique_key_slots:
+        - versionInfo
   SymmetricProperty:
     slots:
     - id
@@ -2597,31 +2486,6 @@ classes:
         unique_key_name: theme_key
         unique_key_slots:
         - theme
-  DatatypeProperty:
-    slots:
-    - id
-    - type
-    - comment
-    - domain
-    - isDefinedBy
-    - label
-    - range
-    - subPropertyOf
-    - versionInfo
-    class_uri: http://www.w3.org/2002/07/owl#DatatypeProperty
-    unique_keys:
-      comment_key:
-        unique_key_name: comment_key
-        unique_key_slots:
-        - comment
-      label_key:
-        unique_key_name: label_key
-        unique_key_slots:
-        - label
-      versionInfo_key:
-        unique_key_name: versionInfo_key
-        unique_key_slots:
-        - versionInfo
   TransitiveProperty:
     slots:
     - id
@@ -2697,18 +2561,22 @@ classes:
     slots:
     - id
     - type
-    - allValuesFrom
     - onProperty
-    - hasValue
-    - maxQualifiedCardinality
-    - onClass
     - someValuesFrom
+    - hasValue
+    - cardinality
+    - allValuesFrom
+    - maxQualifiedCardinality
+    - onDataRange
+    - onClass
     - qualifiedCardinality
     - hasSelf
-    - cardinality
-    - onDataRange
     class_uri: http://www.w3.org/2002/07/owl#Restriction
     unique_keys:
+      onDataRange_key:
+        unique_key_name: onDataRange_key
+        unique_key_slots:
+        - onDataRange
       onClass_key:
         unique_key_name: onClass_key
         unique_key_slots:
@@ -2721,7 +2589,3 @@ classes:
         unique_key_name: hasSelf_key
         unique_key_slots:
         - hasSelf
-      onDataRange_key:
-        unique_key_name: onDataRange_key
-        unique_key_slots:
-        - onDataRange

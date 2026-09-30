@@ -9,6 +9,8 @@
 // are therefore visited in a shuffled order (fixed seed) and, once the time
 // budget VALIDATION_BUDGET (seconds, default 3600) is spent, the statistics are
 // reported for the random sample validated so far, with "partial": true.
+// VALIDATION_MAX_NODES (default: all) caps the number of focus nodes validated, so that
+// two shapes graphs with the same targets can be compared on the same sample.
 //
 // usage: java -cp <jena classpath> ShaclStats.java DATA [--focus-paths] OUT1.json SHAPES1.ttl [OUT2.json SHAPES2.ttl ...]
 //
@@ -57,9 +59,17 @@ public class ShaclStats {
             Set<Node> targetSet = new LinkedHashSet<>();
             for (Shape shape : shapes.getTargetShapes())
                 targetSet.addAll(VLib.focusNodes(data, shape));
+            // sort before shuffling, so that the sample depends only on the set of focus nodes,
+            // not on the order of the shapes (e.g. an original and a factored shapes graph);
+            // blank node labels change at every load, so they are ordered by their content
             List<Node> targets = new ArrayList<>(targetSet);
+            Map<Node, String> keys = new HashMap<>();
+            for (Node t : targets)
+                keys.put(t, sortKey(data, t));
+            targets.sort((a, b) -> keys.get(a).compareTo(keys.get(b)));
             Collections.shuffle(targets, new Random(42));
             long budgetMillis = 1000L * Long.parseLong(System.getenv().getOrDefault("VALIDATION_BUDGET", "3600"));
+            long maxNodes = Long.parseLong(System.getenv().getOrDefault("VALIDATION_MAX_NODES", "-1"));
             long start = System.currentTimeMillis();
             Map<String, Integer> byComponent = new HashMap<>();
             Map<String, Integer> byPathComponent = new HashMap<>();
@@ -68,7 +78,7 @@ public class ShaclStats {
             long n = 0;
             int validated = 0;
             for (Node target : targets) {
-                if (System.currentTimeMillis() - start > budgetMillis)
+                if (System.currentTimeMillis() - start > budgetMillis || (maxNodes >= 0 && validated >= maxNodes))
                     break;
                 if (++validated % 10000 == 0)
                     System.err.printf("%s: %d/%d focus nodes, %d violations, %ds%n", shapesFile, validated,
@@ -108,6 +118,18 @@ public class ShaclStats {
         } catch (Throwable t) {
             return "{\"error\": " + json(t.getClass().getSimpleName() + ": " + t.getMessage()) + "}\n";
         }
+    }
+
+    /** A load-independent sort key: IRIs and literals by their lexical form, blank nodes
+     *  (after them) by their sorted outgoing triples, with blank node objects anonymised. */
+    static String sortKey(Graph data, Node n) {
+        if (!n.isBlank())
+            return "0" + n.toString();
+        List<String> parts = new ArrayList<>();
+        data.find(n, Node.ANY, Node.ANY).forEachRemaining(t -> parts.add(
+                t.getPredicate().toString() + " " + (t.getObject().isBlank() ? "_" : t.getObject().toString())));
+        Collections.sort(parts);
+        return "1" + String.join(" ; ", parts);
     }
 
     static String shorten(String uri) {

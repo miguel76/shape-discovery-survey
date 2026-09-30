@@ -1,0 +1,93 @@
+{
+  "run": "shacl-play.prev-dump+factored",
+  "tool": "shacl-play",
+  "mode": "file",
+  "source": "work/cckg/rdfs/data.nt",
+  "command": [
+    "tools/shacl-play/run.sh",
+    "file",
+    "work/cckg/rdfs/data.nt",
+    "results/cckg/rdfs/shacl-play"
+  ],
+  "exit_code": 0,
+  "timed_out": false,
+  "wall_seconds": 6408.77,
+  "cpu_seconds": 6839.97,
+  "peak_rss_mb": 4921.4,
+  "has_output": true,
+  "note": "shapes discovered on the previous dump (cckg_2026-09-24_10-44-07, commit addd3b9); re-running SHACL Play under this regime exceeds the per-command time limit of the session that produced these results",
+  "factored_from": "shacl-play.prev-dump",
+  "syntax": "ok",
+  "non_shacl_terms": [],
+  "well_formedness": {
+    "conforms": true,
+    "violations": 0,
+    "focus_nodes": 0,
+    "by_component": {}
+  },
+  "profile": {
+    "triples": 12263,
+    "node_shapes": 66,
+    "property_shapes": 319,
+    "class_path_pairs": 319,
+    "pairs_repeated_from_superclass": 239,
+    "constraint_usage": {
+      "sh:class": 6190,
+      "sh:datatype": 181,
+      "sh:hasValue": 18,
+      "sh:in": 26,
+      "sh:languageIn": 27,
+      "sh:maxCount": 103,
+      "sh:minCount": 78,
+      "sh:nodeKind": 100,
+      "sh:or": 191
+    }
+  },
+  "self_validation": {
+    "conforms": false,
+    "violations": 7737,
+    "focus_nodes": 2875,
+    "validated_focus_nodes": 419379,
+    "target_focus_nodes": 598750,
+    "partial": true,
+    "seconds": 670,
+    "by_component": {
+      "sh:OrConstraintComponent": 3946,
+      "sh:MaxCountConstraintComponent": 1830,
+      "sh:MinCountConstraintComponent": 1001,
+      "sh:DatatypeConstraintComponent": 529,
+      "sh:LanguageInConstraintComponent": 397,
+      "sh:InConstraintComponent": 22,
+      "sh:NodeKindConstraintComponent": 12
+    },
+    "top_path_components": {
+      "<https://w3id.org/hacid/onto/top-level/associatedWith> sh:OrConstraintComponent": 3658,
+      "<https://w3id.org/hacid/onto/top-level/associatedWith> sh:MaxCountConstraintComponent": 1781,
+      "<https://w3id.org/hacid/onto/ccso/hasMemberSimulation> sh:MinCountConstraintComponent": 581,
+      "<https://w3id.org/hacid/onto/top-level/altLabel> sh:LanguageInConstraintComponent": 397,
+      "<https://w3id.org/hacid/onto/top-level/altLabel> sh:DatatypeConstraintComponent": 397,
+      "<http://www.opengis.net/ont/geosparql#asWKT> sh:DatatypeConstraintComponent": 132,
+      "<https://w3id.org/hacid/onto/top-level/associatedWith> sh:MinCountConstraintComponent": 128,
+      "<https://w3id.org/hacid/onto/top-level/hasComponent> sh:OrConstraintComponent": 96,
+      "<https://w3id.org/hacid/onto/top-level/hasPart> sh:OrConstraintComponent": 96,
+      "<https://w3id.org/hacid/onto/top-level/hasProperPart> sh:OrConstraintComponent": 96,
+      "<https://w3id.org/hacid/onto/top-level/hasComponent> sh:MinCountConstraintComponent": 64,
+      "<https://w3id.org/hacid/onto/top-level/hasProperPart> sh:MinCountConstraintComponent": 64,
+      "<https://w3id.org/hacid/onto/top-level/hasPart> sh:MinCountConstraintComponent": 64,
+      "<https://w3id.org/hacid/onto/data/hasOutput> sh:MinCountConstraintComponent": 64,
+      "<https://w3id.org/hacid/onto/data/isSpecializationOfVariable> sh:MaxCountConstraintComponent": 33,
+      "<http://www.opengis.net/ont/geosparql#asWKT> sh:InConstraintComponent": 20,
+      "<https://w3id.org/hacid/onto/top-level/associatedWith> sh:NodeKindConstraintComponent": 12,
+      "<https://w3id.org/hacid/onto/data/derivedFromVariable> sh:MaxCountConstraintComponent": 11,
+      "<http://www.w3.org/2000/01/rdf-schema#label> sh:MinCountConstraintComponent": 11,
+      "<https://w3id.org/hacid/onto/data/derivedFromVariable> sh:MinCountConstraintComponent": 6,
+      "<https://w3id.org/hacid/onto/data/dependsOnVariable> sh:MinCountConstraintComponent": 6,
+      "<https://w3id.org/hacid/onto/data/isSpecializedAccordingTo> sh:MinCountConstraintComponent": 6,
+      "<https://w3id.org/hacid/onto/data/isSpecializationOfVariable> sh:MinCountConstraintComponent": 6,
+      "<https://w3id.org/hacid/onto/data/holdsSpecializationOfVariable> sh:MaxCountConstraintComponent": 5,
+      "<https://w3id.org/hacid/onto/top-level/isClassifiedBy> sh:InConstraintComponent": 2,
+      "<https://w3id.org/hacid/onto/top-level/isClassifiedBy> sh:MinCountConstraintComponent": 1
+    }
+  },
+  "inference": "rdfs"
+}

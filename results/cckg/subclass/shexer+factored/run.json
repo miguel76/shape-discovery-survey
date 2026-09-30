@@ -1,0 +1,18 @@
+{
+  "tool": "shexer",
+  "mode": "file",
+  "source": "work/cckg/subclass/data.nt",
+  "command": [
+    "tools/shexer/run.sh",
+    "file",
+    "work/cckg/subclass/data.nt",
+    "results/cckg/subclass/shexer"
+  ],
+  "exit_code": 0,
+  "timed_out": false,
+  "wall_seconds": 282.43,
+  "cpu_seconds": 279.1,
+  "peak_rss_mb": 3498.4,
+  "has_output": true,
+  "factored_from": "shexer"
+}

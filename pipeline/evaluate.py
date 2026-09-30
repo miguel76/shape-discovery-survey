@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Evaluate the shapes produced by pipeline/run.py for a KG.
 
-usage: pipeline/evaluate.py KG [--inference none|subclass|rdfs]
+usage: pipeline/evaluate.py KG [--inference none|subclass|rdfs] [--runs RUN1,RUN2]
 
 For each results/<KG>/<regime>/<run>/shapes.ttl it computes:
   * syntax      - does the output parse as RDF (Turtle)?
@@ -27,6 +27,12 @@ For each results/<KG>/<regime>/<run>/shapes.ttl it computes:
                   violations found by the reference shapes (validated under the
                   same regime) are also found.
 
+Under the `subclass` and `rdfs` regimes, each run's shapes are also factored along
+the class hierarchy (pipeline/factor.py, docs/factoring.md) into a sibling run
+results/<KG>/<regime>/<run>+factored/, evaluated like the others. Factoring preserves
+which (focus node, path) pairs have violations only when subclass entailment holds, so
+it is skipped under `none`.
+
 Writes results/<KG>/<regime>/<run>/eval.json, results/<KG>/<regime>/summary.md and
 results/<KG>/summary.md, which compares the regimes evaluated so far.
 Environment: JAVA_XMX (heap for validation, default 8g), VALIDATION_BUDGET
@@ -47,7 +53,10 @@ import pyshacl
 from rdflib import RDF, RDFS, SH, Graph, URIRef
 from rdflib.collection import Collection
 
+from factor import factor as factor_shapes, load_hierarchy
 from regimes import REGIMES, validation_data
+
+FACTORED = "+factored"
 
 ROOT = Path(__file__).resolve().parent.parent
 ASSETS = Path(pyshacl.__file__).parent / "assets"
@@ -218,8 +227,9 @@ def compare_to_reference(table, ref):
 
 
 # ------------------------------------------------------------------ validation
-def validate_kg(data_file, shapes_file, out_file, focus_paths=False):
-    """Validate the KG dump against a shapes file with Jena SHACL (scales to millions of triples)."""
+def validate_kg(data_file, shapes_file, out_file, focus_paths=False, max_nodes=None):
+    """Validate the KG dump against a shapes file with Jena SHACL (scales to millions of triples).
+    max_nodes validates only the first max_nodes focus nodes of the (seeded) shuffled order."""
     fresh = out_file.exists() and out_file.stat().st_size > 0 and \
         out_file.stat().st_mtime > max(data_file.stat().st_mtime, shapes_file.stat().st_mtime)
     if not fresh:
@@ -227,10 +237,14 @@ def validate_kg(data_file, shapes_file, out_file, focus_paths=False):
         cmd = ["java", f"-Xmx{os.environ.get('JAVA_XMX', '8g')}", "-cp", str(JENA_JAR),
                str(ROOT / "pipeline" / "ShaclStats.java"), str(data_file),
                *(["--focus-paths"] if focus_paths else []), str(out_file), str(shapes_file)]
+        if max_nodes is not None:  # the node cap, not the time budget, should end this validation
+            budget *= 3
+        env = {**os.environ, "VALIDATION_BUDGET": str(budget)}
+        if max_nodes is not None:
+            env["VALIDATION_MAX_NODES"] = str(max_nodes)
         try:
             with open(out_file.with_suffix(".log"), "w") as log:
-                proc = subprocess.run(cmd, stderr=log, stdout=subprocess.DEVNULL,
-                                      env={**os.environ, "VALIDATION_BUDGET": str(budget)},
+                proc = subprocess.run(cmd, stderr=log, stdout=subprocess.DEVNULL, env=env,
                                       timeout=float(os.environ.get("VALIDATION_TIMEOUT", budget + 3600)))
         except subprocess.TimeoutExpired:
             out_file.unlink(missing_ok=True)
@@ -269,7 +283,10 @@ def main():
     p.add_argument("kg")
     p.add_argument("--inference", choices=REGIMES, default="none",
                    help="inference regime the shapes were extracted under (default: none)")
+    p.add_argument("--runs", help="comma-separated runs to (re)evaluate; the others keep their eval.json "
+                                  "and only enter the summaries (useful to split long evaluations)")
     args = p.parse_args()
+    only = set(args.runs.split(",")) if args.runs else None
 
     kg_dir, results = ROOT / "data" / args.kg, ROOT / "results" / args.kg / args.inference
     kg = json.loads((kg_dir / "kg.json").read_text())
@@ -290,8 +307,17 @@ def main():
         ref_validation = validate_kg(data_file, kg_dir / kg["reference_shapes"], val_dir / "reference.json",
                                      focus_paths=True)
 
+    if args.inference != "none":
+        factor_runs(results, [work / "data.nt", work / "ontologies.nt"])
+
     evaluations = {}
     for run_dir in sorted(d for d in results.iterdir() if d.is_dir()):
+        if not (run_dir / "run.json").exists():  # a run still in progress
+            continue
+        if only is not None and run_dir.name not in only:
+            if (run_dir / "eval.json").exists():
+                evaluations[run_dir.name] = json.loads((run_dir / "eval.json").read_text())
+            continue
         ev = {"run": run_dir.name, **json.loads((run_dir / "run.json").read_text())}
         shapes_file = run_dir / "shapes.ttl"
         try:
@@ -308,8 +334,19 @@ def main():
         ev["well_formedness"] = {k: v for k, v in wf.items() if not k.startswith("_")}
         ev["profile"] = profile(g, hierarchy)
         print(f"[validate] {run_dir.name}", flush=True)
+        max_nodes = None
+        if run_dir.name.endswith(FACTORED):
+            # compare with the original run on the same sample: its validated prefix of the
+            # shuffled focus nodes (both shapes graphs have the same targets)
+            orig = val_dir / f"{run_dir.name[:-len(FACTORED)]}.json"
+            if orig.exists() and orig.stat().st_size and json.loads(orig.read_text()).get("partial"):
+                max_nodes = json.loads(orig.read_text())["validated_focus_nodes"]
+                cached = val_dir / f"{run_dir.name}.json"
+                if cached.exists() and cached.stat().st_size and \
+                        json.loads(cached.read_text()).get("validated_focus_nodes") != max_nodes:
+                    cached.unlink()
         sv = validate_kg(data_file, shapes_file, val_dir / f"{run_dir.name}.json",
-                         focus_paths=ref_table is not None)
+                         focus_paths=ref_table is not None, max_nodes=max_nodes)
         ev["self_validation"] = {k: v for k, v in sv.items() if not k.startswith("_")}
         if ref_table is not None:
             ev["reference"] = compare_to_reference(constraint_table(g), ref_table)
@@ -324,6 +361,37 @@ def main():
     write_summary(results / "summary.md", args.kg, args.inference, kg, evaluations, ref_validation)
     write_regime_comparison(results.parent / "summary.md", args.kg, kg)
     print((results / "summary.md").read_text())
+
+
+def factor_runs(results, hierarchy_files):
+    """results/<KG>/<regime>/<run>+factored/ for every run with shapes (kept while up to date)."""
+    hierarchy = None
+    for run_dir in sorted(d for d in results.iterdir() if d.is_dir() and not d.name.endswith(FACTORED)):
+        if not (run_dir / "run.json").exists():  # a run still in progress
+            continue
+        shapes_file = run_dir / "shapes.ttl"
+        out_dir = results / (run_dir.name + FACTORED)
+        run_json = json.loads((run_dir / "run.json").read_text())
+        if not run_json.get("has_output"):
+            if out_dir.exists():
+                for f in out_dir.iterdir():
+                    f.unlink()
+                out_dir.rmdir()
+            continue
+        out = out_dir / "shapes.ttl"
+        factor_py = Path(__file__).resolve().parent / "factor.py"
+        if out.exists() and out.stat().st_mtime > max(shapes_file.stat().st_mtime, factor_py.stat().st_mtime):
+            continue
+        if hierarchy is None:
+            hierarchy = load_hierarchy([f for f in hierarchy_files if f.exists()])
+        print(f"[factor] {run_dir.name}", flush=True)
+        g = Graph().parse(shapes_file, format="turtle")
+        report = factor_shapes(g, hierarchy)
+        out_dir.mkdir(exist_ok=True)
+        g.serialize(out, format="turtle")
+        (out_dir / "factoring.json").write_text(json.dumps(report, indent=2) + "\n")
+        # the run metadata describe the discovery run the shapes come from
+        (out_dir / "run.json").write_text(json.dumps({**run_json, "factored_from": run_dir.name}, indent=2) + "\n")
 
 
 def write_summary(path, name, regime, kg, evs, ref_validation):
@@ -370,6 +438,40 @@ def write_summary(path, name, regime, kg, evs, ref_validation):
         lines.append(f"| {r} | {sv.get('conforms', '-')} | {sv.get('violations', '-')} | {sv.get('focus_nodes', '-')} | "
                      f"{', '.join(f'{k}: {v}' for k, v in sv.get('by_component', {}).items()) or '-'} | "
                      f"{str(rv['found']) + '/' + str(rv['of']) if rv else '-'} |")
+    pairs = [(r, r + FACTORED) for r in evs if not r.endswith(FACTORED) and r + FACTORED in evs]
+    if pairs:
+        lines += ["", "## Factoring along the class hierarchy", "",
+                  "Each `+factored` run holds the shapes of the run above with the constraints implied by "
+                  "superclass shapes removed (`pipeline/factor.py`, `docs/factoring.md`). Factoring preserves "
+                  "which (focus node, path) pairs have violations, so the nodes flagged must be the same; "
+                  "violations can drop, since the same problem is no longer reported once per superclass.", "",
+                  "| run | constraints | removed | property shapes | node shapes | shapes left intact "
+                  "(referenced / sibling-dependent / other targets) | nodes flagged (original → factored) | "
+                  "violations (original → factored) |", "|---|---|---|---|---|---|---|---|"]
+        for r, rf in pairs:
+            fr = json.loads((path.parent / rf / "factoring.json").read_text())
+            po, pf = evs[r].get("profile", {}), evs[rf].get("profile", {})
+            so, sf = evs[r].get("self_validation", {}), evs[rf].get("self_validation", {})
+
+            def flagged(sv):
+                if "error" in sv or not sv:
+                    return "-"
+                v = sv.get("validated_focus_nodes") or sv.get("target_focus_nodes") or 0
+                rate = f" ({100 * sv.get('focus_nodes', 0) / v:.1f}%{' of a sample' if sv.get('partial') else ''})" if v else ""
+                return f"{sv.get('focus_nodes', 0):,}{rate}"
+
+            removed = fr["constraints_removed"]
+            lines.append(
+                f"| {r} | {fr['constraints']:,} | {removed:,} ({100 * removed / max(fr['constraints'], 1):.0f}%) | "
+                f"{po.get('property_shapes', '-')} → {pf.get('property_shapes', '-')} | "
+                f"{po.get('node_shapes', '-')} → {pf.get('node_shapes', '-')} | "
+                f"{fr['kept_referenced']} / {fr['kept_sibling_dependent']} / {fr['kept_other_targets']} | "
+                f"{flagged(so)} → {flagged(sf)} | {so.get('violations', '-'):,} → {sf.get('violations', '-'):,} |"
+                if isinstance(so.get("violations"), int) and isinstance(sf.get("violations"), int) else
+                f"| {r} | {fr['constraints']:,} | {removed:,} | {po.get('property_shapes', '-')} → "
+                f"{pf.get('property_shapes', '-')} | {po.get('node_shapes', '-')} → {pf.get('node_shapes', '-')} | "
+                f"{fr['kept_referenced']} / {fr['kept_sibling_dependent']} / {fr['kept_other_targets']} | "
+                f"{flagged(so)} → {flagged(sf)} | - |")
     if any("reference" in ev for ev in evs.values()):
         lines += ["", "## Comparison with the reference shapes", "",
                   "Pairs are (target class, property path) with an IRI path, excluding `rdf:type`. "
@@ -393,6 +495,8 @@ def write_regime_comparison(path, name, kg):
     regimes = [r for r in REGIMES if (path.parent / r / "summary.md").exists()]
     for regime in regimes:
         for ev_file in sorted((path.parent / regime).glob("*/eval.json")):
+            if not (ev_file.parent / "run.json").exists():
+                continue
             ev = json.loads(ev_file.read_text())
             table.setdefault(ev["run"], {})[regime] = ev
     lines = [f"# Results for `{name}`: inference regimes compared", "", kg.get("description", ""), "",

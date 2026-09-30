@@ -3,7 +3,8 @@
 Phase 1 of the survey runs every tool on the
 [Climate Change Knowledge Graph](https://hacid-project.github.io/cckg/). The numbers are in
 [`results/cckg/summary.md`](../results/cckg/summary.md), with a per-run `eval.json` in each run
-directory. To reproduce:
+directory. The results in `results/` are for the updated dump (2026-09-30), described in the next
+section. To reproduce:
 
 ```sh
 make install
@@ -13,6 +14,129 @@ VALIDATION_BUDGET=1800 make run evaluate KG=cckg INFERENCE=rdfs RUN_ARGS=
 ```
 
 The `subclass` and `rdfs` evaluations here used a 30-minute validation budget per set of shapes.
+
+## Updated dump (2026-09-30)
+
+`data/cckg/cckg_2026-09-30_10-40-33.nq.gz` fixes the defects reported below. It has 4,612,279
+distinct triples after merging (previously 4,730,998).
+
+### Re-check of the data defects
+
+[`pipeline/kg_checks.py`](../pipeline/kg_checks.py) turns D1–D7 into generic checks. Reports:
+[previous dump](../results/cckg/data-checks-2026-09-24.md),
+[updated dump](../results/cckg/data-checks.md).
+
+| defect | check | previous dump | updated dump |
+|---|---|---|---|
+| D1 `<geo:wktLiteral>` datatype | prefixed-datatype | 103 | 0 ✅ |
+| D2 `…/variables/mip/` as a predicate, orphan blank nodes | no-local-name, orphan-bnode | 56,448, 56,448 | 0, 0 ✅ |
+| D3 `file:///Users/…` IRIs | file-iri | 67,376 | 0 ✅ |
+| D4 undefined variables (values of the three specialization properties with no `rdf:type`) | dangling-range, restricted to these properties | 287 (281 MIP, 6 CF) | 282 (281 MIP, 1 CF) — partly fixed |
+| D5 `iSpecializationOfVariable` | undeclared-property | 145,461 | 0 ✅ |
+| D6 undeclared HACID properties | undeclared-property | 6,085 | 0 ✅ |
+| D7 `rdfs:range xsd:datetime` | bad-xsd-term | 2 | 0 ✅ |
+
+About D2: the UKCP18 outputs were remodelled. Each derivation now has an aggregate output (typed
+`ProbabilisticProjection`/`ScenarioBasedProjection`) whose components are the datasets. The
+aggregate outputs carry `refersToScenario` or `refersToGlobalWarmingLevel`, with one exception:
+the two SRES A1B outputs, `derivations/ukcp18.prob.a1b/output` and
+`derivations/ukcp18.prob.sres-a1b/output`, have neither. The two may also be duplicates of each
+other.
+
+**Other dangling references.** The generic check reports untyped values for every property with a
+declared class range, not only for the specialization properties. Beyond D4 it finds:
+
+| property | untyped values | examples | previous dump |
+|---|---|---|---|
+| `data:hasOutput`, `top-level:hasComponent` | 2,893 and 2,967 | `datasets/cordex.output.EUR-11.…` (2,869), `datasets/cmip5.ACCESS1.3.rcp26.r1i1p1.output` (24) | 2,893 (`hasOutput`): the same 24 CMIP5 datasets plus 2,869 `file:` IRIs |
+| `ccso:isDownscalingOf` | 22 | `simulations/cmip5.ACCESS1.3.rcp85.r1i1p1` | 22 |
+| `data:derivedFromVariable` | 14 | `variables/mip/mrso%20` (trailing space) | 14 |
+| `data:hasValuesOn`, `top-level:hasUnitOfMeasure` | 4 each | `unitsofmeasure/%C2%B0C%5E2`, `…/Number%20of%20individual%20heatwaves%20events` | 4 each |
+| `ccso:refersToGlobalWarmingLevel` | 2 | `GWLs/GWL2`, `GWLs/GWL4` | 7 (`file:` IRIs) |
+| `data:dependsOnVariable`, `data:isSpecializedAccordingTo` | 2 each | `cordex/grids/ARC-22/ds`, `…/SAM-20/specialization` | new |
+| `data:basedOnDimensionalSpace`, `data:hasExactBoundingRegion`, `data:hasReferencePoint` | 1 each | `…/rotated-WGS84/177.5,37.5`, `…/OSGB36/coverage` | new |
+| `ccso:hasMemberSimulation` | 0 ✅ | | 74 |
+
+The largest group is 2,869 CORDEX output datasets (`datasets/cordex.output.…`). They are referenced
+as outputs and components but never described. In the previous dump they appeared as `file:`
+IRIs (D3); now they have proper IRIs, but still no description.
+
+### Survey results on the updated dump
+
+All regimes were re-run on the updated dump, with coherent discovery and validation as before
+([inference.md](inference.md)). Where a validation hit its budget, the rates are over a random
+sample of focus nodes. Three kinds of runs could not be refreshed, because discovery takes longer
+than the 30 minutes a single command may run in the session that produced these results:
+- SHACLGEN under `none` (38 minutes on the previous dump) and under `subclass`;
+- SHACL Play under `subclass` (49 minutes) and `rdfs` (1.8 hours).
+
+For these, the shapes discovered on the previous dump are validated against the new data. They
+are marked `.prev-dump`.
+
+**Regime `none`.**
+
+| run | nodes flagged | violations | violations per node |
+|---|---|---|---|
+| SHACL Play! | 114,559 (19.2%) | 295,725 | 0.50 |
+| SHACLGEN (previous-dump shapes) | 114,584 (19.2%) | 255,953 | 0.43 |
+| sheXer | 589,774 (99.0%) | 3,118,442 | 5.23 |
+| QSE, pruned | 586,040 (98.5%) | 3,555,556 | 5.98 |
+| QSE, full | 592,970 (99.5%) | 6,060,273 | 10.17 |
+| schema-automator | 595,770 (100%) | 9,830,032 | 16.50 |
+
+- **The descriptive tools still flag the same 114.6k nodes, and for the same reason.** These
+  are the nodes whose specialization properties point to the 281 MIP variables that are still
+  undefined (D4). The count is unchanged because the D4 fix only removed 5 of the 6 undefined CF
+  variables, which few nodes use.
+- **The tool-specific problems described below persist:** QSE's `maxCount 1` on
+  `data:dependsOnVariable`, sheXer's per-type `rdf:type` shapes, and schema-automator's closed
+  shapes and string-typed IRIs.
+
+**Regime `subclass`.**
+
+| run | node / property shapes | (class, property) pairs, of which also on a superclass | nodes flagged | violations per node |
+|---|---|---|---|---|
+| SHACL Play! (previous-dump shapes) | 77 / 710 | 710, 644 (91%) | 116,012 (19.5%) | 2.58 |
+| sheXer | 90 / 1,732 | 729, 590 (81%) | 100% (sample of 27k) | 2,367 |
+| QSE, pruned | 45 / 269 | 228, 180 (79%) | 100% (sample of 84k) | 102 |
+| QSE, full | 89 / 812 | 729, 590 (81%) | 100% (sample of 17k) | 150 |
+| schema-automator | out of memory | | | |
+
+The previous-dump SHACL Play shapes flag 1,453 more nodes than the fresh shapes do under `none`.
+These extra violations come from the changes to the data, since the old shapes describe the old
+data.
+
+**Regime `rdfs`.**
+
+| run | node / property shapes | (class, property) pairs, of which also on a superclass | nodes flagged | violations per node |
+|---|---|---|---|---|
+| SHACL Play! (previous-dump shapes) | 79 / 1,040 | 1,040, 960 (92%) | 0.7% (sample of 419k) | 0.04 |
+| sheXer | 93 / 2,114 | 1,058, 896 (85%) | 100% (sample of 240) | 3,367 |
+| QSE, pruned | 47 / 434 | 391, 333 (85%) | 99.7% (sample of 368) | 256 |
+| QSE, full | 91 / 1,135 | 1,064, 896 (84%) | 100% (sample of 2k) | 222 |
+| SHACLGEN, schema-automator | out of memory | | | |
+
+On the previous dump, SHACL Play's shapes flagged nothing under `rdfs`, because range inference
+typed the undefined variables (see below). On the new dump, its shapes flag 2,875 nodes. The causes are changes in the data, not the
+defects:
+- `ccso:hasMemberSimulation` no longer occurs in the data, so its `sh:minCount 1` fails (1,160
+  violations);
+- the corrected `geo:asWKT` literals no longer have the datatype `<geo:wktLiteral>` that the old
+  shapes learned (D1, 325 violations);
+- the `sh:maxCount`, `sh:or`, `sh:languageIn` and `sh:datatype` constraints that fail on
+  `top-level:associatedWith` (11,070 violations), `top-level:altLabel` (2,382) and
+  `hasPart`/`hasProperPart`/`hasComponent` were learned from values that have since changed. For
+  `associatedWith`, the inferred superproperty of many properties, the remodelled UKCP18 outputs
+  are a likely source.
+
+**Factoring.** Under `subclass` and `rdfs`, every run is also factored along the class hierarchy.
+The factored shapes are validated on the same focus nodes and flag exactly the same nodes as the
+originals, with up to 88% fewer violations (SHACL Play, `subclass`). See
+[factoring.md](factoring.md#7-results-on-cckg).
+
+## First dump (2026-09-24)
+
+The rest of this document describes the first run, on `cckg_2026-09-24_10-44-07.nq.gz`.
 
 ## Input
 

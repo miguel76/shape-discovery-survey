@@ -112,8 +112,8 @@ local SPARQL endpoint) and to validation (the extracted shapes and the reference
 
 ## 5. Results on CCKG
 
-The CCKG results for SHACL Play, the most descriptive of the tools, show both sides of the
-trade-off (full tables in [`results/cckg/summary.md`](../results/cckg/summary.md), discussion in
+The CCKG results for SHACL Play, the most descriptive of the tools, on the first dump
+(2026-09-24) show both sides of the trade-off (full tables in [`results/cckg/summary.md`](../results/cckg/summary.md), discussion in
 [cckg-findings.md](cckg-findings.md)):
 
 | | `none` | `subclass` | `rdfs` |
@@ -127,7 +127,9 @@ trade-off (full tables in [`results/cckg/summary.md`](../results/cckg/summary.md
 | discovery time | 3 min | 49 min | 1.8 h |
 
 In CCKG's case, `subclass` gives the useful abstract shapes and keeps error detection. It needs a
-factoring step to remove the constraints inherited from superclasses. `rdfs` adds little for
+factoring step to remove the constraints inherited from superclasses. That step is now part of the
+pipeline ([factoring.md](factoring.md)). On SHACL Play's shapes, it removes 79% of the constraints.
+The same nodes are flagged, with 1.6 violations per flagged node instead of 13.2. `rdfs` adds little for
 shapes and hides real errors. `none` gives compact shapes, but its shapes for generic classes are
 learned from a few explicitly typed nodes. With the old, incoherent validation (`none` discovery,
 SHACL's subclass semantics at validation), the same SHACL Play shapes flagged 586,920 nodes (98.7%).
@@ -140,7 +142,9 @@ SHACL's subclass semantics at validation), the same SHACL Play shapes flagged 58
 - **Treat an ontology in the data graph as part of the regime.** If a KG includes its ontology,
   validating under `none` requires removing the `rdfs:subClassOf` triples, as the pipeline does.
 - **Default to `subclass` when shapes should be read at the ontology's level of abstraction,** and
-  add a post-processing step that factors constraints along the hierarchy. None of the surveyed
-  tools does this.
+  factor the constraints along the hierarchy afterwards. None of the surveyed tools does this; the
+  pipeline does it with [`pipeline/factor.py`](../pipeline/factor.py), which provably preserves
+  validation results under subclass entailment ([factoring.md](factoring.md)). Factored shapes
+  must be validated with subclass entailment, which is one more reason to state the regime.
 - **Avoid domain/range inference in the discovery/validation loop,** unless the goal is to check
   conformance to the ontology's own axioms, which is a different task.

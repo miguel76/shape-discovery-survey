@@ -163,6 +163,10 @@ def main():
                         "(the KG's own 'endpoint', or a local Fuseki serving the dump)")
     p.add_argument("--local-endpoint", action="store_true",
                    help="with --endpoint, serve the dump with a local Fuseki even if the KG declares an endpoint")
+    p.add_argument("--no-file", action="store_true",
+                   help="skip the file-mode runs (with --endpoint: run the endpoint mode only)")
+    p.add_argument("--prepare-only", action="store_true",
+                   help="only prepare the data (and, with --endpoint --local-endpoint, the TDB2 store)")
     p.add_argument("--inference", choices=REGIMES, default="none",
                    help="inference regime applied to the data the tools read (default: none)")
     p.add_argument("--timeout", type=float, default=float(os.environ.get("TOOL_TIMEOUT", 3600)))
@@ -178,8 +182,15 @@ def main():
     os.environ.setdefault("JAVA_XMX", "8g")
     kg, prepared = prepare(kg_dir, work, args.inference)
 
+    if args.prepare_only:
+        if args.endpoint and (args.local_endpoint or not kg.get("endpoint")):
+            with LocalEndpoint(prepared["nt"]):
+                pass
+        return
     runs = []
     for tool in tools:
+        if args.no_file:
+            break
         if "file" in registry[tool]["modes"] and registry[tool]["input"] in prepared:
             runs.append((tool, "file", prepared[registry[tool]["input"]], results / tool))
     endpoint_tools = [t for t in tools if args.endpoint and "endpoint" in registry[t]["modes"]]

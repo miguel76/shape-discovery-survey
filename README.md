@@ -53,6 +53,18 @@ The **inference regime** (`none`, `subclass` or `rdfs`) is applied identically t
 and to validation (see [pipeline/regimes.py](pipeline/regimes.py)). Why this matters, and the
 pros and cons of inference-aware shapes, are discussed in [docs/inference.md](docs/inference.md).
 
+Under the `subclass` and `rdfs` regimes, the evaluation also **factors** each run's shapes along the
+class hierarchy: it removes the constraints already implied by superclass shapes, and evaluates the
+result as a `<tool>+factored` run. The formal definition, the proof that validation results are
+preserved and the tests are in [docs/factoring.md](docs/factoring.md). To factor a shapes file by
+hand, run `pipeline/factor.py SHAPES OUT --hierarchy work/<kg>/data.nt`.
+
+`pipeline/kg_checks.py <kg>` runs data-quality checks on the merged dump. They generalise the
+defects found in CCKG and write `results/<kg>/data-checks.md`.
+
+Tests: `python tests/test_implies.py` and `python tests/test_factor.py [TRIALS] [SEED]`, with the
+pipeline environment (`.tools/pipeline-venv/bin/python`).
+
 Requirements are bash, git, Python ≥ 3.10, Java ≥ 17 and Maven. Docker is not needed. Every tool
 is installed under `.tools/` at a pinned version:
 

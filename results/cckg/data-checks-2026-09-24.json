@@ -1,0 +1,200 @@
+{
+  "prefixed-datatype": {
+    "<geo:wktLiteral>": 103
+  },
+  "no-local-name": {
+    "<https://w3id.org/hacid/data/cs/variables/mip/>": 56448
+  },
+  "orphan-bnode": 56448,
+  "file-iri": {
+    "<https://w3id.org/hacid/onto/ccso/refersToScenario> (object)": 56448,
+    "<https://w3id.org/hacid/onto/data/hasOutput> (object)": 2869,
+    "<https://w3id.org/hacid/onto/top-level/hasPart> (object)": 2869,
+    "<https://w3id.org/hacid/onto/data/hasStartDateTime> (object)": 1836,
+    "<https://w3id.org/hacid/onto/data/hasEndDateTime> (object)": 1834,
+    "<https://w3id.org/hacid/onto/ccso/refersToGlobalWarmingLevel> (object)": 1520
+  },
+  "dangling-range": {
+    "<https://w3id.org/hacid/onto/ccso/hasMemberSimulation>": {
+      "range": [
+        "<https://w3id.org/hacid/onto/ccso/Simulation>"
+      ],
+      "untyped_values": 74,
+      "examples": [
+        "<https://w3id.org/hacid/data/cs/simulations/cmip5.ACCESS1.3.rcp26.r1i1p1>",
+        "<https://w3id.org/hacid/data/cs/simulations/cmip5.ACCESS1.3.rcp85.r1i1p1>",
+        "<https://w3id.org/hacid/data/cs/simulations/cmip5.CCSM4.rcp26.r1i1p1>"
+      ]
+    },
+    "<https://w3id.org/hacid/onto/ccso/isDownscalingOf>": {
+      "range": [
+        "<https://w3id.org/hacid/onto/ccso/ClimateSimulation>"
+      ],
+      "untyped_values": 22,
+      "examples": [
+        "<https://w3id.org/hacid/data/cs/simulations/cmip5.ACCESS1.3.rcp85.r1i1p1>",
+        "<https://w3id.org/hacid/data/cs/simulations/cmip5.BNU-ESM.historical.r1i1p1>",
+        "<https://w3id.org/hacid/data/cs/simulations/cmip5.BNU-ESM.rcp45.r1i1p1>"
+      ]
+    },
+    "<https://w3id.org/hacid/onto/ccso/refersToGlobalWarmingLevel>": {
+      "range": [
+        "<https://w3id.org/hacid/onto/ccso/GlobalWarmingLevel>"
+      ],
+      "untyped_values": 7,
+      "examples": [
+        "<file:///Users/miguel/git/climate-services-kg/data-sources/ukcp18/rdf/gwl1.5>",
+        "<file:///Users/miguel/git/climate-services-kg/data-sources/ukcp18/rdf/gwl2.0>",
+        "<file:///Users/miguel/git/climate-services-kg/data-sources/ukcp18/rdf/gwl2.5>"
+      ]
+    },
+    "<https://w3id.org/hacid/onto/ccso/refersToScenario>": {
+      "range": [
+        "<https://w3id.org/hacid/onto/ccso/EmissionScenario>"
+      ],
+      "untyped_values": 6,
+      "examples": [
+        "<file:///Users/miguel/git/climate-services-kg/data-sources/ukcp18/rdf/a1b>",
+        "<file:///Users/miguel/git/climate-services-kg/data-sources/ukcp18/rdf/rcp26>",
+        "<file:///Users/miguel/git/climate-services-kg/data-sources/ukcp18/rdf/rcp45>"
+      ]
+    },
+    "<https://w3id.org/hacid/onto/data/basedOnDimensionalSpace>": {
+      "range": [
+        "<https://w3id.org/hacid/onto/data/DimensionalSpace>"
+      ],
+      "untyped_values": 1,
+      "examples": [
+        "<https://w3id.org/hacid/data/cs/dimensions/geodetic/reference-frames/rotated-WGS84/177.5,37.5>"
+      ]
+    },
+    "<https://w3id.org/hacid/onto/data/dependsOnVariable>": {
+      "range": [
+        "<https://w3id.org/hacid/onto/data/Variable>"
+      ],
+      "untyped_values": 2,
+      "examples": [
+        "<https://w3id.org/hacid/data/cs/cordex/grids/ARC-22/ds>",
+        "<https://w3id.org/hacid/data/cs/cordex/grids/SAM-20/ds>"
+      ]
+    },
+    "<https://w3id.org/hacid/onto/data/derivedFromVariable>": {
+      "range": [
+        "<https://w3id.org/hacid/onto/data/Variable>"
+      ],
+      "untyped_values": 14,
+      "examples": [
+        "<https://w3id.org/hacid/data/cs/variables/mip/change_in_mean_sea_level_wrt_solid_surface>",
+        "<https://w3id.org/hacid/data/cs/variables/mip/mrso%20>",
+        "<https://w3id.org/hacid/data/cs/variables/mip/non_tidal_elevation_of_sea_surface_height>"
+      ]
+    },
+    "<https://w3id.org/hacid/onto/data/hasExactBoundingRegion>": {
+      "range": [
+        "<https://w3id.org/hacid/onto/data/Region>"
+      ],
+      "untyped_values": 1,
+      "examples": [
+        "<https://w3id.org/hacid/data/cs/dimensions/geodetic/reference-frames/OSGB36/coverage>"
+      ]
+    },
+    "<https://w3id.org/hacid/onto/data/hasOutput>": {
+      "range": [
+        "<https://w3id.org/hacid/onto/data/Dataset>"
+      ],
+      "untyped_values": 2893,
+      "examples": [
+        "<file:///Users/miguel/git/climate-services-kg/data-sources/ukcp18/rdf/cordex.output.EUR-11.CLMcom-ETH.CNRM-CERFACS-CNRM-CM5.rcp85.r1i1p1.CLMcom-ETH-COSMO-crCLIM-v1-1.v1.ann.clt>",
+        "<file:///Users/miguel/git/climate-services-kg/data-sources/ukcp18/rdf/cordex.output.EUR-11.CLMcom-ETH.CNRM-CERFACS-CNRM-CM5.rcp85.r1i1p1.CLMcom-ETH-COSMO-crCLIM-v1-1.v1.ann.hurs>",
+        "<file:///Users/miguel/git/climate-services-kg/data-sources/ukcp18/rdf/cordex.output.EUR-11.CLMcom-ETH.CNRM-CERFACS-CNRM-CM5.rcp85.r1i1p1.CLMcom-ETH-COSMO-crCLIM-v1-1.v1.ann.huss>"
+      ]
+    },
+    "<https://w3id.org/hacid/onto/data/hasReferencePoint>": {
+      "range": [
+        "<https://w3id.org/hacid/onto/data/Point>"
+      ],
+      "untyped_values": 1,
+      "examples": [
+        "<https://w3id.org/hacid/data/cs/dimensions/geodetic/reference-frames/WGS84/points/177.5,37.5>"
+      ]
+    },
+    "<https://w3id.org/hacid/onto/data/hasValuesOn>": {
+      "range": [
+        "<https://w3id.org/hacid/onto/data/DimensionalSpace>"
+      ],
+      "untyped_values": 4,
+      "examples": [
+        "<https://w3id.org/hacid/data/cs/unitsofmeasure/%C2%B0C%5E2>",
+        "<https://w3id.org/hacid/data/cs/unitsofmeasure/Number%20of%20individual%20heatwaves%20events>",
+        "<https://w3id.org/hacid/data/cs/unitsofmeasure/degree-days>"
+      ]
+    },
+    "<https://w3id.org/hacid/onto/data/holdsSpecializationOfVariable>": {
+      "range": [
+        "<https://w3id.org/hacid/onto/data/Variable>"
+      ],
+      "untyped_values": 274,
+      "examples": [
+        "<https://w3id.org/hacid/data/cs/variables/cf/atmosphere_relative_vorticity>",
+        "<https://w3id.org/hacid/data/cs/variables/cf/heat_flux_correction>",
+        "<https://w3id.org/hacid/data/cs/variables/cf/isotope_ratio_of_2H_to_1H_in_sea_water_excluding_solutes_and_solids>"
+      ]
+    },
+    "<https://w3id.org/hacid/onto/data/isSpecializationOfVariable>": {
+      "range": [
+        "<https://w3id.org/hacid/onto/data/Variable>"
+      ],
+      "untyped_values": 23,
+      "examples": [
+        "<https://w3id.org/hacid/data/cs/variables/mip/air_pressure_at_sea_level>",
+        "<https://w3id.org/hacid/data/cs/variables/mip/air_temperature>",
+        "<https://w3id.org/hacid/data/cs/variables/mip/beta>"
+      ]
+    },
+    "<https://w3id.org/hacid/onto/data/isSpecializedAccordingTo>": {
+      "range": [
+        "<https://w3id.org/hacid/onto/data/VariableSpecialization>"
+      ],
+      "untyped_values": 2,
+      "examples": [
+        "<https://w3id.org/hacid/data/cs/cordex/grids/ARC-22/specialization>",
+        "<https://w3id.org/hacid/data/cs/cordex/grids/SAM-20/specialization>"
+      ]
+    },
+    "<https://w3id.org/hacid/onto/top-level/hasPart>": {
+      "range": [
+        "<https://w3id.org/hacid/onto/top-level/Entity>"
+      ],
+      "untyped_values": 2893,
+      "examples": [
+        "<file:///Users/miguel/git/climate-services-kg/data-sources/ukcp18/rdf/cordex.output.EUR-11.CLMcom-ETH.CNRM-CERFACS-CNRM-CM5.rcp85.r1i1p1.CLMcom-ETH-COSMO-crCLIM-v1-1.v1.ann.clt>",
+        "<file:///Users/miguel/git/climate-services-kg/data-sources/ukcp18/rdf/cordex.output.EUR-11.CLMcom-ETH.CNRM-CERFACS-CNRM-CM5.rcp85.r1i1p1.CLMcom-ETH-COSMO-crCLIM-v1-1.v1.ann.hurs>",
+        "<file:///Users/miguel/git/climate-services-kg/data-sources/ukcp18/rdf/cordex.output.EUR-11.CLMcom-ETH.CNRM-CERFACS-CNRM-CM5.rcp85.r1i1p1.CLMcom-ETH-COSMO-crCLIM-v1-1.v1.ann.huss>"
+      ]
+    },
+    "<https://w3id.org/hacid/onto/top-level/hasUnitOfMeasure>": {
+      "range": [
+        "<https://w3id.org/hacid/onto/top-level/UnitOfMeasure>"
+      ],
+      "untyped_values": 4,
+      "examples": [
+        "<https://w3id.org/hacid/data/cs/unitsofmeasure/%C2%B0C%5E2>",
+        "<https://w3id.org/hacid/data/cs/unitsofmeasure/Number%20of%20individual%20heatwaves%20events>",
+        "<https://w3id.org/hacid/data/cs/unitsofmeasure/degree-days>"
+      ]
+    }
+  },
+  "undeclared-property": {
+    "<https://w3id.org/hacid/onto/data/iSpecializationOfVariable>": 145461,
+    "<https://w3id.org/hacid/onto/ccso/outputId>": 3014,
+    "<https://w3id.org/hacid/onto/data/hasSelectedRegion>": 2230,
+    "<https://w3id.org/hacid/onto/ccso/simulationConfigurationId>": 641,
+    "<https://w3id.org/hacid/onto/ccso/experimentId>": 93,
+    "<https://w3id.org/hacid/onto/top-level/hasExpectedType>": 65,
+    "<https://w3id.org/hacid/onto/top-level/altLabel>": 42
+  },
+  "bad-xsd-term": [
+    "<https://w3id.org/hacid/onto/data/hasEndDateTime> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#datetime>",
+    "<https://w3id.org/hacid/onto/data/hasStartDateTime> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#datetime>"
+  ]
+}

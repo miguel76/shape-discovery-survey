@@ -9,26 +9,40 @@ Shapes extracted and validated under the `subclass` regime (see `pipeline/regime
 | run | exit | wall s | peak RSS MB | node shapes | property shapes | (class, path) pairs | of which also on a superclass | non-SHACL terms | SHACL-SHACL violations |
 |---|---|---|---|---|---|---|---|---|---|
 | linkml-schema-automator | 0 | 7.01 | 236.9 | 8 | 42 | 34 | 5 | - | 0 |
+| linkml-schema-automator+factored | 0 | 7.01 | 236.9 | 8 | 42 | 34 | 5 | - | 0 |
 | qse | 0 | 1.8 | 150.6 | 8 | 34 | 26 | 4 | sh:NodeKind | 0 |
+| qse+factored | 0 | 1.8 | 150.6 | 8 | 33 | 25 | 3 | sh:NodeKind | 0 |
 | qse-pruned | 0 | 1.8 | 143.5 | 0 | 0 | 0 | 0 | - | 0 |
 | shacl-play | 0 | 2.2 | 203.9 | 7 | 25 | 25 | 4 | - | 0 |
-| shacl-play@endpoint | 0 | 4.21 | 217.3 | 7 | 25 | 25 | 4 | - | 0 |
+| shacl-play+factored | 0 | 2.2 | 203.9 | 7 | 25 | 25 | 4 | - | 0 |
+| shacl-play@endpoint | 0 | 6.22 | 212.7 | 7 | 25 | 25 | 4 | - | 0 |
+| shacl-play@endpoint+factored | 0 | 6.22 | 212.7 | 7 | 25 | 25 | 4 | - | 0 |
 | shaclgen | 0 | 0.8 | 40.5 | 8 | 21 | 26 | 4 | - | 0 |
+| shaclgen+factored | 0 | 0.8 | 40.5 | 7 | 19 | 22 | 0 | - | 0 |
 | shexer | 0 | 0.4 | 42.6 | 8 | 37 | 26 | 4 | sh:dataType | 0 |
+| shexer+factored | 0 | 0.4 | 42.6 | 8 | 34 | 25 | 3 | sh:dataType | 0 |
 | shexer@endpoint | 0 | 1.2 | 45.5 | 8 | 37 | 26 | 4 | sh:dataType | 0 |
+| shexer@endpoint+factored | 0 | 1.2 | 45.5 | 8 | 34 | 25 | 3 | sh:dataType | 0 |
 
 ## Constraint components used (number of shapes using each)
 
 | run | sh:class | sh:closed | sh:datatype | sh:in | sh:languageIn | sh:maxCount | sh:minCount | sh:node | sh:nodeKind | sh:or |
 |---|---|---|---|---|---|---|---|---|---|---|
 | linkml-schema-automator |  | 8 | 34 |  |  | 39 |  |  | 34 |  |
+| linkml-schema-automator+factored |  | 8 | 34 |  |  | 39 |  |  | 34 |  |
 | qse | 11 |  | 17 | 8 |  | 26 | 17 | 8 |  | 4 |
+| qse+factored | 11 |  | 15 | 8 |  | 22 | 16 | 7 |  | 4 |
 | qse-pruned |  |  |  |  |  |  |  |  |  |  |
 | shacl-play | 9 |  | 17 | 14 | 2 | 21 | 18 |  | 25 | 3 |
+| shacl-play+factored | 9 |  | 15 | 14 | 2 | 17 | 15 |  | 21 | 3 |
 | shacl-play@endpoint | 9 |  | 17 | 14 | 2 | 21 | 18 |  | 25 | 3 |
+| shacl-play@endpoint+factored | 9 |  | 15 | 14 | 2 | 17 | 15 |  | 21 | 3 |
 | shaclgen | 10 |  | 10 |  |  |  |  |  | 29 | 3 |
+| shaclgen+factored | 10 |  | 8 |  |  |  |  |  | 26 | 3 |
 | shexer |  |  |  | 10 |  | 33 | 27 | 6 | 3 |  |
+| shexer+factored |  |  |  | 8 |  | 27 | 23 | 6 | 3 |  |
 | shexer@endpoint |  |  |  | 10 |  | 33 | 27 | 6 | 3 |  |
+| shexer@endpoint+factored |  |  |  | 8 |  | 27 | 23 | 6 | 3 |  |
 
 ## Validating the KG against the extracted shapes
 
@@ -37,13 +51,34 @@ Reference shapes: 4 violations on 2 focus nodes (sh:MinCountConstraintComponent:
 | run | conforms | violations | focus nodes | by component | reference violations also found |
 |---|---|---|---|---|---|
 | linkml-schema-automator | False | 210 | 34 | sh:DatatypeConstraintComponent: 111, sh:NodeKindConstraintComponent: 92, sh:MaxCountConstraintComponent: 7 | 1/4 |
+| linkml-schema-automator+factored | False | 210 | 34 | sh:DatatypeConstraintComponent: 111, sh:NodeKindConstraintComponent: 92, sh:MaxCountConstraintComponent: 7 | 1/4 |
 | qse | False | 35 | 17 | sh:NodeConstraintComponent: 20, sh:MaxCountConstraintComponent: 6, sh:InConstraintComponent: 6, sh:MinCountConstraintComponent: 3 | 2/4 |
+| qse+factored | False | 33 | 17 | sh:NodeConstraintComponent: 18, sh:MaxCountConstraintComponent: 6, sh:InConstraintComponent: 6, sh:MinCountConstraintComponent: 3 | 2/4 |
 | qse-pruned | True | 0 | 0 | - | 0/4 |
 | shacl-play | True | 0 | 0 | - | 0/4 |
+| shacl-play+factored | True | 0 | 0 | - | 0/4 |
 | shacl-play@endpoint | True | 0 | 0 | - | 0/4 |
+| shacl-play@endpoint+factored | True | 0 | 0 | - | 0/4 |
 | shaclgen | True | 0 | 0 | - | 0/4 |
+| shaclgen+factored | True | 0 | 0 | - | 0/4 |
 | shexer | False | 31 | 10 | sh:InConstraintComponent: 14, sh:MaxCountConstraintComponent: 12, sh:NodeConstraintComponent: 5 | 0/4 |
+| shexer+factored | False | 19 | 10 | sh:InConstraintComponent: 8, sh:MaxCountConstraintComponent: 6, sh:NodeConstraintComponent: 5 | 0/4 |
 | shexer@endpoint | False | 31 | 10 | sh:InConstraintComponent: 14, sh:MaxCountConstraintComponent: 12, sh:NodeConstraintComponent: 5 | 0/4 |
+| shexer@endpoint+factored | False | 19 | 10 | sh:InConstraintComponent: 8, sh:MaxCountConstraintComponent: 6, sh:NodeConstraintComponent: 5 | 0/4 |
+
+## Factoring along the class hierarchy
+
+Each `+factored` run holds the shapes of the run above with the constraints implied by superclass shapes removed (`pipeline/factor.py`, `docs/factoring.md`). Factoring preserves which (focus node, path) pairs have violations, so the nodes flagged must be the same; violations can drop, since the same problem is no longer reported once per superclass.
+
+| run | constraints | removed | property shapes | node shapes | shapes left intact (referenced / sibling-dependent / other targets) | nodes flagged (original → factored) | violations (original → factored) |
+|---|---|---|---|---|---|---|---|
+| linkml-schema-automator | 115 | 0 (0%) | 42 → 42 | 8 → 8 | 0 / 8 / 0 | 34 (100.0%) → 34 (100.0%) | 210 → 210 |
+| qse | 83 | 8 (10%) | 34 → 33 | 8 → 8 | 6 / 0 / 0 | 17 (50.0%) → 17 (50.0%) | 35 → 33 |
+| shacl-play | 103 | 13 (13%) | 25 → 25 | 7 → 7 | 0 / 0 / 0 | 0 (0.0%) → 0 (0.0%) | 0 → 0 |
+| shacl-play@endpoint | 103 | 13 (13%) | 25 → 25 | 7 → 7 | 0 / 0 / 0 | 0 (0.0%) → 0 (0.0%) | 0 → 0 |
+| shaclgen | 51 | 7 (14%) | 21 → 19 | 8 → 7 | 0 / 0 / 0 | 0 (0.0%) → 0 (0.0%) | 0 → 0 |
+| shexer | 79 | 12 (15%) | 37 → 34 | 8 → 8 | 5 / 0 / 0 | 10 (29.4%) → 10 (29.4%) | 31 → 19 |
+| shexer@endpoint | 79 | 12 (15%) | 37 → 34 | 8 → 8 | 5 / 0 / 0 | 10 (29.4%) → 10 (29.4%) | 31 → 19 |
 
 ## Comparison with the reference shapes
 
@@ -52,10 +87,17 @@ Pairs are (target class, property path) with an IRI path, excluding `rdf:type`. 
 | run | pairs | shared | precision | recall | datatype | class | required | functional |
 |---|---|---|---|---|---|---|---|---|
 | linkml-schema-automator | 34 | 22 | 0.647 | 1.0 | 9/13 | 0/6 | 6/22 | 18/22 |
+| linkml-schema-automator+factored | 34 | 22 | 0.647 | 1.0 | 9/13 | 0/6 | 6/22 | 18/22 |
 | qse | 26 | 22 | 0.846 | 1.0 | 12/13 | 4/6 | 18/22 | 15/22 |
+| qse+factored | 25 | 22 | 0.88 | 1.0 | 12/13 | 4/6 | 18/22 | 16/22 |
 | qse-pruned | 0 | 0 | 0.0 | 0.0 | 0/0 | 0/0 | 0/0 | 0/0 |
 | shacl-play | 25 | 22 | 0.88 | 1.0 | 12/13 | 5/6 | 19/22 | 19/22 |
+| shacl-play+factored | 25 | 22 | 0.88 | 1.0 | 12/13 | 5/6 | 19/22 | 20/22 |
 | shacl-play@endpoint | 25 | 22 | 0.88 | 1.0 | 12/13 | 5/6 | 19/22 | 19/22 |
+| shacl-play@endpoint+factored | 25 | 22 | 0.88 | 1.0 | 12/13 | 5/6 | 19/22 | 20/22 |
 | shaclgen | 26 | 22 | 0.846 | 1.0 | 8/13 | 4/6 | 6/22 | 7/22 |
+| shaclgen+factored | 22 | 21 | 0.955 | 0.955 | 8/13 | 4/6 | 6/21 | 6/21 |
 | shexer | 26 | 22 | 0.846 | 1.0 | 0/13 | 0/6 | 20/22 | 19/22 |
+| shexer+factored | 25 | 22 | 0.88 | 1.0 | 0/13 | 0/6 | 20/22 | 20/22 |
 | shexer@endpoint | 26 | 22 | 0.846 | 1.0 | 0/13 | 0/6 | 20/22 | 19/22 |
+| shexer@endpoint+factored | 25 | 22 | 0.88 | 1.0 | 0/13 | 0/6 | 20/22 | 20/22 |

@@ -1,0 +1,19 @@
+{
+  "tool": "shacl-play",
+  "mode": "file",
+  "source": "work/cckg/subclass/data.nt",
+  "command": [
+    "tools/shacl-play/run.sh",
+    "file",
+    "work/cckg/subclass/data.nt",
+    "results/cckg/subclass/shacl-play"
+  ],
+  "exit_code": 0,
+  "timed_out": false,
+  "wall_seconds": 2917.89,
+  "cpu_seconds": 3007.49,
+  "peak_rss_mb": 4416.7,
+  "has_output": true,
+  "note": "shapes discovered on the previous dump (cckg_2026-09-24_10-44-07, commit addd3b9); re-running SHACL Play under this regime exceeds the per-command time limit of the session that produced these results",
+  "factored_from": "shacl-play.prev-dump"
+}

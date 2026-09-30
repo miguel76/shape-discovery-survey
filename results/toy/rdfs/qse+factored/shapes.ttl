@@ -1,0 +1,348 @@
+@prefix ns1: <http://shaclshapes.org/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ns1:EarthSystemModelShape a sh:NodeShape ;
+    ns1:support "3"^^xsd:int ;
+    sh:property ns1:developedByEarthSystemModelShapeProperty,
+        ns1:horizontalResolutionKmEarthSystemModelShapeProperty,
+        ns1:instanceTypeEarthSystemModelShapeProperty,
+        ns1:releaseDateEarthSystemModelShapeProperty ;
+    sh:targetClass <http://example.org/toy/EarthSystemModel> .
+
+ns1:SimulationShape a sh:NodeShape ;
+    ns1:support "6"^^xsd:int ;
+    sh:property ns1:authorSimulationShapeProperty,
+        ns1:doiSimulationShapeProperty,
+        ns1:instanceTypeSimulationShapeProperty,
+        ns1:outputVariableSimulationShapeProperty,
+        ns1:periodSimulationShapeProperty,
+        ns1:usesModelSimulationShapeProperty,
+        ns1:usesScenarioSimulationShapeProperty ;
+    sh:targetClass <http://example.org/toy/Simulation> .
+
+ns1:ClassShape a sh:NodeShape ;
+    ns1:support "7"^^xsd:int ;
+    sh:property ns1:instanceTypeClassShapeProperty,
+        ns1:subClassOfClassShapeProperty ;
+    sh:targetClass rdfs:Class .
+
+ns1:ClimateModelShape a sh:NodeShape ;
+    ns1:support "5"^^xsd:int ;
+    sh:property ns1:developedByClimateModelShapeProperty,
+        ns1:horizontalResolutionKmClimateModelShapeProperty,
+        ns1:instanceTypeClimateModelShapeProperty,
+        ns1:labelClimateModelShapeProperty,
+        ns1:releaseDateClimateModelShapeProperty ;
+    sh:targetClass <http://example.org/toy/ClimateModel> .
+
+ns1:PersonShape a sh:NodeShape ;
+    ns1:support "4"^^xsd:int ;
+    sh:property ns1:affiliationPersonShapeProperty,
+        ns1:emailPersonShapeProperty,
+        ns1:instanceTypePersonShapeProperty,
+        ns1:namePersonShapeProperty ;
+    sh:targetClass <http://example.org/toy/Person> .
+
+ns1:ScenarioShape a sh:NodeShape ;
+    ns1:support "4"^^xsd:int ;
+    sh:property ns1:instanceTypeScenarioShapeProperty,
+        ns1:labelScenarioShapeProperty,
+        ns1:radiativeForcingScenarioShapeProperty ;
+    sh:targetClass <http://example.org/toy/Scenario> .
+
+ns1:VariableShape a sh:NodeShape ;
+    ns1:support "4"^^xsd:int ;
+    sh:property ns1:instanceTypeVariableShapeProperty,
+        ns1:labelVariableShapeProperty,
+        ns1:shortNameVariableShapeProperty,
+        ns1:unitVariableShapeProperty ;
+    sh:targetClass <http://example.org/toy/Variable> .
+
+ns1:affiliationPersonShapeProperty a sh:PropertyShape ;
+    ns1:confidence 1e+00 ;
+    ns1:support "4"^^xsd:int ;
+    sh:NodeKind sh:IRI ;
+    sh:class <http://example.org/toy/Institution> ;
+    sh:maxCount 1 ;
+    sh:minCount 1 ;
+    sh:node ns1:InstitutionShape ;
+    sh:path <http://example.org/toy/affiliation> .
+
+ns1:authorSimulationShapeProperty a sh:PropertyShape ;
+    ns1:confidence 1e+00 ;
+    ns1:support "6"^^xsd:int ;
+    sh:NodeKind sh:IRI ;
+    sh:class <http://example.org/toy/Person> ;
+    sh:maxCount 1 ;
+    sh:minCount 1 ;
+    sh:node ns1:PersonShape ;
+    sh:path <http://example.org/toy/author> .
+
+ns1:countryInstitutionShapeProperty a sh:PropertyShape ;
+    ns1:confidence 1e+00 ;
+    ns1:support "4"^^xsd:int ;
+    sh:NodeKind sh:Literal ;
+    sh:datatype xsd:string ;
+    sh:maxCount 1 ;
+    sh:minCount 1 ;
+    sh:path <http://example.org/toy/country> .
+
+ns1:developedByClimateModelShapeProperty a sh:PropertyShape ;
+    sh:maxCount 1 ;
+    sh:node ns1:InstitutionShape ;
+    sh:or ( [ ns1:confidence 8e-01 ;
+                ns1:support "4"^^xsd:int ;
+                sh:NodeKind sh:IRI ;
+                sh:class <http://example.org/toy/Institution> ] [ ns1:confidence 2e-01 ;
+                ns1:support "1"^^xsd:int ;
+                sh:NodeKind sh:IRI ;
+                sh:class <http://example.org/toy/Person> ] ) ;
+    sh:path <http://example.org/toy/developedBy> .
+
+ns1:developedByEarthSystemModelShapeProperty a sh:PropertyShape ;
+    ns1:confidence 1e+00 ;
+    ns1:support "3"^^xsd:int ;
+    sh:NodeKind sh:IRI ;
+    sh:class <http://example.org/toy/Institution> ;
+    sh:minCount 1 ;
+    sh:path <http://example.org/toy/developedBy> .
+
+ns1:doiSimulationShapeProperty a sh:PropertyShape ;
+    ns1:confidence 3.3333e-01 ;
+    ns1:support "2"^^xsd:int ;
+    sh:NodeKind sh:Literal ;
+    sh:datatype xsd:string ;
+    sh:maxCount 1 ;
+    sh:path <http://example.org/toy/doi> .
+
+ns1:emailPersonShapeProperty a sh:PropertyShape ;
+    ns1:confidence 5e-01 ;
+    ns1:support "2"^^xsd:int ;
+    sh:NodeKind sh:Literal ;
+    sh:datatype xsd:string ;
+    sh:maxCount 1 ;
+    sh:path <http://example.org/toy/email> .
+
+ns1:homepageInstitutionShapeProperty a sh:PropertyShape ;
+    ns1:confidence 5e-01 ;
+    ns1:support "2"^^xsd:int ;
+    sh:NodeKind sh:IRI ;
+    sh:maxCount 1 ;
+    sh:minCount 1 ;
+    sh:path <http://example.org/toy/homepage> .
+
+ns1:horizontalResolutionKmClimateModelShapeProperty a sh:PropertyShape ;
+    sh:maxCount 1 ;
+    sh:or ( [ ns1:confidence 8e-01 ;
+                ns1:support "4"^^xsd:int ;
+                sh:NodeKind sh:Literal ;
+                sh:datatype xsd:decimal ] [ ns1:confidence 2e-01 ;
+                ns1:support "1"^^xsd:int ;
+                sh:NodeKind sh:Literal ;
+                sh:datatype xsd:string ] ) ;
+    sh:path <http://example.org/toy/horizontalResolutionKm> .
+
+ns1:horizontalResolutionKmEarthSystemModelShapeProperty a sh:PropertyShape ;
+    ns1:confidence 1e+00 ;
+    ns1:support "3"^^xsd:int ;
+    sh:NodeKind sh:Literal ;
+    sh:datatype xsd:decimal ;
+    sh:minCount 1 ;
+    sh:path <http://example.org/toy/horizontalResolutionKm> .
+
+ns1:instanceTypeClassShapeProperty a sh:PropertyShape ;
+    ns1:confidence 1e+00 ;
+    ns1:support "7"^^xsd:int ;
+    sh:in ( rdfs:Class ) ;
+    sh:path rdf:type .
+
+ns1:instanceTypeClimateModelShapeProperty a sh:PropertyShape ;
+    ns1:confidence 1e+00 ;
+    ns1:support "5"^^xsd:int ;
+    sh:in ( <http://example.org/toy/ClimateModel> ) ;
+    sh:path rdf:type .
+
+ns1:instanceTypeEarthSystemModelShapeProperty a sh:PropertyShape ;
+    ns1:confidence 1e+00 ;
+    ns1:support "3"^^xsd:int ;
+    sh:in ( <http://example.org/toy/EarthSystemModel> ) ;
+    sh:path rdf:type .
+
+ns1:instanceTypeInstitutionShapeProperty a sh:PropertyShape ;
+    ns1:confidence 1e+00 ;
+    ns1:support "4"^^xsd:int ;
+    sh:in ( <http://example.org/toy/Institution> ) ;
+    sh:path rdf:type .
+
+ns1:instanceTypePersonShapeProperty a sh:PropertyShape ;
+    ns1:confidence 1e+00 ;
+    ns1:support "4"^^xsd:int ;
+    sh:in ( <http://example.org/toy/Person> ) ;
+    sh:path rdf:type .
+
+ns1:instanceTypeScenarioShapeProperty a sh:PropertyShape ;
+    ns1:confidence 1e+00 ;
+    ns1:support "4"^^xsd:int ;
+    sh:in ( <http://example.org/toy/Scenario> ) ;
+    sh:path rdf:type .
+
+ns1:instanceTypeSimulationShapeProperty a sh:PropertyShape ;
+    ns1:confidence 1e+00 ;
+    ns1:support "6"^^xsd:int ;
+    sh:in ( <http://example.org/toy/Simulation> ) ;
+    sh:path rdf:type .
+
+ns1:instanceTypeVariableShapeProperty a sh:PropertyShape ;
+    ns1:confidence 1e+00 ;
+    ns1:support "4"^^xsd:int ;
+    sh:in ( <http://example.org/toy/Variable> ) ;
+    sh:path rdf:type .
+
+ns1:labelClimateModelShapeProperty a sh:PropertyShape ;
+    ns1:confidence 1e+00 ;
+    ns1:support "5"^^xsd:int ;
+    sh:NodeKind sh:Literal ;
+    sh:datatype xsd:string ;
+    sh:maxCount 1 ;
+    sh:minCount 1 ;
+    sh:path rdfs:label .
+
+ns1:labelInstitutionShapeProperty a sh:PropertyShape ;
+    ns1:confidence 1e+00 ;
+    ns1:support "4"^^xsd:int ;
+    sh:NodeKind sh:Literal ;
+    sh:datatype rdf:langString ;
+    sh:maxCount 1 ;
+    sh:minCount 1 ;
+    sh:path rdfs:label .
+
+ns1:labelScenarioShapeProperty a sh:PropertyShape ;
+    ns1:confidence 1e+00 ;
+    ns1:support "4"^^xsd:int ;
+    sh:NodeKind sh:Literal ;
+    sh:datatype xsd:string ;
+    sh:maxCount 1 ;
+    sh:minCount 1 ;
+    sh:path rdfs:label .
+
+ns1:labelVariableShapeProperty a sh:PropertyShape ;
+    ns1:confidence 1e+00 ;
+    ns1:support "4"^^xsd:int ;
+    sh:NodeKind sh:Literal ;
+    sh:datatype rdf:langString ;
+    sh:maxCount 1 ;
+    sh:minCount 1 ;
+    sh:path rdfs:label .
+
+ns1:namePersonShapeProperty a sh:PropertyShape ;
+    ns1:confidence 1e+00 ;
+    ns1:support "4"^^xsd:int ;
+    sh:NodeKind sh:Literal ;
+    sh:datatype xsd:string ;
+    sh:maxCount 1 ;
+    sh:minCount 1 ;
+    sh:path <http://example.org/toy/name> .
+
+ns1:outputVariableSimulationShapeProperty a sh:PropertyShape ;
+    ns1:confidence 1e+00 ;
+    ns1:support "6"^^xsd:int ;
+    sh:NodeKind sh:IRI ;
+    sh:class <http://example.org/toy/Variable> ;
+    sh:maxCount 1 ;
+    sh:minCount 1 ;
+    sh:node ns1:VariableShape ;
+    sh:path <http://example.org/toy/outputVariable> .
+
+ns1:periodSimulationShapeProperty a sh:PropertyShape ;
+    ns1:confidence 8.3333e-01 ;
+    ns1:support "5"^^xsd:int ;
+    sh:NodeKind sh:IRI ;
+    sh:maxCount 1 ;
+    sh:minCount 1 ;
+    sh:path <http://example.org/toy/period> .
+
+ns1:radiativeForcingScenarioShapeProperty a sh:PropertyShape ;
+    ns1:confidence 7.5e-01 ;
+    ns1:support "3"^^xsd:int ;
+    sh:NodeKind sh:Literal ;
+    sh:datatype xsd:decimal ;
+    sh:maxCount 1 ;
+    sh:path <http://example.org/toy/radiativeForcing> .
+
+ns1:releaseDateClimateModelShapeProperty a sh:PropertyShape ;
+    ns1:confidence 6e-01 ;
+    ns1:support "3"^^xsd:int ;
+    sh:NodeKind sh:Literal ;
+    sh:datatype xsd:date ;
+    sh:maxCount 1 ;
+    sh:path <http://example.org/toy/releaseDate> .
+
+ns1:releaseDateEarthSystemModelShapeProperty a sh:PropertyShape ;
+    ns1:confidence 1e+00 ;
+    ns1:support "3"^^xsd:int ;
+    sh:NodeKind sh:Literal ;
+    sh:minCount 1 ;
+    sh:path <http://example.org/toy/releaseDate> .
+
+ns1:shortNameVariableShapeProperty a sh:PropertyShape ;
+    ns1:confidence 1e+00 ;
+    ns1:support "4"^^xsd:int ;
+    sh:NodeKind sh:Literal ;
+    sh:datatype xsd:string ;
+    sh:maxCount 1 ;
+    sh:minCount 1 ;
+    sh:path <http://example.org/toy/shortName> .
+
+ns1:subClassOfClassShapeProperty a sh:PropertyShape ;
+    ns1:confidence 1.4286e-01 ;
+    ns1:support "1"^^xsd:int ;
+    sh:NodeKind sh:IRI ;
+    sh:class rdfs:Class ;
+    sh:maxCount 1 ;
+    sh:node ns1:ClassShape ;
+    sh:path rdfs:subClassOf .
+
+ns1:unitVariableShapeProperty a sh:PropertyShape ;
+    ns1:confidence 1e+00 ;
+    ns1:support "4"^^xsd:int ;
+    sh:NodeKind sh:Literal ;
+    sh:datatype xsd:string ;
+    sh:maxCount 1 ;
+    sh:minCount 1 ;
+    sh:path <http://example.org/toy/unit> .
+
+ns1:usesModelSimulationShapeProperty a sh:PropertyShape ;
+    sh:maxCount 1 ;
+    sh:node ns1:ClimateModelShape ;
+    sh:or ( [ ns1:confidence 8.3333e-01 ;
+                ns1:support "5"^^xsd:int ;
+                sh:NodeKind sh:IRI ;
+                sh:class <http://example.org/toy/ClimateModel> ] [ ns1:confidence 6.6667e-01 ;
+                ns1:support "4"^^xsd:int ;
+                sh:NodeKind sh:IRI ;
+                sh:class <http://example.org/toy/EarthSystemModel> ] ) ;
+    sh:path <http://example.org/toy/usesModel> .
+
+ns1:usesScenarioSimulationShapeProperty a sh:PropertyShape ;
+    sh:maxCount 1 ;
+    sh:node ns1:ScenarioShape ;
+    sh:or ( [ ns1:confidence 8.3333e-01 ;
+                ns1:support "5"^^xsd:int ;
+                sh:NodeKind sh:IRI ;
+                sh:class <http://example.org/toy/Scenario> ] [ ns1:confidence 1.6667e-01 ;
+                ns1:support "1"^^xsd:int ;
+                sh:NodeKind sh:IRI ;
+                sh:class <http://example.org/toy/Variable> ] ) ;
+    sh:path <http://example.org/toy/usesScenario> .
+
+ns1:InstitutionShape a sh:NodeShape ;
+    ns1:support "4"^^xsd:int ;
+    sh:property ns1:countryInstitutionShapeProperty,
+        ns1:homepageInstitutionShapeProperty,
+        ns1:instanceTypeInstitutionShapeProperty,
+        ns1:labelInstitutionShapeProperty ;
+    sh:targetClass <http://example.org/toy/Institution> .
+
