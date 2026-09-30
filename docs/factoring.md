@@ -197,20 +197,20 @@ hierarchy` section of [`results/cckg/subclass/summary.md`](../results/cckg/subcl
 |---|---|---|---|---|---|---|
 | `subclass` | SHACL Play | 2,112 | 1,676 (79%) | 710 → 228 | 77 → 64 | 0 |
 | `subclass` | sheXer | 4,076 | 2,402 (59%) | 1,732 → 794 | 90 → 73 | 30 |
-| `subclass` | QSE, full | 1,827 | 620 (34%) | 812 → 673 | 89 | 31 |
-| `subclass` | QSE, pruned | 558 | 187 (34%) | 269 → 220 | 45 | 14 |
+| `subclass` | QSE, full | 1,827 | 801 (44%) | 812 → 507 | 89 | 31 |
+| `subclass` | QSE, pruned | 558 | 250 (45%) | 269 → 168 | 45 | 14 |
 | `rdfs` | SHACL Play | 3,012 | 2,434 (81%) | 1,040 → 319 | 79 → 66 | 0 |
 | `rdfs` | sheXer | 4,722 | 2,608 (55%) | 2,114 → 1,055 | 93 → 77 | 33 |
-| `rdfs` | QSE, full | 2,633 | 834 (32%) | 1,135 → 965 | 91 | 34 |
-| `rdfs` | QSE, pruned | 930 | 308 (33%) | 434 → 364 | 47 | 15 |
+| `rdfs` | QSE, full | 2,633 | 1,204 (46%) | 1,135 → 683 | 91 | 34 |
+| `rdfs` | QSE, pruned | 930 | 470 (51%) | 434 → 257 | 47 | 15 |
 
 - **SHACL Play gains the most.** It uses no `sh:node`, so every shape can be factored. Its
   class constraints are `sh:or` disjunctions of classes, which the class-disjunction rules of §5
   handle; without those rules only 1,317 constraints were removed.
 - **sheXer and QSE keep about a third of their node shapes intact,** because other shapes refer to
   them with `sh:node` (§4). QSE's remaining redundancy is mostly in these shapes. Its own
-  constraints also imply less: it only ever emits `sh:minCount 1` and `sh:maxCount 1`, and its
-  `sh:or` lists mix classes and datatypes, which the rules do not decompose.
+  constraints also imply less than SHACL Play's: it only ever emits `sh:minCount 1` and
+  `sh:maxCount 1`.
 - **schema-automator** closes every shape (`sh:closed true`), so nothing is factored. It ran out
   of memory under both regimes anyway, as did SHACLGEN.
 
@@ -222,8 +222,8 @@ original flags, so equal counts mean equal sets.
 |---|---|---|---|---|---|
 | `subclass` | SHACL Play | all 595,454 | 116,012 | 1,535,280 → 187,292 (−88%) | 854 s → 527 s |
 | `subclass` | sheXer | sample of 27,014 | 27,001 | 63.9M → 40.2M (−37%) | 600 s → 394 s |
-| `subclass` | QSE, full | sample of 17,448 | 17,447 | 2,612,164 → 1,955,567 (−25%) | 603 s → 369 s |
-| `subclass` | QSE, pruned | sample of 84,009 | 83,991 | 8,606,562 → 7,164,296 (−17%) | 600 s → 410 s |
+| `subclass` | QSE, full | sample of 17,448 | 17,447 | 2,612,164 → 1,955,567 (−25%) | 603 s → 372 s |
+| `subclass` | QSE, pruned | sample of 84,009 | 83,991 | 8,606,562 → 7,163,902 (−17%) | 600 s → 420 s |
 | `rdfs` | SHACL Play | RDFS_SP_NODES | RDFS_SP_FLAGGED | RDFS_SP_VIOL | RDFS_SP_TIME |
 | `rdfs` | sheXer | sample of 240 | 240 | 808,143 → 495,717 (−39%) | 637 s → 108 s |
 | `rdfs` | QSE, full | sample of 1,996 | 1,996 | 443,198 → 297,725 (−33%) | 600 s → 415 s |
@@ -234,6 +234,6 @@ shape that repeated the constraint. For SHACL Play under `subclass`, the 116,012
 were reported with 13.2 violations each, and with 1.6 after factoring. Validation is 30–80% faster,
 since fewer constraints are checked per node.
 
-Under `rdfs`, the SHACL Play shapes flag no node at all, factored or not, because domain and range
-inference types the undefined variables of D4 as `data:Variable` (see [inference.md](inference.md)).
-The equality holds trivially there.
+The SHACL Play shapes used here were discovered on the previous dump, so under `rdfs` they flag
+nodes because of the changes to the data (see [cckg-findings.md](cckg-findings.md)). This makes no
+difference to the comparison, which is between two versions of the same shapes.

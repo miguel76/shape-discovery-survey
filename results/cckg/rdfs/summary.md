@@ -10,25 +10,25 @@ Shapes extracted and validated under the `rdfs` regime (see `pipeline/regimes.py
 |---|---|---|---|---|---|---|---|---|---|
 | linkml-schema-automator | 1 | 392.27 | 11970.2 | - | - | - | - | - | - |
 | qse | 0 | 153.85 | 8467.5 | 91 | 1135 | 1064 | 896 | sh:NodeKind | 2 |
-| qse+factored | 0 | 153.85 | 8467.5 | 91 | 965 | 894 | 726 | sh:NodeKind | 2 |
 | qse-pruned | 0 | 146.86 | 8192.6 | 47 | 434 | 391 | 333 | sh:NodeKind | 1 |
 | qse-pruned+factored | 0 | 146.86 | 8192.6 | 47 | 364 | 321 | 263 | sh:NodeKind | 1 |
+| shacl-play.prev-dump | 0 | 6408.77 | 4921.4 | 79 | 1040 | 1040 | 960 | - | 0 |
 | shaclgen | 1 | 600.19 | 12184.3 | - | - | - | - | - | - |
 | shexer | 0 | 552.01 | 6325.8 | 93 | 2114 | 1058 | 896 | sh:dataType | 0 |
 | shexer+factored | 0 | 552.01 | 6325.8 | 77 | 1055 | 625 | 463 | sh:dataType | 0 |
 
 ## Constraint components used (number of shapes using each)
 
-| run | sh:class | sh:datatype | sh:in | sh:maxCount | sh:minCount | sh:node | sh:nodeKind | sh:or |
-|---|---|---|---|---|---|---|---|---|
-| linkml-schema-automator |  |  |  |  |  |  |  |  |
-| qse | 7438 | 353 | 91 | 364 | 251 | 781 |  | 825 |
-| qse+factored | 6684 | 247 | 91 | 182 | 138 | 419 |  | 755 |
-| qse-pruned | 3106 | 76 | 47 | 91 | 108 | 267 |  | 342 |
-| qse-pruned+factored | 2636 | 49 | 47 | 43 | 51 | 135 |  | 298 |
-| shaclgen |  |  |  |  |  |  |  |  |
-| shexer |  |  | 1043 | 1722 | 1235 | 717 | 5 |  |
-| shexer+factored |  |  | 424 | 759 | 535 | 391 | 5 |  |
+| run | sh:class | sh:datatype | sh:hasValue | sh:in | sh:languageIn | sh:maxCount | sh:minCount | sh:node | sh:nodeKind | sh:or |
+|---|---|---|---|---|---|---|---|---|---|---|
+| linkml-schema-automator |  |  |  |  |  |  |  |  |  |  |
+| qse | 7438 | 353 |  | 91 |  | 364 | 251 | 781 |  | 825 |
+| qse-pruned | 3106 | 76 |  | 47 |  | 91 | 108 | 267 |  | 342 |
+| qse-pruned+factored | 2636 | 49 |  | 47 |  | 43 | 51 | 135 |  | 298 |
+| shacl-play.prev-dump | 6196 | 337 | 31 | 26 | 76 | 645 | 160 |  | 1060 | 817 |
+| shaclgen |  |  |  |  |  |  |  |  |  |  |
+| shexer |  |  |  | 1043 |  | 1722 | 1235 | 717 | 5 |  |
+| shexer+factored |  |  |  | 424 |  | 759 | 535 | 391 | 5 |  |
 
 ## Validating the KG against the extracted shapes
 
@@ -36,9 +36,9 @@ Shapes extracted and validated under the `rdfs` regime (see `pipeline/regimes.py
 |---|---|---|---|---|---|
 | linkml-schema-automator | - | - | - | - | - |
 | qse (sample: 1996/599213 focus nodes) | False | 443198 | 1996 | sh:NodeConstraintComponent: 250184, sh:InConstraintComponent: 185144, sh:MaxCountConstraintComponent: 7819, sh:MinCountConstraintComponent: 51 | - |
-| qse+factored (sample: 1996/599213 focus nodes) | False | 297725 | 1996 | sh:InConstraintComponent: 185144, sh:NodeConstraintComponent: 108642, sh:MaxCountConstraintComponent: 3915, sh:MinCountConstraintComponent: 24 | - |
 | qse-pruned (sample: 368/599105 focus nodes) | False | 94149 | 367 | sh:NodeConstraintComponent: 58647, sh:InConstraintComponent: 34026, sh:MaxCountConstraintComponent: 1444, sh:MinCountConstraintComponent: 30, sh:DatatypeConstraintComponent: 2 | - |
 | qse-pruned+factored (sample: 368/599105 focus nodes) | False | 62707 | 367 | sh:InConstraintComponent: 34026, sh:NodeConstraintComponent: 27943, sh:MaxCountConstraintComponent: 724, sh:MinCountConstraintComponent: 12, sh:DatatypeConstraintComponent: 2 | - |
+| shacl-play.prev-dump (sample: 419379/598750 focus nodes) | False | 16155 | 2875 | sh:OrConstraintComponent: 6042, sh:MaxCountConstraintComponent: 5436, sh:MinCountConstraintComponent: 1900, sh:DatatypeConstraintComponent: 1516, sh:LanguageInConstraintComponent: 1191, sh:NodeKindConstraintComponent: 48, sh:InConstraintComponent: 22 | - |
 | shaclgen | - | - | - | - | - |
 | shexer (sample: 240/599213 focus nodes) | False | 808143 | 240 | sh:InConstraintComponent: 719879, sh:MaxCountConstraintComponent: 72770, sh:NodeConstraintComponent: 15494 | - |
 | shexer+factored (sample: 240/599213 focus nodes) | False | 495717 | 240 | sh:InConstraintComponent: 444737, sh:MaxCountConstraintComponent: 44945, sh:NodeConstraintComponent: 6035 | - |
@@ -49,6 +49,5 @@ Each `+factored` run holds the shapes of the run above with the constraints impl
 
 | run | constraints | removed | property shapes | node shapes | shapes left intact (referenced / sibling-dependent / other targets) | nodes flagged (original → factored) | violations (original → factored) |
 |---|---|---|---|---|---|---|---|
-| qse | 2,633 | 834 (32%) | 1135 → 965 | 91 → 91 | 34 / 0 / 0 | 1,996 (100.0% of a sample) → 1,996 (100.0% of a sample) | 443,198 → 297,725 |
-| qse-pruned | 930 | 308 (33%) | 434 → 364 | 47 → 47 | 15 / 0 / 0 | 367 (99.7% of a sample) → 367 (99.7% of a sample) | 94,149 → 62,707 |
+| qse-pruned | 930 | 470 (51%) | 434 → 364 | 47 → 47 | 15 / 0 / 0 | 367 (99.7% of a sample) → 367 (99.7% of a sample) | 94,149 → 62,707 |
 | shexer | 4,722 | 2,608 (55%) | 2114 → 1055 | 93 → 77 | 33 / 0 / 0 | 240 (100.0% of a sample) → 240 (100.0% of a sample) | 808,143 → 495,717 |

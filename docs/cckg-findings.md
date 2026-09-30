@@ -61,7 +61,78 @@ The largest group is 2,869 CORDEX output datasets (`datasets/cordex.output.…`)
 as outputs and components but never described. In the previous dump they appeared as `file:`
 IRIs (D3); now they have proper IRIs, but still no description.
 
-SURVEY_V2
+### Survey results on the updated dump
+
+All regimes were re-run on the updated dump, with coherent discovery and validation as before
+([inference.md](inference.md)). Where a validation hit its budget, the rates are over a random
+sample of focus nodes. Three kinds of runs could not be refreshed, because discovery takes longer
+than the 30 minutes a single command may run in the session that produced these results:
+- SHACLGEN under `none` (38 minutes on the previous dump) and under `subclass`;
+- SHACL Play under `subclass` (49 minutes) and `rdfs` (1.8 hours).
+
+For these, the shapes discovered on the previous dump are validated against the new data. They
+are marked `.prev-dump`.
+
+**Regime `none`.**
+
+| run | nodes flagged | violations | violations per node |
+|---|---|---|---|
+| SHACL Play! | 114,559 (19.2%) | 295,725 | 0.50 |
+| SHACLGEN (previous-dump shapes) | 114,584 (19.2%) | 255,953 | 0.43 |
+| sheXer | 589,774 (99.0%) | 3,118,442 | 5.23 |
+| QSE, pruned | 586,040 (98.5%) | 3,555,556 | 5.98 |
+| QSE, full | 592,970 (99.5%) | 6,060,273 | 10.17 |
+| schema-automator | 595,770 (100%) | 9,830,032 | 16.50 |
+
+- **The descriptive tools still flag the same 114.6k nodes, and for the same reason.** These
+  are the nodes whose specialization properties point to the 281 MIP variables that are still
+  undefined (D4). The count is unchanged because the D4 fix only removed 5 of the 6 undefined CF
+  variables, which few nodes use.
+- **The tool-specific problems described below persist:** QSE's `maxCount 1` on
+  `data:dependsOnVariable`, sheXer's per-type `rdf:type` shapes, and schema-automator's closed
+  shapes and string-typed IRIs.
+
+**Regime `subclass`.**
+
+| run | node / property shapes | (class, property) pairs, of which also on a superclass | nodes flagged | violations per node |
+|---|---|---|---|---|
+| SHACL Play! (previous-dump shapes) | 77 / 710 | 710, 644 (91%) | 116,012 (19.5%) | 2.58 |
+| sheXer | 90 / 1,732 | 729, 590 (81%) | 100% (sample of 27k) | 2,367 |
+| QSE, pruned | 45 / 269 | 228, 180 (79%) | 100% (sample of 84k) | 102 |
+| QSE, full | 89 / 812 | 729, 590 (81%) | 100% (sample of 17k) | 150 |
+| schema-automator | out of memory | | | |
+
+The previous-dump SHACL Play shapes flag 1,453 more nodes than the fresh shapes do under `none`.
+These extra violations come from the changes to the data, since the old shapes describe the old
+data.
+
+**Regime `rdfs`.**
+
+| run | node / property shapes | (class, property) pairs, of which also on a superclass | nodes flagged | violations per node |
+|---|---|---|---|---|
+| SHACL Play! (previous-dump shapes) | 79 / 1,040 | 1,040, 960 (92%) | 0.7% (sample of 419k) | 0.04 |
+| sheXer | 93 / 2,114 | 1,058, 896 (85%) | 100% (sample of 240) | 3,367 |
+| QSE, pruned | 47 / 434 | 391, 333 (85%) | 99.7% (sample of 368) | 256 |
+| QSE, full | 91 / 1,135 | 1,064, 896 (84%) | 100% (sample of 2k) | 222 |
+| SHACLGEN, schema-automator | out of memory (previous dump) | | | |
+
+On the previous dump, SHACL Play's shapes flagged nothing under `rdfs`, because range inference
+typed the undefined variables (see below). On the new dump, its shapes flag 2,875 nodes. The causes are changes in the data, not the
+defects:
+- `ccso:hasMemberSimulation` no longer occurs in the data, so its `sh:minCount 1` fails (1,160
+  violations);
+- the corrected `geo:asWKT` literals no longer have the datatype `<geo:wktLiteral>` that the old
+  shapes learned (D1, 325 violations);
+- the `sh:maxCount`, `sh:or`, `sh:languageIn` and `sh:datatype` constraints that fail on
+  `top-level:associatedWith` (11,070 violations), `top-level:altLabel` (2,382) and
+  `hasPart`/`hasProperPart`/`hasComponent` were learned from values that have since changed. For
+  `associatedWith`, the inferred superproperty of many properties, the remodelled UKCP18 outputs
+  are a likely source.
+
+**Factoring.** Under `subclass` and `rdfs`, every run is also factored along the class hierarchy.
+The factored shapes are validated on the same focus nodes and flag exactly the same nodes as the
+originals, with up to 88% fewer violations (SHACL Play, `subclass`). See
+[factoring.md](factoring.md#7-results-on-cckg).
 
 ## First dump (2026-09-24)
 

@@ -14,7 +14,7 @@ Each cell: node shapes / property shapes; (target class, property) pairs constra
 | qse-pruned | 21 / 120 shapes, 99 pairs (16 also on a superclass); 98.5% of 595,032 focus nodes flagged, 5.98 violations per node | 45 / 269 shapes, 228 pairs (180 also on a superclass); 100.0% of a sample of 84,009 focus nodes flagged, 102.45 violations per node | 47 / 434 shapes, 391 pairs (333 also on a superclass); 99.7% of a sample of 368 focus nodes flagged, 255.84 violations per node |
 | qse-pruned+factored | - | 45 / 168 shapes, 127 pairs (79 also on a superclass); 100.0% of a sample of 84,009 focus nodes flagged, 85.28 violations per node | 47 / 364 shapes, 321 pairs (263 also on a superclass); 99.7% of a sample of 368 focus nodes flagged, 170.40 violations per node |
 | shacl-play | 48 / 227 shapes, 227 pairs (103 also on a superclass); 19.2% of 595,454 focus nodes flagged, 0.50 violations per node | - | - |
-| shacl-play.prev-dump | - | 77 / 710 shapes, 710 pairs (644 also on a superclass); 19.5% of 595,454 focus nodes flagged, 2.58 violations per node | - |
+| shacl-play.prev-dump | - | 77 / 710 shapes, 710 pairs (644 also on a superclass); 19.5% of 595,454 focus nodes flagged, 2.58 violations per node | 79 / 1040 shapes, 1040 pairs (960 also on a superclass); 0.7% of a sample of 419,379 focus nodes flagged, 0.04 violations per node |
 | shacl-play.prev-dump+factored | - | 64 / 228 shapes, 228 pairs (162 also on a superclass); 19.5% of 595,454 focus nodes flagged, 0.31 violations per node | - |
 | shaclgen | - | - | no output |
 | shaclgen.prev-dump | 59 / 92 shapes, 316 pairs (96 also on a superclass); 19.2% of 595,912 focus nodes flagged, 0.43 violations per node | - | - |
