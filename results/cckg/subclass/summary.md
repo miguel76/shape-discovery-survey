@@ -9,9 +9,9 @@ Shapes extracted and validated under the `subclass` regime (see `pipeline/regime
 | run | exit | wall s | peak RSS MB | node shapes | property shapes | (class, path) pairs | of which also on a superclass | non-SHACL terms | SHACL-SHACL violations |
 |---|---|---|---|---|---|---|---|---|---|
 | qse | 0 | 87.13 | 5518.4 | 89 | 812 | 729 | 590 | sh:NodeKind | 1 |
-| qse+factored | 0 | 87.13 | 5518.4 | 89 | 673 | 590 | 451 | sh:NodeKind | 1 |
+| qse+factored | 0 | 87.13 | 5518.4 | 89 | 507 | 424 | 285 | sh:NodeKind | 1 |
 | qse-pruned | 0 | 82.94 | 5001.5 | 45 | 269 | 228 | 180 | sh:NodeKind | 1 |
-| qse-pruned+factored | 0 | 82.94 | 5001.5 | 45 | 220 | 179 | 131 | sh:NodeKind | 1 |
+| qse-pruned+factored | 0 | 82.94 | 5001.5 | 45 | 168 | 127 | 79 | sh:NodeKind | 1 |
 | shacl-play.prev-dump | 0 | 2917.89 | 4416.7 | 77 | 710 | 710 | 644 | - | 0 |
 | shacl-play.prev-dump+factored | 0 | 2917.89 | 4416.7 | 64 | 228 | 228 | 162 | - | 0 |
 | shexer | 0 | 282.43 | 3498.4 | 90 | 1732 | 729 | 590 | sh:dataType | 0 |
@@ -22,9 +22,9 @@ Shapes extracted and validated under the `subclass` regime (see `pipeline/regime
 | run | sh:class | sh:datatype | sh:hasValue | sh:in | sh:languageIn | sh:maxCount | sh:minCount | sh:node | sh:nodeKind | sh:or |
 |---|---|---|---|---|---|---|---|---|---|---|
 | qse | 3151 | 315 |  | 89 |  | 428 | 169 | 430 |  | 466 |
-| qse+factored | 2836 | 224 |  | 89 |  | 213 | 99 | 224 |  | 430 |
+| qse+factored | 1786 | 174 |  | 89 |  | 213 | 99 | 224 |  | 249 |
 | qse-pruned | 1091 | 67 |  | 45 |  | 128 | 52 | 111 |  | 151 |
-| qse-pruned+factored | 910 | 44 |  | 45 |  | 65 | 27 | 57 |  | 129 |
+| qse-pruned+factored | 567 | 38 |  | 45 |  | 65 | 27 | 57 |  | 66 |
 | shacl-play.prev-dump | 2621 | 308 | 17 | 25 | 76 | 481 | 117 |  | 730 | 481 |
 | shacl-play.prev-dump+factored | 2615 | 166 | 10 | 22 | 27 | 79 | 53 |  | 86 | 122 |
 | shexer |  |  |  | 990 |  | 1516 | 1136 | 303 | 131 |  |
@@ -35,9 +35,9 @@ Shapes extracted and validated under the `subclass` regime (see `pipeline/regime
 | run | conforms | violations | focus nodes | by component | reference violations also found |
 |---|---|---|---|---|---|
 | qse (sample: 17448/595912 focus nodes) | False | 2612164 | 17447 | sh:NodeConstraintComponent: 1247475, sh:InConstraintComponent: 1049468, sh:MaxCountConstraintComponent: 179013, sh:MinCountConstraintComponent: 136184, sh:ClassConstraintComponent: 24 | - |
-| qse+factored (sample: 11237/595912 focus nodes) | False | 1278930 | 11237 | sh:InConstraintComponent: 676376, sh:NodeConstraintComponent: 478236, sh:MaxCountConstraintComponent: 69097, sh:MinCountConstraintComponent: 55213, sh:ClassConstraintComponent: 8 | - |
+| qse+factored (sample: 17448/595912 focus nodes) | False | 1955567 | 17447 | sh:InConstraintComponent: 1049468, sh:NodeConstraintComponent: 713134, sh:MaxCountConstraintComponent: 107225, sh:MinCountConstraintComponent: 85726, sh:ClassConstraintComponent: 14 | - |
 | qse-pruned (sample: 84009/595809 focus nodes) | False | 8606562 | 83991 | sh:InConstraintComponent: 5048224, sh:NodeConstraintComponent: 2703185, sh:MaxCountConstraintComponent: 849641, sh:MinCountConstraintComponent: 3446, sh:OrConstraintComponent: 1222, sh:DatatypeConstraintComponent: 827, sh:ClassConstraintComponent: 17 | - |
-| qse-pruned+factored (sample: 84009/595809 focus nodes) | False | 7164296 | 83991 | sh:InConstraintComponent: 5048224, sh:NodeConstraintComponent: 1603569, sh:MaxCountConstraintComponent: 509420, sh:MinCountConstraintComponent: 1388, sh:OrConstraintComponent: 886, sh:DatatypeConstraintComponent: 792, sh:ClassConstraintComponent: 17 | - |
+| qse-pruned+factored (sample: 84009/595809 focus nodes) | False | 7163902 | 83991 | sh:InConstraintComponent: 5048224, sh:NodeConstraintComponent: 1603569, sh:MaxCountConstraintComponent: 509420, sh:MinCountConstraintComponent: 1388, sh:DatatypeConstraintComponent: 792, sh:OrConstraintComponent: 492, sh:ClassConstraintComponent: 17 | - |
 | shacl-play.prev-dump | False | 1535280 | 116012 | sh:OrConstraintComponent: 1529242, sh:DatatypeConstraintComponent: 2310, sh:MinCountConstraintComponent: 1836, sh:LanguageInConstraintComponent: 1716, sh:MaxCountConstraintComponent: 152, sh:InConstraintComponent: 24 | - |
 | shacl-play.prev-dump+factored | False | 187292 | 116012 | sh:OrConstraintComponent: 184982, sh:MinCountConstraintComponent: 929, sh:DatatypeConstraintComponent: 778, sh:LanguageInConstraintComponent: 572, sh:MaxCountConstraintComponent: 19, sh:InConstraintComponent: 12 | - |
 | shexer (sample: 27014/595912 focus nodes) | False | 63920524 | 27001 | sh:InConstraintComponent: 56747254, sh:MaxCountConstraintComponent: 7090310, sh:NodeConstraintComponent: 82960 | - |
@@ -49,7 +49,7 @@ Each `+factored` run holds the shapes of the run above with the constraints impl
 
 | run | constraints | removed | property shapes | node shapes | shapes left intact (referenced / sibling-dependent / other targets) | nodes flagged (original → factored) | violations (original → factored) |
 |---|---|---|---|---|---|---|---|
-| qse | 1,827 | 620 (34%) | 812 → 673 | 89 → 89 | 31 / 0 / 0 | 17,447 (100.0% of a sample) → 11,237 (100.0% of a sample) | 2,612,164 → 1,278,930 |
-| qse-pruned | 558 | 187 (34%) | 269 → 220 | 45 → 45 | 14 / 0 / 0 | 83,991 (100.0% of a sample) → 83,991 (100.0% of a sample) | 8,606,562 → 7,164,296 |
+| qse | 1,827 | 801 (44%) | 812 → 507 | 89 → 89 | 31 / 0 / 0 | 17,447 (100.0% of a sample) → 17,447 (100.0% of a sample) | 2,612,164 → 1,955,567 |
+| qse-pruned | 558 | 250 (45%) | 269 → 168 | 45 → 45 | 14 / 0 / 0 | 83,991 (100.0% of a sample) → 83,991 (100.0% of a sample) | 8,606,562 → 7,163,902 |
 | shacl-play.prev-dump | 2,112 | 1,676 (79%) | 710 → 228 | 77 → 64 | 0 / 0 / 0 | 116,012 (19.5%) → 116,012 (19.5%) | 1,535,280 → 187,292 |
 | shexer | 4,076 | 2,402 (59%) | 1732 → 794 | 90 → 73 | 30 / 0 / 0 | 27,001 (100.0% of a sample) → 27,001 (100.0% of a sample) | 63,920,524 → 40,229,528 |
