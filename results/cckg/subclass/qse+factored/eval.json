@@ -29,19 +29,19 @@
     }
   },
   "profile": {
-    "triples": 22628,
+    "triples": 15114,
     "node_shapes": 89,
-    "property_shapes": 673,
-    "class_path_pairs": 590,
-    "pairs_repeated_from_superclass": 451,
+    "property_shapes": 507,
+    "class_path_pairs": 424,
+    "pairs_repeated_from_superclass": 285,
     "constraint_usage": {
-      "sh:class": 2836,
-      "sh:datatype": 224,
+      "sh:class": 1786,
+      "sh:datatype": 174,
       "sh:in": 89,
       "sh:maxCount": 213,
       "sh:minCount": 99,
       "sh:node": 224,
-      "sh:or": 430
+      "sh:or": 249
     }
   },
   "self_validation": {
@@ -51,7 +51,7 @@
     "validated_focus_nodes": 17448,
     "target_focus_nodes": 595912,
     "partial": true,
-    "seconds": 369,
+    "seconds": 372,
     "by_component": {
       "sh:InConstraintComponent": 1049468,
       "sh:NodeConstraintComponent": 713134,

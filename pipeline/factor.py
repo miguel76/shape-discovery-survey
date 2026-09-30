@@ -59,6 +59,12 @@ GROUPS = [
 SHAPE_REF_PARAMS = [SH.node, SH["and"], SH["or"], SH.xone, SH["not"], SH.qualifiedValueShape]
 TARGET_PARAMS = [SH.targetClass, SH.targetNode, SH.targetSubjectsOf, SH.targetObjectsOf]
 
+# SHACL terms that can matter for validation inside a nested shape or path. Other predicates
+# (annotations such as QSE's confidence/support, rdf:type, misspellings such as sh:NodeKind)
+# are ignored by SHACL processors, so they are ignored when comparing constraints.
+PATH_PARAMS = {SH.path, SH.alternativePath, SH.inversePath, SH.zeroOrMorePath, SH.oneOrMorePath, SH.zeroOrOnePath}
+SHACL_TERMS = CONSTRAINT_PARAMS | PATH_PARAMS | set(TARGET_PARAMS) | {SH.deactivated, SH.severity}
+
 NODE_KINDS = {  # node kind -> set of term kinds it admits
     SH.IRI: {"I"}, SH.BlankNode: {"B"}, SH.Literal: {"L"},
     SH.BlankNodeOrIRI: {"B", "I"}, SH.BlankNodeOrLiteral: {"B", "L"}, SH.IRIOrLiteral: {"I", "L"},
@@ -108,7 +114,8 @@ def is_subclass(c, d, hierarchy):
 
 # ---------------------------------------------------------------- constraints
 def canon(g, node, seen=None):
-    """A canonical, hashable form of an RDF term, expanding blank nodes and RDF lists."""
+    """A canonical, hashable form of an RDF term, expanding blank nodes and RDF lists.
+    Triples of a blank node whose predicate is not a SHACL term (annotations) are left out."""
     seen = seen or frozenset()
     if isinstance(node, BNode):
         if node in seen:
@@ -116,7 +123,7 @@ def canon(g, node, seen=None):
         if (node, RDF.first, None) in g or node == RDF.nil:
             return ("list",) + tuple(canon(g, m, seen | {node}) for m in Collection(g, node))
         return ("bnode",) + tuple(sorted(
-            (str(p), canon(g, o, seen | {node})) for p, o in g.predicate_objects(node)))
+            (str(p), canon(g, o, seen | {node})) for p, o in g.predicate_objects(node) if p in SHACL_TERMS))
     if isinstance(node, Literal):
         return ("literal", str(node), str(node.datatype or ""), node.language or "")
     return ("iri", str(node))
@@ -161,12 +168,13 @@ def constraints_of(g, shape):
 
 
 def class_disjuncts(q):
-    """If q is an sh:or whose members are all shapes with a single sh:class, the set of classes."""
+    """If q is an sh:or whose members are all shapes with a single sh:class (and no other
+    SHACL term, annotations aside), the set of classes."""
     if q.param != SH["or"] or q.value is None:
         return None
     classes = set()
     for m in Collection(q.g, q.value):
-        triples = list(q.g.predicate_objects(m))
+        triples = [(p, o) for p, o in q.g.predicate_objects(m) if p in SHACL_TERMS]
         if len(triples) != 1 or triples[0][0] != SH["class"]:
             return None
         classes.add(triples[0][1])

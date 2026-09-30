@@ -4,8 +4,8 @@
 usage: python tests/test_factor.py [TRIALS] [SEED]
 
 Each trial builds a random class hierarchy (with an equivalence cycle), a random shapes
-graph over it (exercising every implication rule of factor.implies, shared property
-shapes, sh:node references, closed shapes, node-level constraints) and a random data
+graph over it (exercising every implication rule of factor.implies, annotated sh:or
+members, shared property shapes, sh:node references, closed shapes, node-level constraints) and a random data
 graph whose rdf:type triples are materialised along the hierarchy (the `subclass`
 regime). It validates the data against the original and the factored shapes with
 pySHACL and checks that the sets of (focus node, path) pairs with violations are identical.
@@ -74,6 +74,8 @@ def random_constraint(rnd, g, shape):
         for c in rnd.sample(CLASSES[:4], rnd.randint(1, 3)):
             m = BNode()
             g.add((m, SH["class"], c))
+            if rnd.random() < 0.5:  # annotations, as QSE writes them (ignored by validators)
+                g.add((m, EX.support, Literal(rnd.randint(1, 3))))
             members.append(m)
         lst = BNode()
         Collection(g, lst, members)

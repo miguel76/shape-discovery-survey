@@ -7,7 +7,7 @@ For a pool of single constraints (covering every rule of implies()) and every pa
 (q, k) with implies({q}, k), checks against pySHACL that each focus node violating k
 also violates q. Focus nodes cover every set of up to 3 values drawn from a universe of
 IRIs and a blank node with various classes, integers, a string and a language-tagged
-string. Also checks a few expected implications, so that the rules are exercised.
+string. Some sh:or members carry annotations, as QSE writes them. Also checks a few expected implications, so that the rules are exercised.
 """
 import itertools
 import sys
@@ -41,6 +41,8 @@ def pool():
         items.append((f"in {vals}", SH["in"], ("list", vals)))
     for classes in ([EX.A], [EX.B], [EX.A, EX.C], [EX.B, EX.C], [EX.A, EX.B], [EX.B, EX.A, EX.C]):
         items.append((f"or {classes}", SH["or"], ("or", classes)))
+    for classes in ([EX.A], [EX.B, EX.C]):  # as QSE writes them, with annotations on the members
+        items.append((f"annotated or {classes}", SH["or"], ("annotated or", classes)))
     for langs in (["en"], ["en", "it"], ["it"]):
         items.append((f"languageIn {langs}", SH.languageIn, ("list", [Literal(x) for x in langs])))
     for n in (1, 3, 5):
@@ -55,11 +57,14 @@ def add_constraint(g, shape, param, obj):
         lst = BNode()
         Collection(g, lst, obj[1])
         g.add((shape, param, lst))
-    elif isinstance(obj, tuple) and obj[0] == "or":
+    elif isinstance(obj, tuple) and obj[0] in ("or", "annotated or"):
         members = []
-        for c in obj[1]:
+        for i, c in enumerate(obj[1]):
             m = BNode()
             g.add((m, SH["class"], c))
+            if obj[0] == "annotated or":  # not SHACL terms, ignored by validators
+                g.add((m, SH.NodeKind, SH.IRI))
+                g.add((m, EX.support, Literal(len(obj[1]) * 10 + i)))
             members.append(m)
         lst = BNode()
         Collection(g, lst, members)
@@ -120,7 +125,11 @@ def main():
                 ("class B", "or [rdflib.term.URIRef('http://example.org/i/A'), rdflib.term.URIRef('http://example.org/i/C')]"),
                 ("or [rdflib.term.URIRef('http://example.org/i/B'), rdflib.term.URIRef('http://example.org/i/A'), rdflib.term.URIRef('http://example.org/i/C')]",
                  "nodeKind BlankNodeOrIRI"),
-                ("maxLength 1", "maxLength 3")]
+                ("maxLength 1", "maxLength 3"),
+                ("or [rdflib.term.URIRef('http://example.org/i/A')]", "annotated or [rdflib.term.URIRef('http://example.org/i/A')]"),
+                ("annotated or [rdflib.term.URIRef('http://example.org/i/B'), rdflib.term.URIRef('http://example.org/i/C')]",
+                 "or [rdflib.term.URIRef('http://example.org/i/A'), rdflib.term.URIRef('http://example.org/i/C')]"),
+                ("class B", "annotated or [rdflib.term.URIRef('http://example.org/i/B'), rdflib.term.URIRef('http://example.org/i/C')]")]
     missing = [e for e in expected if e not in implied_pairs]
     for e in missing:
         print(f"NOT DERIVED (expected): {e[0]} => {e[1]}")

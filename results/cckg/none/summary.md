@@ -12,6 +12,7 @@ Shapes extracted and validated under the `none` regime (see `pipeline/regimes.py
 | qse | 0 | 49.29 | 3115.5 | 60 | 365 | 305 | 103 | sh:NodeKind | 0 |
 | qse-pruned | 0 | 37.5 | 3027.8 | 21 | 120 | 99 | 16 | sh:NodeKind | 0 |
 | shacl-play | 0 | 141.98 | 3635.4 | 48 | 227 | 227 | 103 | - | 0 |
+| shaclgen.prev-dump | 0 | 2258.22 | 6119.9 | 59 | 92 | 316 | 96 | - | 0 |
 | shexer | 0 | 90.92 | 1650.2 | 60 | 415 | 305 | 103 | sh:dataType | 0 |
 
 ## Constraint components used (number of shapes using each)
@@ -22,6 +23,7 @@ Shapes extracted and validated under the `none` regime (see `pipeline/regimes.py
 | qse | 288 |  | 136 |  | 60 |  | 246 | 128 | 170 |  | 115 |
 | qse-pruned | 103 |  | 30 |  | 21 |  | 75 | 26 | 45 |  | 36 |
 | shacl-play | 191 |  | 107 | 14 | 31 | 45 | 165 | 101 |  | 227 | 51 |
+| shaclgen.prev-dump | 114 |  | 16 |  |  |  |  |  |  | 141 | 24 |
 | shexer |  |  |  |  | 108 |  | 341 | 238 | 123 | 48 |  |
 
 ## Validating the KG against the extracted shapes
@@ -32,4 +34,5 @@ Shapes extracted and validated under the `none` regime (see `pipeline/regimes.py
 | qse | False | 6060273 | 592970 | sh:NodeConstraintComponent: 4159757, sh:MaxCountConstraintComponent: 1055420, sh:MinCountConstraintComponent: 520393, sh:InConstraintComponent: 324600, sh:ClassConstraintComponent: 103 | - |
 | qse-pruned | False | 3555556 | 586040 | sh:NodeConstraintComponent: 2189841, sh:MaxCountConstraintComponent: 1028503, sh:InConstraintComponent: 324526, sh:DatatypeConstraintComponent: 5577, sh:OrConstraintComponent: 3632, sh:MinCountConstraintComponent: 2667, sh:ClassConstraintComponent: 810 | - |
 | shacl-play | False | 295725 | 114559 | sh:ClassConstraintComponent: 289383, sh:OrConstraintComponent: 6342 | - |
+| shaclgen.prev-dump | False | 255953 | 114584 | sh:OrConstraintComponent: 147843, sh:ClassConstraintComponent: 108110 | - |
 | shexer | False | 3118442 | 589774 | sh:InConstraintComponent: 1731083, sh:MaxCountConstraintComponent: 1035805, sh:NodeConstraintComponent: 351554 | - |

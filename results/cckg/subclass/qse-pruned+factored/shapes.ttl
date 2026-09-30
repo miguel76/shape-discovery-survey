@@ -14,10 +14,7 @@ ns1:CharacteristicShape a sh:NodeShape ;
 
 ns1:ClimateModelIntercomparisonExperimentShape a sh:NodeShape ;
     sh:property ns1:hasComponentClimateModelIntercomparisonExperimentShapeProperty,
-        ns1:hasOutputClimateModelIntercomparisonExperimentShapeProperty,
-        ns1:instanceTypeClimateModelIntercomparisonExperimentShapeProperty,
-        ns1:refersToScenarioClimateModelIntercomparisonExperimentShapeProperty,
-        ns1:usesModelClimateModelIntercomparisonExperimentShapeProperty ;
+        ns1:instanceTypeClimateModelIntercomparisonExperimentShapeProperty ;
     sh:targetClass <https://w3id.org/hacid/onto/ccso/ClimateModelIntercomparisonExperiment> .
 
 ns1:DataConsumingProcessShape a sh:NodeShape ;
@@ -27,7 +24,6 @@ ns1:DataConsumingProcessShape a sh:NodeShape ;
         ns1:instanceTypeDataConsumingProcessShapeProperty,
         ns1:isDownscalingOfDataConsumingProcessShapeProperty,
         ns1:labelDataConsumingProcessShapeProperty,
-        ns1:refersToScenarioDataConsumingProcessShapeProperty,
         ns1:usesModelDataConsumingProcessShapeProperty ;
     sh:targetClass <https://w3id.org/hacid/onto/data/DataConsumingProcess> .
 
@@ -39,7 +35,6 @@ ns1:DataGeneratingProcessShape a sh:NodeShape ;
         ns1:instanceTypeDataGeneratingProcessShapeProperty,
         ns1:isDownscalingOfDataGeneratingProcessShapeProperty,
         ns1:labelDataGeneratingProcessShapeProperty,
-        ns1:refersToScenarioDataGeneratingProcessShapeProperty,
         ns1:usesModelDataGeneratingProcessShapeProperty ;
     sh:targetClass <https://w3id.org/hacid/onto/data/DataGeneratingProcess> .
 
@@ -70,20 +65,14 @@ ns1:DynamicalDownscalingShape a sh:NodeShape ;
     sh:targetClass <https://w3id.org/hacid/onto/ccso/DynamicalDownscaling> .
 
 ns1:EnsembleProjectionProductionShape a sh:NodeShape ;
-    sh:property ns1:hasComponentEnsembleProjectionProductionShapeProperty,
-        ns1:hasOutputEnsembleProjectionProductionShapeProperty,
-        ns1:instanceTypeEnsembleProjectionProductionShapeProperty,
-        ns1:refersToScenarioEnsembleProjectionProductionShapeProperty,
-        ns1:usesModelEnsembleProjectionProductionShapeProperty ;
+    sh:property ns1:hasOutputEnsembleProjectionProductionShapeProperty,
+        ns1:instanceTypeEnsembleProjectionProductionShapeProperty ;
     sh:targetClass <https://w3id.org/hacid/onto/ccso/EnsembleProjectionProduction> .
 
 ns1:EnsembleSimulationShape a sh:NodeShape ;
-    sh:property ns1:hasComponentEnsembleSimulationShapeProperty,
-        ns1:hasOutputEnsembleSimulationShapeProperty,
+    sh:property ns1:hasOutputEnsembleSimulationShapeProperty,
         ns1:instanceTypeEnsembleSimulationShapeProperty,
-        ns1:labelEnsembleSimulationShapeProperty,
-        ns1:refersToScenarioEnsembleSimulationShapeProperty,
-        ns1:usesModelEnsembleSimulationShapeProperty ;
+        ns1:labelEnsembleSimulationShapeProperty ;
     sh:targetClass <https://w3id.org/hacid/onto/ccso/EnsembleSimulation> .
 
 ns1:FormalEntityShape a sh:NodeShape ;
@@ -102,11 +91,7 @@ ns1:GeometryShape a sh:NodeShape ;
     sh:targetClass geo:Geometry .
 
 ns1:GlobalClimateSimulationShape a sh:NodeShape ;
-    sh:property ns1:hasComponentGlobalClimateSimulationShapeProperty,
-        ns1:hasOutputGlobalClimateSimulationShapeProperty,
-        ns1:instanceTypeGlobalClimateSimulationShapeProperty,
-        ns1:refersToScenarioGlobalClimateSimulationShapeProperty,
-        ns1:usesModelGlobalClimateSimulationShapeProperty ;
+    sh:property ns1:instanceTypeGlobalClimateSimulationShapeProperty ;
     sh:targetClass <https://w3id.org/hacid/onto/ccso/GlobalClimateSimulation> .
 
 ns1:IndependentVariableShape a sh:NodeShape ;
@@ -118,12 +103,7 @@ ns1:IndependentVariableShape a sh:NodeShape ;
     sh:targetClass <https://w3id.org/hacid/onto/data/IndependentVariable> .
 
 ns1:ObjectShape a sh:NodeShape ;
-    sh:property ns1:dependsOnVariableObjectShapeProperty,
-        ns1:instanceTypeObjectShapeProperty,
-        ns1:isSpecializationOfVariableObjectShapeProperty,
-        ns1:isSpecializedAccordingToObjectShapeProperty,
-        ns1:labelObjectShapeProperty,
-        ns1:refersToScenarioObjectShapeProperty ;
+    sh:property ns1:instanceTypeObjectShapeProperty ;
     sh:targetClass <https://w3id.org/hacid/onto/top-level/Object> .
 
 ns1:ParameterShape a sh:NodeShape ;
@@ -135,15 +115,12 @@ ns1:PerturbedParameterClimateEnsembleSimulationShape a sh:NodeShape ;
         ns1:hasOutputPerturbedParameterClimateEnsembleSimulationShapeProperty,
         ns1:instanceTypePerturbedParameterClimateEnsembleSimulationShapeProperty,
         ns1:labelPerturbedParameterClimateEnsembleSimulationShapeProperty,
-        ns1:refersToScenarioPerturbedParameterClimateEnsembleSimulationShapeProperty,
         ns1:usesModelPerturbedParameterClimateEnsembleSimulationShapeProperty ;
     sh:targetClass <https://w3id.org/hacid/onto/ccso/PerturbedParameterClimateEnsembleSimulation> .
 
 ns1:ProbabilisticProjectionShape a sh:NodeShape ;
-    sh:property ns1:dependsOnVariableProbabilisticProjectionShapeProperty,
-        ns1:instanceTypeProbabilisticProjectionShapeProperty,
+    sh:property ns1:instanceTypeProbabilisticProjectionShapeProperty,
         ns1:isSpecializationOfVariableProbabilisticProjectionShapeProperty,
-        ns1:isSpecializedAccordingToProbabilisticProjectionShapeProperty,
         ns1:labelProbabilisticProjectionShapeProperty ;
     sh:targetClass <https://w3id.org/hacid/onto/ccso/ProbabilisticProjection> .
 
@@ -152,75 +129,46 @@ ns1:ProjectionTransformationShape a sh:NodeShape ;
     sh:targetClass <https://w3id.org/hacid/onto/ccso/ProjectionTransformation> .
 
 ns1:RegionalClimateModelShape a sh:NodeShape ;
-    sh:property ns1:instanceTypeRegionalClimateModelShapeProperty,
-        ns1:isMaintainedByRegionalClimateModelShapeProperty ;
+    sh:property ns1:instanceTypeRegionalClimateModelShapeProperty ;
     sh:targetClass <https://w3id.org/hacid/onto/ccso/RegionalClimateModel> .
 
 ns1:RescalingShape a sh:NodeShape ;
     sh:property ns1:hasComponentRescalingShapeProperty,
-        ns1:hasOutputRescalingShapeProperty,
-        ns1:instanceTypeRescalingShapeProperty,
-        ns1:isDownscalingOfRescalingShapeProperty,
-        ns1:refersToScenarioRescalingShapeProperty,
-        ns1:usesModelRescalingShapeProperty ;
+        ns1:instanceTypeRescalingShapeProperty ;
     sh:targetClass <https://w3id.org/hacid/onto/ccso/Rescaling> .
 
 ns1:ScenarioBasedProjectionShape a sh:NodeShape ;
-    sh:property ns1:dependsOnVariableScenarioBasedProjectionShapeProperty,
-        ns1:instanceTypeScenarioBasedProjectionShapeProperty,
-        ns1:isSpecializationOfVariableScenarioBasedProjectionShapeProperty,
-        ns1:isSpecializedAccordingToScenarioBasedProjectionShapeProperty,
-        ns1:labelScenarioBasedProjectionShapeProperty,
-        ns1:refersToScenarioScenarioBasedProjectionShapeProperty ;
+    sh:property ns1:instanceTypeScenarioBasedProjectionShapeProperty,
+        ns1:labelScenarioBasedProjectionShapeProperty ;
     sh:targetClass <https://w3id.org/hacid/onto/ccso/ScenarioBasedProjection> .
 
 ns1:SimulationShape a sh:NodeShape ;
     sh:property ns1:hasComponentSimulationShapeProperty,
         ns1:hasOutputSimulationShapeProperty,
-        ns1:instanceTypeSimulationShapeProperty,
-        ns1:isDownscalingOfSimulationShapeProperty,
-        ns1:refersToScenarioSimulationShapeProperty,
-        ns1:usesModelSimulationShapeProperty ;
+        ns1:instanceTypeSimulationShapeProperty ;
     sh:targetClass <https://w3id.org/hacid/onto/ccso/Simulation> .
 
 ns1:SingleProjectionProductionShape a sh:NodeShape ;
     sh:property ns1:hasOutputSingleProjectionProductionShapeProperty,
         ns1:instanceTypeSingleProjectionProductionShapeProperty,
-        ns1:isDownscalingOfSingleProjectionProductionShapeProperty,
-        ns1:labelSingleProjectionProductionShapeProperty,
-        ns1:refersToScenarioSingleProjectionProductionShapeProperty,
-        ns1:usesModelSingleProjectionProductionShapeProperty ;
+        ns1:labelSingleProjectionProductionShapeProperty ;
     sh:targetClass <https://w3id.org/hacid/onto/ccso/SingleProjectionProduction> .
 
 ns1:SingleProjectionShape a sh:NodeShape ;
-    sh:property ns1:dependsOnVariableSingleProjectionShapeProperty,
-        ns1:instanceTypeSingleProjectionShapeProperty,
-        ns1:isSpecializationOfVariableSingleProjectionShapeProperty,
-        ns1:isSpecializedAccordingToSingleProjectionShapeProperty,
-        ns1:labelSingleProjectionShapeProperty,
-        ns1:refersToScenarioSingleProjectionShapeProperty ;
+    sh:property ns1:instanceTypeSingleProjectionShapeProperty ;
     sh:targetClass <https://w3id.org/hacid/onto/ccso/SingleProjection> .
 
 ns1:SingleSimulationShape a sh:NodeShape ;
-    sh:property ns1:hasOutputSingleSimulationShapeProperty,
-        ns1:instanceTypeSingleSimulationShapeProperty,
-        ns1:isDownscalingOfSingleSimulationShapeProperty,
-        ns1:refersToScenarioSingleSimulationShapeProperty,
+    sh:property ns1:instanceTypeSingleSimulationShapeProperty,
         ns1:usesModelSingleSimulationShapeProperty ;
     sh:targetClass <https://w3id.org/hacid/onto/ccso/SingleSimulation> .
 
 ns1:SocialObjectShape a sh:NodeShape ;
-    sh:property ns1:dependsOnVariableSocialObjectShapeProperty,
-        ns1:instanceTypeSocialObjectShapeProperty,
-        ns1:isSpecializationOfVariableSocialObjectShapeProperty,
-        ns1:isSpecializedAccordingToSocialObjectShapeProperty,
-        ns1:labelSocialObjectShapeProperty,
-        ns1:refersToScenarioSocialObjectShapeProperty ;
+    sh:property ns1:instanceTypeSocialObjectShapeProperty ;
     sh:targetClass <https://w3id.org/hacid/onto/top-level/SocialObject> .
 
 ns1:StatisticalProjectionTransformationShape a sh:NodeShape ;
-    sh:property ns1:hasOutputStatisticalProjectionTransformationShapeProperty,
-        ns1:instanceTypeStatisticalProjectionTransformationShapeProperty ;
+    sh:property ns1:instanceTypeStatisticalProjectionTransformationShapeProperty ;
     sh:targetClass <https://w3id.org/hacid/onto/ccso/StatisticalProjectionTransformation> .
 
 ns1:TemporalRegionShape a sh:NodeShape ;
@@ -552,62 +500,6 @@ ns1:dependsOnVariableEntityShapeProperty a sh:PropertyShape ;
                 sh:class <https://w3id.org/hacid/onto/data/DimensionalSpace> ] ) ;
     sh:path <https://w3id.org/hacid/onto/data/dependsOnVariable> .
 
-ns1:dependsOnVariableObjectShapeProperty a sh:PropertyShape ;
-    sh:or ( [ ns1:confidence 9.7745e-01 ;
-                ns1:support "574364"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/data/Variable> ] [ ns1:confidence 9.7745e-01 ;
-                ns1:support "574364"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/top-level/Concept> ] [ ns1:confidence 9.7745e-01 ;
-                ns1:support "574364"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/top-level/Entity> ] [ ns1:confidence 9.7745e-01 ;
-                ns1:support "574364"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/top-level/Object> ] [ ns1:confidence 9.7745e-01 ;
-                ns1:support "574364"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/top-level/SocialObject> ] [ ns1:confidence 7.0048e-01 ;
-                ns1:support "411612"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/data/DiscreteDimensionalSpace> ] [ ns1:confidence 9.7745e-01 ;
-                ns1:support "574364"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/data/IndependentVariable> ] [ ns1:confidence 9.7745e-01 ;
-                ns1:support "574364"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/data/DimensionalSpace> ] ) ;
-    sh:path <https://w3id.org/hacid/onto/data/dependsOnVariable> .
-
-ns1:dependsOnVariableProbabilisticProjectionShapeProperty a sh:PropertyShape ;
-    sh:or ( [ ns1:confidence 9.9989e-01 ;
-                ns1:support "56448"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/data/Variable> ] [ ns1:confidence 9.9989e-01 ;
-                ns1:support "56448"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/top-level/Concept> ] [ ns1:confidence 9.9989e-01 ;
-                ns1:support "56448"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/top-level/Entity> ] [ ns1:confidence 9.9989e-01 ;
-                ns1:support "56448"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/top-level/Object> ] [ ns1:confidence 9.9862e-01 ;
-                ns1:support "56376"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/data/DiscreteDimensionalSpace> ] [ ns1:confidence 9.9989e-01 ;
-                ns1:support "56448"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/top-level/SocialObject> ] [ ns1:confidence 9.9989e-01 ;
-                ns1:support "56448"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/data/IndependentVariable> ] [ ns1:confidence 9.9989e-01 ;
-                ns1:support "56448"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/data/DimensionalSpace> ] ) ;
-    sh:path <https://w3id.org/hacid/onto/data/dependsOnVariable> .
-
 ns1:dependsOnVariableProjectionShapeProperty a sh:PropertyShape ;
     sh:maxCount 1 ;
     sh:node ns1:DimensionalSpaceShape ;
@@ -634,87 +526,6 @@ ns1:dependsOnVariableProjectionShapeProperty a sh:PropertyShape ;
                 sh:NodeKind sh:IRI ;
                 sh:class <https://w3id.org/hacid/onto/data/IndependentVariable> ] [ ns1:confidence 9.9924e-01 ;
                 ns1:support "573016"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/data/DimensionalSpace> ] ) ;
-    sh:path <https://w3id.org/hacid/onto/data/dependsOnVariable> .
-
-ns1:dependsOnVariableScenarioBasedProjectionShapeProperty a sh:PropertyShape ;
-    sh:or ( [ ns1:confidence 9.9773e-01 ;
-                ns1:support "156756"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/data/Variable> ] [ ns1:confidence 9.9773e-01 ;
-                ns1:support "156756"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/top-level/Concept> ] [ ns1:confidence 9.9773e-01 ;
-                ns1:support "156756"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/top-level/Entity> ] [ ns1:confidence 9.9773e-01 ;
-                ns1:support "156756"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/top-level/Object> ] [ ns1:confidence 9.9773e-01 ;
-                ns1:support "156756"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/top-level/SocialObject> ] [ ns1:confidence 9.9773e-01 ;
-                ns1:support "156756"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/data/IndependentVariable> ] [ ns1:confidence 9.9773e-01 ;
-                ns1:support "156756"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/data/DimensionalSpace> ] ) ;
-    sh:path <https://w3id.org/hacid/onto/data/dependsOnVariable> .
-
-ns1:dependsOnVariableSingleProjectionShapeProperty a sh:PropertyShape ;
-    sh:or ( [ ns1:confidence 9.9974e-01 ;
-                ns1:support "514660"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/data/Variable> ] [ ns1:confidence 9.9974e-01 ;
-                ns1:support "514660"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/top-level/Concept> ] [ ns1:confidence 9.9974e-01 ;
-                ns1:support "514660"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/top-level/Entity> ] [ ns1:confidence 9.9974e-01 ;
-                ns1:support "514660"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/top-level/Object> ] [ ns1:confidence 9.9974e-01 ;
-                ns1:support "514660"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/top-level/SocialObject> ] [ ns1:confidence 6.9006e-01 ;
-                ns1:support "355236"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/data/DiscreteDimensionalSpace> ] [ ns1:confidence 9.9974e-01 ;
-                ns1:support "514660"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/data/IndependentVariable> ] [ ns1:confidence 9.9974e-01 ;
-                ns1:support "514660"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/data/DimensionalSpace> ] ) ;
-    sh:path <https://w3id.org/hacid/onto/data/dependsOnVariable> .
-
-ns1:dependsOnVariableSocialObjectShapeProperty a sh:PropertyShape ;
-    sh:or ( [ ns1:confidence 9.776e-01 ;
-                ns1:support "574364"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/data/Variable> ] [ ns1:confidence 9.776e-01 ;
-                ns1:support "574364"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/top-level/Concept> ] [ ns1:confidence 9.776e-01 ;
-                ns1:support "574364"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/top-level/Entity> ] [ ns1:confidence 9.776e-01 ;
-                ns1:support "574364"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/top-level/Object> ] [ ns1:confidence 9.776e-01 ;
-                ns1:support "574364"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/top-level/SocialObject> ] [ ns1:confidence 7.0059e-01 ;
-                ns1:support "411612"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/data/DiscreteDimensionalSpace> ] [ ns1:confidence 9.776e-01 ;
-                ns1:support "574364"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/data/IndependentVariable> ] [ ns1:confidence 9.776e-01 ;
-                ns1:support "574364"^^xsd:int ;
                 sh:NodeKind sh:IRI ;
                 sh:class <https://w3id.org/hacid/onto/data/DimensionalSpace> ] ) ;
     sh:path <https://w3id.org/hacid/onto/data/dependsOnVariable> .
@@ -781,49 +592,6 @@ ns1:domainObjectPropertyShapeProperty a sh:PropertyShape ;
 
 ns1:hasComponentClimateModelIntercomparisonExperimentShapeProperty a sh:PropertyShape ;
     sh:node ns1:ClimateSimulationShape ;
-    sh:or ( [ ns1:confidence 8.6807e-01 ;
-                ns1:support "579"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/top-level/Entity> ] [ ns1:confidence 8.6057e-01 ;
-                ns1:support "574"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/ccso/Downscaling> ] [ ns1:confidence 8.6057e-01 ;
-                ns1:support "574"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/ccso/DynamicalDownscaling> ] [ ns1:confidence 8.6057e-01 ;
-                ns1:support "574"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/ccso/Rescaling> ] [ ns1:confidence 6.5217e-01 ;
-                ns1:support "435"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/ccso/EnsembleSimulation> ] [ ns1:confidence 2.084e-01 ;
-                ns1:support "139"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/ccso/ClimateModelIntercomparisonExperiment> ] [ ns1:confidence 8.6807e-01 ;
-                ns1:support "579"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/ccso/ClimateSimulation> ] [ ns1:confidence 8.6807e-01 ;
-                ns1:support "579"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/ccso/ProjectionProduction> ] [ ns1:confidence 8.6807e-01 ;
-                ns1:support "579"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/ccso/Simulation> ] [ ns1:confidence 8.6057e-01 ;
-                ns1:support "574"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/ccso/ProjectionTransformation> ] [ ns1:confidence 8.6057e-01 ;
-                ns1:support "574"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/data/DataConsumingProcess> ] [ ns1:confidence 8.6807e-01 ;
-                ns1:support "579"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/data/DataGeneratingProcess> ] [ ns1:confidence 8.6057e-01 ;
-                ns1:support "574"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/data/DataTransformation> ] [ ns1:confidence 2.1589e-01 ;
-                ns1:support "144"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/ccso/EnsembleProjectionProduction> ] ) ;
     sh:path <https://w3id.org/hacid/onto/top-level/hasComponent> .
 
 ns1:hasComponentClimateSimulationShapeProperty a sh:PropertyShape ;
@@ -961,61 +729,6 @@ ns1:hasComponentDataGeneratingProcessShapeProperty a sh:PropertyShape ;
                 sh:class <https://w3id.org/hacid/onto/data/DataTransformation> ] ) ;
     sh:path <https://w3id.org/hacid/onto/top-level/hasComponent> .
 
-ns1:hasComponentEnsembleProjectionProductionShapeProperty a sh:PropertyShape ;
-    sh:or ( [ ns1:confidence 1.8469e-01 ;
-                ns1:support "152"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/ccso/SingleSimulation> ] [ ns1:confidence 8.9307e-01 ;
-                ns1:support "735"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/top-level/Entity> ] [ ns1:confidence 6.9745e-01 ;
-                ns1:support "574"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/ccso/Downscaling> ] [ ns1:confidence 6.9745e-01 ;
-                ns1:support "574"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/ccso/DynamicalDownscaling> ] [ ns1:confidence 6.9745e-01 ;
-                ns1:support "574"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/ccso/Rescaling> ] [ ns1:confidence 5.2855e-01 ;
-                ns1:support "435"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/ccso/EnsembleSimulation> ] [ ns1:confidence 1.6889e-01 ;
-                ns1:support "139"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/ccso/ClimateModelIntercomparisonExperiment> ] [ ns1:confidence 8.8821e-01 ;
-                ns1:support "731"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/ccso/ClimateSimulation> ] [ ns1:confidence 1.9077e-01 ;
-                ns1:support "157"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/ccso/GlobalClimateSimulation> ] [ ns1:confidence 8.9307e-01 ;
-                ns1:support "735"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/ccso/ProjectionProduction> ] [ ns1:confidence 8.8821e-01 ;
-                ns1:support "731"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/ccso/Simulation> ] [ ns1:confidence 7.0231e-01 ;
-                ns1:support "578"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/ccso/ProjectionTransformation> ] [ ns1:confidence 1.8955e-01 ;
-                ns1:support "156"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/ccso/SingleProjectionProduction> ] [ ns1:confidence 7.0231e-01 ;
-                ns1:support "578"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/data/DataConsumingProcess> ] [ ns1:confidence 8.9307e-01 ;
-                ns1:support "735"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/data/DataGeneratingProcess> ] [ ns1:confidence 7.0231e-01 ;
-                ns1:support "578"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/data/DataTransformation> ] [ ns1:confidence 1.7497e-01 ;
-                ns1:support "144"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/ccso/EnsembleProjectionProduction> ] ) ;
-    sh:path <https://w3id.org/hacid/onto/top-level/hasComponent> .
-
 ns1:hasComponentEnsembleProjectionShapeProperty a sh:PropertyShape ;
     sh:node ns1:ProjectionShape ;
     sh:or ( [ ns1:confidence 2.7989e-01 ;
@@ -1051,105 +764,9 @@ ns1:hasComponentEnsembleProjectionShapeProperty a sh:PropertyShape ;
                 sh:class <https://w3id.org/hacid/onto/top-level/SocialObject> ] ) ;
     sh:path <https://w3id.org/hacid/onto/top-level/hasComponent> .
 
-ns1:hasComponentEnsembleSimulationShapeProperty a sh:PropertyShape ;
-    sh:or ( [ ns1:confidence 9.9924e-01 ;
-                ns1:support "1317"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/ccso/SingleSimulation> ] [ ns1:confidence 9.9924e-01 ;
-                ns1:support "1317"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/top-level/Entity> ] [ ns1:confidence 9.9772e-01 ;
-                ns1:support "1315"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/ccso/Downscaling> ] [ ns1:confidence 9.9772e-01 ;
-                ns1:support "1315"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/ccso/DynamicalDownscaling> ] [ ns1:confidence 9.9772e-01 ;
-                ns1:support "1315"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/ccso/Rescaling> ] [ ns1:confidence 9.9924e-01 ;
-                ns1:support "1317"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/ccso/ClimateSimulation> ] [ ns1:confidence 9.9924e-01 ;
-                ns1:support "1317"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/ccso/ProjectionProduction> ] [ ns1:confidence 9.9924e-01 ;
-                ns1:support "1317"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/ccso/Simulation> ] [ ns1:confidence 9.9772e-01 ;
-                ns1:support "1315"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/ccso/ProjectionTransformation> ] [ ns1:confidence 9.9924e-01 ;
-                ns1:support "1317"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/ccso/SingleProjectionProduction> ] [ ns1:confidence 9.9772e-01 ;
-                ns1:support "1315"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/data/DataConsumingProcess> ] [ ns1:confidence 9.9924e-01 ;
-                ns1:support "1317"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/data/DataGeneratingProcess> ] [ ns1:confidence 9.9772e-01 ;
-                ns1:support "1315"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/data/DataTransformation> ] ) ;
-    sh:path <https://w3id.org/hacid/onto/top-level/hasComponent> .
-
-ns1:hasComponentGlobalClimateSimulationShapeProperty a sh:PropertyShape ;
-    sh:or ( [ ns1:confidence 1.732e-01 ;
-                ns1:support "159"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/ccso/ClimateSimulation> ] [ ns1:confidence 1.6776e-01 ;
-                ns1:support "154"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/ccso/SingleSimulation> ] [ ns1:confidence 1.732e-01 ;
-                ns1:support "159"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/ccso/GlobalClimateSimulation> ] [ ns1:confidence 1.732e-01 ;
-                ns1:support "159"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/top-level/Entity> ] [ ns1:confidence 1.732e-01 ;
-                ns1:support "159"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/ccso/ProjectionProduction> ] [ ns1:confidence 1.732e-01 ;
-                ns1:support "159"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/ccso/Simulation> ] [ ns1:confidence 1.6776e-01 ;
-                ns1:support "154"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/ccso/SingleProjectionProduction> ] [ ns1:confidence 1.732e-01 ;
-                ns1:support "159"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/data/DataGeneratingProcess> ] ) ;
-    sh:path <https://w3id.org/hacid/onto/top-level/hasComponent> .
-
 ns1:hasComponentPerturbedParameterClimateEnsembleSimulationShapeProperty a sh:PropertyShape ;
     sh:minCount 1 ;
     sh:node ns1:ClimateSimulationShape ;
-    sh:or ( [ ns1:confidence 1e+00 ;
-                ns1:support "152"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/ccso/ClimateSimulation> ] [ ns1:confidence 1e+00 ;
-                ns1:support "152"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/ccso/SingleSimulation> ] [ ns1:confidence 1e+00 ;
-                ns1:support "152"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/ccso/GlobalClimateSimulation> ] [ ns1:confidence 1e+00 ;
-                ns1:support "152"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/top-level/Entity> ] [ ns1:confidence 1e+00 ;
-                ns1:support "152"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/ccso/ProjectionProduction> ] [ ns1:confidence 1e+00 ;
-                ns1:support "152"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/ccso/Simulation> ] [ ns1:confidence 1e+00 ;
-                ns1:support "152"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/ccso/SingleProjectionProduction> ] [ ns1:confidence 1e+00 ;
-                ns1:support "152"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/data/DataGeneratingProcess> ] ) ;
     sh:path <https://w3id.org/hacid/onto/top-level/hasComponent> .
 
 ns1:hasComponentProjectionProductionShapeProperty a sh:PropertyShape ;
@@ -1198,93 +815,10 @@ ns1:hasComponentProjectionProductionShapeProperty a sh:PropertyShape ;
 
 ns1:hasComponentRescalingShapeProperty a sh:PropertyShape ;
     sh:node ns1:ClimateSimulationShape ;
-    sh:or ( [ ns1:confidence 3.3182e-01 ;
-                ns1:support "1315"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/ccso/SingleSimulation> ] [ ns1:confidence 4.7666e-01 ;
-                ns1:support "1889"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/top-level/Entity> ] [ ns1:confidence 4.7666e-01 ;
-                ns1:support "1889"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/ccso/Downscaling> ] [ ns1:confidence 4.7666e-01 ;
-                ns1:support "1889"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/ccso/DynamicalDownscaling> ] [ ns1:confidence 4.7666e-01 ;
-                ns1:support "1889"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/ccso/Rescaling> ] [ ns1:confidence 1.0977e-01 ;
-                ns1:support "435"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/ccso/EnsembleSimulation> ] [ ns1:confidence 4.7666e-01 ;
-                ns1:support "1889"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/ccso/ClimateSimulation> ] [ ns1:confidence 4.7666e-01 ;
-                ns1:support "1889"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/ccso/ProjectionProduction> ] [ ns1:confidence 4.7666e-01 ;
-                ns1:support "1889"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/ccso/Simulation> ] [ ns1:confidence 4.7666e-01 ;
-                ns1:support "1889"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/ccso/ProjectionTransformation> ] [ ns1:confidence 3.3182e-01 ;
-                ns1:support "1315"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/ccso/SingleProjectionProduction> ] [ ns1:confidence 4.7666e-01 ;
-                ns1:support "1889"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/data/DataConsumingProcess> ] [ ns1:confidence 4.7666e-01 ;
-                ns1:support "1889"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/data/DataGeneratingProcess> ] [ ns1:confidence 4.7666e-01 ;
-                ns1:support "1889"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/data/DataTransformation> ] ) ;
     sh:path <https://w3id.org/hacid/onto/top-level/hasComponent> .
 
 ns1:hasComponentSimulationShapeProperty a sh:PropertyShape ;
     sh:node ns1:ClimateSimulationShape ;
-    sh:or ( [ ns1:confidence 3.0096e-01 ;
-                ns1:support "1469"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/ccso/SingleSimulation> ] [ ns1:confidence 4.1959e-01 ;
-                ns1:support "2048"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/top-level/Entity> ] [ ns1:confidence 3.8701e-01 ;
-                ns1:support "1889"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/ccso/Downscaling> ] [ ns1:confidence 3.8701e-01 ;
-                ns1:support "1889"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/ccso/DynamicalDownscaling> ] [ ns1:confidence 3.8701e-01 ;
-                ns1:support "1889"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/ccso/Rescaling> ] [ ns1:confidence 4.1959e-01 ;
-                ns1:support "2048"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/ccso/ClimateSimulation> ] [ ns1:confidence 4.1959e-01 ;
-                ns1:support "2048"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/ccso/ProjectionProduction> ] [ ns1:confidence 4.1959e-01 ;
-                ns1:support "2048"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/ccso/Simulation> ] [ ns1:confidence 3.8701e-01 ;
-                ns1:support "1889"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/ccso/ProjectionTransformation> ] [ ns1:confidence 3.0096e-01 ;
-                ns1:support "1469"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/ccso/SingleProjectionProduction> ] [ ns1:confidence 3.8701e-01 ;
-                ns1:support "1889"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/data/DataConsumingProcess> ] [ ns1:confidence 4.1959e-01 ;
-                ns1:support "2048"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/data/DataGeneratingProcess> ] [ ns1:confidence 3.8701e-01 ;
-                ns1:support "1889"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/data/DataTransformation> ] ) ;
     sh:path <https://w3id.org/hacid/onto/top-level/hasComponent> .
 
 ns1:hasDiscretizationDimensionalSpaceShapeProperty a sh:PropertyShape ;
@@ -1445,37 +979,6 @@ ns1:hasExactBoundingRegionIndependentVariableShapeProperty a sh:PropertyShape ;
                 sh:class <https://w3id.org/hacid/onto/data/TemporalRegion> ] ) ;
     sh:path <https://w3id.org/hacid/onto/data/hasExactBoundingRegion> .
 
-ns1:hasOutputClimateModelIntercomparisonExperimentShapeProperty a sh:PropertyShape ;
-    sh:or ( [ ns1:confidence 8.6807e-01 ;
-                ns1:support "579"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/ccso/EnsembleProjection> ] [ ns1:confidence 8.6807e-01 ;
-                ns1:support "579"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/ccso/Projection> ] [ ns1:confidence 8.6807e-01 ;
-                ns1:support "579"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/ccso/ScenarioBasedProjection> ] [ ns1:confidence 8.6807e-01 ;
-                ns1:support "579"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/data/Variable> ] [ ns1:confidence 8.6807e-01 ;
-                ns1:support "579"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/data/Dataset> ] [ ns1:confidence 8.6807e-01 ;
-                ns1:support "579"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/top-level/Concept> ] [ ns1:confidence 8.6807e-01 ;
-                ns1:support "579"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/top-level/Entity> ] [ ns1:confidence 8.6807e-01 ;
-                ns1:support "579"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/top-level/Object> ] [ ns1:confidence 8.6807e-01 ;
-                ns1:support "579"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/top-level/SocialObject> ] ) ;
-    sh:path <https://w3id.org/hacid/onto/data/hasOutput> .
-
 ns1:hasOutputClimateSimulationShapeProperty a sh:PropertyShape ;
     sh:node ns1:ProjectionShape ;
     sh:or ( [ ns1:confidence 4.1979e-01 ;
@@ -1584,133 +1087,15 @@ ns1:hasOutputDataGeneratingProcessShapeProperty a sh:PropertyShape ;
 
 ns1:hasOutputEnsembleProjectionProductionShapeProperty a sh:PropertyShape ;
     sh:node ns1:EnsembleProjectionShape ;
-    sh:or ( [ ns1:confidence 8.9307e-01 ;
-                ns1:support "735"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/ccso/EnsembleProjection> ] [ ns1:confidence 8.9307e-01 ;
-                ns1:support "735"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/ccso/Projection> ] [ ns1:confidence 8.9307e-01 ;
-                ns1:support "735"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/data/Variable> ] [ ns1:confidence 8.8943e-01 ;
-                ns1:support "732"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/ccso/ScenarioBasedProjection> ] [ ns1:confidence 8.9307e-01 ;
-                ns1:support "735"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/data/Dataset> ] [ ns1:confidence 8.9307e-01 ;
-                ns1:support "735"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/top-level/Concept> ] [ ns1:confidence 8.9307e-01 ;
-                ns1:support "735"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/top-level/Entity> ] [ ns1:confidence 8.9307e-01 ;
-                ns1:support "735"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/top-level/Object> ] [ ns1:confidence 8.9307e-01 ;
-                ns1:support "735"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/top-level/SocialObject> ] ) ;
     sh:path <https://w3id.org/hacid/onto/data/hasOutput> .
 
 ns1:hasOutputEnsembleSimulationShapeProperty a sh:PropertyShape ;
     sh:minCount 1 ;
     sh:node ns1:EnsembleProjectionShape ;
-    sh:or ( [ ns1:confidence 1e+00 ;
-                ns1:support "1318"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/ccso/EnsembleProjection> ] [ ns1:confidence 1e+00 ;
-                ns1:support "1318"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/ccso/Projection> ] [ ns1:confidence 1e+00 ;
-                ns1:support "1318"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/ccso/ScenarioBasedProjection> ] [ ns1:confidence 1e+00 ;
-                ns1:support "1318"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/data/Variable> ] [ ns1:confidence 1e+00 ;
-                ns1:support "1318"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/data/Dataset> ] [ ns1:confidence 1e+00 ;
-                ns1:support "1318"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/top-level/Concept> ] [ ns1:confidence 1e+00 ;
-                ns1:support "1318"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/top-level/Entity> ] [ ns1:confidence 1e+00 ;
-                ns1:support "1318"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/top-level/Object> ] [ ns1:confidence 1e+00 ;
-                ns1:support "1318"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/top-level/SocialObject> ] ) ;
-    sh:path <https://w3id.org/hacid/onto/data/hasOutput> .
-
-ns1:hasOutputGlobalClimateSimulationShapeProperty a sh:PropertyShape ;
-    sh:or ( [ ns1:confidence 1.732e-01 ;
-                ns1:support "159"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/ccso/EnsembleProjection> ] [ ns1:confidence 9.0414e-01 ;
-                ns1:support "830"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/ccso/Projection> ] [ ns1:confidence 9.0414e-01 ;
-                ns1:support "830"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/ccso/ScenarioBasedProjection> ] [ ns1:confidence 9.0414e-01 ;
-                ns1:support "830"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/data/Variable> ] [ ns1:confidence 9.0414e-01 ;
-                ns1:support "830"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/data/Dataset> ] [ ns1:confidence 9.0414e-01 ;
-                ns1:support "830"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/top-level/Concept> ] [ ns1:confidence 9.0414e-01 ;
-                ns1:support "830"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/top-level/Entity> ] [ ns1:confidence 7.3094e-01 ;
-                ns1:support "671"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/ccso/SingleProjection> ] [ ns1:confidence 9.0414e-01 ;
-                ns1:support "830"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/top-level/Object> ] [ ns1:confidence 9.0414e-01 ;
-                ns1:support "830"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/top-level/SocialObject> ] ) ;
     sh:path <https://w3id.org/hacid/onto/data/hasOutput> .
 
 ns1:hasOutputPerturbedParameterClimateEnsembleSimulationShapeProperty a sh:PropertyShape ;
     sh:minCount 1 ;
-    sh:or ( [ ns1:confidence 1e+00 ;
-                ns1:support "152"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/ccso/EnsembleProjection> ] [ ns1:confidence 1e+00 ;
-                ns1:support "152"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/ccso/Projection> ] [ ns1:confidence 1e+00 ;
-                ns1:support "152"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/ccso/ScenarioBasedProjection> ] [ ns1:confidence 1e+00 ;
-                ns1:support "152"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/data/Variable> ] [ ns1:confidence 1e+00 ;
-                ns1:support "152"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/data/Dataset> ] [ ns1:confidence 1e+00 ;
-                ns1:support "152"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/top-level/Concept> ] [ ns1:confidence 1e+00 ;
-                ns1:support "152"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/top-level/Entity> ] [ ns1:confidence 1e+00 ;
-                ns1:support "152"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/top-level/Object> ] [ ns1:confidence 1e+00 ;
-                ns1:support "152"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/top-level/SocialObject> ] ) ;
     sh:path <https://w3id.org/hacid/onto/data/hasOutput> .
 
 ns1:hasOutputProjectionProductionShapeProperty a sh:PropertyShape ;
@@ -1748,164 +1133,12 @@ ns1:hasOutputProjectionProductionShapeProperty a sh:PropertyShape ;
                 sh:class <https://w3id.org/hacid/onto/top-level/SocialObject> ] ) ;
     sh:path <https://w3id.org/hacid/onto/data/hasOutput> .
 
-ns1:hasOutputRescalingShapeProperty a sh:PropertyShape ;
-    sh:or ( [ ns1:confidence 4.7691e-01 ;
-                ns1:support "1890"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/ccso/EnsembleProjection> ] [ ns1:confidence 1e+00 ;
-                ns1:support "3963"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/ccso/Projection> ] [ ns1:confidence 1e+00 ;
-                ns1:support "3963"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/ccso/ScenarioBasedProjection> ] [ ns1:confidence 1e+00 ;
-                ns1:support "3963"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/data/Variable> ] [ ns1:confidence 1e+00 ;
-                ns1:support "3963"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/data/Dataset> ] [ ns1:confidence 1e+00 ;
-                ns1:support "3963"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/top-level/Concept> ] [ ns1:confidence 5.2309e-01 ;
-                ns1:support "2073"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/ccso/SingleProjection> ] [ ns1:confidence 1e+00 ;
-                ns1:support "3963"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/top-level/Entity> ] [ ns1:confidence 1e+00 ;
-                ns1:support "3963"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/top-level/Object> ] [ ns1:confidence 1e+00 ;
-                ns1:support "3963"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/top-level/SocialObject> ] ) ;
-    sh:path <https://w3id.org/hacid/onto/data/hasOutput> .
-
 ns1:hasOutputSimulationShapeProperty a sh:PropertyShape ;
     sh:node ns1:ProjectionShape ;
-    sh:or ( [ ns1:confidence 4.1979e-01 ;
-                ns1:support "2049"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/ccso/EnsembleProjection> ] [ ns1:confidence 9.8197e-01 ;
-                ns1:support "4793"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/ccso/Projection> ] [ ns1:confidence 9.8197e-01 ;
-                ns1:support "4793"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/ccso/ScenarioBasedProjection> ] [ ns1:confidence 9.8197e-01 ;
-                ns1:support "4793"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/data/Variable> ] [ ns1:confidence 9.8197e-01 ;
-                ns1:support "4793"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/data/Dataset> ] [ ns1:confidence 9.8197e-01 ;
-                ns1:support "4793"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/top-level/Concept> ] [ ns1:confidence 9.8197e-01 ;
-                ns1:support "4793"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/top-level/Entity> ] [ ns1:confidence 5.6218e-01 ;
-                ns1:support "2744"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/ccso/SingleProjection> ] [ ns1:confidence 9.8197e-01 ;
-                ns1:support "4793"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/top-level/Object> ] [ ns1:confidence 9.8197e-01 ;
-                ns1:support "4793"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/top-level/SocialObject> ] ) ;
     sh:path <https://w3id.org/hacid/onto/data/hasOutput> .
 
 ns1:hasOutputSingleProjectionProductionShapeProperty a sh:PropertyShape ;
     sh:minCount 1 ;
-    sh:or ( [ ns1:confidence 1e+00 ;
-                ns1:support "2850"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/ccso/Projection> ] [ ns1:confidence 1e+00 ;
-                ns1:support "2850"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/data/Variable> ] [ ns1:confidence 9.7263e-01 ;
-                ns1:support "2772"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/ccso/ScenarioBasedProjection> ] [ ns1:confidence 1e+00 ;
-                ns1:support "2850"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/data/Dataset> ] [ ns1:confidence 1e+00 ;
-                ns1:support "2850"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/top-level/Concept> ] [ ns1:confidence 1e+00 ;
-                ns1:support "2850"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/ccso/SingleProjection> ] [ ns1:confidence 1e+00 ;
-                ns1:support "2850"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/top-level/Entity> ] [ ns1:confidence 1e+00 ;
-                ns1:support "2850"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/top-level/Object> ] [ ns1:confidence 1e+00 ;
-                ns1:support "2850"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/top-level/SocialObject> ] ) ;
-    sh:path <https://w3id.org/hacid/onto/data/hasOutput> .
-
-ns1:hasOutputSingleSimulationShapeProperty a sh:PropertyShape ;
-    sh:or ( [ ns1:confidence 1e+00 ;
-                ns1:support "2744"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/ccso/Projection> ] [ ns1:confidence 1e+00 ;
-                ns1:support "2744"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/ccso/ScenarioBasedProjection> ] [ ns1:confidence 1e+00 ;
-                ns1:support "2744"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/data/Variable> ] [ ns1:confidence 1e+00 ;
-                ns1:support "2744"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/data/Dataset> ] [ ns1:confidence 1e+00 ;
-                ns1:support "2744"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/top-level/Concept> ] [ ns1:confidence 1e+00 ;
-                ns1:support "2744"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/ccso/SingleProjection> ] [ ns1:confidence 1e+00 ;
-                ns1:support "2744"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/top-level/Entity> ] [ ns1:confidence 1e+00 ;
-                ns1:support "2744"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/top-level/Object> ] [ ns1:confidence 1e+00 ;
-                ns1:support "2744"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/top-level/SocialObject> ] ) ;
-    sh:path <https://w3id.org/hacid/onto/data/hasOutput> .
-
-ns1:hasOutputStatisticalProjectionTransformationShapeProperty a sh:PropertyShape ;
-    sh:or ( [ ns1:confidence 1e+00 ;
-                ns1:support "116"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/ccso/Projection> ] [ ns1:confidence 1e+00 ;
-                ns1:support "116"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/data/Variable> ] [ ns1:confidence 1e+00 ;
-                ns1:support "116"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/data/Dataset> ] [ ns1:confidence 1e+00 ;
-                ns1:support "116"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/top-level/Concept> ] [ ns1:confidence 9.1379e-01 ;
-                ns1:support "106"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/ccso/SingleProjection> ] [ ns1:confidence 1e+00 ;
-                ns1:support "116"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/top-level/Entity> ] [ ns1:confidence 1e+00 ;
-                ns1:support "116"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/top-level/Object> ] [ ns1:confidence 1e+00 ;
-                ns1:support "116"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/top-level/SocialObject> ] ) ;
     sh:path <https://w3id.org/hacid/onto/data/hasOutput> .
 
 ns1:hasSelectedRegionCharacteristicShapeProperty a sh:PropertyShape ;
@@ -2572,118 +1805,6 @@ ns1:isDownscalingOfProjectionProductionShapeProperty a sh:PropertyShape ;
                 sh:class <https://w3id.org/hacid/onto/data/DataGeneratingProcess> ] ) ;
     sh:path <https://w3id.org/hacid/onto/ccso/isDownscalingOf> .
 
-ns1:isDownscalingOfRescalingShapeProperty a sh:PropertyShape ;
-    sh:or ( [ ns1:confidence 4.8978e-01 ;
-                ns1:support "1941"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/ccso/SingleSimulation> ] [ ns1:confidence 4.9029e-01 ;
-                ns1:support "1943"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/ccso/ClimateSimulation> ] [ ns1:confidence 4.9029e-01 ;
-                ns1:support "1943"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/top-level/Entity> ] [ ns1:confidence 4.86e-01 ;
-                ns1:support "1926"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/ccso/GlobalClimateSimulation> ] [ ns1:confidence 4.9029e-01 ;
-                ns1:support "1943"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/ccso/ProjectionProduction> ] [ ns1:confidence 4.9029e-01 ;
-                ns1:support "1943"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/ccso/Simulation> ] [ ns1:confidence 4.8978e-01 ;
-                ns1:support "1941"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/ccso/SingleProjectionProduction> ] [ ns1:confidence 4.9029e-01 ;
-                ns1:support "1943"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/data/DataGeneratingProcess> ] ) ;
-    sh:path <https://w3id.org/hacid/onto/ccso/isDownscalingOf> .
-
-ns1:isDownscalingOfSimulationShapeProperty a sh:PropertyShape ;
-    sh:or ( [ ns1:confidence 3.9766e-01 ;
-                ns1:support "1941"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/ccso/SingleSimulation> ] [ ns1:confidence 3.9807e-01 ;
-                ns1:support "1943"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/ccso/ClimateSimulation> ] [ ns1:confidence 3.9807e-01 ;
-                ns1:support "1943"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/top-level/Entity> ] [ ns1:confidence 3.9459e-01 ;
-                ns1:support "1926"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/ccso/GlobalClimateSimulation> ] [ ns1:confidence 3.9807e-01 ;
-                ns1:support "1943"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/ccso/ProjectionProduction> ] [ ns1:confidence 3.9807e-01 ;
-                ns1:support "1943"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/ccso/Simulation> ] [ ns1:confidence 3.9766e-01 ;
-                ns1:support "1941"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/ccso/SingleProjectionProduction> ] [ ns1:confidence 3.9807e-01 ;
-                ns1:support "1943"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/data/DataGeneratingProcess> ] ) ;
-    sh:path <https://w3id.org/hacid/onto/ccso/isDownscalingOf> .
-
-ns1:isDownscalingOfSingleProjectionProductionShapeProperty a sh:PropertyShape ;
-    sh:or ( [ ns1:confidence 6.8105e-01 ;
-                ns1:support "1941"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/ccso/SingleSimulation> ] [ ns1:confidence 6.8105e-01 ;
-                ns1:support "1941"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/ccso/ClimateSimulation> ] [ ns1:confidence 6.8105e-01 ;
-                ns1:support "1941"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/top-level/Entity> ] [ ns1:confidence 6.7544e-01 ;
-                ns1:support "1925"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/ccso/GlobalClimateSimulation> ] [ ns1:confidence 6.8105e-01 ;
-                ns1:support "1941"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/ccso/ProjectionProduction> ] [ ns1:confidence 6.8105e-01 ;
-                ns1:support "1941"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/ccso/Simulation> ] [ ns1:confidence 6.8105e-01 ;
-                ns1:support "1941"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/ccso/SingleProjectionProduction> ] [ ns1:confidence 6.8105e-01 ;
-                ns1:support "1941"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/data/DataGeneratingProcess> ] ) ;
-    sh:path <https://w3id.org/hacid/onto/ccso/isDownscalingOf> .
-
-ns1:isDownscalingOfSingleSimulationShapeProperty a sh:PropertyShape ;
-    sh:or ( [ ns1:confidence 7.0736e-01 ;
-                ns1:support "1941"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/ccso/SingleSimulation> ] [ ns1:confidence 7.0736e-01 ;
-                ns1:support "1941"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/ccso/ClimateSimulation> ] [ ns1:confidence 7.0736e-01 ;
-                ns1:support "1941"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/top-level/Entity> ] [ ns1:confidence 7.0153e-01 ;
-                ns1:support "1925"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/ccso/GlobalClimateSimulation> ] [ ns1:confidence 7.0736e-01 ;
-                ns1:support "1941"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/ccso/ProjectionProduction> ] [ ns1:confidence 7.0736e-01 ;
-                ns1:support "1941"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/ccso/Simulation> ] [ ns1:confidence 7.0736e-01 ;
-                ns1:support "1941"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/ccso/SingleProjectionProduction> ] [ ns1:confidence 7.0736e-01 ;
-                ns1:support "1941"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/data/DataGeneratingProcess> ] ) ;
-    sh:path <https://w3id.org/hacid/onto/ccso/isDownscalingOf> .
-
 ns1:isMaintainedByClimateModelShapeProperty a sh:PropertyShape ;
     sh:minCount 1 ;
     sh:or ( [ ns1:confidence 1e+00 ;
@@ -2697,22 +1818,6 @@ ns1:isMaintainedByClimateModelShapeProperty a sh:PropertyShape ;
                 sh:NodeKind sh:IRI ;
                 sh:class <https://w3id.org/hacid/onto/top-level/Entity> ] [ ns1:confidence 1e+00 ;
                 ns1:support "190"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/top-level/Object> ] ) ;
-    sh:path <https://w3id.org/hacid/onto/ccso/isMaintainedBy> .
-
-ns1:isMaintainedByRegionalClimateModelShapeProperty a sh:PropertyShape ;
-    sh:or ( [ ns1:confidence 1e+00 ;
-                ns1:support "147"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/top-level/Agent> ] [ ns1:confidence 1e+00 ;
-                ns1:support "147"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/top-level/Organization> ] [ ns1:confidence 1e+00 ;
-                ns1:support "147"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/top-level/Entity> ] [ ns1:confidence 1e+00 ;
-                ns1:support "147"^^xsd:int ;
                 sh:NodeKind sh:IRI ;
                 sh:class <https://w3id.org/hacid/onto/top-level/Object> ] ) ;
     sh:path <https://w3id.org/hacid/onto/ccso/isMaintainedBy> .
@@ -2786,27 +1891,6 @@ ns1:isSpecializationOfVariableEntityShapeProperty a sh:PropertyShape ;
                 sh:NodeKind sh:IRI ] ) ;
     sh:path <https://w3id.org/hacid/onto/data/isSpecializationOfVariable> .
 
-ns1:isSpecializationOfVariableObjectShapeProperty a sh:PropertyShape ;
-    sh:or ( [ ns1:confidence 7.7453e-01 ;
-                ns1:support "455125"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/data/Variable> ] [ ns1:confidence 7.7453e-01 ;
-                ns1:support "455125"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/top-level/Concept> ] [ ns1:confidence 7.7453e-01 ;
-                ns1:support "455125"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/top-level/Entity> ] [ ns1:confidence 7.7453e-01 ;
-                ns1:support "455125"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/top-level/Object> ] [ ns1:confidence 7.7453e-01 ;
-                ns1:support "455125"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/top-level/SocialObject> ] [ ns1:confidence 1.8353e-01 ;
-                ns1:support "107848"^^xsd:int ;
-                sh:NodeKind sh:IRI ] ) ;
-    sh:path <https://w3id.org/hacid/onto/data/isSpecializationOfVariable> .
-
 ns1:isSpecializationOfVariableProbabilisticProjectionShapeProperty a sh:PropertyShape ;
     ns1:confidence 9.6296e-01 ;
     ns1:support "54363"^^xsd:int ;
@@ -2834,69 +1918,6 @@ ns1:isSpecializationOfVariableProjectionShapeProperty a sh:PropertyShape ;
                 sh:NodeKind sh:IRI ;
                 sh:class <https://w3id.org/hacid/onto/top-level/SocialObject> ] [ ns1:confidence 1.8807e-01 ;
                 ns1:support "107847"^^xsd:int ;
-                sh:NodeKind sh:IRI ] ) ;
-    sh:path <https://w3id.org/hacid/onto/data/isSpecializationOfVariable> .
-
-ns1:isSpecializationOfVariableScenarioBasedProjectionShapeProperty a sh:PropertyShape ;
-    sh:or ( [ ns1:confidence 6.7135e-01 ;
-                ns1:support "105478"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/data/Variable> ] [ ns1:confidence 6.7135e-01 ;
-                ns1:support "105478"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/top-level/Concept> ] [ ns1:confidence 6.7135e-01 ;
-                ns1:support "105478"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/top-level/Entity> ] [ ns1:confidence 6.7135e-01 ;
-                ns1:support "105478"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/top-level/Object> ] [ ns1:confidence 6.7135e-01 ;
-                ns1:support "105478"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/top-level/SocialObject> ] [ ns1:confidence 2.5436e-01 ;
-                ns1:support "39964"^^xsd:int ;
-                sh:NodeKind sh:IRI ] ) ;
-    sh:path <https://w3id.org/hacid/onto/data/isSpecializationOfVariable> .
-
-ns1:isSpecializationOfVariableSingleProjectionShapeProperty a sh:PropertyShape ;
-    sh:or ( [ ns1:confidence 8.7758e-01 ;
-                ns1:support "451770"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/data/Variable> ] [ ns1:confidence 8.7758e-01 ;
-                ns1:support "451770"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/top-level/Concept> ] [ ns1:confidence 8.7758e-01 ;
-                ns1:support "451770"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/top-level/Entity> ] [ ns1:confidence 8.7758e-01 ;
-                ns1:support "451770"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/top-level/Object> ] [ ns1:confidence 8.7758e-01 ;
-                ns1:support "451770"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/top-level/SocialObject> ] [ ns1:confidence 1.0389e-01 ;
-                ns1:support "53484"^^xsd:int ;
-                sh:NodeKind sh:IRI ] ) ;
-    sh:path <https://w3id.org/hacid/onto/data/isSpecializationOfVariable> .
-
-ns1:isSpecializationOfVariableSocialObjectShapeProperty a sh:PropertyShape ;
-    sh:or ( [ ns1:confidence 7.7465e-01 ;
-                ns1:support "455125"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/data/Variable> ] [ ns1:confidence 7.7465e-01 ;
-                ns1:support "455125"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/top-level/Concept> ] [ ns1:confidence 7.7465e-01 ;
-                ns1:support "455125"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/top-level/Entity> ] [ ns1:confidence 7.7465e-01 ;
-                ns1:support "455125"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/top-level/Object> ] [ ns1:confidence 7.7465e-01 ;
-                ns1:support "455125"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/top-level/SocialObject> ] [ ns1:confidence 1.8356e-01 ;
-                ns1:support "107848"^^xsd:int ;
                 sh:NodeKind sh:IRI ] ) ;
     sh:path <https://w3id.org/hacid/onto/data/isSpecializationOfVariable> .
 
@@ -3088,56 +2109,6 @@ ns1:isSpecializedAccordingToEntityShapeProperty a sh:PropertyShape ;
                 sh:class <https://w3id.org/hacid/onto/top-level/SocialObject> ] ) ;
     sh:path <https://w3id.org/hacid/onto/data/isSpecializedAccordingTo> .
 
-ns1:isSpecializedAccordingToObjectShapeProperty a sh:PropertyShape ;
-    sh:or ( [ ns1:confidence 9.7562e-01 ;
-                ns1:support "573289"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/data/VariableSpecialization> ] [ ns1:confidence 9.7562e-01 ;
-                ns1:support "573289"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/top-level/Characteristic> ] [ ns1:confidence 9.7562e-01 ;
-                ns1:support "573289"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/top-level/Parameter> ] [ ns1:confidence 9.7562e-01 ;
-                ns1:support "573289"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/top-level/Concept> ] [ ns1:confidence 9.7562e-01 ;
-                ns1:support "573289"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/top-level/Entity> ] [ ns1:confidence 9.7562e-01 ;
-                ns1:support "573289"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/top-level/Object> ] [ ns1:confidence 9.7562e-01 ;
-                ns1:support "573289"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/top-level/SocialObject> ] ) ;
-    sh:path <https://w3id.org/hacid/onto/data/isSpecializedAccordingTo> .
-
-ns1:isSpecializedAccordingToProbabilisticProjectionShapeProperty a sh:PropertyShape ;
-    sh:or ( [ ns1:confidence 9.9989e-01 ;
-                ns1:support "56448"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/data/VariableSpecialization> ] [ ns1:confidence 9.9989e-01 ;
-                ns1:support "56448"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/top-level/Characteristic> ] [ ns1:confidence 9.9989e-01 ;
-                ns1:support "56448"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/top-level/Parameter> ] [ ns1:confidence 9.9989e-01 ;
-                ns1:support "56448"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/top-level/Concept> ] [ ns1:confidence 9.9989e-01 ;
-                ns1:support "56448"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/top-level/Entity> ] [ ns1:confidence 9.9989e-01 ;
-                ns1:support "56448"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/top-level/Object> ] [ ns1:confidence 9.9989e-01 ;
-                ns1:support "56448"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/top-level/SocialObject> ] ) ;
-    sh:path <https://w3id.org/hacid/onto/data/isSpecializedAccordingTo> .
-
 ns1:isSpecializedAccordingToProjectionShapeProperty a sh:PropertyShape ;
     sh:maxCount 1 ;
     sh:node ns1:VariableSpecializationShape ;
@@ -3160,81 +2131,6 @@ ns1:isSpecializedAccordingToProjectionShapeProperty a sh:PropertyShape ;
                 ns1:support "573289"^^xsd:int ;
                 sh:NodeKind sh:IRI ;
                 sh:class <https://w3id.org/hacid/onto/top-level/Object> ] [ ns1:confidence 9.9971e-01 ;
-                ns1:support "573289"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/top-level/SocialObject> ] ) ;
-    sh:path <https://w3id.org/hacid/onto/data/isSpecializedAccordingTo> .
-
-ns1:isSpecializedAccordingToScenarioBasedProjectionShapeProperty a sh:PropertyShape ;
-    sh:or ( [ ns1:confidence 9.9947e-01 ;
-                ns1:support "157029"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/data/VariableSpecialization> ] [ ns1:confidence 9.9947e-01 ;
-                ns1:support "157029"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/top-level/Characteristic> ] [ ns1:confidence 9.9947e-01 ;
-                ns1:support "157029"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/top-level/Parameter> ] [ ns1:confidence 9.9947e-01 ;
-                ns1:support "157029"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/top-level/Concept> ] [ ns1:confidence 9.9947e-01 ;
-                ns1:support "157029"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/top-level/Entity> ] [ ns1:confidence 9.9947e-01 ;
-                ns1:support "157029"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/top-level/Object> ] [ ns1:confidence 9.9947e-01 ;
-                ns1:support "157029"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/top-level/SocialObject> ] ) ;
-    sh:path <https://w3id.org/hacid/onto/data/isSpecializedAccordingTo> .
-
-ns1:isSpecializedAccordingToSingleProjectionShapeProperty a sh:PropertyShape ;
-    sh:or ( [ ns1:confidence 9.9974e-01 ;
-                ns1:support "514660"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/data/VariableSpecialization> ] [ ns1:confidence 9.9974e-01 ;
-                ns1:support "514660"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/top-level/Characteristic> ] [ ns1:confidence 9.9974e-01 ;
-                ns1:support "514660"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/top-level/Parameter> ] [ ns1:confidence 9.9974e-01 ;
-                ns1:support "514660"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/top-level/Concept> ] [ ns1:confidence 9.9974e-01 ;
-                ns1:support "514660"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/top-level/Entity> ] [ ns1:confidence 9.9974e-01 ;
-                ns1:support "514660"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/top-level/Object> ] [ ns1:confidence 9.9974e-01 ;
-                ns1:support "514660"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/top-level/SocialObject> ] ) ;
-    sh:path <https://w3id.org/hacid/onto/data/isSpecializedAccordingTo> .
-
-ns1:isSpecializedAccordingToSocialObjectShapeProperty a sh:PropertyShape ;
-    sh:or ( [ ns1:confidence 9.7577e-01 ;
-                ns1:support "573289"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/data/VariableSpecialization> ] [ ns1:confidence 9.7577e-01 ;
-                ns1:support "573289"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/top-level/Characteristic> ] [ ns1:confidence 9.7577e-01 ;
-                ns1:support "573289"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/top-level/Parameter> ] [ ns1:confidence 9.7577e-01 ;
-                ns1:support "573289"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/top-level/Concept> ] [ ns1:confidence 9.7577e-01 ;
-                ns1:support "573289"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/top-level/Entity> ] [ ns1:confidence 9.7577e-01 ;
-                ns1:support "573289"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/top-level/Object> ] [ ns1:confidence 9.7577e-01 ;
                 ns1:support "573289"^^xsd:int ;
                 sh:NodeKind sh:IRI ;
                 sh:class <https://w3id.org/hacid/onto/top-level/SocialObject> ] ) ;
@@ -3385,16 +2281,6 @@ ns1:labelObjectPropertyShapeProperty a sh:PropertyShape ;
     sh:maxCount 1 ;
     sh:path rdfs:label .
 
-ns1:labelObjectShapeProperty a sh:PropertyShape ;
-    sh:or ( [ ns1:confidence 2.591e-01 ;
-                ns1:support "152250"^^xsd:int ;
-                sh:NodeKind sh:Literal ;
-                sh:datatype xsd:string ] [ ns1:confidence 7.2856e-01 ;
-                ns1:support "428114"^^xsd:int ;
-                sh:NodeKind sh:Literal ;
-                sh:datatype rdf:langString ] ) ;
-    sh:path rdfs:label .
-
 ns1:labelPerturbedParameterClimateEnsembleSimulationShapeProperty a sh:PropertyShape ;
     ns1:confidence 1e+00 ;
     ns1:support "152"^^xsd:int ;
@@ -3453,26 +2339,6 @@ ns1:labelSingleProjectionProductionShapeProperty a sh:PropertyShape ;
     sh:minCount 1 ;
     sh:path rdfs:label .
 
-ns1:labelSingleProjectionShapeProperty a sh:PropertyShape ;
-    sh:or ( [ ns1:confidence 2.9487e-01 ;
-                ns1:support "151798"^^xsd:int ;
-                sh:NodeKind sh:Literal ;
-                sh:datatype xsd:string ] [ ns1:confidence 7.0513e-01 ;
-                ns1:support "362994"^^xsd:int ;
-                sh:NodeKind sh:Literal ;
-                sh:datatype rdf:langString ] ) ;
-    sh:path rdfs:label .
-
-ns1:labelSocialObjectShapeProperty a sh:PropertyShape ;
-    sh:or ( [ ns1:confidence 2.59e-01 ;
-                ns1:support "152170"^^xsd:int ;
-                sh:NodeKind sh:Literal ;
-                sh:datatype xsd:string ] [ ns1:confidence 7.2867e-01 ;
-                ns1:support "428114"^^xsd:int ;
-                sh:NodeKind sh:Literal ;
-                sh:datatype rdf:langString ] ) ;
-    sh:path rdfs:label .
-
 ns1:labelUnitOfMeasureShapeProperty a sh:PropertyShape ;
     ns1:confidence 8.9189e-01 ;
     ns1:support "132"^^xsd:int ;
@@ -3499,31 +2365,6 @@ ns1:rangeObjectPropertyShapeProperty a sh:PropertyShape ;
     sh:maxCount 1 ;
     sh:node ns1:ClassShape ;
     sh:path rdfs:range .
-
-ns1:refersToScenarioClimateModelIntercomparisonExperimentShapeProperty a sh:PropertyShape ;
-    sh:or ( [ ns1:confidence 5.982e-01 ;
-                ns1:support "399"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class owl:NamedIndividual ] [ ns1:confidence 5.982e-01 ;
-                ns1:support "399"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/ccso/EmissionScenario> ] [ ns1:confidence 5.982e-01 ;
-                ns1:support "399"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/ccso/GreenhouseGasConcentrationPathway> ] [ ns1:confidence 5.982e-01 ;
-                ns1:support "399"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/top-level/Concept> ] [ ns1:confidence 5.982e-01 ;
-                ns1:support "399"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/top-level/Entity> ] [ ns1:confidence 5.982e-01 ;
-                ns1:support "399"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/top-level/Object> ] [ ns1:confidence 5.982e-01 ;
-                ns1:support "399"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/top-level/SocialObject> ] ) ;
-    sh:path <https://w3id.org/hacid/onto/ccso/refersToScenario> .
 
 ns1:refersToScenarioClimateSimulationShapeProperty a sh:PropertyShape ;
     sh:or ( [ ns1:confidence 6.6134e-01 ;
@@ -3575,56 +2416,6 @@ ns1:refersToScenarioConceptShapeProperty a sh:PropertyShape ;
                 sh:class <https://w3id.org/hacid/onto/top-level/SocialObject> ] ) ;
     sh:path <https://w3id.org/hacid/onto/ccso/refersToScenario> .
 
-ns1:refersToScenarioDataConsumingProcessShapeProperty a sh:PropertyShape ;
-    sh:or ( [ ns1:confidence 6.6879e-01 ;
-                ns1:support "2728"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class owl:NamedIndividual ] [ ns1:confidence 6.6879e-01 ;
-                ns1:support "2728"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/ccso/EmissionScenario> ] [ ns1:confidence 6.6879e-01 ;
-                ns1:support "2728"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/ccso/GreenhouseGasConcentrationPathway> ] [ ns1:confidence 6.6879e-01 ;
-                ns1:support "2728"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/top-level/Concept> ] [ ns1:confidence 6.6879e-01 ;
-                ns1:support "2728"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/top-level/Entity> ] [ ns1:confidence 6.6879e-01 ;
-                ns1:support "2728"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/top-level/Object> ] [ ns1:confidence 6.6879e-01 ;
-                ns1:support "2728"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/top-level/SocialObject> ] ) ;
-    sh:path <https://w3id.org/hacid/onto/ccso/refersToScenario> .
-
-ns1:refersToScenarioDataGeneratingProcessShapeProperty a sh:PropertyShape ;
-    sh:or ( [ ns1:confidence 6.5813e-01 ;
-                ns1:support "3290"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class owl:NamedIndividual ] [ ns1:confidence 6.5813e-01 ;
-                ns1:support "3290"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/ccso/EmissionScenario> ] [ ns1:confidence 6.5813e-01 ;
-                ns1:support "3290"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/ccso/GreenhouseGasConcentrationPathway> ] [ ns1:confidence 6.5813e-01 ;
-                ns1:support "3290"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/top-level/Concept> ] [ ns1:confidence 6.5813e-01 ;
-                ns1:support "3290"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/top-level/Entity> ] [ ns1:confidence 6.5813e-01 ;
-                ns1:support "3290"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/top-level/Object> ] [ ns1:confidence 6.5813e-01 ;
-                ns1:support "3290"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/top-level/SocialObject> ] ) ;
-    sh:path <https://w3id.org/hacid/onto/ccso/refersToScenario> .
-
 ns1:refersToScenarioDatasetShapeProperty a sh:PropertyShape ;
     sh:or ( [ ns1:confidence 1.8084e-01 ;
                 ns1:support "103701"^^xsd:int ;
@@ -3646,31 +2437,6 @@ ns1:refersToScenarioDatasetShapeProperty a sh:PropertyShape ;
                 sh:NodeKind sh:IRI ;
                 sh:class <https://w3id.org/hacid/onto/top-level/Object> ] [ ns1:confidence 1.8084e-01 ;
                 ns1:support "103701"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/top-level/SocialObject> ] ) ;
-    sh:path <https://w3id.org/hacid/onto/ccso/refersToScenario> .
-
-ns1:refersToScenarioEnsembleProjectionProductionShapeProperty a sh:PropertyShape ;
-    sh:or ( [ ns1:confidence 6.2211e-01 ;
-                ns1:support "512"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class owl:NamedIndividual ] [ ns1:confidence 6.2211e-01 ;
-                ns1:support "512"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/ccso/EmissionScenario> ] [ ns1:confidence 6.2211e-01 ;
-                ns1:support "512"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/ccso/GreenhouseGasConcentrationPathway> ] [ ns1:confidence 6.2211e-01 ;
-                ns1:support "512"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/top-level/Concept> ] [ ns1:confidence 6.2211e-01 ;
-                ns1:support "512"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/top-level/Entity> ] [ ns1:confidence 6.2211e-01 ;
-                ns1:support "512"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/top-level/Object> ] [ ns1:confidence 6.2211e-01 ;
-                ns1:support "512"^^xsd:int ;
                 sh:NodeKind sh:IRI ;
                 sh:class <https://w3id.org/hacid/onto/top-level/SocialObject> ] ) ;
     sh:path <https://w3id.org/hacid/onto/ccso/refersToScenario> .
@@ -3700,31 +2466,6 @@ ns1:refersToScenarioEnsembleProjectionShapeProperty a sh:PropertyShape ;
                 sh:class <https://w3id.org/hacid/onto/top-level/SocialObject> ] ) ;
     sh:path <https://w3id.org/hacid/onto/ccso/refersToScenario> .
 
-ns1:refersToScenarioEnsembleSimulationShapeProperty a sh:PropertyShape ;
-    sh:or ( [ ns1:confidence 6.6616e-01 ;
-                ns1:support "878"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class owl:NamedIndividual ] [ ns1:confidence 6.6616e-01 ;
-                ns1:support "878"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/ccso/EmissionScenario> ] [ ns1:confidence 6.6616e-01 ;
-                ns1:support "878"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/ccso/GreenhouseGasConcentrationPathway> ] [ ns1:confidence 6.6616e-01 ;
-                ns1:support "878"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/top-level/Concept> ] [ ns1:confidence 6.6616e-01 ;
-                ns1:support "878"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/top-level/Entity> ] [ ns1:confidence 6.6616e-01 ;
-                ns1:support "878"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/top-level/Object> ] [ ns1:confidence 6.6616e-01 ;
-                ns1:support "878"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/top-level/SocialObject> ] ) ;
-    sh:path <https://w3id.org/hacid/onto/ccso/refersToScenario> .
-
 ns1:refersToScenarioEntityShapeProperty a sh:PropertyShape ;
     sh:or ( [ ns1:confidence 1.7968e-01 ;
                 ns1:support "106991"^^xsd:int ;
@@ -3746,81 +2487,6 @@ ns1:refersToScenarioEntityShapeProperty a sh:PropertyShape ;
                 sh:NodeKind sh:IRI ;
                 sh:class <https://w3id.org/hacid/onto/top-level/Object> ] [ ns1:confidence 1.7968e-01 ;
                 ns1:support "106991"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/top-level/SocialObject> ] ) ;
-    sh:path <https://w3id.org/hacid/onto/ccso/refersToScenario> .
-
-ns1:refersToScenarioGlobalClimateSimulationShapeProperty a sh:PropertyShape ;
-    sh:or ( [ ns1:confidence 6.122e-01 ;
-                ns1:support "562"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class owl:NamedIndividual ] [ ns1:confidence 6.122e-01 ;
-                ns1:support "562"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/ccso/EmissionScenario> ] [ ns1:confidence 6.122e-01 ;
-                ns1:support "562"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/ccso/GreenhouseGasConcentrationPathway> ] [ ns1:confidence 6.122e-01 ;
-                ns1:support "562"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/top-level/Concept> ] [ ns1:confidence 6.122e-01 ;
-                ns1:support "562"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/top-level/Entity> ] [ ns1:confidence 6.122e-01 ;
-                ns1:support "562"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/top-level/Object> ] [ ns1:confidence 6.122e-01 ;
-                ns1:support "562"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/top-level/SocialObject> ] ) ;
-    sh:path <https://w3id.org/hacid/onto/ccso/refersToScenario> .
-
-ns1:refersToScenarioObjectShapeProperty a sh:PropertyShape ;
-    sh:or ( [ ns1:confidence 1.7648e-01 ;
-                ns1:support "103701"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class owl:NamedIndividual ] [ ns1:confidence 1.7648e-01 ;
-                ns1:support "103701"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/ccso/EmissionScenario> ] [ ns1:confidence 1.7648e-01 ;
-                ns1:support "103701"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/ccso/GreenhouseGasConcentrationPathway> ] [ ns1:confidence 1.7648e-01 ;
-                ns1:support "103701"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/top-level/Concept> ] [ ns1:confidence 1.7648e-01 ;
-                ns1:support "103701"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/top-level/Entity> ] [ ns1:confidence 1.7648e-01 ;
-                ns1:support "103701"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/top-level/Object> ] [ ns1:confidence 1.7648e-01 ;
-                ns1:support "103701"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/top-level/SocialObject> ] ) ;
-    sh:path <https://w3id.org/hacid/onto/ccso/refersToScenario> .
-
-ns1:refersToScenarioPerturbedParameterClimateEnsembleSimulationShapeProperty a sh:PropertyShape ;
-    sh:or ( [ ns1:confidence 7.3026e-01 ;
-                ns1:support "111"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class owl:NamedIndividual ] [ ns1:confidence 7.3026e-01 ;
-                ns1:support "111"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/ccso/EmissionScenario> ] [ ns1:confidence 7.3026e-01 ;
-                ns1:support "111"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/ccso/GreenhouseGasConcentrationPathway> ] [ ns1:confidence 7.3026e-01 ;
-                ns1:support "111"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/top-level/Concept> ] [ ns1:confidence 7.3026e-01 ;
-                ns1:support "111"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/top-level/Entity> ] [ ns1:confidence 7.3026e-01 ;
-                ns1:support "111"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/top-level/Object> ] [ ns1:confidence 7.3026e-01 ;
-                ns1:support "111"^^xsd:int ;
                 sh:NodeKind sh:IRI ;
                 sh:class <https://w3id.org/hacid/onto/top-level/SocialObject> ] ) ;
     sh:path <https://w3id.org/hacid/onto/ccso/refersToScenario> .
@@ -3875,181 +2541,6 @@ ns1:refersToScenarioProjectionShapeProperty a sh:PropertyShape ;
                 sh:class <https://w3id.org/hacid/onto/top-level/SocialObject> ] ) ;
     sh:path <https://w3id.org/hacid/onto/ccso/refersToScenario> .
 
-ns1:refersToScenarioRescalingShapeProperty a sh:PropertyShape ;
-    sh:or ( [ ns1:confidence 6.7272e-01 ;
-                ns1:support "2666"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class owl:NamedIndividual ] [ ns1:confidence 6.7272e-01 ;
-                ns1:support "2666"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/ccso/EmissionScenario> ] [ ns1:confidence 6.7272e-01 ;
-                ns1:support "2666"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/ccso/GreenhouseGasConcentrationPathway> ] [ ns1:confidence 6.7272e-01 ;
-                ns1:support "2666"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/top-level/Concept> ] [ ns1:confidence 6.7272e-01 ;
-                ns1:support "2666"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/top-level/Entity> ] [ ns1:confidence 6.7272e-01 ;
-                ns1:support "2666"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/top-level/Object> ] [ ns1:confidence 6.7272e-01 ;
-                ns1:support "2666"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/top-level/SocialObject> ] ) ;
-    sh:path <https://w3id.org/hacid/onto/ccso/refersToScenario> .
-
-ns1:refersToScenarioScenarioBasedProjectionShapeProperty a sh:PropertyShape ;
-    sh:or ( [ ns1:confidence 6.5986e-01 ;
-                ns1:support "103672"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class owl:NamedIndividual ] [ ns1:confidence 6.5986e-01 ;
-                ns1:support "103672"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/ccso/EmissionScenario> ] [ ns1:confidence 6.5986e-01 ;
-                ns1:support "103672"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/ccso/GreenhouseGasConcentrationPathway> ] [ ns1:confidence 6.5986e-01 ;
-                ns1:support "103672"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/top-level/Concept> ] [ ns1:confidence 6.5986e-01 ;
-                ns1:support "103672"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/top-level/Entity> ] [ ns1:confidence 6.5986e-01 ;
-                ns1:support "103672"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/top-level/Object> ] [ ns1:confidence 6.5986e-01 ;
-                ns1:support "103672"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/top-level/SocialObject> ] ) ;
-    sh:path <https://w3id.org/hacid/onto/ccso/refersToScenario> .
-
-ns1:refersToScenarioSimulationShapeProperty a sh:PropertyShape ;
-    sh:or ( [ ns1:confidence 6.6134e-01 ;
-                ns1:support "3228"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class owl:NamedIndividual ] [ ns1:confidence 6.6134e-01 ;
-                ns1:support "3228"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/ccso/EmissionScenario> ] [ ns1:confidence 6.6134e-01 ;
-                ns1:support "3228"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/ccso/GreenhouseGasConcentrationPathway> ] [ ns1:confidence 6.6134e-01 ;
-                ns1:support "3228"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/top-level/Concept> ] [ ns1:confidence 6.6134e-01 ;
-                ns1:support "3228"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/top-level/Entity> ] [ ns1:confidence 6.6134e-01 ;
-                ns1:support "3228"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/top-level/Object> ] [ ns1:confidence 6.6134e-01 ;
-                ns1:support "3228"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/top-level/SocialObject> ] ) ;
-    sh:path <https://w3id.org/hacid/onto/ccso/refersToScenario> .
-
-ns1:refersToScenarioSingleProjectionProductionShapeProperty a sh:PropertyShape ;
-    sh:or ( [ ns1:confidence 6.6526e-01 ;
-                ns1:support "1896"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class owl:NamedIndividual ] [ ns1:confidence 6.6526e-01 ;
-                ns1:support "1896"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/ccso/EmissionScenario> ] [ ns1:confidence 6.6526e-01 ;
-                ns1:support "1896"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/ccso/GreenhouseGasConcentrationPathway> ] [ ns1:confidence 6.6526e-01 ;
-                ns1:support "1896"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/top-level/Concept> ] [ ns1:confidence 6.6526e-01 ;
-                ns1:support "1896"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/top-level/Entity> ] [ ns1:confidence 6.6526e-01 ;
-                ns1:support "1896"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/top-level/Object> ] [ ns1:confidence 6.6526e-01 ;
-                ns1:support "1896"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/top-level/SocialObject> ] ) ;
-    sh:path <https://w3id.org/hacid/onto/ccso/refersToScenario> .
-
-ns1:refersToScenarioSingleProjectionShapeProperty a sh:PropertyShape ;
-    sh:or ( [ ns1:confidence 1.9858e-01 ;
-                ns1:support "102226"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class owl:NamedIndividual ] [ ns1:confidence 1.9858e-01 ;
-                ns1:support "102226"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/ccso/EmissionScenario> ] [ ns1:confidence 1.9858e-01 ;
-                ns1:support "102226"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/ccso/GreenhouseGasConcentrationPathway> ] [ ns1:confidence 1.9858e-01 ;
-                ns1:support "102226"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/top-level/Concept> ] [ ns1:confidence 1.9858e-01 ;
-                ns1:support "102226"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/top-level/Entity> ] [ ns1:confidence 1.9858e-01 ;
-                ns1:support "102226"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/top-level/Object> ] [ ns1:confidence 1.9858e-01 ;
-                ns1:support "102226"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/top-level/SocialObject> ] ) ;
-    sh:path <https://w3id.org/hacid/onto/ccso/refersToScenario> .
-
-ns1:refersToScenarioSingleSimulationShapeProperty a sh:PropertyShape ;
-    sh:or ( [ ns1:confidence 6.7055e-01 ;
-                ns1:support "1840"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class owl:NamedIndividual ] [ ns1:confidence 6.7055e-01 ;
-                ns1:support "1840"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/ccso/EmissionScenario> ] [ ns1:confidence 6.7055e-01 ;
-                ns1:support "1840"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/ccso/GreenhouseGasConcentrationPathway> ] [ ns1:confidence 6.7055e-01 ;
-                ns1:support "1840"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/top-level/Concept> ] [ ns1:confidence 6.7055e-01 ;
-                ns1:support "1840"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/top-level/Entity> ] [ ns1:confidence 6.7055e-01 ;
-                ns1:support "1840"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/top-level/Object> ] [ ns1:confidence 6.7055e-01 ;
-                ns1:support "1840"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/top-level/SocialObject> ] ) ;
-    sh:path <https://w3id.org/hacid/onto/ccso/refersToScenario> .
-
-ns1:refersToScenarioSocialObjectShapeProperty a sh:PropertyShape ;
-    sh:or ( [ ns1:confidence 1.765e-01 ;
-                ns1:support "103701"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class owl:NamedIndividual ] [ ns1:confidence 1.765e-01 ;
-                ns1:support "103701"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/ccso/EmissionScenario> ] [ ns1:confidence 1.765e-01 ;
-                ns1:support "103701"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/ccso/GreenhouseGasConcentrationPathway> ] [ ns1:confidence 1.765e-01 ;
-                ns1:support "103701"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/top-level/Concept> ] [ ns1:confidence 1.765e-01 ;
-                ns1:support "103701"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/top-level/Entity> ] [ ns1:confidence 1.765e-01 ;
-                ns1:support "103701"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/top-level/Object> ] [ ns1:confidence 1.765e-01 ;
-                ns1:support "103701"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/top-level/SocialObject> ] ) ;
-    sh:path <https://w3id.org/hacid/onto/ccso/refersToScenario> .
-
 ns1:refersToScenarioVariableShapeProperty a sh:PropertyShape ;
     sh:or ( [ ns1:confidence 1.774e-01 ;
                 ns1:support "103701"^^xsd:int ;
@@ -4092,19 +2583,6 @@ ns1:subPropertyOfObjectPropertyShapeProperty a sh:PropertyShape ;
     sh:maxCount 1 ;
     sh:node ns1:ObjectPropertyShape ;
     sh:path rdfs:subPropertyOf .
-
-ns1:usesModelClimateModelIntercomparisonExperimentShapeProperty a sh:PropertyShape ;
-    sh:or ( [ ns1:confidence 6.5217e-01 ;
-                ns1:support "435"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/top-level/Entity> ] [ ns1:confidence 6.5217e-01 ;
-                ns1:support "435"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/ccso/ClimateModel> ] [ ns1:confidence 6.5217e-01 ;
-                ns1:support "435"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/ccso/RegionalClimateModel> ] ) ;
-    sh:path <https://w3id.org/hacid/onto/ccso/usesModel> .
 
 ns1:usesModelClimateSimulationShapeProperty a sh:PropertyShape ;
     sh:node ns1:ClimateModelShape ;
@@ -4154,60 +2632,8 @@ ns1:usesModelDataGeneratingProcessShapeProperty a sh:PropertyShape ;
                 sh:class <https://w3id.org/hacid/onto/ccso/RegionalClimateModel> ] ) ;
     sh:path <https://w3id.org/hacid/onto/ccso/usesModel> .
 
-ns1:usesModelEnsembleProjectionProductionShapeProperty a sh:PropertyShape ;
-    sh:or ( [ ns1:confidence 7.1324e-01 ;
-                ns1:support "587"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/top-level/Entity> ] [ ns1:confidence 7.1324e-01 ;
-                ns1:support "587"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/ccso/ClimateModel> ] [ ns1:confidence 1.8469e-01 ;
-                ns1:support "152"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/ccso/GlobalClimateModel> ] [ ns1:confidence 5.2855e-01 ;
-                ns1:support "435"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/ccso/RegionalClimateModel> ] ) ;
-    sh:path <https://w3id.org/hacid/onto/ccso/usesModel> .
-
-ns1:usesModelEnsembleSimulationShapeProperty a sh:PropertyShape ;
-    sh:or ( [ ns1:confidence 9.9621e-01 ;
-                ns1:support "1313"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/top-level/Entity> ] [ ns1:confidence 9.9621e-01 ;
-                ns1:support "1313"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/ccso/ClimateModel> ] [ ns1:confidence 9.9621e-01 ;
-                ns1:support "1313"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/ccso/RegionalClimateModel> ] ) ;
-    sh:path <https://w3id.org/hacid/onto/ccso/usesModel> .
-
-ns1:usesModelGlobalClimateSimulationShapeProperty a sh:PropertyShape ;
-    sh:or ( [ ns1:confidence 8.9651e-01 ;
-                ns1:support "823"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/top-level/Entity> ] [ ns1:confidence 8.9651e-01 ;
-                ns1:support "823"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/ccso/ClimateModel> ] [ ns1:confidence 8.9651e-01 ;
-                ns1:support "823"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/ccso/GlobalClimateModel> ] ) ;
-    sh:path <https://w3id.org/hacid/onto/ccso/usesModel> .
-
 ns1:usesModelPerturbedParameterClimateEnsembleSimulationShapeProperty a sh:PropertyShape ;
     sh:minCount 1 ;
-    sh:or ( [ ns1:confidence 1e+00 ;
-                ns1:support "152"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/top-level/Entity> ] [ ns1:confidence 1e+00 ;
-                ns1:support "152"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/ccso/ClimateModel> ] [ ns1:confidence 1e+00 ;
-                ns1:support "152"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/ccso/GlobalClimateModel> ] ) ;
     sh:path <https://w3id.org/hacid/onto/ccso/usesModel> .
 
 ns1:usesModelProjectionProductionShapeProperty a sh:PropertyShape ;
@@ -4227,66 +2653,8 @@ ns1:usesModelProjectionProductionShapeProperty a sh:PropertyShape ;
                 sh:class <https://w3id.org/hacid/onto/ccso/RegionalClimateModel> ] ) ;
     sh:path <https://w3id.org/hacid/onto/ccso/usesModel> .
 
-ns1:usesModelRescalingShapeProperty a sh:PropertyShape ;
-    sh:or ( [ ns1:confidence 9.6417e-01 ;
-                ns1:support "3821"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/top-level/Entity> ] [ ns1:confidence 9.6417e-01 ;
-                ns1:support "3821"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/ccso/ClimateModel> ] [ ns1:confidence 9.6013e-01 ;
-                ns1:support "3805"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/ccso/RegionalClimateModel> ] ) ;
-    sh:path <https://w3id.org/hacid/onto/ccso/usesModel> .
-
-ns1:usesModelSimulationShapeProperty a sh:PropertyShape ;
-    sh:or ( [ ns1:confidence 9.5144e-01 ;
-                ns1:support "4644"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/top-level/Entity> ] [ ns1:confidence 9.5144e-01 ;
-                ns1:support "4644"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/ccso/ClimateModel> ] [ ns1:confidence 1.6861e-01 ;
-                ns1:support "823"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/ccso/GlobalClimateModel> ] [ ns1:confidence 7.7955e-01 ;
-                ns1:support "3805"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/ccso/RegionalClimateModel> ] ) ;
-    sh:path <https://w3id.org/hacid/onto/ccso/usesModel> .
-
-ns1:usesModelSingleProjectionProductionShapeProperty a sh:PropertyShape ;
-    sh:or ( [ ns1:confidence 9.6281e-01 ;
-                ns1:support "2744"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/top-level/Entity> ] [ ns1:confidence 9.6281e-01 ;
-                ns1:support "2744"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/ccso/ClimateModel> ] [ ns1:confidence 2.3544e-01 ;
-                ns1:support "671"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/ccso/GlobalClimateModel> ] [ ns1:confidence 7.2175e-01 ;
-                ns1:support "2057"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/ccso/RegionalClimateModel> ] ) ;
-    sh:path <https://w3id.org/hacid/onto/ccso/usesModel> .
-
 ns1:usesModelSingleSimulationShapeProperty a sh:PropertyShape ;
     sh:minCount 1 ;
-    sh:or ( [ ns1:confidence 1e+00 ;
-                ns1:support "2744"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/top-level/Entity> ] [ ns1:confidence 1e+00 ;
-                ns1:support "2744"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/ccso/ClimateModel> ] [ ns1:confidence 2.4453e-01 ;
-                ns1:support "671"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/ccso/GlobalClimateModel> ] [ ns1:confidence 7.4964e-01 ;
-                ns1:support "2057"^^xsd:int ;
-                sh:NodeKind sh:IRI ;
-                sh:class <https://w3id.org/hacid/onto/ccso/RegionalClimateModel> ] ) ;
     sh:path <https://w3id.org/hacid/onto/ccso/usesModel> .
 
 ns1:EnsembleProjectionShape a sh:NodeShape ;
@@ -4388,4 +2756,343 @@ ns1:DimensionalSpaceShape a sh:NodeShape ;
         ns1:hasValuesOnDimensionalSpaceShapeProperty,
         ns1:instanceTypeDimensionalSpaceShapeProperty ;
     sh:targetClass <https://w3id.org/hacid/onto/data/DimensionalSpace> .
+
+[] rdf:first [ ns1:confidence 1e+00 ;
+            ns1:support "2850"^^xsd:int ;
+            sh:NodeKind sh:IRI ;
+            sh:class <https://w3id.org/hacid/onto/ccso/Projection> ] ;
+    rdf:rest ( [ ns1:confidence 1e+00 ;
+                ns1:support "2850"^^xsd:int ;
+                sh:NodeKind sh:IRI ;
+                sh:class <https://w3id.org/hacid/onto/data/Variable> ] [ ns1:confidence 9.7263e-01 ;
+                ns1:support "2772"^^xsd:int ;
+                sh:NodeKind sh:IRI ;
+                sh:class <https://w3id.org/hacid/onto/ccso/ScenarioBasedProjection> ] [ ns1:confidence 1e+00 ;
+                ns1:support "2850"^^xsd:int ;
+                sh:NodeKind sh:IRI ;
+                sh:class <https://w3id.org/hacid/onto/data/Dataset> ] [ ns1:confidence 1e+00 ;
+                ns1:support "2850"^^xsd:int ;
+                sh:NodeKind sh:IRI ;
+                sh:class <https://w3id.org/hacid/onto/top-level/Concept> ] [ ns1:confidence 1e+00 ;
+                ns1:support "2850"^^xsd:int ;
+                sh:NodeKind sh:IRI ;
+                sh:class <https://w3id.org/hacid/onto/ccso/SingleProjection> ] [ ns1:confidence 1e+00 ;
+                ns1:support "2850"^^xsd:int ;
+                sh:NodeKind sh:IRI ;
+                sh:class <https://w3id.org/hacid/onto/top-level/Entity> ] [ ns1:confidence 1e+00 ;
+                ns1:support "2850"^^xsd:int ;
+                sh:NodeKind sh:IRI ;
+                sh:class <https://w3id.org/hacid/onto/top-level/Object> ] [ ns1:confidence 1e+00 ;
+                ns1:support "2850"^^xsd:int ;
+                sh:NodeKind sh:IRI ;
+                sh:class <https://w3id.org/hacid/onto/top-level/SocialObject> ] ) .
+
+[] rdf:first [ ns1:confidence 1e+00 ;
+            ns1:support "152"^^xsd:int ;
+            sh:NodeKind sh:IRI ;
+            sh:class <https://w3id.org/hacid/onto/top-level/Entity> ] ;
+    rdf:rest ( [ ns1:confidence 1e+00 ;
+                ns1:support "152"^^xsd:int ;
+                sh:NodeKind sh:IRI ;
+                sh:class <https://w3id.org/hacid/onto/ccso/ClimateModel> ] [ ns1:confidence 1e+00 ;
+                ns1:support "152"^^xsd:int ;
+                sh:NodeKind sh:IRI ;
+                sh:class <https://w3id.org/hacid/onto/ccso/GlobalClimateModel> ] ) .
+
+[] rdf:first [ ns1:confidence 1e+00 ;
+            ns1:support "2744"^^xsd:int ;
+            sh:NodeKind sh:IRI ;
+            sh:class <https://w3id.org/hacid/onto/top-level/Entity> ] ;
+    rdf:rest ( [ ns1:confidence 1e+00 ;
+                ns1:support "2744"^^xsd:int ;
+                sh:NodeKind sh:IRI ;
+                sh:class <https://w3id.org/hacid/onto/ccso/ClimateModel> ] [ ns1:confidence 2.4453e-01 ;
+                ns1:support "671"^^xsd:int ;
+                sh:NodeKind sh:IRI ;
+                sh:class <https://w3id.org/hacid/onto/ccso/GlobalClimateModel> ] [ ns1:confidence 7.4964e-01 ;
+                ns1:support "2057"^^xsd:int ;
+                sh:NodeKind sh:IRI ;
+                sh:class <https://w3id.org/hacid/onto/ccso/RegionalClimateModel> ] ) .
+
+[] rdf:first [ ns1:confidence 8.6807e-01 ;
+            ns1:support "579"^^xsd:int ;
+            sh:NodeKind sh:IRI ;
+            sh:class <https://w3id.org/hacid/onto/top-level/Entity> ] ;
+    rdf:rest ( [ ns1:confidence 8.6057e-01 ;
+                ns1:support "574"^^xsd:int ;
+                sh:NodeKind sh:IRI ;
+                sh:class <https://w3id.org/hacid/onto/ccso/Downscaling> ] [ ns1:confidence 8.6057e-01 ;
+                ns1:support "574"^^xsd:int ;
+                sh:NodeKind sh:IRI ;
+                sh:class <https://w3id.org/hacid/onto/ccso/DynamicalDownscaling> ] [ ns1:confidence 8.6057e-01 ;
+                ns1:support "574"^^xsd:int ;
+                sh:NodeKind sh:IRI ;
+                sh:class <https://w3id.org/hacid/onto/ccso/Rescaling> ] [ ns1:confidence 6.5217e-01 ;
+                ns1:support "435"^^xsd:int ;
+                sh:NodeKind sh:IRI ;
+                sh:class <https://w3id.org/hacid/onto/ccso/EnsembleSimulation> ] [ ns1:confidence 2.084e-01 ;
+                ns1:support "139"^^xsd:int ;
+                sh:NodeKind sh:IRI ;
+                sh:class <https://w3id.org/hacid/onto/ccso/ClimateModelIntercomparisonExperiment> ] [ ns1:confidence 8.6807e-01 ;
+                ns1:support "579"^^xsd:int ;
+                sh:NodeKind sh:IRI ;
+                sh:class <https://w3id.org/hacid/onto/ccso/ClimateSimulation> ] [ ns1:confidence 8.6807e-01 ;
+                ns1:support "579"^^xsd:int ;
+                sh:NodeKind sh:IRI ;
+                sh:class <https://w3id.org/hacid/onto/ccso/ProjectionProduction> ] [ ns1:confidence 8.6807e-01 ;
+                ns1:support "579"^^xsd:int ;
+                sh:NodeKind sh:IRI ;
+                sh:class <https://w3id.org/hacid/onto/ccso/Simulation> ] [ ns1:confidence 8.6057e-01 ;
+                ns1:support "574"^^xsd:int ;
+                sh:NodeKind sh:IRI ;
+                sh:class <https://w3id.org/hacid/onto/ccso/ProjectionTransformation> ] [ ns1:confidence 8.6057e-01 ;
+                ns1:support "574"^^xsd:int ;
+                sh:NodeKind sh:IRI ;
+                sh:class <https://w3id.org/hacid/onto/data/DataConsumingProcess> ] [ ns1:confidence 8.6807e-01 ;
+                ns1:support "579"^^xsd:int ;
+                sh:NodeKind sh:IRI ;
+                sh:class <https://w3id.org/hacid/onto/data/DataGeneratingProcess> ] [ ns1:confidence 8.6057e-01 ;
+                ns1:support "574"^^xsd:int ;
+                sh:NodeKind sh:IRI ;
+                sh:class <https://w3id.org/hacid/onto/data/DataTransformation> ] [ ns1:confidence 2.1589e-01 ;
+                ns1:support "144"^^xsd:int ;
+                sh:NodeKind sh:IRI ;
+                sh:class <https://w3id.org/hacid/onto/ccso/EnsembleProjectionProduction> ] ) .
+
+[] rdf:first [ ns1:confidence 1e+00 ;
+            ns1:support "152"^^xsd:int ;
+            sh:NodeKind sh:IRI ;
+            sh:class <https://w3id.org/hacid/onto/ccso/ClimateSimulation> ] ;
+    rdf:rest ( [ ns1:confidence 1e+00 ;
+                ns1:support "152"^^xsd:int ;
+                sh:NodeKind sh:IRI ;
+                sh:class <https://w3id.org/hacid/onto/ccso/SingleSimulation> ] [ ns1:confidence 1e+00 ;
+                ns1:support "152"^^xsd:int ;
+                sh:NodeKind sh:IRI ;
+                sh:class <https://w3id.org/hacid/onto/ccso/GlobalClimateSimulation> ] [ ns1:confidence 1e+00 ;
+                ns1:support "152"^^xsd:int ;
+                sh:NodeKind sh:IRI ;
+                sh:class <https://w3id.org/hacid/onto/top-level/Entity> ] [ ns1:confidence 1e+00 ;
+                ns1:support "152"^^xsd:int ;
+                sh:NodeKind sh:IRI ;
+                sh:class <https://w3id.org/hacid/onto/ccso/ProjectionProduction> ] [ ns1:confidence 1e+00 ;
+                ns1:support "152"^^xsd:int ;
+                sh:NodeKind sh:IRI ;
+                sh:class <https://w3id.org/hacid/onto/ccso/Simulation> ] [ ns1:confidence 1e+00 ;
+                ns1:support "152"^^xsd:int ;
+                sh:NodeKind sh:IRI ;
+                sh:class <https://w3id.org/hacid/onto/ccso/SingleProjectionProduction> ] [ ns1:confidence 1e+00 ;
+                ns1:support "152"^^xsd:int ;
+                sh:NodeKind sh:IRI ;
+                sh:class <https://w3id.org/hacid/onto/data/DataGeneratingProcess> ] ) .
+
+[] rdf:first [ ns1:confidence 3.3182e-01 ;
+            ns1:support "1315"^^xsd:int ;
+            sh:NodeKind sh:IRI ;
+            sh:class <https://w3id.org/hacid/onto/ccso/SingleSimulation> ] ;
+    rdf:rest ( [ ns1:confidence 4.7666e-01 ;
+                ns1:support "1889"^^xsd:int ;
+                sh:NodeKind sh:IRI ;
+                sh:class <https://w3id.org/hacid/onto/top-level/Entity> ] [ ns1:confidence 4.7666e-01 ;
+                ns1:support "1889"^^xsd:int ;
+                sh:NodeKind sh:IRI ;
+                sh:class <https://w3id.org/hacid/onto/ccso/Downscaling> ] [ ns1:confidence 4.7666e-01 ;
+                ns1:support "1889"^^xsd:int ;
+                sh:NodeKind sh:IRI ;
+                sh:class <https://w3id.org/hacid/onto/ccso/DynamicalDownscaling> ] [ ns1:confidence 4.7666e-01 ;
+                ns1:support "1889"^^xsd:int ;
+                sh:NodeKind sh:IRI ;
+                sh:class <https://w3id.org/hacid/onto/ccso/Rescaling> ] [ ns1:confidence 1.0977e-01 ;
+                ns1:support "435"^^xsd:int ;
+                sh:NodeKind sh:IRI ;
+                sh:class <https://w3id.org/hacid/onto/ccso/EnsembleSimulation> ] [ ns1:confidence 4.7666e-01 ;
+                ns1:support "1889"^^xsd:int ;
+                sh:NodeKind sh:IRI ;
+                sh:class <https://w3id.org/hacid/onto/ccso/ClimateSimulation> ] [ ns1:confidence 4.7666e-01 ;
+                ns1:support "1889"^^xsd:int ;
+                sh:NodeKind sh:IRI ;
+                sh:class <https://w3id.org/hacid/onto/ccso/ProjectionProduction> ] [ ns1:confidence 4.7666e-01 ;
+                ns1:support "1889"^^xsd:int ;
+                sh:NodeKind sh:IRI ;
+                sh:class <https://w3id.org/hacid/onto/ccso/Simulation> ] [ ns1:confidence 4.7666e-01 ;
+                ns1:support "1889"^^xsd:int ;
+                sh:NodeKind sh:IRI ;
+                sh:class <https://w3id.org/hacid/onto/ccso/ProjectionTransformation> ] [ ns1:confidence 3.3182e-01 ;
+                ns1:support "1315"^^xsd:int ;
+                sh:NodeKind sh:IRI ;
+                sh:class <https://w3id.org/hacid/onto/ccso/SingleProjectionProduction> ] [ ns1:confidence 4.7666e-01 ;
+                ns1:support "1889"^^xsd:int ;
+                sh:NodeKind sh:IRI ;
+                sh:class <https://w3id.org/hacid/onto/data/DataConsumingProcess> ] [ ns1:confidence 4.7666e-01 ;
+                ns1:support "1889"^^xsd:int ;
+                sh:NodeKind sh:IRI ;
+                sh:class <https://w3id.org/hacid/onto/data/DataGeneratingProcess> ] [ ns1:confidence 4.7666e-01 ;
+                ns1:support "1889"^^xsd:int ;
+                sh:NodeKind sh:IRI ;
+                sh:class <https://w3id.org/hacid/onto/data/DataTransformation> ] ) .
+
+[] rdf:first [ ns1:confidence 3.0096e-01 ;
+            ns1:support "1469"^^xsd:int ;
+            sh:NodeKind sh:IRI ;
+            sh:class <https://w3id.org/hacid/onto/ccso/SingleSimulation> ] ;
+    rdf:rest ( [ ns1:confidence 4.1959e-01 ;
+                ns1:support "2048"^^xsd:int ;
+                sh:NodeKind sh:IRI ;
+                sh:class <https://w3id.org/hacid/onto/top-level/Entity> ] [ ns1:confidence 3.8701e-01 ;
+                ns1:support "1889"^^xsd:int ;
+                sh:NodeKind sh:IRI ;
+                sh:class <https://w3id.org/hacid/onto/ccso/Downscaling> ] [ ns1:confidence 3.8701e-01 ;
+                ns1:support "1889"^^xsd:int ;
+                sh:NodeKind sh:IRI ;
+                sh:class <https://w3id.org/hacid/onto/ccso/DynamicalDownscaling> ] [ ns1:confidence 3.8701e-01 ;
+                ns1:support "1889"^^xsd:int ;
+                sh:NodeKind sh:IRI ;
+                sh:class <https://w3id.org/hacid/onto/ccso/Rescaling> ] [ ns1:confidence 4.1959e-01 ;
+                ns1:support "2048"^^xsd:int ;
+                sh:NodeKind sh:IRI ;
+                sh:class <https://w3id.org/hacid/onto/ccso/ClimateSimulation> ] [ ns1:confidence 4.1959e-01 ;
+                ns1:support "2048"^^xsd:int ;
+                sh:NodeKind sh:IRI ;
+                sh:class <https://w3id.org/hacid/onto/ccso/ProjectionProduction> ] [ ns1:confidence 4.1959e-01 ;
+                ns1:support "2048"^^xsd:int ;
+                sh:NodeKind sh:IRI ;
+                sh:class <https://w3id.org/hacid/onto/ccso/Simulation> ] [ ns1:confidence 3.8701e-01 ;
+                ns1:support "1889"^^xsd:int ;
+                sh:NodeKind sh:IRI ;
+                sh:class <https://w3id.org/hacid/onto/ccso/ProjectionTransformation> ] [ ns1:confidence 3.0096e-01 ;
+                ns1:support "1469"^^xsd:int ;
+                sh:NodeKind sh:IRI ;
+                sh:class <https://w3id.org/hacid/onto/ccso/SingleProjectionProduction> ] [ ns1:confidence 3.8701e-01 ;
+                ns1:support "1889"^^xsd:int ;
+                sh:NodeKind sh:IRI ;
+                sh:class <https://w3id.org/hacid/onto/data/DataConsumingProcess> ] [ ns1:confidence 4.1959e-01 ;
+                ns1:support "2048"^^xsd:int ;
+                sh:NodeKind sh:IRI ;
+                sh:class <https://w3id.org/hacid/onto/data/DataGeneratingProcess> ] [ ns1:confidence 3.8701e-01 ;
+                ns1:support "1889"^^xsd:int ;
+                sh:NodeKind sh:IRI ;
+                sh:class <https://w3id.org/hacid/onto/data/DataTransformation> ] ) .
+
+[] rdf:first [ ns1:confidence 8.9307e-01 ;
+            ns1:support "735"^^xsd:int ;
+            sh:NodeKind sh:IRI ;
+            sh:class <https://w3id.org/hacid/onto/ccso/EnsembleProjection> ] ;
+    rdf:rest ( [ ns1:confidence 8.9307e-01 ;
+                ns1:support "735"^^xsd:int ;
+                sh:NodeKind sh:IRI ;
+                sh:class <https://w3id.org/hacid/onto/ccso/Projection> ] [ ns1:confidence 8.9307e-01 ;
+                ns1:support "735"^^xsd:int ;
+                sh:NodeKind sh:IRI ;
+                sh:class <https://w3id.org/hacid/onto/data/Variable> ] [ ns1:confidence 8.8943e-01 ;
+                ns1:support "732"^^xsd:int ;
+                sh:NodeKind sh:IRI ;
+                sh:class <https://w3id.org/hacid/onto/ccso/ScenarioBasedProjection> ] [ ns1:confidence 8.9307e-01 ;
+                ns1:support "735"^^xsd:int ;
+                sh:NodeKind sh:IRI ;
+                sh:class <https://w3id.org/hacid/onto/data/Dataset> ] [ ns1:confidence 8.9307e-01 ;
+                ns1:support "735"^^xsd:int ;
+                sh:NodeKind sh:IRI ;
+                sh:class <https://w3id.org/hacid/onto/top-level/Concept> ] [ ns1:confidence 8.9307e-01 ;
+                ns1:support "735"^^xsd:int ;
+                sh:NodeKind sh:IRI ;
+                sh:class <https://w3id.org/hacid/onto/top-level/Entity> ] [ ns1:confidence 8.9307e-01 ;
+                ns1:support "735"^^xsd:int ;
+                sh:NodeKind sh:IRI ;
+                sh:class <https://w3id.org/hacid/onto/top-level/Object> ] [ ns1:confidence 8.9307e-01 ;
+                ns1:support "735"^^xsd:int ;
+                sh:NodeKind sh:IRI ;
+                sh:class <https://w3id.org/hacid/onto/top-level/SocialObject> ] ) .
+
+[] rdf:first [ ns1:confidence 1e+00 ;
+            ns1:support "1318"^^xsd:int ;
+            sh:NodeKind sh:IRI ;
+            sh:class <https://w3id.org/hacid/onto/ccso/EnsembleProjection> ] ;
+    rdf:rest ( [ ns1:confidence 1e+00 ;
+                ns1:support "1318"^^xsd:int ;
+                sh:NodeKind sh:IRI ;
+                sh:class <https://w3id.org/hacid/onto/ccso/Projection> ] [ ns1:confidence 1e+00 ;
+                ns1:support "1318"^^xsd:int ;
+                sh:NodeKind sh:IRI ;
+                sh:class <https://w3id.org/hacid/onto/ccso/ScenarioBasedProjection> ] [ ns1:confidence 1e+00 ;
+                ns1:support "1318"^^xsd:int ;
+                sh:NodeKind sh:IRI ;
+                sh:class <https://w3id.org/hacid/onto/data/Variable> ] [ ns1:confidence 1e+00 ;
+                ns1:support "1318"^^xsd:int ;
+                sh:NodeKind sh:IRI ;
+                sh:class <https://w3id.org/hacid/onto/data/Dataset> ] [ ns1:confidence 1e+00 ;
+                ns1:support "1318"^^xsd:int ;
+                sh:NodeKind sh:IRI ;
+                sh:class <https://w3id.org/hacid/onto/top-level/Concept> ] [ ns1:confidence 1e+00 ;
+                ns1:support "1318"^^xsd:int ;
+                sh:NodeKind sh:IRI ;
+                sh:class <https://w3id.org/hacid/onto/top-level/Entity> ] [ ns1:confidence 1e+00 ;
+                ns1:support "1318"^^xsd:int ;
+                sh:NodeKind sh:IRI ;
+                sh:class <https://w3id.org/hacid/onto/top-level/Object> ] [ ns1:confidence 1e+00 ;
+                ns1:support "1318"^^xsd:int ;
+                sh:NodeKind sh:IRI ;
+                sh:class <https://w3id.org/hacid/onto/top-level/SocialObject> ] ) .
+
+[] rdf:first [ ns1:confidence 1e+00 ;
+            ns1:support "152"^^xsd:int ;
+            sh:NodeKind sh:IRI ;
+            sh:class <https://w3id.org/hacid/onto/ccso/EnsembleProjection> ] ;
+    rdf:rest ( [ ns1:confidence 1e+00 ;
+                ns1:support "152"^^xsd:int ;
+                sh:NodeKind sh:IRI ;
+                sh:class <https://w3id.org/hacid/onto/ccso/Projection> ] [ ns1:confidence 1e+00 ;
+                ns1:support "152"^^xsd:int ;
+                sh:NodeKind sh:IRI ;
+                sh:class <https://w3id.org/hacid/onto/ccso/ScenarioBasedProjection> ] [ ns1:confidence 1e+00 ;
+                ns1:support "152"^^xsd:int ;
+                sh:NodeKind sh:IRI ;
+                sh:class <https://w3id.org/hacid/onto/data/Variable> ] [ ns1:confidence 1e+00 ;
+                ns1:support "152"^^xsd:int ;
+                sh:NodeKind sh:IRI ;
+                sh:class <https://w3id.org/hacid/onto/data/Dataset> ] [ ns1:confidence 1e+00 ;
+                ns1:support "152"^^xsd:int ;
+                sh:NodeKind sh:IRI ;
+                sh:class <https://w3id.org/hacid/onto/top-level/Concept> ] [ ns1:confidence 1e+00 ;
+                ns1:support "152"^^xsd:int ;
+                sh:NodeKind sh:IRI ;
+                sh:class <https://w3id.org/hacid/onto/top-level/Entity> ] [ ns1:confidence 1e+00 ;
+                ns1:support "152"^^xsd:int ;
+                sh:NodeKind sh:IRI ;
+                sh:class <https://w3id.org/hacid/onto/top-level/Object> ] [ ns1:confidence 1e+00 ;
+                ns1:support "152"^^xsd:int ;
+                sh:NodeKind sh:IRI ;
+                sh:class <https://w3id.org/hacid/onto/top-level/SocialObject> ] ) .
+
+[] rdf:first [ ns1:confidence 4.1979e-01 ;
+            ns1:support "2049"^^xsd:int ;
+            sh:NodeKind sh:IRI ;
+            sh:class <https://w3id.org/hacid/onto/ccso/EnsembleProjection> ] ;
+    rdf:rest ( [ ns1:confidence 9.8197e-01 ;
+                ns1:support "4793"^^xsd:int ;
+                sh:NodeKind sh:IRI ;
+                sh:class <https://w3id.org/hacid/onto/ccso/Projection> ] [ ns1:confidence 9.8197e-01 ;
+                ns1:support "4793"^^xsd:int ;
+                sh:NodeKind sh:IRI ;
+                sh:class <https://w3id.org/hacid/onto/ccso/ScenarioBasedProjection> ] [ ns1:confidence 9.8197e-01 ;
+                ns1:support "4793"^^xsd:int ;
+                sh:NodeKind sh:IRI ;
+                sh:class <https://w3id.org/hacid/onto/data/Variable> ] [ ns1:confidence 9.8197e-01 ;
+                ns1:support "4793"^^xsd:int ;
+                sh:NodeKind sh:IRI ;
+                sh:class <https://w3id.org/hacid/onto/data/Dataset> ] [ ns1:confidence 9.8197e-01 ;
+                ns1:support "4793"^^xsd:int ;
+                sh:NodeKind sh:IRI ;
+                sh:class <https://w3id.org/hacid/onto/top-level/Concept> ] [ ns1:confidence 9.8197e-01 ;
+                ns1:support "4793"^^xsd:int ;
+                sh:NodeKind sh:IRI ;
+                sh:class <https://w3id.org/hacid/onto/top-level/Entity> ] [ ns1:confidence 5.6218e-01 ;
+                ns1:support "2744"^^xsd:int ;
+                sh:NodeKind sh:IRI ;
+                sh:class <https://w3id.org/hacid/onto/ccso/SingleProjection> ] [ ns1:confidence 9.8197e-01 ;
+                ns1:support "4793"^^xsd:int ;
+                sh:NodeKind sh:IRI ;
+                sh:class <https://w3id.org/hacid/onto/top-level/Object> ] [ ns1:confidence 9.8197e-01 ;
+                ns1:support "4793"^^xsd:int ;
+                sh:NodeKind sh:IRI ;
+                sh:class <https://w3id.org/hacid/onto/top-level/SocialObject> ] ) .
 
