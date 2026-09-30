@@ -2,7 +2,7 @@
 
 Shape discovery tools learn one shape per class, independently of the others. When the class
 hierarchy is visible (the `subclass` and `rdfs` inference regimes, see [inference.md](inference.md)),
-a constraint that holds for a class `D` is learned again for every subclass of `D`. On CCKG, 82–91%
+a constraint that holds for a class `D` is learned again for every subclass of `D`. On CCKG, 79–91%
 of the (class, property) pairs constrained under `subclass` repeat a pair constrained on a
 superclass. *Factoring* removes from each class's shape the constraints that its superclasses'
 shapes already impose. This note defines it, proves that it does not change validation results
