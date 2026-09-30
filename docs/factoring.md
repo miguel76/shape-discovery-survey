@@ -170,11 +170,12 @@ enough here, because any missed implication just leaves a redundant constraint i
     covered, are all detected.
 - [`tests/test_factor.py`](../tests/test_factor.py) runs random end-to-end trials.
   - Each trial builds a random hierarchy with an equivalence cycle, and random shapes with
-    shared property shapes, `sh:node` references, closed shapes and node-level constraints.
+    shared property shapes, annotated `sh:or` members, `sh:node` references, closed shapes and
+    node-level constraints.
   - The data has types materialised along the hierarchy.
   - Each trial checks that `V_S(G) = V_S'(G)`. It also checks each removal on its own: validated
     alone, every value that violates the removed constraint must violate one of its premises.
-  - 3,000 trials (seeds 3, 7 and 11) found no counterexample, with 12,786 removals in total (about 4
+  - 3,000 trials (seeds 3, 7 and 11) found no counterexample, with 12,127 removals in total (about 4
     per trial), each checked on its own.
 - The pipeline factors every run under `subclass` and `rdfs` and validates the KG against both
   versions. When the original run's validation stopped on a random sample, the `+factored` run is
