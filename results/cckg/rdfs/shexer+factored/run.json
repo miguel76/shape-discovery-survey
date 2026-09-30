@@ -1,0 +1,18 @@
+{
+  "tool": "shexer",
+  "mode": "file",
+  "source": "work/cckg/rdfs/data.nt",
+  "command": [
+    "tools/shexer/run.sh",
+    "file",
+    "work/cckg/rdfs/data.nt",
+    "results/cckg/rdfs/shexer"
+  ],
+  "exit_code": 0,
+  "timed_out": false,
+  "wall_seconds": 552.01,
+  "cpu_seconds": 544.38,
+  "peak_rss_mb": 6325.8,
+  "has_output": true,
+  "factored_from": "shexer"
+}

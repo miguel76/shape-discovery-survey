@@ -1,0 +1,18 @@
+{
+  "tool": "qse",
+  "mode": "file",
+  "source": "work/cckg/rdfs/data.nt",
+  "command": [
+    "tools/qse/run.sh",
+    "file",
+    "work/cckg/rdfs/data.nt",
+    "results/cckg/rdfs/qse"
+  ],
+  "exit_code": 0,
+  "timed_out": false,
+  "wall_seconds": 153.85,
+  "cpu_seconds": 248.95,
+  "peak_rss_mb": 8467.5,
+  "has_output": true,
+  "factored_from": "qse"
+}
