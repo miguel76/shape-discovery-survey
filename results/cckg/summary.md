@@ -8,11 +8,14 @@ Each cell: node shapes / property shapes; (target class, property) pairs constra
 
 | run | none | subclass | rdfs |
 |---|---|---|---|
-| linkml-schema-automator | 59 / 434 shapes, 375 pairs (130 also on a superclass); 100.0% of 594,980 focus nodes flagged, 15.26 violations per node | no output | no output |
-| qse | 59 / 375 shapes, 316 pairs (96 also on a superclass); 99.6% of 594,982 focus nodes flagged, 10.44 violations per node | 88 / 870 shapes, 788 pairs (644 also on a superclass); 100.0% of a sample of 94,309 focus nodes flagged, 143.08 violations per node | 91 / 1202 shapes, 1118 pairs (960 also on a superclass); 100.0% of a sample of 11,334 focus nodes flagged, 187.35 violations per node |
-| qse-pruned | 21 / 124 shapes, 103 pairs (14 also on a superclass); 98.6% of 594,106 focus nodes flagged, 6.08 violations per node | 45 / 290 shapes, 249 pairs (198 also on a superclass); 100.0% of a sample of 301,188 focus nodes flagged, 103.10 violations per node | 47 / 444 shapes, 401 pairs (342 also on a superclass); 91.6% of a sample of 13,885 focus nodes flagged, 178.37 violations per node |
-| shacl-play | 47 / 238 shapes, 238 pairs (96 also on a superclass); 19.3% of 594,528 focus nodes flagged, 0.50 violations per node | 77 / 710 shapes, 710 pairs (644 also on a superclass); 19.3% of 594,528 focus nodes flagged, 2.64 violations per node | 79 / 1040 shapes, 1040 pairs (960 also on a superclass); 0.0% of 654,288 focus nodes flagged, 0.00 violations per node |
-| shacl-play@endpoint | 47 / 238 shapes, 238 pairs (96 also on a superclass); 19.3% of 594,528 focus nodes flagged, 0.50 violations per node | 77 / 710 shapes, 710 pairs (644 also on a superclass); 19.3% of 594,528 focus nodes flagged, 2.64 violations per node | - |
-| shaclgen | 59 / 92 shapes, 316 pairs (96 also on a superclass); 19.3% of 594,982 focus nodes flagged, 0.50 violations per node | 89 / 92 shapes, 788 pairs (644 also on a superclass); 19.3% of 594,982 focus nodes flagged, 2.64 violations per node | no output |
-| shexer | 59 / 425 shapes, 316 pairs (96 also on a superclass); 99.1% of 594,982 focus nodes flagged, 4.64 violations per node | 89 / 1788 shapes, 788 pairs (644 also on a superclass); 100.0% of a sample of 87,851 focus nodes flagged, 2356.93 violations per node | 92 / 2173 shapes, 1118 pairs (960 also on a superclass); 100.0% of a sample of 2,461 focus nodes flagged, 2981.74 violations per node |
-| shexer@endpoint | 58 / 419 shapes, 303 pairs (96 also on a superclass); 99.2% of 594,919 focus nodes flagged, 4.64 violations per node | no output | - |
+| linkml-schema-automator | 60 / 425 shapes, 365 pairs (135 also on a superclass); 100.0% of 595,770 focus nodes flagged, 16.50 violations per node | - | no output |
+| qse | 60 / 365 shapes, 305 pairs (103 also on a superclass); 99.5% of 595,912 focus nodes flagged, 10.17 violations per node | 89 / 812 shapes, 729 pairs (590 also on a superclass); 100.0% of a sample of 11,237 focus nodes flagged, 153.17 violations per node | - |
+| qse+factored | - | 89 / 673 shapes, 590 pairs (451 also on a superclass); 100.0% of a sample of 11,237 focus nodes flagged, 113.81 violations per node | - |
+| qse-pruned | 21 / 120 shapes, 99 pairs (16 also on a superclass); 98.5% of 595,032 focus nodes flagged, 5.98 violations per node | 45 / 269 shapes, 228 pairs (180 also on a superclass); 100.0% of a sample of 83,958 focus nodes flagged, 102.43 violations per node | - |
+| qse-pruned+factored | - | 45 / 220 shapes, 179 pairs (131 also on a superclass); 100.0% of a sample of 83,958 focus nodes flagged, 85.27 violations per node | - |
+| shacl-play | 48 / 227 shapes, 227 pairs (103 also on a superclass); 19.2% of 595,454 focus nodes flagged, 0.50 violations per node | - | - |
+| shacl-play.prev-dump | - | 77 / 710 shapes, 710 pairs (644 also on a superclass); 19.5% of 595,454 focus nodes flagged, 2.58 violations per node | - |
+| shacl-play.prev-dump+factored | - | 74 / 560 shapes, 560 pairs (494 also on a superclass); 19.5% of 595,454 focus nodes flagged, 2.57 violations per node | - |
+| shaclgen | - | - | no output |
+| shexer | 60 / 415 shapes, 305 pairs (103 also on a superclass); 99.0% of 595,912 focus nodes flagged, 5.23 violations per node | 90 / 1732 shapes, 729 pairs (590 also on a superclass); 100.0% of a sample of 26,646 focus nodes flagged, 2367.12 violations per node | - |
+| shexer+factored | - | 73 / 794 shapes, 422 pairs (283 also on a superclass); 100.0% of a sample of 26,646 focus nodes flagged, 1489.95 violations per node | - |

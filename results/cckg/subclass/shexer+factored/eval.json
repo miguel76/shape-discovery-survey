@@ -1,0 +1,89 @@
+{
+  "run": "shexer+factored",
+  "tool": "shexer",
+  "mode": "file",
+  "source": "work/cckg/subclass/data.nt",
+  "command": [
+    "tools/shexer/run.sh",
+    "file",
+    "work/cckg/subclass/data.nt",
+    "results/cckg/subclass/shexer"
+  ],
+  "exit_code": 0,
+  "timed_out": false,
+  "wall_seconds": 282.43,
+  "cpu_seconds": 279.1,
+  "peak_rss_mb": 3498.4,
+  "has_output": true,
+  "factored_from": "shexer",
+  "syntax": "ok",
+  "non_shacl_terms": [
+    "sh:dataType"
+  ],
+  "well_formedness": {
+    "conforms": true,
+    "violations": 0,
+    "focus_nodes": 0,
+    "by_component": {}
+  },
+  "profile": {
+    "triples": 10258,
+    "node_shapes": 73,
+    "property_shapes": 794,
+    "class_path_pairs": 422,
+    "pairs_repeated_from_superclass": 283,
+    "constraint_usage": {
+      "sh:in": 366,
+      "sh:maxCount": 625,
+      "sh:minCount": 452,
+      "sh:node": 162,
+      "sh:nodeKind": 69
+    }
+  },
+  "self_validation": {
+    "conforms": false,
+    "violations": 39701118,
+    "focus_nodes": 26638,
+    "validated_focus_nodes": 26646,
+    "target_focus_nodes": 595912,
+    "partial": true,
+    "seconds": 382,
+    "by_component": {
+      "sh:InConstraintComponent": 35237802,
+      "sh:MaxCountConstraintComponent": 4409540,
+      "sh:NodeConstraintComponent": 53776
+    },
+    "top_path_components": {
+      "<http://www.w3.org/1999/02/22-rdf-syntax-ns#type> sh:InConstraintComponent": 35237802,
+      "<http://www.w3.org/1999/02/22-rdf-syntax-ns#type> sh:MaxCountConstraintComponent": 4409540,
+      "<https://w3id.org/hacid/onto/ccso/refersToScenario> sh:NodeConstraintComponent": 24271,
+      "<https://w3id.org/hacid/onto/top-level/hasComponent> sh:NodeConstraintComponent": 17440,
+      "<https://w3id.org/hacid/onto/data/dependsOnVariable> sh:NodeConstraintComponent": 5100,
+      "<https://w3id.org/hacid/onto/data/isSpecializedAccordingTo> sh:NodeConstraintComponent": 2544,
+      "<https://w3id.org/hacid/onto/data/hasOutput> sh:NodeConstraintComponent": 1315,
+      "<https://w3id.org/hacid/onto/data/hasDiscretization> sh:NodeConstraintComponent": 752,
+      "<https://w3id.org/hacid/onto/top-level/isMemberOf> sh:NodeConstraintComponent": 704,
+      "<https://w3id.org/hacid/onto/ccso/usesModel> sh:NodeConstraintComponent": 669,
+      "<https://w3id.org/hacid/onto/data/isSpecializationOn> sh:NodeConstraintComponent": 285,
+      "<https://w3id.org/hacid/onto/data/hasSelectedRegion> sh:NodeConstraintComponent": 285,
+      "<https://w3id.org/hacid/onto/data/hasValuesOn> sh:NodeConstraintComponent": 244,
+      "<https://w3id.org/hacid/onto/top-level/isClassifiedBy> sh:NodeConstraintComponent": 44,
+      "<https://w3id.org/hacid/onto/data/definesAggregation> sh:NodeConstraintComponent": 28,
+      "<https://w3id.org/hacid/onto/ccso/isMaintainedBy> sh:NodeConstraintComponent": 18,
+      "<https://w3id.org/hacid/onto/top-level/inScheme> sh:NodeConstraintComponent": 15,
+      "<https://w3id.org/hacid/onto/data/hasReferencePoint> sh:NodeConstraintComponent": 10,
+      "<https://w3id.org/hacid/onto/data/isRegionOf> sh:NodeConstraintComponent": 10,
+      "<https://w3id.org/hacid/onto/top-level/definesRole> sh:NodeConstraintComponent": 8,
+      "<https://w3id.org/hacid/onto/data/basedOnDimensionalSpace> sh:NodeConstraintComponent": 6,
+      "<https://w3id.org/hacid/onto/data/hasSuggestedQuantization> sh:NodeConstraintComponent": 6,
+      "<https://w3id.org/hacid/onto/top-level/isConstituentOf> sh:NodeConstraintComponent": 6,
+      "<https://w3id.org/hacid/onto/top-level/isRelatedToConcept> sh:NodeConstraintComponent": 5,
+      "<http://www.w3.org/2002/07/owl#hasValue> sh:NodeConstraintComponent": 3,
+      "<https://w3id.org/hacid/onto/data/aggregatesVariable> sh:NodeConstraintComponent": 3,
+      "<https://w3id.org/hacid/onto/ccso/hasIndicator> sh:NodeConstraintComponent": 2,
+      "<https://w3id.org/hacid/onto/data/isPointOf> sh:NodeConstraintComponent": 2,
+      "<https://w3id.org/hacid/onto/ccso/isDownscalingOf> sh:NodeConstraintComponent": 1
+    }
+  },
+  "inference": "subclass"
+}

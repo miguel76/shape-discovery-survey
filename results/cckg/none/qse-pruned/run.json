@@ -1,17 +1,17 @@
 {
   "tool": "qse-pruned",
   "mode": "file",
-  "source": "work/cckg/data.nt",
+  "source": "work/cckg/none/data.nt",
   "command": [
     "tools/qse-pruned/run.sh",
     "file",
-    "work/cckg/data.nt",
-    "results/cckg/qse-pruned"
+    "work/cckg/none/data.nt",
+    "results/cckg/none/qse-pruned"
   ],
   "exit_code": 0,
   "timed_out": false,
-  "wall_seconds": 35.68,
-  "cpu_seconds": 57.68,
-  "peak_rss_mb": 2344.2,
+  "wall_seconds": 37.5,
+  "cpu_seconds": 55.23,
+  "peak_rss_mb": 3027.8,
   "has_output": true
 }

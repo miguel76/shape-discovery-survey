@@ -1,7 +1,7 @@
 Dataset,Method,Second,Minute,SecondTotal,MinuteTotal,MaxCard,DatasetPath
-data,firstPass,18,0,18,0,true,/home/user/shape-discovery-survey/work/cckg/rdfs/data.nt
-data,secondPhase,51,0,69,0,true,/home/user/shape-discovery-survey/work/cckg/rdfs/data.nt
-data,computeSupportConfidence,33,0,102,0,true,/home/user/shape-discovery-survey/work/cckg/rdfs/data.nt
-data,0.1_100,2,0,104,0,true,/home/user/shape-discovery-survey/work/cckg/rdfs/data.nt
-data,extractSHACLShapes-Time.For.Pruning.Only,2,0,106,0,true,/home/user/shape-discovery-survey/work/cckg/rdfs/data.nt
-data,extractSHACLShapes,10,0,116,0,true,/home/user/shape-discovery-survey/work/cckg/rdfs/data.nt
+data,firstPass,20,0,20,0,true,/home/user/shape-discovery-survey/work/cckg/rdfs/data.nt
+data,secondPhase,54,0,74,0,true,/home/user/shape-discovery-survey/work/cckg/rdfs/data.nt
+data,computeSupportConfidence,51,0,125,0,true,/home/user/shape-discovery-survey/work/cckg/rdfs/data.nt
+data,0.1_100,3,0,128,0,true,/home/user/shape-discovery-survey/work/cckg/rdfs/data.nt
+data,extractSHACLShapes-Time.For.Pruning.Only,3,0,131,0,true,/home/user/shape-discovery-survey/work/cckg/rdfs/data.nt
+data,extractSHACLShapes,14,0,145,0,true,/home/user/shape-discovery-survey/work/cckg/rdfs/data.nt

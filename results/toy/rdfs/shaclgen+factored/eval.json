@@ -1,0 +1,87 @@
+{
+  "run": "shaclgen+factored",
+  "tool": "shaclgen",
+  "mode": "file",
+  "source": "work/toy/rdfs/data.nt",
+  "command": [
+    "tools/shaclgen/run.sh",
+    "file",
+    "work/toy/rdfs/data.nt",
+    "results/toy/rdfs/shaclgen"
+  ],
+  "exit_code": 0,
+  "timed_out": false,
+  "wall_seconds": 1.2,
+  "cpu_seconds": 1.0,
+  "peak_rss_mb": 40.5,
+  "has_output": true,
+  "factored_from": "shaclgen",
+  "syntax": "ok",
+  "non_shacl_terms": [],
+  "well_formedness": {
+    "conforms": true,
+    "violations": 0,
+    "focus_nodes": 0,
+    "by_component": {}
+  },
+  "profile": {
+    "triples": 133,
+    "node_shapes": 7,
+    "property_shapes": 19,
+    "class_path_pairs": 22,
+    "pairs_repeated_from_superclass": 0,
+    "constraint_usage": {
+      "sh:class": 10,
+      "sh:datatype": 8,
+      "sh:nodeKind": 26,
+      "sh:or": 3
+    }
+  },
+  "self_validation": {
+    "conforms": true,
+    "violations": 0,
+    "focus_nodes": 0,
+    "validated_focus_nodes": 34,
+    "target_focus_nodes": 34,
+    "partial": false,
+    "seconds": 0,
+    "by_component": {},
+    "top_path_components": {}
+  },
+  "reference": {
+    "pairs_extracted": 22,
+    "pairs_reference": 22,
+    "pairs_shared": 21,
+    "pair_precision": 0.955,
+    "pair_recall": 0.955,
+    "missing_pairs": [
+      [
+        "http://example.org/toy/EarthSystemModel",
+        "http://example.org/toy/releaseDate"
+      ]
+    ],
+    "constraint_agreement": {
+      "datatype": {
+        "agree": 8,
+        "of": 13
+      },
+      "class": {
+        "agree": 4,
+        "of": 6
+      },
+      "required": {
+        "agree": 6,
+        "of": 21
+      },
+      "functional": {
+        "agree": 6,
+        "of": 21
+      }
+    },
+    "reference_violations_found": {
+      "found": 0,
+      "of": 4
+    }
+  },
+  "inference": "rdfs"
+}

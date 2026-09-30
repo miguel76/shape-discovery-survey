@@ -1,17 +1,17 @@
 {
   "tool": "shexer",
   "mode": "file",
-  "source": "work/cckg/data.nt",
+  "source": "work/cckg/none/data.nt",
   "command": [
     "tools/shexer/run.sh",
     "file",
-    "work/cckg/data.nt",
-    "results/cckg/shexer"
+    "work/cckg/none/data.nt",
+    "results/cckg/none/shexer"
   ],
   "exit_code": 0,
   "timed_out": false,
-  "wall_seconds": 86.51,
-  "cpu_seconds": 85.35,
-  "peak_rss_mb": 1649.8,
+  "wall_seconds": 90.92,
+  "cpu_seconds": 86.97,
+  "peak_rss_mb": 1650.2,
   "has_output": true
 }

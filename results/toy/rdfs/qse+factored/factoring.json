@@ -1,0 +1,12 @@
+{
+  "node_shapes": 8,
+  "factorable_node_shapes": 2,
+  "kept_referenced": 6,
+  "kept_sibling_dependent": 0,
+  "kept_other_targets": 0,
+  "constraints": 83,
+  "constraints_removed": 8,
+  "property_shapes_removed": 1,
+  "property_shapes_copied": 0,
+  "node_shapes_removed": 0
+}

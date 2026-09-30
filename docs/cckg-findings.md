@@ -3,7 +3,8 @@
 Phase 1 of the survey runs every tool on the
 [Climate Change Knowledge Graph](https://hacid-project.github.io/cckg/). The numbers are in
 [`results/cckg/summary.md`](../results/cckg/summary.md), with a per-run `eval.json` in each run
-directory. To reproduce:
+directory. The results in `results/` are for the updated dump (2026-09-30), described in the next
+section. To reproduce:
 
 ```sh
 make install
@@ -13,6 +14,58 @@ VALIDATION_BUDGET=1800 make run evaluate KG=cckg INFERENCE=rdfs RUN_ARGS=
 ```
 
 The `subclass` and `rdfs` evaluations here used a 30-minute validation budget per set of shapes.
+
+## Updated dump (2026-09-30)
+
+`data/cckg/cckg_2026-09-30_10-40-33.nq.gz` fixes the defects reported below. It has 4,612,279
+distinct triples after merging (previously 4,730,998).
+
+### Re-check of the data defects
+
+[`pipeline/kg_checks.py`](../pipeline/kg_checks.py) turns D1–D7 into generic checks. Reports:
+[previous dump](../results/cckg/data-checks-2026-09-24.md),
+[updated dump](../results/cckg/data-checks.md).
+
+| defect | check | previous dump | updated dump |
+|---|---|---|---|
+| D1 `<geo:wktLiteral>` datatype | prefixed-datatype | 103 | 0 ✅ |
+| D2 `…/variables/mip/` as a predicate, orphan blank nodes | no-local-name, orphan-bnode | 56,448, 56,448 | 0, 0 ✅ |
+| D3 `file:///Users/…` IRIs | file-iri | 67,376 | 0 ✅ |
+| D4 undefined variables (values of the three specialization properties with no `rdf:type`) | dangling-range, restricted to these properties | 287 (281 MIP, 6 CF) | 282 (281 MIP, 1 CF) — partly fixed |
+| D5 `iSpecializationOfVariable` | undeclared-property | 145,461 | 0 ✅ |
+| D6 undeclared HACID properties | undeclared-property | 6,085 | 0 ✅ |
+| D7 `rdfs:range xsd:datetime` | bad-xsd-term | 2 | 0 ✅ |
+
+About D2: the UKCP18 outputs were remodelled. Each derivation now has an aggregate output (typed
+`ProbabilisticProjection`/`ScenarioBasedProjection`) whose components are the datasets. The
+aggregate outputs carry `refersToScenario` or `refersToGlobalWarmingLevel`, with one exception:
+the two SRES A1B outputs, `derivations/ukcp18.prob.a1b/output` and
+`derivations/ukcp18.prob.sres-a1b/output`, have neither. The two may also be duplicates of each
+other.
+
+**Other dangling references.** The generic check reports untyped values for every property with a
+declared class range, not only for the specialization properties. Beyond D4 it finds:
+
+| property | untyped values | examples | previous dump |
+|---|---|---|---|
+| `data:hasOutput`, `top-level:hasComponent` | 2,893 and 2,967 | `datasets/cordex.output.EUR-11.…` (2,869), `datasets/cmip5.ACCESS1.3.rcp26.r1i1p1.output` (24) | 2,893 (`hasOutput`): the same 24 CMIP5 datasets plus 2,869 `file:` IRIs |
+| `ccso:isDownscalingOf` | 22 | `simulations/cmip5.ACCESS1.3.rcp85.r1i1p1` | 22 |
+| `data:derivedFromVariable` | 14 | `variables/mip/mrso%20` (trailing space) | 14 |
+| `data:hasValuesOn`, `top-level:hasUnitOfMeasure` | 4 each | `unitsofmeasure/%C2%B0C%5E2`, `…/Number%20of%20individual%20heatwaves%20events` | 4 each |
+| `ccso:refersToGlobalWarmingLevel` | 2 | `GWLs/GWL2`, `GWLs/GWL4` | 7 (`file:` IRIs) |
+| `data:dependsOnVariable`, `data:isSpecializedAccordingTo` | 2 each | `cordex/grids/ARC-22/ds`, `…/SAM-20/specialization` | new |
+| `data:basedOnDimensionalSpace`, `data:hasExactBoundingRegion`, `data:hasReferencePoint` | 1 each | `…/rotated-WGS84/177.5,37.5`, `…/OSGB36/coverage` | new |
+| `ccso:hasMemberSimulation` | 0 ✅ | | 74 |
+
+The largest group is 2,869 CORDEX output datasets (`datasets/cordex.output.…`). They are referenced
+as outputs and components but never described. In the previous dump they appeared as `file:`
+IRIs (D3); now they have proper IRIs, but still no description.
+
+SURVEY_V2
+
+## First dump (2026-09-24)
+
+The rest of this document describes the first run, on `cckg_2026-09-24_10-44-07.nq.gz`.
 
 ## Input
 
