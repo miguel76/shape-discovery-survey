@@ -114,7 +114,7 @@ data.
 | sheXer | 93 / 2,114 | 1,058, 896 (85%) | 100% (sample of 240) | 3,367 |
 | QSE, pruned | 47 / 434 | 391, 333 (85%) | 99.7% (sample of 368) | 256 |
 | QSE, full | 91 / 1,135 | 1,064, 896 (84%) | 100% (sample of 2k) | 222 |
-| SHACLGEN, schema-automator | out of memory (previous dump) | | | |
+| SHACLGEN, schema-automator | out of memory | | | |
 
 On the previous dump, SHACL Play's shapes flagged nothing under `rdfs`, because range inference
 typed the undefined variables (see below). On the new dump, its shapes flag 2,875 nodes. The causes are changes in the data, not the

@@ -1,2 +1,68 @@
 /home/user/shape-discovery-survey/.tools/linkml-venv/lib/python3.11/site-packages/quantulum3/classifier.py:27: UserWarning: Classifier dependencies not installed. Run `uv sync --extra classifier` or `pip install quantulum3[classifier]` to install them. The classifer helps to dissambiguate units.
   warnings.warn(
+WARNING:rdflib.term:Failed to convert Literal lexical form to value. Datatype=http://www.w3.org/2001/XMLSchema#dateTime, Converter=<built-in method fromisoformat of type object at 0xa1e4c0>
+Traceback (most recent call last):
+  File "/home/user/shape-discovery-survey/.tools/linkml-venv/lib/python3.11/site-packages/rdflib/term.py", line 2262, in _castLexicalToPython
+    return conv_func(lexical)  # type: ignore[arg-type]
+           ^^^^^^^^^^^^^^^^^^
+ValueError: year 0 is out of range
+Traceback (most recent call last):
+  File "/home/user/shape-discovery-survey/.tools/linkml-venv/lib/python3.11/site-packages/rdflib/plugins/stores/memory.py", line 368, in add
+    p = sp[subject]
+        ~~^^^^^^^^^
+KeyError: rdflib.term.URIRef('https://w3id.org/hacid/data/cs/ukcp18/datasets/pr_rcp85_land-cpm_uk_5km_10_1hr_20580201-20580230.nc')
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+  File "/home/user/shape-discovery-survey/.tools/linkml-venv/lib/python3.11/site-packages/click/core.py", line 1631, in __call__
+    return self.main(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/shape-discovery-survey/.tools/linkml-venv/lib/python3.11/site-packages/click/core.py", line 1552, in main
+    rv = self.invoke(ctx)
+         ^^^^^^^^^^^^^^^^
+  File "/home/user/shape-discovery-survey/.tools/linkml-venv/lib/python3.11/site-packages/click/core.py", line 2032, in invoke
+    return _process_result(sub_ctx.command.invoke(sub_ctx))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/shape-discovery-survey/.tools/linkml-venv/lib/python3.11/site-packages/click/core.py", line 1415, in invoke
+    return ctx.invoke(self.callback, **ctx.params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/shape-discovery-survey/.tools/linkml-venv/lib/python3.11/site-packages/click/core.py", line 910, in invoke
+    return callback(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/shape-discovery-survey/.tools/linkml-venv/lib/python3.11/site-packages/schema_automator/cli.py", line 568, in generalize_rdf
+    schema_dict = sie.convert(rdffile, dir=dir, format='ttl')
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/shape-discovery-survey/.tools/linkml-venv/lib/python3.11/site-packages/schema_automator/generalizers/rdf_data_generalizer.py", line 37, in convert
+    g.parse(file, **kwargs)
+  File "/home/user/shape-discovery-survey/.tools/linkml-venv/lib/python3.11/site-packages/rdflib/graph.py", line 1660, in parse
+    parser.parse(source, self, **args)
+  File "/home/user/shape-discovery-survey/.tools/linkml-venv/lib/python3.11/site-packages/rdflib/plugins/parsers/notation3.py", line 2034, in parse
+    p.loadStream(stream)
+  File "/home/user/shape-discovery-survey/.tools/linkml-venv/lib/python3.11/site-packages/rdflib/plugins/parsers/notation3.py", line 492, in loadStream
+    return self.loadBuf(stream.read())  # Not ideal
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/shape-discovery-survey/.tools/linkml-venv/lib/python3.11/site-packages/rdflib/plugins/parsers/notation3.py", line 498, in loadBuf
+    self.feed(buf)
+  File "/home/user/shape-discovery-survey/.tools/linkml-venv/lib/python3.11/site-packages/rdflib/plugins/parsers/notation3.py", line 524, in feed
+    i = self.directiveOrStatement(s, j)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/shape-discovery-survey/.tools/linkml-venv/lib/python3.11/site-packages/rdflib/plugins/parsers/notation3.py", line 543, in directiveOrStatement
+    j = self.statement(argstr, i)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/shape-discovery-survey/.tools/linkml-venv/lib/python3.11/site-packages/rdflib/plugins/parsers/notation3.py", line 791, in statement
+    j = self.property_list(argstr, i, r[0])
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/shape-discovery-survey/.tools/linkml-venv/lib/python3.11/site-packages/rdflib/plugins/parsers/notation3.py", line 1159, in property_list
+    self.makeStatement((self._context, sym, subj, obj))
+  File "/home/user/shape-discovery-survey/.tools/linkml-venv/lib/python3.11/site-packages/rdflib/plugins/parsers/notation3.py", line 783, in makeStatement
+    self._store.makeStatement(quadruple, why=self._reason2)
+  File "/home/user/shape-discovery-survey/.tools/linkml-venv/lib/python3.11/site-packages/rdflib/plugins/parsers/notation3.py", line 1915, in makeStatement
+    self.graph.add((s, p, o))
+  File "/home/user/shape-discovery-survey/.tools/linkml-venv/lib/python3.11/site-packages/rdflib/graph.py", line 630, in add
+    self.__store.add((s, p, o), self, quoted=False)
+  File "/home/user/shape-discovery-survey/.tools/linkml-venv/lib/python3.11/site-packages/rdflib/plugins/stores/memory.py", line 370, in add
+    p = sp[subject] = {}
+        ~~^^^^^^^^^
+MemoryError
