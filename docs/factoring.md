@@ -119,8 +119,7 @@ the node shape gets a copy with the remaining constraints.
 
 ## 5. The implication test
 
-`implies(P, k)` returns true if `k ∈ P` (compared in a canonical form that expands blank nodes and
-RDF lists), or if one premise `q ∈ P` implies `k` by one of these rules:
+`implies(P, k)` returns true if `k ∈ P`, or if one premise `q ∈ P` implies `k` by one of these rules:
 
 | `k` | implied by `q` | why |
 |---|---|---|
@@ -139,6 +138,12 @@ RDF lists), or if one premise `q ∈ P` implies `k` by one of these rules:
 | `sh:class C` | an `sh:or` of classes `D₁ … D_m`, every `Dᵢ ≤ C` | |
 | `sh:nodeKind K` allowing IRIs and blank nodes | an `sh:or` of classes | as for `sh:class` |
 
+Constraints are compared in a canonical form that expands blank nodes and RDF lists. In nested
+shapes, it leaves out predicates that are not SHACL terms, because SHACL processors ignore them.
+QSE, for instance, annotates every member of its `sh:or` lists with the number of instances it was
+learned from, and these counts differ between a class and its superclass. Without this, equal
+disjunctions never compared equal, and QSE's removals were 620 instead of 801 under `subclass`.
+
 Everything else is removed only when an identical constraint is among the premises: `sh:datatype`,
 `sh:hasValue`, `sh:pattern`, `sh:node`, `sh:and`, `sh:not`, qualified value shapes, and property
 pair constraints. The test is incomplete in known ways:
@@ -155,10 +160,10 @@ enough here, because any missed implication just leaves a redundant constraint i
 
 - [`tests/test_implies.py`](../tests/test_implies.py) checks the rules of `implies()`
   exhaustively on a small universe.
-  - It uses 39 constraints covering every rule, and 130 focus nodes, one for every set of up to 3
+  - It uses 41 constraints covering every rule (two of them with annotated `sh:or` members), and 130 focus nodes, one for every set of up to 3
     values drawn from IRIs and a blank node of various classes, integers, a string and a
     language-tagged string.
-  - For each of the 118 pairs `(q, k)` with `implies({q}, k)`, pySHACL confirms that every node
+  - For each of the 139 pairs `(q, k)` with `implies({q}, k)`, pySHACL confirms that every node
     violating `k` violates `q`.
   - Fourteen deliberately wrong variants of the rules, such as reversing a comparison, letting
     `sh:class` imply `sh:nodeKind sh:IRI`, or accepting a class disjunction that is only partly
