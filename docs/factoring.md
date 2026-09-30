@@ -224,14 +224,14 @@ original flags, so equal counts mean equal sets.
 | `subclass` | sheXer | sample of 27,014 | 27,001 | 63.9M → 40.2M (−37%) | 600 s → 394 s |
 | `subclass` | QSE, full | sample of 17,448 | 17,447 | 2,612,164 → 1,955,567 (−25%) | 603 s → 372 s |
 | `subclass` | QSE, pruned | sample of 84,009 | 83,991 | 8,606,562 → 7,163,902 (−17%) | 600 s → 420 s |
-| `rdfs` | SHACL Play | RDFS_SP_NODES | RDFS_SP_FLAGGED | RDFS_SP_VIOL | RDFS_SP_TIME |
+| `rdfs` | SHACL Play | sample of 419,379 | 2,875 | 16,155 → 7,737 (−52%) | 1,506 s → 670 s |
 | `rdfs` | sheXer | sample of 240 | 240 | 808,143 → 495,717 (−39%) | 637 s → 108 s |
 | `rdfs` | QSE, full | sample of 1,996 | 1,996 | 443,198 → 297,725 (−33%) | 600 s → 419 s |
 | `rdfs` | QSE, pruned | sample of 368 | 367 | 94,149 → 62,707 (−33%) | 611 s → 369 s |
 
 The violations drop because the same problem is no longer reported once for each superclass
 shape that repeated the constraint. For SHACL Play under `subclass`, the 116,012 flagged nodes
-were reported with 13.2 violations each, and with 1.6 after factoring. Validation is 30–80% faster,
+were reported with 13.2 violations each, and with 1.6 after factoring. Validation is 30–83% faster,
 since fewer constraints are checked per node.
 
 The SHACL Play shapes used here were discovered on the previous dump, so under `rdfs` they flag
