@@ -15,8 +15,8 @@ Shapes extracted and validated under the `subclass` regime (see `pipeline/regime
 | qse-pruned | 0 | 1.8 | 143.5 | 0 | 0 | 0 | 0 | - | 0 |
 | shacl-play | 0 | 2.2 | 203.9 | 7 | 25 | 25 | 4 | - | 0 |
 | shacl-play+factored | 0 | 2.2 | 203.9 | 7 | 25 | 25 | 4 | - | 0 |
-| shacl-play@endpoint | 0 | 4.21 | 217.3 | 7 | 25 | 25 | 4 | - | 0 |
-| shacl-play@endpoint+factored | 0 | 4.21 | 217.3 | 7 | 25 | 25 | 4 | - | 0 |
+| shacl-play@endpoint | 0 | 6.22 | 212.7 | 7 | 25 | 25 | 4 | - | 0 |
+| shacl-play@endpoint+factored | 0 | 6.22 | 212.7 | 7 | 25 | 25 | 4 | - | 0 |
 | shaclgen | 0 | 0.8 | 40.5 | 8 | 21 | 26 | 4 | - | 0 |
 | shaclgen+factored | 0 | 0.8 | 40.5 | 7 | 19 | 22 | 0 | - | 0 |
 | shexer | 0 | 0.4 | 42.6 | 8 | 37 | 26 | 4 | sh:dataType | 0 |

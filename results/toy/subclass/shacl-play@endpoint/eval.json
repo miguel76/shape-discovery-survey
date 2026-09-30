@@ -1,5 +1,5 @@
 {
-  "run": "shacl-play@endpoint+factored",
+  "run": "shacl-play@endpoint",
   "tool": "shacl-play",
   "mode": "endpoint",
   "source": "http://localhost:3030/kg/sparql",
@@ -15,7 +15,6 @@
   "cpu_seconds": 7.32,
   "peak_rss_mb": 212.7,
   "has_output": true,
-  "factored_from": "shacl-play@endpoint",
   "syntax": "ok",
   "non_shacl_terms": [],
   "well_formedness": {
@@ -25,19 +24,19 @@
     "by_component": {}
   },
   "profile": {
-    "triples": 336,
+    "triples": 349,
     "node_shapes": 7,
     "property_shapes": 25,
     "class_path_pairs": 25,
     "pairs_repeated_from_superclass": 4,
     "constraint_usage": {
       "sh:class": 9,
-      "sh:datatype": 15,
+      "sh:datatype": 17,
       "sh:in": 14,
       "sh:languageIn": 2,
-      "sh:maxCount": 17,
-      "sh:minCount": 15,
-      "sh:nodeKind": 21,
+      "sh:maxCount": 21,
+      "sh:minCount": 18,
+      "sh:nodeKind": 25,
       "sh:or": 3
     }
   },
@@ -73,7 +72,7 @@
         "of": 22
       },
       "functional": {
-        "agree": 20,
+        "agree": 19,
         "of": 22
       }
     },
