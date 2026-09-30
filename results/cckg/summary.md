@@ -8,7 +8,7 @@ Each cell: node shapes / property shapes; (target class, property) pairs constra
 
 | run | none | subclass | rdfs |
 |---|---|---|---|
-| linkml-schema-automator | 60 / 425 shapes, 365 pairs (135 also on a superclass); 100.0% of 595,770 focus nodes flagged, 16.50 violations per node | - | no output |
+| linkml-schema-automator | 60 / 425 shapes, 365 pairs (135 also on a superclass); 100.0% of 595,770 focus nodes flagged, 16.50 violations per node | no output | no output |
 | qse | 60 / 365 shapes, 305 pairs (103 also on a superclass); 99.5% of 595,912 focus nodes flagged, 10.17 violations per node | 89 / 812 shapes, 729 pairs (590 also on a superclass); 100.0% of a sample of 17,448 focus nodes flagged, 149.71 violations per node | 91 / 1135 shapes, 1064 pairs (896 also on a superclass); 100.0% of a sample of 1,996 focus nodes flagged, 222.04 violations per node |
 | qse+factored | - | 89 / 507 shapes, 424 pairs (285 also on a superclass); 100.0% of a sample of 17,448 focus nodes flagged, 112.08 violations per node | 91 / 683 shapes, 612 pairs (444 also on a superclass); 100.0% of a sample of 1,996 focus nodes flagged, 149.16 violations per node |
 | qse-pruned | 21 / 120 shapes, 99 pairs (16 also on a superclass); 98.5% of 595,032 focus nodes flagged, 5.98 violations per node | 45 / 269 shapes, 228 pairs (180 also on a superclass); 100.0% of a sample of 84,009 focus nodes flagged, 102.45 violations per node | 47 / 434 shapes, 391 pairs (333 also on a superclass); 99.7% of a sample of 368 focus nodes flagged, 255.84 violations per node |

@@ -8,14 +8,14 @@ Shapes extracted and validated under the `rdfs` regime (see `pipeline/regimes.py
 
 | run | exit | wall s | peak RSS MB | node shapes | property shapes | (class, path) pairs | of which also on a superclass | non-SHACL terms | SHACL-SHACL violations |
 |---|---|---|---|---|---|---|---|---|---|
-| linkml-schema-automator | 1 | 392.27 | 11970.2 | - | - | - | - | - | - |
+| linkml-schema-automator | 1 | 392.5 | 12042.2 | - | - | - | - | - | - |
 | qse | 0 | 153.85 | 8467.5 | 91 | 1135 | 1064 | 896 | sh:NodeKind | 2 |
 | qse+factored | 0 | 153.85 | 8467.5 | 91 | 683 | 612 | 444 | sh:NodeKind | 2 |
 | qse-pruned | 0 | 146.86 | 8192.6 | 47 | 434 | 391 | 333 | sh:NodeKind | 1 |
-| qse-pruned+factored | 0 | 146.86 | 8192.6 | 47 | 364 | 321 | 263 | sh:NodeKind | 1 |
+| qse-pruned+factored | 0 | 146.86 | 8192.6 | 47 | 257 | 214 | 156 | sh:NodeKind | 1 |
 | shacl-play.prev-dump | 0 | 6408.77 | 4921.4 | 79 | 1040 | 1040 | 960 | - | 0 |
 | shacl-play.prev-dump+factored | 0 | 6408.77 | 4921.4 | 66 | 319 | 319 | 239 | - | 0 |
-| shaclgen | 1 | 600.19 | 12184.3 | - | - | - | - | - | - |
+| shaclgen | 1 | 584.2 | 12185.5 | - | - | - | - | - | - |
 | shexer | 0 | 552.01 | 6325.8 | 93 | 2114 | 1058 | 896 | sh:dataType | 0 |
 | shexer+factored | 0 | 552.01 | 6325.8 | 77 | 1055 | 625 | 463 | sh:dataType | 0 |
 
@@ -27,7 +27,7 @@ Shapes extracted and validated under the `rdfs` regime (see `pipeline/regimes.py
 | qse | 7438 | 353 |  | 91 |  | 364 | 251 | 781 |  | 825 |
 | qse+factored | 4270 | 192 |  | 91 |  | 182 | 138 | 419 |  | 385 |
 | qse-pruned | 3106 | 76 |  | 47 |  | 91 | 108 | 267 |  | 342 |
-| qse-pruned+factored | 2636 | 49 |  | 47 |  | 43 | 51 | 135 |  | 298 |
+| qse-pruned+factored | 1771 | 39 |  | 47 |  | 43 | 51 | 135 |  | 136 |
 | shacl-play.prev-dump | 6196 | 337 | 31 | 26 | 76 | 645 | 160 |  | 1060 | 817 |
 | shacl-play.prev-dump+factored | 6190 | 181 | 18 | 26 | 27 | 103 | 78 |  | 100 | 191 |
 | shaclgen |  |  |  |  |  |  |  |  |  |  |
@@ -56,6 +56,6 @@ Each `+factored` run holds the shapes of the run above with the constraints impl
 | run | constraints | removed | property shapes | node shapes | shapes left intact (referenced / sibling-dependent / other targets) | nodes flagged (original → factored) | violations (original → factored) |
 |---|---|---|---|---|---|---|---|
 | qse | 2,633 | 1,204 (46%) | 1135 → 683 | 91 → 91 | 34 / 0 / 0 | 1,996 (100.0% of a sample) → 1,996 (100.0% of a sample) | 443,198 → 297,725 |
-| qse-pruned | 930 | 470 (51%) | 434 → 364 | 47 → 47 | 15 / 0 / 0 | 367 (99.7% of a sample) → 367 (99.7% of a sample) | 94,149 → 62,707 |
+| qse-pruned | 930 | 470 (51%) | 434 → 257 | 47 → 47 | 15 / 0 / 0 | 367 (99.7% of a sample) → 367 (99.7% of a sample) | 94,149 → 62,707 |
 | shacl-play.prev-dump | 3,012 | 2,434 (81%) | 1040 → 319 | 79 → 66 | 0 / 0 / 0 | 2,875 (0.7% of a sample) → 2,875 (0.7% of a sample) | 16,155 → 7,737 |
 | shexer | 4,722 | 2,608 (55%) | 2114 → 1055 | 93 → 77 | 33 / 0 / 0 | 240 (100.0% of a sample) → 240 (100.0% of a sample) | 808,143 → 495,717 |

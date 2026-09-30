@@ -8,6 +8,7 @@ Shapes extracted and validated under the `subclass` regime (see `pipeline/regime
 
 | run | exit | wall s | peak RSS MB | node shapes | property shapes | (class, path) pairs | of which also on a superclass | non-SHACL terms | SHACL-SHACL violations |
 |---|---|---|---|---|---|---|---|---|---|
+| linkml-schema-automator | 1 | 560.18 | 11907.8 | - | - | - | - | - | - |
 | qse | 0 | 87.13 | 5518.4 | 89 | 812 | 729 | 590 | sh:NodeKind | 1 |
 | qse+factored | 0 | 87.13 | 5518.4 | 89 | 507 | 424 | 285 | sh:NodeKind | 1 |
 | qse-pruned | 0 | 82.94 | 5001.5 | 45 | 269 | 228 | 180 | sh:NodeKind | 1 |
@@ -21,6 +22,7 @@ Shapes extracted and validated under the `subclass` regime (see `pipeline/regime
 
 | run | sh:class | sh:datatype | sh:hasValue | sh:in | sh:languageIn | sh:maxCount | sh:minCount | sh:node | sh:nodeKind | sh:or |
 |---|---|---|---|---|---|---|---|---|---|---|
+| linkml-schema-automator |  |  |  |  |  |  |  |  |  |  |
 | qse | 3151 | 315 |  | 89 |  | 428 | 169 | 430 |  | 466 |
 | qse+factored | 1786 | 174 |  | 89 |  | 213 | 99 | 224 |  | 249 |
 | qse-pruned | 1091 | 67 |  | 45 |  | 128 | 52 | 111 |  | 151 |
@@ -34,6 +36,7 @@ Shapes extracted and validated under the `subclass` regime (see `pipeline/regime
 
 | run | conforms | violations | focus nodes | by component | reference violations also found |
 |---|---|---|---|---|---|
+| linkml-schema-automator | - | - | - | - | - |
 | qse (sample: 17448/595912 focus nodes) | False | 2612164 | 17447 | sh:NodeConstraintComponent: 1247475, sh:InConstraintComponent: 1049468, sh:MaxCountConstraintComponent: 179013, sh:MinCountConstraintComponent: 136184, sh:ClassConstraintComponent: 24 | - |
 | qse+factored (sample: 17448/595912 focus nodes) | False | 1955567 | 17447 | sh:InConstraintComponent: 1049468, sh:NodeConstraintComponent: 713134, sh:MaxCountConstraintComponent: 107225, sh:MinCountConstraintComponent: 85726, sh:ClassConstraintComponent: 14 | - |
 | qse-pruned (sample: 84009/595809 focus nodes) | False | 8606562 | 83991 | sh:InConstraintComponent: 5048224, sh:NodeConstraintComponent: 2703185, sh:MaxCountConstraintComponent: 849641, sh:MinCountConstraintComponent: 3446, sh:OrConstraintComponent: 1222, sh:DatatypeConstraintComponent: 827, sh:ClassConstraintComponent: 17 | - |
