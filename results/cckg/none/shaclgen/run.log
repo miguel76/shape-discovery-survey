@@ -331,3 +331,6 @@ ValueError: year 0 is out of range
 2026-10-07 09:58:06.618 | DEBUG    | shaclgen.shaclgen:extract_props:37 - Property: http://www.w3.org/2002/07/owl#deprecated
 2026-10-07 09:58:06.619 | DEBUG    | shaclgen.shaclgen:extract_props_subj_types:56 - Property subject types: http://www.w3.org/2002/07/owl#deprecated
 2026-10-07 09:58:14.502 | DEBUG    | shaclgen.shaclgen:extract_props_obj_types:73 - Property object types: http://www.w3.org/2002/07/owl#deprecated
+2026-10-07 09:58:52.241 | DEBUG    | shaclgen.shaclgen:extract_props:37 - Property: http://purl.org/dc/terms/creator
+2026-10-07 09:58:52.241 | DEBUG    | shaclgen.shaclgen:extract_props_subj_types:56 - Property subject types: http://purl.org/dc/terms/creator
+2026-10-07 09:58:52.245 | DEBUG    | shaclgen.shaclgen:extract_props_obj_types:73 - Property object types: http://purl.org/dc/terms/creator
