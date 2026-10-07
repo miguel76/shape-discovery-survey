@@ -68,7 +68,8 @@ kind. It writes `results/<kg>/dangling-by-source.md`.
 tables and the CF standard-name table, to find why they are undefined
 ([docs/cckg-variables.md](docs/cckg-variables.md)).
 
-Tests: `python tests/test_implies.py` and `python tests/test_factor.py [TRIALS] [SEED]`, with the
+Tests: `python tests/test_implies.py`, `python tests/test_factor.py [TRIALS] [SEED]` and
+`python tests/test_roundtrip.py`, with the
 pipeline environment (`.tools/pipeline-venv/bin/python`).
 
 Requirements are bash, git, Python ≥ 3.10, Java ≥ 17 and Maven. Docker is not needed. Every tool

@@ -177,6 +177,13 @@ enough here, because any missed implication just leaves a redundant constraint i
     alone, every value that violates the removed constraint must violate one of its premises.
   - 3,000 trials (seeds 3, 7 and 11) found no counterexample, with 12,127 removals in total (about 4
     per trial), each checked on its own.
+- [`tests/test_roundtrip.py`](../tests/test_roundtrip.py) checks that factoring and writing the
+  shapes keep every literal term unchanged. `sh:in` and `sh:hasValue` compare RDF terms, so
+  `"1.5e0"^^xsd:double` and `"1.5"^^xsd:double` are different values. rdflib rewrites lexical
+  forms by default, when it parses and again when it writes Turtle (`1.5e+00`). On the 2026-10-07
+  CCKG dump this made the factored SHACL Play shapes reject the values `1.5e0` … `5.5e0` that their
+  `sh:in` list was learned from, 5 nodes that the original shapes accept. `factor.py` now turns
+  this normalisation off and writes every literal with its lexical form and datatype.
 - The pipeline factors every run under `subclass` and `rdfs` and validates the KG against both
   versions. When the original run's validation stopped on a random sample, the `+factored` run is
   validated on exactly the same sample: `ShaclStats` sorts the focus nodes before its seeded
