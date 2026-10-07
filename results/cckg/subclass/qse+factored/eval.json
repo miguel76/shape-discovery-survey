@@ -51,7 +51,7 @@
     "validated_focus_nodes": 13339,
     "target_focus_nodes": 595920,
     "partial": true,
-    "seconds": 411,
+    "seconds": 373,
     "by_component": {
       "sh:InConstraintComponent": 803805,
       "sh:NodeConstraintComponent": 319757,

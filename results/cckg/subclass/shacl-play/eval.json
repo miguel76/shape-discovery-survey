@@ -43,23 +43,23 @@
   },
   "self_validation": {
     "conforms": false,
-    "violations": 1525055,
-    "focus_nodes": 109623,
-    "validated_focus_nodes": 570093,
+    "violations": 1591075,
+    "focus_nodes": 114585,
+    "validated_focus_nodes": 595459,
     "target_focus_nodes": 595459,
-    "partial": true,
-    "seconds": 1800,
+    "partial": false,
+    "seconds": 1746,
     "by_component": {
-      "sh:OrConstraintComponent": 1525055
+      "sh:OrConstraintComponent": 1591075
     },
     "top_path_components": {
-      "<https://w3id.org/hacid/onto/data/isSpecializationOfVariable> sh:OrConstraintComponent": 863625,
-      "<https://w3id.org/hacid/onto/data/holdsSpecializationOfVariable> sh:OrConstraintComponent": 609318,
-      "<https://w3id.org/hacid/onto/data/hasOutput> sh:OrConstraintComponent": 28098,
+      "<https://w3id.org/hacid/onto/data/isSpecializationOfVariable> sh:OrConstraintComponent": 902907,
+      "<https://w3id.org/hacid/onto/data/holdsSpecializationOfVariable> sh:OrConstraintComponent": 634986,
+      "<https://w3id.org/hacid/onto/data/hasOutput> sh:OrConstraintComponent": 29022,
       "<https://w3id.org/hacid/onto/top-level/hasComponent> sh:OrConstraintComponent": 20010,
-      "<https://w3id.org/hacid/onto/ccso/isDownscalingOf> sh:OrConstraintComponent": 1778,
-      "<https://w3id.org/hacid/onto/data/isSpecializedAccordingTo> sh:OrConstraintComponent": 1053,
-      "<https://w3id.org/hacid/onto/data/dependsOnVariable> sh:OrConstraintComponent": 1053,
+      "<https://w3id.org/hacid/onto/ccso/isDownscalingOf> sh:OrConstraintComponent": 1834,
+      "<https://w3id.org/hacid/onto/data/isSpecializedAccordingTo> sh:OrConstraintComponent": 1098,
+      "<https://w3id.org/hacid/onto/data/dependsOnVariable> sh:OrConstraintComponent": 1098,
       "<https://w3id.org/hacid/onto/data/derivedFromVariable> sh:OrConstraintComponent": 120
     }
   },
