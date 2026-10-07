@@ -64,6 +64,9 @@ defects found in CCKG and write `results/<kg>/data-checks.md`.
 `pipeline/link_sources.py <kg>` breaks the dangling links down by source (the named graph of
 each link), property and family of target IRIs, and compares them with all the links of the same
 kind. It writes `results/<kg>/dangling-by-source.md`.
+`analysis/cckg_variables.py` looks up CCKG's undefined variables in the CMIP5/CMIP6/CORDEX CMOR
+tables and the CF standard-name table, to find why they are undefined
+([docs/cckg-variables.md](docs/cckg-variables.md)).
 
 Tests: `python tests/test_implies.py` and `python tests/test_factor.py [TRIALS] [SEED]`, with the
 pipeline environment (`.tools/pipeline-venv/bin/python`).
