@@ -1,12 +1,12 @@
 {
-  "node_shapes": 93,
-  "factorable_node_shapes": 60,
-  "kept_referenced": 33,
+  "node_shapes": 95,
+  "factorable_node_shapes": 63,
+  "kept_referenced": 32,
   "kept_sibling_dependent": 0,
   "kept_other_targets": 0,
-  "constraints": 4722,
-  "constraints_removed": 2608,
-  "property_shapes_removed": 1059,
+  "constraints": 5138,
+  "constraints_removed": 2996,
+  "property_shapes_removed": 1225,
   "property_shapes_copied": 0,
-  "node_shapes_removed": 16
+  "node_shapes_removed": 22
 }
