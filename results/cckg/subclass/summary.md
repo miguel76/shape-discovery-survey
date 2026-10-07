@@ -13,6 +13,7 @@ Shapes extracted and validated under the `subclass` regime (see `pipeline/regime
 | qse-pruned | 0 | 103.49 | 5864.2 | 47 | 284 | 241 | 199 | sh:NodeKind | 1 |
 | qse-pruned+factored | 0 | 103.49 | 5864.2 | 47 | 165 | 122 | 80 | sh:NodeKind | 1 |
 | shacl-play | 0 | 4249.76 | 5250.7 | 82 | 672 | 672 | 611 | - | 0 |
+| shacl-play+factored | 0 | 4249.76 | 5250.7 | 65 | 220 | 220 | 159 | - | 0 |
 | shexer | 0 | 355.47 | 3495.2 | 93 | 1876 | 747 | 611 | sh:dataType | 0 |
 | shexer+factored | 0 | 355.47 | 3495.2 | 72 | 817 | 418 | 282 | sh:dataType | 0 |
 
@@ -25,6 +26,7 @@ Shapes extracted and validated under the `subclass` regime (see `pipeline/regime
 | qse-pruned | 1208 | 75 |  | 47 |  | 131 | 54 | 114 |  | 158 |
 | qse-pruned+factored | 574 | 37 |  | 47 |  | 57 | 27 | 52 |  | 63 |
 | shacl-play | 2883 | 336 | 14 | 30 | 78 | 466 | 113 |  | 672 | 448 |
+| shacl-play+factored | 2878 | 178 | 9 | 27 | 26 | 69 | 52 |  | 61 | 111 |
 | shexer |  |  |  | 1109 |  | 1650 | 1253 | 364 | 68 |  |
 | shexer+factored |  |  |  | 390 |  | 648 | 475 | 183 | 39 |  |
 
@@ -36,7 +38,8 @@ Shapes extracted and validated under the `subclass` regime (see `pipeline/regime
 | qse+factored (sample: 13339/595920 focus nodes) | False | 1205954 | 13338 | sh:InConstraintComponent: 803805, sh:NodeConstraintComponent: 319757, sh:MaxCountConstraintComponent: 82171, sh:MinCountConstraintComponent: 209, sh:ClassConstraintComponent: 12 | - |
 | qse-pruned (sample: 52274/595725 focus nodes) | False | 5365764 | 52267 | sh:InConstraintComponent: 3153154, sh:NodeConstraintComponent: 1680817, sh:MaxCountConstraintComponent: 528205, sh:MinCountConstraintComponent: 2261, sh:OrConstraintComponent: 793, sh:DatatypeConstraintComponent: 524, sh:ClassConstraintComponent: 10 | - |
 | qse-pruned+factored (sample: 52274/595725 focus nodes) | False | 4465919 | 52267 | sh:InConstraintComponent: 3153154, sh:NodeConstraintComponent: 994773, sh:MaxCountConstraintComponent: 316626, sh:MinCountConstraintComponent: 647, sh:DatatypeConstraintComponent: 461, sh:OrConstraintComponent: 248, sh:ClassConstraintComponent: 10 | - |
-| shacl-play (sample: 215357/595459 focus nodes) | False | 576422 | 41437 | sh:OrConstraintComponent: 576422 | - |
+| shacl-play (sample: 570093/595459 focus nodes) | False | 1525055 | 109623 | sh:OrConstraintComponent: 1525055 | - |
+| shacl-play+factored (sample: 570093/595459 focus nodes) | False | 177751 | 109628 | sh:OrConstraintComponent: 177746, sh:InConstraintComponent: 5 | - |
 | shexer (sample: 11782/595920 focus nodes) | False | 29439560 | 11778 | sh:InConstraintComponent: 26071716, sh:MaxCountConstraintComponent: 3249883, sh:NodeConstraintComponent: 117961 | - |
 | shexer+factored (sample: 11782/595920 focus nodes) | False | 17506273 | 11778 | sh:InConstraintComponent: 15511945, sh:MaxCountConstraintComponent: 1940055, sh:NodeConstraintComponent: 54273 | - |
 
@@ -48,4 +51,5 @@ Each `+factored` run holds the shapes of the run above with the constraints impl
 |---|---|---|---|---|---|---|---|
 | qse | 1,807 | 800 (44%) | 833 → 510 | 92 → 92 | 32 / 0 / 0 | 13,338 (100.0% of a sample) → 13,338 (100.0% of a sample) | 1,451,046 → 1,205,954 |
 | qse-pruned | 580 | 288 (50%) | 284 → 165 | 47 → 47 | 14 / 0 / 0 | 52,267 (100.0% of a sample) → 52,267 (100.0% of a sample) | 5,365,764 → 4,465,919 |
+| shacl-play | 2,039 | 1,629 (80%) | 672 → 220 | 82 → 65 | 0 / 0 / 0 | 109,623 (19.2% of a sample) → 109,628 (19.2% of a sample) | 1,525,055 → 177,751 |
 | shexer | 4,444 | 2,709 (61%) | 1876 → 817 | 93 → 72 | 31 / 0 / 0 | 11,778 (100.0% of a sample) → 11,778 (100.0% of a sample) | 29,439,560 → 17,506,273 |

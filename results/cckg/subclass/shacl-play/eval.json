@@ -43,24 +43,24 @@
   },
   "self_validation": {
     "conforms": false,
-    "violations": 576422,
-    "focus_nodes": 41437,
-    "validated_focus_nodes": 215357,
+    "violations": 1525055,
+    "focus_nodes": 109623,
+    "validated_focus_nodes": 570093,
     "target_focus_nodes": 595459,
     "partial": true,
-    "seconds": 600,
+    "seconds": 1800,
     "by_component": {
-      "sh:OrConstraintComponent": 576422
+      "sh:OrConstraintComponent": 1525055
     },
     "top_path_components": {
-      "<https://w3id.org/hacid/onto/data/isSpecializationOfVariable> sh:OrConstraintComponent": 325473,
-      "<https://w3id.org/hacid/onto/data/holdsSpecializationOfVariable> sh:OrConstraintComponent": 239076,
-      "<https://w3id.org/hacid/onto/data/hasOutput> sh:OrConstraintComponent": 10556,
-      "<https://w3id.org/hacid/onto/ccso/isDownscalingOf> sh:OrConstraintComponent": 462,
-      "<https://w3id.org/hacid/onto/data/isSpecializedAccordingTo> sh:OrConstraintComponent": 378,
-      "<https://w3id.org/hacid/onto/data/dependsOnVariable> sh:OrConstraintComponent": 378,
-      "<https://w3id.org/hacid/onto/top-level/hasComponent> sh:OrConstraintComponent": 87,
-      "<https://w3id.org/hacid/onto/data/derivedFromVariable> sh:OrConstraintComponent": 12
+      "<https://w3id.org/hacid/onto/data/isSpecializationOfVariable> sh:OrConstraintComponent": 863625,
+      "<https://w3id.org/hacid/onto/data/holdsSpecializationOfVariable> sh:OrConstraintComponent": 609318,
+      "<https://w3id.org/hacid/onto/data/hasOutput> sh:OrConstraintComponent": 28098,
+      "<https://w3id.org/hacid/onto/top-level/hasComponent> sh:OrConstraintComponent": 20010,
+      "<https://w3id.org/hacid/onto/ccso/isDownscalingOf> sh:OrConstraintComponent": 1778,
+      "<https://w3id.org/hacid/onto/data/isSpecializedAccordingTo> sh:OrConstraintComponent": 1053,
+      "<https://w3id.org/hacid/onto/data/dependsOnVariable> sh:OrConstraintComponent": 1053,
+      "<https://w3id.org/hacid/onto/data/derivedFromVariable> sh:OrConstraintComponent": 120
     }
   },
   "inference": "subclass"
