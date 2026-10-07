@@ -334,3 +334,7 @@ ValueError: year 0 is out of range
 2026-10-07 09:58:52.241 | DEBUG    | shaclgen.shaclgen:extract_props:37 - Property: http://purl.org/dc/terms/creator
 2026-10-07 09:58:52.241 | DEBUG    | shaclgen.shaclgen:extract_props_subj_types:56 - Property subject types: http://purl.org/dc/terms/creator
 2026-10-07 09:58:52.245 | DEBUG    | shaclgen.shaclgen:extract_props_obj_types:73 - Property object types: http://purl.org/dc/terms/creator
+2026-10-07 10:00:04.919 | DEBUG    | shaclgen.shaclgen:extract_props:37 - Property: http://www.w3.org/ns/prov#wasDerivedFrom
+2026-10-07 10:00:04.920 | DEBUG    | shaclgen.shaclgen:extract_props_subj_types:56 - Property subject types: http://www.w3.org/ns/prov#wasDerivedFrom
+2026-10-07 10:00:13.127 | DEBUG    | shaclgen.shaclgen:extract_props_obj_types:73 - Property object types: http://www.w3.org/ns/prov#wasDerivedFrom
+2026-10-07 10:00:19.506 | INFO     | shaclgen.shaclgen:gen_graph:124 - Write resulting SHACL Graph …
