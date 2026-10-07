@@ -1,45 +1,46 @@
-Picked up JAVA_TOOL_OPTIONS: -Djavax.net.ssl.trustStore=/etc/ssl/certs/java/cacerts -Djavax.net.ssl.trustStoreType=JKS -Dhttps.proxyHost=127.0.0.1 -Dhttps.proxyPort=36653 -Dhttp.nonProxyHosts=localhost|127.0.0.1|::1|127.*|0.*|::|169.254.*|api.anthropic.com|api-staging.anthropic.com|api-pr-preview.anthropic.com|mcp-proxy.anthropic.com|mcp-proxy-staging.anthropic.com|registry.npmjs.org|jsr.io|npm.jsr.io|pypi.org|files.pythonhosted.org|index.crates.io|proxy.golang.org|host.docker.internal|10.*|172.16.*|172.17.*|172.18.*|172.19.*|172.20.*|172.21.*|172.22.*|172.23.*|172.24.*|172.25.*|172.26.*|172.27.*|172.28.*|172.29.*|172.30.*|172.31.*|192.168.*|100.64.0.0/10|*.svc.cluster.local|*.svc.cluster.local -Djdk.http.auth.tunneling.disabledSchemes= -Djdk.http.auth.proxying.disabledSchemes=
+Picked up JAVA_TOOL_OPTIONS: -Djavax.net.ssl.trustStore=/etc/ssl/certs/java/cacerts -Djavax.net.ssl.trustStoreType=JKS -Dhttps.proxyHost=127.0.0.1 -Dhttps.proxyPort=34121 -Dhttp.nonProxyHosts=localhost|127.0.0.1|::1|127.*|0.*|::|169.254.*|api.anthropic.com|api-staging.anthropic.com|api-pr-preview.anthropic.com|mcp-proxy.anthropic.com|mcp-proxy-staging.anthropic.com|registry.npmjs.org|jsr.io|npm.jsr.io|pypi.org|files.pythonhosted.org|index.crates.io|proxy.golang.org|host.docker.internal|10.*|172.16.*|172.17.*|172.18.*|172.19.*|172.20.*|172.21.*|172.22.*|172.23.*|172.24.*|172.25.*|172.26.*|172.27.*|172.28.*|172.29.*|172.30.*|172.31.*|192.168.*|100.64.0.0/10|*.svc.cluster.local|*.svc.cluster.local -Djdk.http.auth.tunneling.disabledSchemes= -Djdk.http.auth.proxying.disabledSchemes=
 Benchmark Initiated for /home/user/shape-discovery-survey/work/cckg/rdfs/data.nt
-2026/09/30 11:01:23
+2026/10/07 15:58:15
 invoked::firstPass()
-Time Elapsed firstPass 22 sec , 0 min
-***** Total Parsing Time 22 sec , 0 min *****
-Time Elapsed secondPhase 59 sec , 0 min
-***** Total Parsing Time 81 sec , 0 min *****
-Time Elapsed computeSupportConfidence 51 sec , 0 min
-***** Total Parsing Time 132 sec , 0 min *****
+Time Elapsed firstPass 21 sec , 0 min
+***** Total Parsing Time 21 sec , 0 min *****
+Time Elapsed secondPhase 75 sec , 1 min
+***** Total Parsing Time 96 sec , 1 min *****
+Time Elapsed computeSupportConfidence 61 sec , 1 min
+***** Total Parsing Time 157 sec , 2 min *****
 /home/user/shape-discovery-survey/results/cckg/rdfs/qse/qse-output/db_default created successfully.
 Invoked:: PostConstraintsAnnotator
-MODEL:: DEFAULT - SIZE: 53867
+MODEL:: DEFAULT - SIZE: 52859
 ::: ShapesExtractor ~ WRITING MODEL TO FILE: /home/user/shape-discovery-survey/results/cckg/rdfs/qse/qse-output/data_QSE_FULL.ttl
-writeModelToFile  - 1 - 0
+writeModelToFile  - 2 - 0
 ::: ShapesExtractor ~ PRETTY FORMATTING TURTLE FILE: /home/user/shape-discovery-survey/results/cckg/rdfs/qse/qse-output/data_QSE_FULL_SHACL.ttl
 Pretty Formatting
-11:03:44.836 [main] WARN org.apache.jena.riot - [line: 12305, col: 38] Bad IRI: <%3Chttp://www.opengis.net/ont/geosparql#wktLiteral%3E> Code: 0/ILLEGAL_CHARACTER in SCHEME: The character violates the grammar rules for URIs/IRIs.
-11:03:45.137 [main] WARN org.apache.jena.riot - [line: 48460, col: 38] Bad IRI: <%3Chttp://www.opengis.net/ont/geosparql#wktLiteral%3E> Code: 0/ILLEGAL_CHARACTER in SCHEME: The character violates the grammar rules for URIs/IRIs.
-11:03:45.140 [main] WARN org.apache.jena.riot - [line: 48735, col: 38] Bad IRI: <%3Chttp://www.opengis.net/ont/geosparql#wktLiteral%3E> Code: 0/ILLEGAL_CHARACTER in SCHEME: The character violates the grammar rules for URIs/IRIs.
-11:03:45.142 [main] WARN org.apache.jena.riot - [line: 48958, col: 38] Bad IRI: <%3Chttp://www.opengis.net/ont/geosparql#wktLiteral%3E> Code: 0/ILLEGAL_CHARACTER in SCHEME: The character violates the grammar rules for URIs/IRIs.
-11:03:45.144 [main] WARN org.apache.jena.riot - [line: 49178, col: 38] Bad IRI: <%3Chttp://www.opengis.net/ont/geosparql#wktLiteral%3E> Code: 0/ILLEGAL_CHARACTER in SCHEME: The character violates the grammar rules for URIs/IRIs.
-11:03:45.164 [main] WARN org.apache.jena.riot - [line: 52381, col: 38] Bad IRI: <%3Chttp://www.opengis.net/ont/geosparql#wktLiteral%3E> Code: 0/ILLEGAL_CHARACTER in SCHEME: The character violates the grammar rules for URIs/IRIs.
-11:03:45.166 [main] WARN org.apache.jena.riot - [line: 52568, col: 38] Bad IRI: <%3Chttp://www.opengis.net/ont/geosparql#wktLiteral%3E> Code: 0/ILLEGAL_CHARACTER in SCHEME: The character violates the grammar rules for URIs/IRIs.
-prettyFormatTurtle  - 5 - 0
+16:01:06.149 [main] WARN org.apache.jena.riot - [line: 12379, col: 38] Bad IRI: <%3Chttp://www.opengis.net/ont/geosparql#wktLiteral%3E> Code: 0/ILLEGAL_CHARACTER in SCHEME: The character violates the grammar rules for URIs/IRIs.
+16:01:06.511 [main] WARN org.apache.jena.riot - [line: 48975, col: 38] Bad IRI: <%3Chttp://www.opengis.net/ont/geosparql#wktLiteral%3E> Code: 0/ILLEGAL_CHARACTER in SCHEME: The character violates the grammar rules for URIs/IRIs.
+16:01:06.513 [main] WARN org.apache.jena.riot - [line: 49157, col: 38] Bad IRI: <%3Chttp://www.opengis.net/ont/geosparql#wktLiteral%3E> Code: 0/ILLEGAL_CHARACTER in SCHEME: The character violates the grammar rules for URIs/IRIs.
+16:01:06.516 [main] WARN org.apache.jena.riot - [line: 49344, col: 38] Bad IRI: <%3Chttp://www.opengis.net/ont/geosparql#wktLiteral%3E> Code: 0/ILLEGAL_CHARACTER in SCHEME: The character violates the grammar rules for URIs/IRIs.
+16:01:06.518 [main] WARN org.apache.jena.riot - [line: 49529, col: 38] Bad IRI: <%3Chttp://www.opengis.net/ont/geosparql#wktLiteral%3E> Code: 0/ILLEGAL_CHARACTER in SCHEME: The character violates the grammar rules for URIs/IRIs.
+16:01:06.521 [main] WARN org.apache.jena.riot - [line: 49784, col: 38] Bad IRI: <%3Chttp://www.opengis.net/ont/geosparql#wktLiteral%3E> Code: 0/ILLEGAL_CHARACTER in SCHEME: The character violates the grammar rules for URIs/IRIs.
+16:01:06.541 [main] WARN org.apache.jena.riot - [line: 52391, col: 38] Bad IRI: <%3Chttp://www.opengis.net/ont/geosparql#wktLiteral%3E> Code: 0/ILLEGAL_CHARACTER in SCHEME: The character violates the grammar rules for URIs/IRIs.
+16:01:06.542 [main] WARN org.apache.jena.riot - [line: 52506, col: 38] Bad IRI: <%3Chttp://www.opengis.net/ont/geosparql#wktLiteral%3E> Code: 0/ILLEGAL_CHARACTER in SCHEME: The character violates the grammar rules for URIs/IRIs.
+prettyFormatTurtle  - 6 - 0
 /home/user/shape-discovery-survey/results/cckg/rdfs/qse/qse-output/db_0.1_100 created successfully.
 Invoked:: PostConstraintsAnnotator
-MODEL:: CUSTOM - SIZE: 21869 | PARAMS: 10.0 - 100
+MODEL:: CUSTOM - SIZE: 20204 | PARAMS: 10.0 - 100
 ::: ShapesExtractor ~ WRITING MODEL TO FILE: /home/user/shape-discovery-survey/results/cckg/rdfs/qse/qse-output/data_QSE_0.1_100.ttl
 writeModelToFile  - 0 - 0
 ::: ShapesExtractor ~ PRETTY FORMATTING TURTLE FILE: /home/user/shape-discovery-survey/results/cckg/rdfs/qse/qse-output/data_QSE_0.1_100_SHACL.ttl
 Pretty Formatting
-11:03:51.461 [main] WARN org.apache.jena.riot - [line: 19167, col: 38] Bad IRI: <%3Chttp://www.opengis.net/ont/geosparql#wktLiteral%3E> Code: 0/ILLEGAL_CHARACTER in SCHEME: The character violates the grammar rules for URIs/IRIs.
-prettyFormatTurtle  - 0 - 0
-Time Elapsed 0.1_100 2 sec , 0 min
-***** Total Parsing Time 134 sec , 0 min *****
-Time Elapsed extractSHACLShapes-Time.For.Pruning.Only 2 sec , 0 min
-***** Total Parsing Time 136 sec , 0 min *****
+16:01:13.862 [main] WARN org.apache.jena.riot - [line: 17136, col: 38] Bad IRI: <%3Chttp://www.opengis.net/ont/geosparql#wktLiteral%3E> Code: 0/ILLEGAL_CHARACTER in SCHEME: The character violates the grammar rules for URIs/IRIs.
+prettyFormatTurtle  - 1 - 0
+Time Elapsed 0.1_100 4 sec , 0 min
+***** Total Parsing Time 161 sec , 2 min *****
+Time Elapsed extractSHACLShapes-Time.For.Pruning.Only 4 sec , 0 min
+***** Total Parsing Time 165 sec , 2 min *****
 [DATASET, Confidence, Support, COUNT_MCC, MIN_CC, AVG_CC, COUNT_CC, MIN_MCC, COUNT_PS, MIN_LC, AVG_MCC, COUNT_NS, AVG_LC, MAX_LC, AVG_PS, MAX_CC, MAX_PS, MAX_MCC, COUNT_LC, MIN_PS, ]
 Done
-Time Elapsed extractSHACLShapes 15 sec , 0 min
-***** Total Parsing Time 151 sec , 0 min *****
+Time Elapsed extractSHACLShapes 20 sec , 0 min
+***** Total Parsing Time 185 sec , 2 min *****
 STATS: 
-	No. of Classes: 93
-2026/09/30 11:03:52
+	No. of Classes: 95
+2026/10/07 16:01:15
