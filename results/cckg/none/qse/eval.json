@@ -1,0 +1,103 @@
+{
+  "run": "qse",
+  "tool": "qse",
+  "mode": "file",
+  "source": "work/cckg/none/data.nt",
+  "command": [
+    "tools/qse/run.sh",
+    "file",
+    "work/cckg/none/data.nt",
+    "results/cckg/none/qse"
+  ],
+  "exit_code": 0,
+  "timed_out": false,
+  "wall_seconds": 64.52,
+  "cpu_seconds": 83.91,
+  "peak_rss_mb": 2743.0,
+  "has_output": true,
+  "syntax": "ok",
+  "non_shacl_terms": [
+    "sh:NodeKind"
+  ],
+  "well_formedness": {
+    "conforms": true,
+    "violations": 0,
+    "focus_nodes": 0,
+    "by_component": {}
+  },
+  "profile": {
+    "triples": 4464,
+    "node_shapes": 60,
+    "property_shapes": 363,
+    "class_path_pairs": 303,
+    "pairs_repeated_from_superclass": 110,
+    "constraint_usage": {
+      "sh:class": 269,
+      "sh:datatype": 140,
+      "sh:in": 60,
+      "sh:maxCount": 249,
+      "sh:minCount": 126,
+      "sh:node": 167,
+      "sh:or": 95
+    }
+  },
+  "self_validation": {
+    "conforms": false,
+    "violations": 4600222,
+    "focus_nodes": 590338,
+    "validated_focus_nodes": 595920,
+    "target_focus_nodes": 595920,
+    "partial": false,
+    "seconds": 917,
+    "by_component": {
+      "sh:NodeConstraintComponent": 3216953,
+      "sh:MaxCountConstraintComponent": 1055446,
+      "sh:InConstraintComponent": 324570,
+      "sh:MinCountConstraintComponent": 3149,
+      "sh:ClassConstraintComponent": 104
+    },
+    "top_path_components": {
+      "<https://w3id.org/hacid/onto/data/dependsOnVariable> sh:NodeConstraintComponent": 1449082,
+      "<https://w3id.org/hacid/onto/data/dependsOnVariable> sh:MaxCountConstraintComponent": 720892,
+      "<https://w3id.org/hacid/onto/data/isSpecializationOfVariable> sh:NodeConstraintComponent": 707182,
+      "<https://w3id.org/hacid/onto/data/holdsSpecializationOfVariable> sh:NodeConstraintComponent": 698439,
+      "<http://www.w3.org/1999/02/22-rdf-syntax-ns#type> sh:InConstraintComponent": 324570,
+      "<https://w3id.org/hacid/onto/data/isSpecializedAccordingTo> sh:NodeConstraintComponent": 313804,
+      "<https://w3id.org/hacid/onto/data/isSpecializedAccordingTo> sh:MaxCountConstraintComponent": 303520,
+      "<https://w3id.org/hacid/onto/data/holdsSpecializationOfVariable> sh:MaxCountConstraintComponent": 21790,
+      "<https://w3id.org/hacid/onto/data/hasOutput> sh:NodeConstraintComponent": 12089,
+      "<https://w3id.org/hacid/onto/top-level/hasComponent> sh:NodeConstraintComponent": 11425,
+      "<https://w3id.org/hacid/onto/top-level/hasComponent> sh:MaxCountConstraintComponent": 7064,
+      "<https://w3id.org/hacid/onto/data/hasValuesOn> sh:NodeConstraintComponent": 6349,
+      "<https://w3id.org/hacid/onto/top-level/hasUnitOfMeasure> sh:NodeConstraintComponent": 6312,
+      "<https://w3id.org/hacid/onto/data/hasDiscretization> sh:NodeConstraintComponent": 3759,
+      "<http://www.w3.org/2000/01/rdf-schema#comment> sh:MinCountConstraintComponent": 2661,
+      "<https://w3id.org/hacid/onto/ccso/usesModel> sh:NodeConstraintComponent": 2199,
+      "<https://w3id.org/hacid/onto/ccso/isDownscalingOf> sh:NodeConstraintComponent": 2075,
+      "<https://w3id.org/hacid/onto/top-level/hasMember> sh:NodeConstraintComponent": 1625,
+      "<https://w3id.org/hacid/onto/top-level/isMemberOf> sh:MaxCountConstraintComponent": 1271,
+      "<https://w3id.org/hacid/onto/data/hasExactBoundingRegion> sh:NodeConstraintComponent": 702,
+      "<http://www.w3.org/2000/01/rdf-schema#isDefinedBy> sh:NodeConstraintComponent": 380,
+      "<https://w3id.org/hacid/onto/data/basedOnDimensionalSpace> sh:NodeConstraintComponent": 316,
+      "<https://w3id.org/hacid/onto/ccso/hasIndicator> sh:NodeConstraintComponent": 292,
+      "<https://w3id.org/hacid/onto/data/basedOnDimensionalSpace> sh:MaxCountConstraintComponent": 280,
+      "<http://www.w3.org/2000/01/rdf-schema#domain> sh:NodeConstraintComponent": 238,
+      "<http://www.w3.org/2000/01/rdf-schema#range> sh:NodeConstraintComponent": 211,
+      "<http://www.w3.org/2000/01/rdf-schema#comment> sh:MaxCountConstraintComponent": 163,
+      "<http://www.w3.org/2000/01/rdf-schema#label> sh:MaxCountConstraintComponent": 146,
+      "<http://www.w3.org/2002/07/owl#hasKey> sh:MinCountConstraintComponent": 137,
+      "<http://www.w3.org/2002/07/owl#intersectionOf> sh:MinCountConstraintComponent": 136,
+      "<http://www.w3.org/2002/07/owl#unionOf> sh:MinCountConstraintComponent": 134,
+      "<https://w3id.org/hacid/onto/data/hasSuggestedQuantization> sh:NodeConstraintComponent": 113,
+      "<http://www.opengis.net/ont/geosparql#asWKT> sh:ClassConstraintComponent": 104,
+      "<https://w3id.org/hacid/onto/top-level/isClassifiedBy> sh:MaxCountConstraintComponent": 85,
+      "<https://w3id.org/hacid/onto/data/definesAggregation> sh:NodeConstraintComponent": 79,
+      "<http://www.w3.org/2002/07/owl#onProperty> sh:NodeConstraintComponent": 77,
+      "<http://www.w3.org/2002/07/owl#onDataRange> sh:MinCountConstraintComponent": 73,
+      "<https://w3id.org/hacid/onto/data/hasSelectedRegion> sh:NodeConstraintComponent": 57,
+      "<https://w3id.org/hacid/onto/top-level/altLabel> sh:MaxCountConstraintComponent": 57,
+      "<https://w3id.org/hacid/onto/data/derivedFromVariable> sh:MaxCountConstraintComponent": 56
+    }
+  },
+  "inference": "none"
+}

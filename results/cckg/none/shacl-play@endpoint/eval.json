@@ -1,0 +1,69 @@
+{
+  "run": "shacl-play@endpoint",
+  "tool": "shacl-play",
+  "mode": "endpoint",
+  "source": "http://localhost:3030/kg/sparql",
+  "command": [
+    "tools/shacl-play/run.sh",
+    "endpoint",
+    "http://localhost:3030/kg/sparql",
+    "results/cckg/none/shacl-play@endpoint"
+  ],
+  "exit_code": 0,
+  "timed_out": false,
+  "wall_seconds": 197.19,
+  "cpu_seconds": 20.16,
+  "peak_rss_mb": 228.4,
+  "has_output": true,
+  "syntax": "ok",
+  "non_shacl_terms": [],
+  "well_formedness": {
+    "conforms": true,
+    "violations": 0,
+    "focus_nodes": 0,
+    "by_component": {}
+  },
+  "profile": {
+    "triples": 2677,
+    "node_shapes": 49,
+    "property_shapes": 228,
+    "class_path_pairs": 228,
+    "pairs_repeated_from_superclass": 110,
+    "constraint_usage": {
+      "sh:class": 195,
+      "sh:datatype": 110,
+      "sh:hasValue": 12,
+      "sh:in": 35,
+      "sh:languageIn": 46,
+      "sh:maxCount": 167,
+      "sh:minCount": 101,
+      "sh:nodeKind": 228,
+      "sh:or": 51
+    }
+  },
+  "self_validation": {
+    "conforms": false,
+    "violations": 298318,
+    "focus_nodes": 114585,
+    "validated_focus_nodes": 595459,
+    "target_focus_nodes": 595459,
+    "partial": false,
+    "seconds": 71,
+    "by_component": {
+      "sh:ClassConstraintComponent": 289348,
+      "sh:OrConstraintComponent": 8970
+    },
+    "top_path_components": {
+      "<https://w3id.org/hacid/onto/data/isSpecializationOfVariable> sh:ClassConstraintComponent": 147848,
+      "<https://w3id.org/hacid/onto/data/holdsSpecializationOfVariable> sh:ClassConstraintComponent": 141108,
+      "<https://w3id.org/hacid/onto/top-level/hasComponent> sh:OrConstraintComponent": 4446,
+      "<https://w3id.org/hacid/onto/data/hasOutput> sh:OrConstraintComponent": 4146,
+      "<https://w3id.org/hacid/onto/ccso/isDownscalingOf> sh:OrConstraintComponent": 262,
+      "<https://w3id.org/hacid/onto/data/isSpecializedAccordingTo> sh:ClassConstraintComponent": 244,
+      "<https://w3id.org/hacid/onto/data/dependsOnVariable> sh:ClassConstraintComponent": 148,
+      "<https://w3id.org/hacid/onto/data/dependsOnVariable> sh:OrConstraintComponent": 96,
+      "<https://w3id.org/hacid/onto/data/derivedFromVariable> sh:OrConstraintComponent": 20
+    }
+  },
+  "inference": "none"
+}
