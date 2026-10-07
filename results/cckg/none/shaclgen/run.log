@@ -171,3 +171,163 @@ ValueError: year 0 is out of range
 2026-10-07 09:47:35.588 | DEBUG    | shaclgen.shaclgen:extract_props_obj_types:73 - Property object types: https://w3id.org/hacid/onto/data/derivedFromVariable
 2026-10-07 09:47:35.726 | DEBUG    | shaclgen.shaclgen:extract_props:37 - Property: https://w3id.org/hacid/onto/top-level/definition
 2026-10-07 09:47:35.727 | DEBUG    | shaclgen.shaclgen:extract_props_subj_types:56 - Property subject types: https://w3id.org/hacid/onto/top-level/definition
+2026-10-07 09:47:44.383 | DEBUG    | shaclgen.shaclgen:extract_props_obj_types:73 - Property object types: https://w3id.org/hacid/onto/top-level/definition
+2026-10-07 09:47:44.664 | DEBUG    | shaclgen.shaclgen:extract_props:37 - Property: https://w3id.org/hacid/onto/ccso/isMaintainedBy
+2026-10-07 09:47:44.664 | DEBUG    | shaclgen.shaclgen:extract_props_subj_types:56 - Property subject types: https://w3id.org/hacid/onto/ccso/isMaintainedBy
+2026-10-07 09:47:53.204 | DEBUG    | shaclgen.shaclgen:extract_props_obj_types:73 - Property object types: https://w3id.org/hacid/onto/ccso/isMaintainedBy
+2026-10-07 09:47:53.295 | DEBUG    | shaclgen.shaclgen:extract_props:37 - Property: https://w3id.org/hacid/onto/top-level/altLabel
+2026-10-07 09:47:53.295 | DEBUG    | shaclgen.shaclgen:extract_props_subj_types:56 - Property subject types: https://w3id.org/hacid/onto/top-level/altLabel
+2026-10-07 09:48:02.031 | DEBUG    | shaclgen.shaclgen:extract_props_obj_types:73 - Property object types: https://w3id.org/hacid/onto/top-level/altLabel
+2026-10-07 09:48:02.386 | DEBUG    | shaclgen.shaclgen:extract_props:37 - Property: https://w3id.org/hacid/onto/data/isRegionOf
+2026-10-07 09:48:02.387 | DEBUG    | shaclgen.shaclgen:extract_props_subj_types:56 - Property subject types: https://w3id.org/hacid/onto/data/isRegionOf
+2026-10-07 09:48:11.082 | DEBUG    | shaclgen.shaclgen:extract_props_obj_types:73 - Property object types: https://w3id.org/hacid/onto/data/isRegionOf
+2026-10-07 09:48:11.155 | DEBUG    | shaclgen.shaclgen:extract_props:37 - Property: https://w3id.org/hacid/onto/top-level/componentIdentifier
+2026-10-07 09:48:11.155 | DEBUG    | shaclgen.shaclgen:extract_props_subj_types:56 - Property subject types: https://w3id.org/hacid/onto/top-level/componentIdentifier
+2026-10-07 09:48:20.039 | DEBUG    | shaclgen.shaclgen:extract_props_obj_types:73 - Property object types: https://w3id.org/hacid/onto/top-level/componentIdentifier
+2026-10-07 09:48:20.231 | DEBUG    | shaclgen.shaclgen:extract_props:37 - Property: https://w3id.org/hacid/onto/top-level/classifies
+2026-10-07 09:48:20.232 | DEBUG    | shaclgen.shaclgen:extract_props_subj_types:56 - Property subject types: https://w3id.org/hacid/onto/top-level/classifies
+2026-10-07 09:48:28.838 | DEBUG    | shaclgen.shaclgen:extract_props_obj_types:73 - Property object types: https://w3id.org/hacid/onto/top-level/classifies
+2026-10-07 09:48:29.379 | DEBUG    | shaclgen.shaclgen:extract_props:37 - Property: https://w3id.org/hacid/onto/top-level/hasExpectedType
+2026-10-07 09:48:29.380 | DEBUG    | shaclgen.shaclgen:extract_props_subj_types:56 - Property subject types: https://w3id.org/hacid/onto/top-level/hasExpectedType
+2026-10-07 09:48:38.290 | DEBUG    | shaclgen.shaclgen:extract_props_obj_types:73 - Property object types: https://w3id.org/hacid/onto/top-level/hasExpectedType
+2026-10-07 09:48:38.559 | DEBUG    | shaclgen.shaclgen:extract_props:37 - Property: https://w3id.org/hacid/onto/ccso/hasIndicator
+2026-10-07 09:48:38.559 | DEBUG    | shaclgen.shaclgen:extract_props_subj_types:56 - Property subject types: https://w3id.org/hacid/onto/ccso/hasIndicator
+2026-10-07 09:48:48.521 | DEBUG    | shaclgen.shaclgen:extract_props_obj_types:73 - Property object types: https://w3id.org/hacid/onto/ccso/hasIndicator
+2026-10-07 09:48:48.659 | DEBUG    | shaclgen.shaclgen:extract_props:37 - Property: http://www.w3.org/2004/02/skos/core#scopeNote
+2026-10-07 09:48:48.660 | DEBUG    | shaclgen.shaclgen:extract_props_subj_types:56 - Property subject types: http://www.w3.org/2004/02/skos/core#scopeNote
+2026-10-07 09:48:57.591 | DEBUG    | shaclgen.shaclgen:extract_props_obj_types:73 - Property object types: http://www.w3.org/2004/02/skos/core#scopeNote
+2026-10-07 09:48:57.909 | DEBUG    | shaclgen.shaclgen:extract_props:37 - Property: http://www.w3.org/2000/01/rdf-schema#subClassOf
+2026-10-07 09:48:57.909 | DEBUG    | shaclgen.shaclgen:extract_props_subj_types:56 - Property subject types: http://www.w3.org/2000/01/rdf-schema#subClassOf
+2026-10-07 09:49:07.503 | DEBUG    | shaclgen.shaclgen:extract_props_obj_types:73 - Property object types: http://www.w3.org/2000/01/rdf-schema#subClassOf
+2026-10-07 09:49:08.005 | DEBUG    | shaclgen.shaclgen:extract_props:37 - Property: https://w3id.org/hacid/onto/data/hasResolutionValue
+2026-10-07 09:49:08.006 | DEBUG    | shaclgen.shaclgen:extract_props_subj_types:56 - Property subject types: https://w3id.org/hacid/onto/data/hasResolutionValue
+2026-10-07 09:49:16.857 | DEBUG    | shaclgen.shaclgen:extract_props_obj_types:73 - Property object types: https://w3id.org/hacid/onto/data/hasResolutionValue
+2026-10-07 09:49:16.988 | DEBUG    | shaclgen.shaclgen:extract_props:37 - Property: http://www.opengis.net/ont/geosparql#asWKT
+2026-10-07 09:49:16.988 | DEBUG    | shaclgen.shaclgen:extract_props_subj_types:56 - Property subject types: http://www.opengis.net/ont/geosparql#asWKT
+2026-10-07 09:49:16.997 | DEBUG    | shaclgen.shaclgen:extract_props_obj_types:73 - Property object types: http://www.opengis.net/ont/geosparql#asWKT
+2026-10-07 09:49:17.318 | DEBUG    | shaclgen.shaclgen:extract_props:37 - Property: https://w3id.org/hacid/onto/data/hasSuggestedQuantization
+2026-10-07 09:49:17.318 | DEBUG    | shaclgen.shaclgen:extract_props_subj_types:56 - Property subject types: https://w3id.org/hacid/onto/data/hasSuggestedQuantization
+2026-10-07 09:49:26.700 | DEBUG    | shaclgen.shaclgen:extract_props_obj_types:73 - Property object types: https://w3id.org/hacid/onto/data/hasSuggestedQuantization
+2026-10-07 09:49:27.866 | DEBUG    | shaclgen.shaclgen:extract_props:37 - Property: http://www.w3.org/2002/07/owl#someValuesFrom
+2026-10-07 09:49:27.867 | DEBUG    | shaclgen.shaclgen:extract_props_subj_types:56 - Property subject types: http://www.w3.org/2002/07/owl#someValuesFrom
+2026-10-07 09:49:37.879 | DEBUG    | shaclgen.shaclgen:extract_props_obj_types:73 - Property object types: http://www.w3.org/2002/07/owl#someValuesFrom
+2026-10-07 09:49:38.056 | DEBUG    | shaclgen.shaclgen:extract_props:37 - Property: https://w3id.org/hacid/onto/top-level/definesRole
+2026-10-07 09:49:38.057 | DEBUG    | shaclgen.shaclgen:extract_props_subj_types:56 - Property subject types: https://w3id.org/hacid/onto/top-level/definesRole
+2026-10-07 09:49:47.262 | DEBUG    | shaclgen.shaclgen:extract_props_obj_types:73 - Property object types: https://w3id.org/hacid/onto/top-level/definesRole
+2026-10-07 09:49:47.723 | DEBUG    | shaclgen.shaclgen:extract_props:37 - Property: http://www.w3.org/2002/07/owl#disjointWith
+2026-10-07 09:49:47.723 | DEBUG    | shaclgen.shaclgen:extract_props_subj_types:56 - Property subject types: http://www.w3.org/2002/07/owl#disjointWith
+2026-10-07 09:49:56.340 | DEBUG    | shaclgen.shaclgen:extract_props_obj_types:73 - Property object types: http://www.w3.org/2002/07/owl#disjointWith
+2026-10-07 09:49:56.954 | DEBUG    | shaclgen.shaclgen:extract_props:37 - Property: http://www.w3.org/1999/02/22-rdf-syntax-ns#rest
+2026-10-07 09:49:56.955 | DEBUG    | shaclgen.shaclgen:extract_props_subj_types:56 - Property subject types: http://www.w3.org/1999/02/22-rdf-syntax-ns#rest
+2026-10-07 09:49:56.961 | DEBUG    | shaclgen.shaclgen:extract_props_obj_types:73 - Property object types: http://www.w3.org/1999/02/22-rdf-syntax-ns#rest
+2026-10-07 09:49:57.203 | DEBUG    | shaclgen.shaclgen:extract_props:37 - Property: https://w3id.org/hacid/onto/ccso/refersToGlobalWarmingLevel
+2026-10-07 09:49:57.203 | DEBUG    | shaclgen.shaclgen:extract_props_subj_types:56 - Property subject types: https://w3id.org/hacid/onto/ccso/refersToGlobalWarmingLevel
+2026-10-07 09:50:07.070 | DEBUG    | shaclgen.shaclgen:extract_props_obj_types:73 - Property object types: https://w3id.org/hacid/onto/ccso/refersToGlobalWarmingLevel
+2026-10-07 09:50:07.363 | DEBUG    | shaclgen.shaclgen:extract_props:37 - Property: http://www.w3.org/2002/07/owl#onProperty
+2026-10-07 09:50:07.364 | DEBUG    | shaclgen.shaclgen:extract_props_subj_types:56 - Property subject types: http://www.w3.org/2002/07/owl#onProperty
+2026-10-07 09:50:15.703 | DEBUG    | shaclgen.shaclgen:extract_props_obj_types:73 - Property object types: http://www.w3.org/2002/07/owl#onProperty
+2026-10-07 09:50:16.232 | DEBUG    | shaclgen.shaclgen:extract_props:37 - Property: http://www.w3.org/2000/01/rdf-schema#subPropertyOf
+2026-10-07 09:50:16.232 | DEBUG    | shaclgen.shaclgen:extract_props_subj_types:56 - Property subject types: http://www.w3.org/2000/01/rdf-schema#subPropertyOf
+2026-10-07 09:50:25.311 | DEBUG    | shaclgen.shaclgen:extract_props_obj_types:73 - Property object types: http://www.w3.org/2000/01/rdf-schema#subPropertyOf
+2026-10-07 09:50:25.786 | DEBUG    | shaclgen.shaclgen:extract_props:37 - Property: https://w3id.org/hacid/onto/data/isEquivalentTo
+2026-10-07 09:50:25.786 | DEBUG    | shaclgen.shaclgen:extract_props_subj_types:56 - Property subject types: https://w3id.org/hacid/onto/data/isEquivalentTo
+2026-10-07 09:50:36.286 | DEBUG    | shaclgen.shaclgen:extract_props_obj_types:73 - Property object types: https://w3id.org/hacid/onto/data/isEquivalentTo
+2026-10-07 09:50:37.309 | DEBUG    | shaclgen.shaclgen:extract_props:37 - Property: http://www.w3.org/2002/07/owl#allValuesFrom
+2026-10-07 09:50:37.310 | DEBUG    | shaclgen.shaclgen:extract_props_subj_types:56 - Property subject types: http://www.w3.org/2002/07/owl#allValuesFrom
+2026-10-07 09:50:46.568 | DEBUG    | shaclgen.shaclgen:extract_props_obj_types:73 - Property object types: http://www.w3.org/2002/07/owl#allValuesFrom
+2026-10-07 09:50:46.820 | DEBUG    | shaclgen.shaclgen:extract_props:37 - Property: http://www.w3.org/2002/07/owl#inverseOf
+2026-10-07 09:50:46.820 | DEBUG    | shaclgen.shaclgen:extract_props_subj_types:56 - Property subject types: http://www.w3.org/2002/07/owl#inverseOf
+2026-10-07 09:50:55.166 | DEBUG    | shaclgen.shaclgen:extract_props_obj_types:73 - Property object types: http://www.w3.org/2002/07/owl#inverseOf
+2026-10-07 09:50:55.382 | DEBUG    | shaclgen.shaclgen:extract_props:37 - Property: http://www.w3.org/2002/07/owl#intersectionOf
+2026-10-07 09:50:55.382 | DEBUG    | shaclgen.shaclgen:extract_props_subj_types:56 - Property subject types: http://www.w3.org/2002/07/owl#intersectionOf
+2026-10-07 09:51:04.105 | DEBUG    | shaclgen.shaclgen:extract_props_obj_types:73 - Property object types: http://www.w3.org/2002/07/owl#intersectionOf
+2026-10-07 09:51:06.613 | DEBUG    | shaclgen.shaclgen:extract_props:37 - Property: https://w3id.org/hacid/onto/top-level/isRelatedToConcept
+2026-10-07 09:51:06.613 | DEBUG    | shaclgen.shaclgen:extract_props_subj_types:56 - Property subject types: https://w3id.org/hacid/onto/top-level/isRelatedToConcept
+2026-10-07 09:51:15.207 | DEBUG    | shaclgen.shaclgen:extract_props_obj_types:73 - Property object types: https://w3id.org/hacid/onto/top-level/isRelatedToConcept
+2026-10-07 09:51:21.289 | DEBUG    | shaclgen.shaclgen:extract_props:37 - Property: http://www.w3.org/2002/07/owl#imports
+2026-10-07 09:51:21.289 | DEBUG    | shaclgen.shaclgen:extract_props_subj_types:56 - Property subject types: http://www.w3.org/2002/07/owl#imports
+2026-10-07 09:51:31.089 | DEBUG    | shaclgen.shaclgen:extract_props_obj_types:73 - Property object types: http://www.w3.org/2002/07/owl#imports
+2026-10-07 09:51:33.782 | DEBUG    | shaclgen.shaclgen:extract_props:37 - Property: https://w3id.org/hacid/onto/top-level/isConstituentOf
+2026-10-07 09:51:33.783 | DEBUG    | shaclgen.shaclgen:extract_props_subj_types:56 - Property subject types: https://w3id.org/hacid/onto/top-level/isConstituentOf
+2026-10-07 09:51:42.406 | DEBUG    | shaclgen.shaclgen:extract_props_obj_types:73 - Property object types: https://w3id.org/hacid/onto/top-level/isConstituentOf
+2026-10-07 09:51:45.546 | DEBUG    | shaclgen.shaclgen:extract_props:37 - Property: https://w3id.org/hacid/onto/data/hasSubDimensionalSpace
+2026-10-07 09:51:45.547 | DEBUG    | shaclgen.shaclgen:extract_props_subj_types:56 - Property subject types: https://w3id.org/hacid/onto/data/hasSubDimensionalSpace
+2026-10-07 09:51:54.853 | DEBUG    | shaclgen.shaclgen:extract_props_obj_types:73 - Property object types: https://w3id.org/hacid/onto/data/hasSubDimensionalSpace
+2026-10-07 09:51:56.591 | DEBUG    | shaclgen.shaclgen:extract_props:37 - Property: https://w3id.org/hacid/onto/data/hasInPeriodResolutionValue
+2026-10-07 09:51:56.592 | DEBUG    | shaclgen.shaclgen:extract_props_subj_types:56 - Property subject types: https://w3id.org/hacid/onto/data/hasInPeriodResolutionValue
+2026-10-07 09:52:05.907 | DEBUG    | shaclgen.shaclgen:extract_props_obj_types:73 - Property object types: https://w3id.org/hacid/onto/data/hasInPeriodResolutionValue
+2026-10-07 09:52:06.094 | DEBUG    | shaclgen.shaclgen:extract_props:37 - Property: https://w3id.org/hacid/onto/data/hasReferencePoint
+2026-10-07 09:52:06.095 | DEBUG    | shaclgen.shaclgen:extract_props_subj_types:56 - Property subject types: https://w3id.org/hacid/onto/data/hasReferencePoint
+2026-10-07 09:52:14.829 | DEBUG    | shaclgen.shaclgen:extract_props_obj_types:73 - Property object types: https://w3id.org/hacid/onto/data/hasReferencePoint
+2026-10-07 09:52:16.739 | DEBUG    | shaclgen.shaclgen:extract_props:37 - Property: https://w3id.org/hacid/onto/data/isPointOf
+2026-10-07 09:52:16.740 | DEBUG    | shaclgen.shaclgen:extract_props_subj_types:56 - Property subject types: https://w3id.org/hacid/onto/data/isPointOf
+2026-10-07 09:52:25.828 | DEBUG    | shaclgen.shaclgen:extract_props_obj_types:73 - Property object types: https://w3id.org/hacid/onto/data/isPointOf
+2026-10-07 09:52:35.319 | DEBUG    | shaclgen.shaclgen:extract_props:37 - Property: http://www.w3.org/2002/07/owl#cardinality
+2026-10-07 09:52:35.320 | DEBUG    | shaclgen.shaclgen:extract_props_subj_types:56 - Property subject types: http://www.w3.org/2002/07/owl#cardinality
+2026-10-07 09:52:43.880 | DEBUG    | shaclgen.shaclgen:extract_props_obj_types:73 - Property object types: http://www.w3.org/2002/07/owl#cardinality
+2026-10-07 09:52:47.377 | DEBUG    | shaclgen.shaclgen:extract_props:37 - Property: https://w3id.org/hacid/onto/data/hasPeriodValue
+2026-10-07 09:52:47.377 | DEBUG    | shaclgen.shaclgen:extract_props_subj_types:56 - Property subject types: https://w3id.org/hacid/onto/data/hasPeriodValue
+2026-10-07 09:52:56.089 | DEBUG    | shaclgen.shaclgen:extract_props_obj_types:73 - Property object types: https://w3id.org/hacid/onto/data/hasPeriodValue
+2026-10-07 09:52:59.929 | DEBUG    | shaclgen.shaclgen:extract_props:37 - Property: http://www.w3.org/2002/07/owl#versionInfo
+2026-10-07 09:52:59.929 | DEBUG    | shaclgen.shaclgen:extract_props_subj_types:56 - Property subject types: http://www.w3.org/2002/07/owl#versionInfo
+2026-10-07 09:53:09.362 | DEBUG    | shaclgen.shaclgen:extract_props_obj_types:73 - Property object types: http://www.w3.org/2002/07/owl#versionInfo
+2026-10-07 09:53:11.458 | DEBUG    | shaclgen.shaclgen:extract_props:37 - Property: http://www.w3.org/2002/07/owl#onDataRange
+2026-10-07 09:53:11.459 | DEBUG    | shaclgen.shaclgen:extract_props_subj_types:56 - Property subject types: http://www.w3.org/2002/07/owl#onDataRange
+2026-10-07 09:53:20.125 | DEBUG    | shaclgen.shaclgen:extract_props_obj_types:73 - Property object types: http://www.w3.org/2002/07/owl#onDataRange
+2026-10-07 09:53:22.342 | DEBUG    | shaclgen.shaclgen:extract_props:37 - Property: https://w3id.org/hacid/onto/top-level/defines
+2026-10-07 09:53:22.342 | DEBUG    | shaclgen.shaclgen:extract_props_subj_types:56 - Property subject types: https://w3id.org/hacid/onto/top-level/defines
+2026-10-07 09:53:32.471 | DEBUG    | shaclgen.shaclgen:extract_props_obj_types:73 - Property object types: https://w3id.org/hacid/onto/top-level/defines
+2026-10-07 09:53:33.826 | DEBUG    | shaclgen.shaclgen:extract_props:37 - Property: http://www.w3.org/2002/07/owl#hasValue
+2026-10-07 09:53:33.827 | DEBUG    | shaclgen.shaclgen:extract_props_subj_types:56 - Property subject types: http://www.w3.org/2002/07/owl#hasValue
+2026-10-07 09:53:42.381 | DEBUG    | shaclgen.shaclgen:extract_props_obj_types:73 - Property object types: http://www.w3.org/2002/07/owl#hasValue
+2026-10-07 09:53:43.389 | DEBUG    | shaclgen.shaclgen:extract_props:37 - Property: http://www.w3.org/2002/07/owl#unionOf
+2026-10-07 09:53:43.389 | DEBUG    | shaclgen.shaclgen:extract_props_subj_types:56 - Property subject types: http://www.w3.org/2002/07/owl#unionOf
+2026-10-07 09:53:51.541 | DEBUG    | shaclgen.shaclgen:extract_props_obj_types:73 - Property object types: http://www.w3.org/2002/07/owl#unionOf
+2026-10-07 09:53:52.160 | DEBUG    | shaclgen.shaclgen:extract_props:37 - Property: http://purl.org/dc/terms/title
+2026-10-07 09:53:52.160 | DEBUG    | shaclgen.shaclgen:extract_props_subj_types:56 - Property subject types: http://purl.org/dc/terms/title
+2026-10-07 09:53:52.165 | DEBUG    | shaclgen.shaclgen:extract_props_obj_types:73 - Property object types: http://purl.org/dc/terms/title
+2026-10-07 09:53:54.019 | DEBUG    | shaclgen.shaclgen:extract_props:37 - Property: http://www.w3.org/1999/02/22-rdf-syntax-ns#value
+2026-10-07 09:53:54.019 | DEBUG    | shaclgen.shaclgen:extract_props_subj_types:56 - Property subject types: http://www.w3.org/1999/02/22-rdf-syntax-ns#value
+2026-10-07 09:54:03.133 | DEBUG    | shaclgen.shaclgen:extract_props_obj_types:73 - Property object types: http://www.w3.org/1999/02/22-rdf-syntax-ns#value
+2026-10-07 09:54:08.107 | DEBUG    | shaclgen.shaclgen:extract_props:37 - Property: https://w3id.org/hacid/onto/data/hasOffsetValue
+2026-10-07 09:54:08.107 | DEBUG    | shaclgen.shaclgen:extract_props_subj_types:56 - Property subject types: https://w3id.org/hacid/onto/data/hasOffsetValue
+2026-10-07 09:54:17.140 | DEBUG    | shaclgen.shaclgen:extract_props_obj_types:73 - Property object types: https://w3id.org/hacid/onto/data/hasOffsetValue
+2026-10-07 09:54:23.779 | DEBUG    | shaclgen.shaclgen:extract_props:37 - Property: http://www.w3.org/2002/07/owl#minCardinality
+2026-10-07 09:54:23.780 | DEBUG    | shaclgen.shaclgen:extract_props_subj_types:56 - Property subject types: http://www.w3.org/2002/07/owl#minCardinality
+2026-10-07 09:54:33.008 | DEBUG    | shaclgen.shaclgen:extract_props_obj_types:73 - Property object types: http://www.w3.org/2002/07/owl#minCardinality
+2026-10-07 09:54:33.636 | DEBUG    | shaclgen.shaclgen:extract_props:37 - Property: http://www.w3.org/2002/07/owl#onClass
+2026-10-07 09:54:33.637 | DEBUG    | shaclgen.shaclgen:extract_props_subj_types:56 - Property subject types: http://www.w3.org/2002/07/owl#onClass
+2026-10-07 09:54:42.402 | DEBUG    | shaclgen.shaclgen:extract_props_obj_types:73 - Property object types: http://www.w3.org/2002/07/owl#onClass
+2026-10-07 09:54:42.845 | DEBUG    | shaclgen.shaclgen:extract_props:37 - Property: http://www.w3.org/2002/07/owl#equivalentProperty
+2026-10-07 09:54:42.846 | DEBUG    | shaclgen.shaclgen:extract_props_subj_types:56 - Property subject types: http://www.w3.org/2002/07/owl#equivalentProperty
+2026-10-07 09:54:51.266 | DEBUG    | shaclgen.shaclgen:extract_props_obj_types:73 - Property object types: http://www.w3.org/2002/07/owl#equivalentProperty
+2026-10-07 09:54:51.351 | DEBUG    | shaclgen.shaclgen:extract_props:37 - Property: http://www.w3.org/ns/dcat#keyword
+2026-10-07 09:54:51.352 | DEBUG    | shaclgen.shaclgen:extract_props_subj_types:56 - Property subject types: http://www.w3.org/ns/dcat#keyword
+2026-10-07 09:54:59.722 | DEBUG    | shaclgen.shaclgen:extract_props_obj_types:73 - Property object types: http://www.w3.org/ns/dcat#keyword
+2026-10-07 09:55:29.314 | DEBUG    | shaclgen.shaclgen:extract_props:37 - Property: http://www.w3.org/2002/07/owl#maxQualifiedCardinality
+2026-10-07 09:55:29.315 | DEBUG    | shaclgen.shaclgen:extract_props_subj_types:56 - Property subject types: http://www.w3.org/2002/07/owl#maxQualifiedCardinality
+2026-10-07 09:55:37.865 | DEBUG    | shaclgen.shaclgen:extract_props_obj_types:73 - Property object types: http://www.w3.org/2002/07/owl#maxQualifiedCardinality
+2026-10-07 09:55:40.997 | DEBUG    | shaclgen.shaclgen:extract_props:37 - Property: http://www.w3.org/2002/07/owl#hasSelf
+2026-10-07 09:55:40.997 | DEBUG    | shaclgen.shaclgen:extract_props_subj_types:56 - Property subject types: http://www.w3.org/2002/07/owl#hasSelf
+2026-10-07 09:55:49.773 | DEBUG    | shaclgen.shaclgen:extract_props_obj_types:73 - Property object types: http://www.w3.org/2002/07/owl#hasSelf
+2026-10-07 09:55:50.303 | DEBUG    | shaclgen.shaclgen:extract_props:37 - Property: http://www.w3.org/2002/07/owl#hasKey
+2026-10-07 09:55:50.303 | DEBUG    | shaclgen.shaclgen:extract_props_subj_types:56 - Property subject types: http://www.w3.org/2002/07/owl#hasKey
+2026-10-07 09:55:58.647 | DEBUG    | shaclgen.shaclgen:extract_props_obj_types:73 - Property object types: http://www.w3.org/2002/07/owl#hasKey
+2026-10-07 09:56:01.783 | DEBUG    | shaclgen.shaclgen:extract_props:37 - Property: https://w3id.org/hacid/onto/data/hasResolution
+2026-10-07 09:56:01.784 | DEBUG    | shaclgen.shaclgen:extract_props_subj_types:56 - Property subject types: https://w3id.org/hacid/onto/data/hasResolution
+2026-10-07 09:56:09.842 | DEBUG    | shaclgen.shaclgen:extract_props_obj_types:73 - Property object types: https://w3id.org/hacid/onto/data/hasResolution
+2026-10-07 09:56:36.309 | DEBUG    | shaclgen.shaclgen:extract_props:37 - Property: http://www.w3.org/ns/dcat#theme
+2026-10-07 09:56:36.309 | DEBUG    | shaclgen.shaclgen:extract_props_subj_types:56 - Property subject types: http://www.w3.org/ns/dcat#theme
+2026-10-07 09:56:44.128 | DEBUG    | shaclgen.shaclgen:extract_props_obj_types:73 - Property object types: http://www.w3.org/ns/dcat#theme
+2026-10-07 09:57:11.072 | DEBUG    | shaclgen.shaclgen:extract_props:37 - Property: http://www.w3.org/2002/07/owl#equivalentClass
+2026-10-07 09:57:11.072 | DEBUG    | shaclgen.shaclgen:extract_props_subj_types:56 - Property subject types: http://www.w3.org/2002/07/owl#equivalentClass
+2026-10-07 09:57:19.781 | DEBUG    | shaclgen.shaclgen:extract_props_obj_types:73 - Property object types: http://www.w3.org/2002/07/owl#equivalentClass
+2026-10-07 09:57:37.240 | DEBUG    | shaclgen.shaclgen:extract_props:37 - Property: http://purl.org/dc/terms/license
+2026-10-07 09:57:37.240 | DEBUG    | shaclgen.shaclgen:extract_props_subj_types:56 - Property subject types: http://purl.org/dc/terms/license
+2026-10-07 09:57:37.245 | DEBUG    | shaclgen.shaclgen:extract_props_obj_types:73 - Property object types: http://purl.org/dc/terms/license
+2026-10-07 09:57:57.531 | DEBUG    | shaclgen.shaclgen:extract_props:37 - Property: http://www.w3.org/2002/07/owl#versionIRI
+2026-10-07 09:57:57.531 | DEBUG    | shaclgen.shaclgen:extract_props_subj_types:56 - Property subject types: http://www.w3.org/2002/07/owl#versionIRI
+2026-10-07 09:58:06.207 | DEBUG    | shaclgen.shaclgen:extract_props_obj_types:73 - Property object types: http://www.w3.org/2002/07/owl#versionIRI
+2026-10-07 09:58:06.618 | DEBUG    | shaclgen.shaclgen:extract_props:37 - Property: http://www.w3.org/2002/07/owl#deprecated
+2026-10-07 09:58:06.619 | DEBUG    | shaclgen.shaclgen:extract_props_subj_types:56 - Property subject types: http://www.w3.org/2002/07/owl#deprecated
+2026-10-07 09:58:14.502 | DEBUG    | shaclgen.shaclgen:extract_props_obj_types:73 - Property object types: http://www.w3.org/2002/07/owl#deprecated

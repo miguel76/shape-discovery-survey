@@ -32,9 +32,10 @@ Each undefined variable gets the first matching category, in this order:
   CMIP5 name            a CMIP5 out_name that is not a CMIP6 out_name; CMIP6 variables with the
                         same standard name that CCKG defines are listed as candidate equivalents
   CORDEX name           a CORDEX out_name that is not a CMIP6 out_name
+  UKCP18 variable       a variable of a UKCP18 product (UKCP18 below; checked by hand)
   level variant         a defined or tabulated variable plus a level the tables do not have
                         (ua975, zg50m)
-  derived variant       a defined variable plus a product-specific suffix (tasAnom, pr-bc)
+  derived variant       a defined variable plus a product-specific suffix (pr-bc, tasmaxts)
   synonym               a known non-standard synonym (SYNONYMS below)
   unknown               none of the above: product- or model-specific names
 
@@ -59,6 +60,24 @@ LINE = re.compile(r'^\s*(<[^>]*>|_:\S+)\s+<([^>]*)>\s+(<[^>]*>|".*")\s*(?:<([^>]
 NOT_VARIABLES = re.compile(r"^(crs|gridspec|ensemble_member|.*_bounds|.*_layer)$")
 SUFFIXES = re.compile(r"^(.+?)(Anom|-bc|-fl|ts|max|min)$")
 LEVEL = re.compile(r"^(.+?)(\d+m?)$")
+# UKCP18 variables that are in no CMOR table. The UKCP18 documentation (CEDA catalogue and UKCP
+# User Interface) is not machine-readable here, so the names were checked by hand against it:
+#   CEDA uuid 6e61f79cb6b0457eb84edaffcf0aab3a, 3a0012551e464e5b8b3bba3b41a7a60c (circulation
+#   indices), UKCP UI product LS1_Subset_02 (extremes), UKCP18 soil-moisture factsheet (beta),
+#   CEDA uuid 9f8dfaf790644dbcb2c3f69f409a70d6, UKCP UI product LS1_Sample_01 (anomalies of the
+#   probabilistic projections).
+UKCP18 = {
+    "naodjf": "winter (DJF) Atlantic pressure gradient Iceland-Gibraltar, i.e. the winter NAO (hPa); circulation indices",
+    "jetlat": "daily latitude of the North Atlantic jet stream (850 hPa zonal wind); circulation indices",
+    "jetstr": "daily strength of the North Atlantic jet stream; circulation indices",
+    "wtype8": "daily weather type, 8-type classification; circulation indices",
+    "wtype30": "daily weather type, 30-type classification; circulation indices",
+    "pr1day": "1-day total precipitation (mm) for a return period; probabilistic extremes (25km)",
+    "pr5day": "5-day total precipitation (mm) for a return period; probabilistic extremes (25km)",
+    "beta": "soil moisture stress factor (0-100), most likely; Global (60km) soil moisture metrics",
+}
+UKCP18_ANOMALIES = {"tasAnom", "tasmaxAnom", "tasminAnom", "prAnom", "sfcWindAnom", "hursAnom", "hussAnom",
+                    "uasAnom", "vasAnom", "pslAnom", "rlsAnom", "rssAnom", "rsdsAnom", "cltAnom"}
 # non-standard synonyms with an obvious standard counterpart (checked by hand)
 SYNONYMS = {"u200": "ua200", "u500": "ua500", "u850": "ua850", "v200": "va200", "v500": "va500",
             "v850": "va850", "tmax": "tasmax", "tmin": "tasmin", "sst": "tos"}
@@ -156,6 +175,10 @@ def classify(name, ns, defined_mip, defined_cf, voc, coords, std, entries, cf_na
                                            if cands else "; no CMIP6 variable with this standard name"))
     if any(v.startswith("CORDEX") for v in in_voc):
         return "CORDEX name", ", ".join(f"{v} ({', '.join(t[:3])})" for v, t in in_voc.items())
+    if name in UKCP18:
+        return "UKCP18 variable", UKCP18[name]
+    if name in UKCP18_ANOMALIES:
+        return "UKCP18 variable", f"anomaly of `{name[:-4]}` (probabilistic projections)"
     m = LEVEL.match(name)
     if m and m.group(1) in tabulated:
         return "level variant", f"`{m.group(1)}` at `{m.group(2)}`"
