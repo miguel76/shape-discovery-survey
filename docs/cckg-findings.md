@@ -194,7 +194,29 @@ undefined variables described above. The rest are `sh:or` violations on `hasOutp
 
 ### Regime `rdfs` (full RDFS closure)
 
-RDFS_SECTION
+The data grow to 11.9M triples. Besides 1.2M `rdf:type` triples from domains, ranges and the
+subclass closure, the closure adds the superproperties of the data properties: 572k
+`holdsSpecializationOfVariable` and 572k `derivedFromVariable` triples, 294k `hasPart` and
+`hasProperPart`, and 107k `isDescribedBy`.
+
+| run | node / property shapes | (class, property) pairs, of which also on a superclass | nodes flagged | violations per node |
+|---|---|---|---|---|
+RDFS_SP_ROW| sheXer | 95 / 2,329 | 1,144, 982 (86%) | 100% (sample of 749) | 3,509 |
+| QSE, pruned | 49 / 474 | 436, 378 (87%) | 100% (sample of 10.9k) | 158 |
+| QSE, full | 94 / 1,225 | 1,145, 983 (86%) | 100% (sample of 1.5k) | 175 |
+| SHACLGEN, schema-automator | out of memory | | | |
+
+- **Domain and range inference hides the undefined variables.** The variables of the previous
+  section are values of properties whose `rdfs:range` is `data:Variable`, so under RDFS they are
+  typed as `Variable`, and a constraint `sh:class data:Variable` holds by construction. Inference
+  on domains and ranges makes the data conform wherever a constraint matches a declared range,
+  which is exactly where the discovered shapes would otherwise detect errors.
+- **Shapes describe the inferred superproperties too**, which adds property shapes: sheXer's grow
+  from 1,876 to 2,329.
+- **Validation slows down for `sh:node`-heavy shapes.** `sh:node` checks traverse the inferred links
+  as well: in 10 minutes, sheXer's shapes were validated on 749 nodes, against 11.8k under
+  `subclass`.
+RDFS_SP_NOTE
 
 ## Factoring along the class hierarchy
 
@@ -209,8 +231,10 @@ nodes, since factoring is proven to preserve which (node, property) pairs are vi
 | `subclass` | sheXer | 2,709 of 4,444 (61%) | 1,876 → 817 | 93 → 72 | 11,778 (sample) | 29.4M → 17.5M (−41%) | 600 s → 274 s |
 | `subclass` | QSE, full | 800 of 1,807 (44%) | 833 → 510 | 92 | 13,338 (sample) | 1,451,046 → 1,205,954 (−17%) | 600 s → 411 s |
 | `subclass` | QSE, pruned | 288 of 580 (50%) | 284 → 165 | 47 | 52,267 (sample) | 5,365,764 → 4,465,919 (−17%) | 600 s → 384 s |
-RDFS_FACTORING
-
+| `rdfs` | sheXer | 2,996 of 5,138 (58%) | 2,329 → 1,104 | 95 → 73 | 749 (sample) | 2,628,408 → 1,541,587 (−41%) | 747 s → 139 s |
+| `rdfs` | QSE, full | 1,224 of 2,573 (48%) | 1,225 → 712 | 94 | 1,509 (sample) | 264,573 → 212,848 (−20%) | 612 s → 370 s |
+| `rdfs` | QSE, pruned | 467 of 892 (52%) | 474 → 256 | 49 | 10,905 (sample) | 1,725,612 → 1,265,748 (−27%) | 600 s → 251 s |
+RDFS_SP_FACTORING
 In every run the factored shapes flag exactly the same nodes. For SHACL Play under `subclass`,
 which was validated on the whole KG, the sets of (node, property) pairs with violations were also
 compared and are identical (114,709 pairs). This comparison first found 5 nodes flagged only by
