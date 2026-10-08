@@ -128,8 +128,8 @@ The CCKG results for SHACL Play, the most descriptive of the tools, on the first
 
 In CCKG's case, `subclass` gives the useful abstract shapes and keeps error detection. It needs a
 factoring step to remove the constraints inherited from superclasses. That step is now part of the
-pipeline ([factoring.md](factoring.md)). On SHACL Play's shapes, it removes 79% of the constraints.
-The same nodes are flagged, with 1.6 violations per flagged node instead of 13.2. `rdfs` adds little for
+pipeline ([factoring.md](factoring.md)). On SHACL Play's shapes, it removes 80% of the constraints (2026-10-07 dump).
+The same nodes are flagged, with 1.6 violations per flagged node instead of 13.9. `rdfs` adds little for
 shapes and hides real errors. `none` gives compact shapes, but its shapes for generic classes are
 learned from a few explicitly typed nodes. With the old, incoherent validation (`none` discovery,
 SHACL's subclass semantics at validation), the same SHACL Play shapes flagged 586,920 nodes (98.7%).

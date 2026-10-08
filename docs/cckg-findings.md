@@ -10,15 +10,16 @@ The numbers are in [`results/cckg/summary.md`](../results/cckg/summary.md), with
 
 ```sh
 make install
-make run evaluate KG=cckg INFERENCE=none RUN_ARGS="--endpoint --local-endpoint"
-make run evaluate KG=cckg INFERENCE=subclass RUN_ARGS=
-make run evaluate KG=cckg INFERENCE=rdfs RUN_ARGS=
+make run evaluate KG=cckg INFERENCE=none RUN_ARGS="--endpoint --local-endpoint --timeout 6900"
+make run evaluate KG=cckg INFERENCE=subclass RUN_ARGS="--timeout 6900"
+make run evaluate KG=cckg INFERENCE=rdfs RUN_ARGS="--timeout 6900"
 .tools/pipeline-venv/bin/python pipeline/kg_checks.py cckg
 .tools/pipeline-venv/bin/python pipeline/link_sources.py cckg
 ```
 
-Tool runs were limited to 115 minutes (`TOOL_TIMEOUT`) and, under `subclass` and `rdfs`,
-validations to 10 minutes per set of shapes (`VALIDATION_BUDGET`, see below).
+Tool runs were limited to 115 minutes (`--timeout`). Under `subclass` and `rdfs`, validations
+were limited to 10 minutes per set of shapes (`VALIDATION_BUDGET=600`, see below), except for
+SHACL Play's shapes, which were validated on all the focus nodes.
 
 ## Input
 
@@ -110,7 +111,7 @@ variables.
 | QSE, full | 1.1 min, 2.7 GB | 1.6 min, 5.9 GB | 3.1 min, 7.9 GB |
 | QSE, pruned (confidence ≥ 0.1, support ≥ 100) | 1.0 min, 2.8 GB | 1.7 min, 5.9 GB | 2.9 min, 7.1 GB |
 | SHACLGEN | 43 min, 6.0 GB | timeout (115 min) | out of memory (12 GB) |
-| SHACL Play! (file) | 3.5 min, 3.4 GB | 71 min, 5.3 GB | RDFS_SP |
+| SHACL Play! (file) | 3.5 min, 3.4 GB | 71 min, 5.3 GB | timeout (115 min) |
 | SHACL Play! (endpoint) | 3.3 min, 0.2 GB (+ Fuseki) | – | – |
 | LinkML schema-automator | 13.6 min, 7.2 GB | out of memory (12 GB) | out of memory (12 GB) |
 
@@ -201,9 +202,10 @@ subclass closure, the closure adds the superproperties of the data properties: 5
 
 | run | node / property shapes | (class, property) pairs, of which also on a superclass | nodes flagged | violations per node |
 |---|---|---|---|---|
-RDFS_SP_ROW| sheXer | 95 / 2,329 | 1,144, 982 (86%) | 100% (sample of 749) | 3,509 |
+| sheXer | 95 / 2,329 | 1,144, 982 (86%) | 100% (sample of 749) | 3,509 |
 | QSE, pruned | 49 / 474 | 436, 378 (87%) | 100% (sample of 10.9k) | 158 |
 | QSE, full | 94 / 1,225 | 1,145, 983 (86%) | 100% (sample of 1.5k) | 175 |
+| SHACL Play! | timeout | | | |
 | SHACLGEN, schema-automator | out of memory | | | |
 
 - **Domain and range inference hides the undefined variables.** The variables of the previous
@@ -216,7 +218,10 @@ RDFS_SP_ROW| sheXer | 95 / 2,329 | 1,144, 982 (86%) | 100% (sample of 749) | 3,5
 - **Validation slows down for `sh:node`-heavy shapes.** `sh:node` checks traverse the inferred links
   as well: in 10 minutes, sheXer's shapes were validated on 749 nodes, against 11.8k under
   `subclass`.
-RDFS_SP_NOTE
+- **SHACL Play's shapes could not be compared.** Its discovery did not finish in 115 minutes, the
+  most a single command can run in the environment that produced these results. On this dump it
+  is slower than on the previous ones: 71 minutes under `subclass`, against 49. Under `rdfs` it
+  took 1.8 hours on the previous dump.
 
 ## Factoring along the class hierarchy
 
@@ -234,7 +239,6 @@ nodes, since factoring is proven to preserve which (node, property) pairs are vi
 | `rdfs` | sheXer | 2,996 of 5,138 (58%) | 2,329 → 1,104 | 95 → 73 | 749 (sample) | 2,628,408 → 1,541,587 (−41%) | 747 s → 139 s |
 | `rdfs` | QSE, full | 1,224 of 2,573 (48%) | 1,225 → 712 | 94 | 1,509 (sample) | 264,573 → 212,848 (−20%) | 612 s → 370 s |
 | `rdfs` | QSE, pruned | 467 of 892 (52%) | 474 → 256 | 49 | 10,905 (sample) | 1,725,612 → 1,265,748 (−27%) | 600 s → 251 s |
-RDFS_SP_FACTORING
 In every run the factored shapes flag exactly the same nodes. For SHACL Play under `subclass`,
 which was validated on the whole KG, the sets of (node, property) pairs with violations were also
 compared and are identical (114,709 pairs). This comparison first found 5 nodes flagged only by

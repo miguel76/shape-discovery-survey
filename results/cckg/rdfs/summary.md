@@ -13,7 +13,7 @@ Shapes extracted and validated under the `rdfs` regime (see `pipeline/regimes.py
 | qse+factored | 0 | 185.19 | 7910.8 | 94 | 712 | 632 | 470 | sh:NodeKind | 1 |
 | qse-pruned | 0 | 171.96 | 7138.0 | 49 | 474 | 436 | 378 | sh:NodeKind | 1 |
 | qse-pruned+factored | 0 | 171.96 | 7138.0 | 49 | 256 | 218 | 160 | sh:NodeKind | 1 |
-| shacl-play | -9 (timeout) | 6900.02 | 19.2 | - | - | - | - | - | - |
+| shacl-play | -9 (timeout) | 6900.07 | 19.2 | - | - | - | - | - | - |
 | shaclgen | 1 | 857.53 | 12164.1 | - | - | - | - | - | - |
 | shexer | 0 | 645.12 | 5280.2 | 95 | 2329 | 1144 | 982 | sh:dataType | 0 |
 | shexer+factored | 0 | 645.12 | 5280.2 | 73 | 1104 | 656 | 494 | sh:dataType | 0 |

@@ -13,6 +13,9 @@ source graph with [`pipeline/link_sources.py`](../pipeline/link_sources.py). Rep
 | `cckg_2026-09-30_10-40-33` | 4,612,279 | [data-checks-2026-09-30.md](../results/cckg/data-checks-2026-09-30.md) |
 | `cckg_2026-10-07_10-04-53` | 4,612,318 | [data-checks.md](../results/cckg/data-checks.md), [dangling-by-source.md](../results/cckg/dangling-by-source.md) |
 
+The survey results of the evaluations on the earlier dumps are in the version of
+[cckg-findings.md at commit `dc94120`](https://github.com/miguel76/shape-discovery-survey/blob/dc94120/docs/cckg-findings.md).
+
 ## Status of the issues
 
 | # | issue | 2026-09-24 | 2026-09-30 | 2026-10-07 |
