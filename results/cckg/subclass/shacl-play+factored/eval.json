@@ -1,0 +1,68 @@
+{
+  "run": "shacl-play+factored",
+  "tool": "shacl-play",
+  "mode": "file",
+  "source": "work/cckg/subclass/data.nt",
+  "command": [
+    "tools/shacl-play/run.sh",
+    "file",
+    "work/cckg/subclass/data.nt",
+    "results/cckg/subclass/shacl-play"
+  ],
+  "exit_code": 0,
+  "timed_out": false,
+  "wall_seconds": 4249.76,
+  "cpu_seconds": 4404.96,
+  "peak_rss_mb": 5250.7,
+  "has_output": true,
+  "factored_from": "shacl-play",
+  "syntax": "ok",
+  "non_shacl_terms": [],
+  "well_formedness": {
+    "conforms": true,
+    "violations": 0,
+    "focus_nodes": 0,
+    "by_component": {}
+  },
+  "profile": {
+    "triples": 6378,
+    "node_shapes": 65,
+    "property_shapes": 220,
+    "class_path_pairs": 220,
+    "pairs_repeated_from_superclass": 159,
+    "constraint_usage": {
+      "sh:class": 2878,
+      "sh:datatype": 178,
+      "sh:hasValue": 9,
+      "sh:in": 27,
+      "sh:languageIn": 26,
+      "sh:maxCount": 69,
+      "sh:minCount": 52,
+      "sh:nodeKind": 61,
+      "sh:or": 111
+    }
+  },
+  "self_validation": {
+    "conforms": false,
+    "violations": 185370,
+    "focus_nodes": 114585,
+    "validated_focus_nodes": 595459,
+    "target_focus_nodes": 595459,
+    "partial": false,
+    "seconds": 887,
+    "by_component": {
+      "sh:OrConstraintComponent": 185370
+    },
+    "top_path_components": {
+      "<https://w3id.org/hacid/onto/data/isSpecializationOfVariable> sh:OrConstraintComponent": 107866,
+      "<https://w3id.org/hacid/onto/data/holdsSpecializationOfVariable> sh:OrConstraintComponent": 70554,
+      "<https://w3id.org/hacid/onto/top-level/hasComponent> sh:OrConstraintComponent": 4482,
+      "<https://w3id.org/hacid/onto/data/hasOutput> sh:OrConstraintComponent": 2073,
+      "<https://w3id.org/hacid/onto/ccso/isDownscalingOf> sh:OrConstraintComponent": 131,
+      "<https://w3id.org/hacid/onto/data/isSpecializedAccordingTo> sh:OrConstraintComponent": 122,
+      "<https://w3id.org/hacid/onto/data/dependsOnVariable> sh:OrConstraintComponent": 122,
+      "<https://w3id.org/hacid/onto/data/derivedFromVariable> sh:OrConstraintComponent": 20
+    }
+  },
+  "inference": "subclass"
+}

@@ -11,9 +11,9 @@
   ],
   "exit_code": 1,
   "timed_out": false,
-  "wall_seconds": 584.2,
-  "cpu_seconds": 576.04,
-  "peak_rss_mb": 12185.5,
+  "wall_seconds": 857.53,
+  "cpu_seconds": 845.37,
+  "peak_rss_mb": 12164.1,
   "has_output": false,
   "syntax": "error: FileNotFoundError: [Errno 2] No such file or directory: '/home/user/shape-discovery-survey/results/cckg/rdfs/shaclgen/shapes.ttl'",
   "inference": "rdfs"

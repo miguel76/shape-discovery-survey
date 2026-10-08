@@ -1,0 +1,20 @@
+{
+  "run": "shaclgen",
+  "tool": "shaclgen",
+  "mode": "file",
+  "source": "work/cckg/subclass/data.nt",
+  "command": [
+    "tools/shaclgen/run.sh",
+    "file",
+    "work/cckg/subclass/data.nt",
+    "results/cckg/subclass/shaclgen"
+  ],
+  "exit_code": -9,
+  "timed_out": true,
+  "wall_seconds": 6900.07,
+  "cpu_seconds": 0.01,
+  "peak_rss_mb": 19.1,
+  "has_output": false,
+  "syntax": "error: FileNotFoundError: [Errno 2] No such file or directory: '/home/user/shape-discovery-survey/results/cckg/subclass/shaclgen/shapes.ttl'",
+  "inference": "subclass"
+}

@@ -10,9 +10,9 @@
   ],
   "exit_code": 0,
   "timed_out": false,
-  "wall_seconds": 552.01,
-  "cpu_seconds": 544.38,
-  "peak_rss_mb": 6325.8,
+  "wall_seconds": 645.12,
+  "cpu_seconds": 635.4,
+  "peak_rss_mb": 5280.2,
   "has_output": true,
   "factored_from": "shexer"
 }

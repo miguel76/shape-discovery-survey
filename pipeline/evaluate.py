@@ -53,7 +53,7 @@ import pyshacl
 from rdflib import RDF, RDFS, SH, Graph, URIRef
 from rdflib.collection import Collection
 
-from factor import factor as factor_shapes, load_hierarchy
+from factor import factor as factor_shapes, load_hierarchy, write_turtle
 from regimes import REGIMES, validation_data
 
 FACTORED = "+factored"
@@ -388,7 +388,7 @@ def factor_runs(results, hierarchy_files):
         g = Graph().parse(shapes_file, format="turtle")
         report = factor_shapes(g, hierarchy)
         out_dir.mkdir(exist_ok=True)
-        g.serialize(out, format="turtle")
+        write_turtle(g, out)
         (out_dir / "factoring.json").write_text(json.dumps(report, indent=2) + "\n")
         # the run metadata describe the discovery run the shapes come from
         (out_dir / "run.json").write_text(json.dumps({**run_json, "factored_from": run_dir.name}, indent=2) + "\n")

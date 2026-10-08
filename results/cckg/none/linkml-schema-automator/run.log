@@ -6,66 +6,66 @@ Traceback (most recent call last):
     return conv_func(lexical)  # type: ignore[arg-type]
            ^^^^^^^^^^^^^^^^^^
 ValueError: year 0 is out of range
-Writing 5 to /tmp/tmp.BtsLG7lnxG/AnnotationProperty.tsv
-Writing 140 to /tmp/tmp.BtsLG7lnxG/Class.tsv
-Writing 215 to /tmp/tmp.BtsLG7lnxG/ObjectProperty.tsv
-Writing 10 to /tmp/tmp.BtsLG7lnxG/Datatype.tsv
-Writing 193 to /tmp/tmp.BtsLG7lnxG/DependentVariable.tsv
-Writing 24 to /tmp/tmp.BtsLG7lnxG/Collection.tsv
-Writing 12 to /tmp/tmp.BtsLG7lnxG/ConceptScheme.tsv
-Writing 79 to /tmp/tmp.BtsLG7lnxG/Aggregation.tsv
-Writing 4 to /tmp/tmp.BtsLG7lnxG/IndependentVariable.tsv
-Writing 48 to /tmp/tmp.BtsLG7lnxG/Concept.tsv
-Writing 1 to /tmp/tmp.BtsLG7lnxG/Description.tsv
-Writing 4693 to /tmp/tmp.BtsLG7lnxG/DimensionalSpace.tsv
-Writing 2553 to /tmp/tmp.BtsLG7lnxG/VariableSpecialization.tsv
-Writing 2208 to /tmp/tmp.BtsLG7lnxG/EnsembleProjection.tsv
-Writing 157113 to /tmp/tmp.BtsLG7lnxG/ScenarioBasedProjection.tsv
-Writing 514792 to /tmp/tmp.BtsLG7lnxG/SingleProjection.tsv
-Writing 106 to /tmp/tmp.BtsLG7lnxG/SingleProjectionProduction.tsv
-Writing 116 to /tmp/tmp.BtsLG7lnxG/StatisticalProjectionTransformation.tsv
-Writing 4 to /tmp/tmp.BtsLG7lnxG/EnsembleProjectionProduction.tsv
-Writing 56454 to /tmp/tmp.BtsLG7lnxG/ProbabilisticProjection.tsv
-Writing 6 to /tmp/tmp.BtsLG7lnxG/ProbabilisticProjectionProduction.tsv
-Writing 24 to /tmp/tmp.BtsLG7lnxG/Continuum.tsv
-Writing 91 to /tmp/tmp.BtsLG7lnxG/GeodeticRegion.tsv
-Writing 21 to /tmp/tmp.BtsLG7lnxG/SimpleRegularBinning.tsv
-Writing 10 to /tmp/tmp.BtsLG7lnxG/DiscreteDimensionalSpace.tsv
-Writing 12 to /tmp/tmp.BtsLG7lnxG/GeodeticPoint.tsv
-Writing 2499 to /tmp/tmp.BtsLG7lnxG/TemporalRegion.tsv
-Writing 1 to /tmp/tmp.BtsLG7lnxG/SinglePeriodicBinning.tsv
-Writing 4 to /tmp/tmp.BtsLG7lnxG/RegularPeriodicBinning.tsv
-Writing 8 to /tmp/tmp.BtsLG7lnxG/RegularBinning.tsv
-Writing 42 to /tmp/tmp.BtsLG7lnxG/HazardType.tsv
-Writing 667 to /tmp/tmp.BtsLG7lnxG/ClimateModelIntercomparisonExperiment.tsv
-Writing 918 to /tmp/tmp.BtsLG7lnxG/GlobalClimateSimulation.tsv
-Writing 2 to /tmp/tmp.BtsLG7lnxG/Dataset.tsv
-Writing 2 to /tmp/tmp.BtsLG7lnxG/DataGeneratingProcess.tsv
-Writing 43 to /tmp/tmp.BtsLG7lnxG/Action.tsv
-Writing 42 to /tmp/tmp.BtsLG7lnxG/GlobalClimateModel.tsv
-Writing 147 to /tmp/tmp.BtsLG7lnxG/RegionalClimateModel.tsv
-Writing 1 to /tmp/tmp.BtsLG7lnxG/ConvectionPermittingClimateModel.tsv
-Writing 91 to /tmp/tmp.BtsLG7lnxG/Organization.tsv
-Writing 12 to /tmp/tmp.BtsLG7lnxG/NamedIndividual.tsv
-Writing 7 to /tmp/tmp.BtsLG7lnxG/GreenhouseGasConcentrationPathway.tsv
-Writing 5 to /tmp/tmp.BtsLG7lnxG/SharedSocioeconomicPathway.tsv
-Writing 2744 to /tmp/tmp.BtsLG7lnxG/SingleSimulation.tsv
-Writing 152 to /tmp/tmp.BtsLG7lnxG/PerturbedParameterClimateEnsembleSimulation.tsv
-Writing 3963 to /tmp/tmp.BtsLG7lnxG/DynamicalDownscaling.tsv
-Writing 1318 to /tmp/tmp.BtsLG7lnxG/EnsembleSimulation.tsv
-Writing 148 to /tmp/tmp.BtsLG7lnxG/UnitOfMeasure.tsv
-Writing 5 to /tmp/tmp.BtsLG7lnxG/Amount.tsv
-Writing 6141 to /tmp/tmp.BtsLG7lnxG/Variable.tsv
-Writing 60 to /tmp/tmp.BtsLG7lnxG/Method.tsv
-Writing 65 to /tmp/tmp.BtsLG7lnxG/InformationRole.tsv
-Writing 81 to /tmp/tmp.BtsLG7lnxG/Operation.tsv
-Writing 24 to /tmp/tmp.BtsLG7lnxG/DatatypeProperty.tsv
-Writing 2 to /tmp/tmp.BtsLG7lnxG/SymmetricProperty.tsv
-Writing 3 to /tmp/tmp.BtsLG7lnxG/Ontology.tsv
-Writing 10 to /tmp/tmp.BtsLG7lnxG/TransitiveProperty.tsv
-Writing 4 to /tmp/tmp.BtsLG7lnxG/AsymmetricProperty.tsv
-Writing 2 to /tmp/tmp.BtsLG7lnxG/ReflexiveProperty.tsv
-Writing 63 to /tmp/tmp.BtsLG7lnxG/Restriction.tsv
+Writing 7 to /tmp/tmp.Yn3zwJHokW/AnnotationProperty.tsv
+Writing 138 to /tmp/tmp.Yn3zwJHokW/Class.tsv
+Writing 4 to /tmp/tmp.Yn3zwJHokW/Datatype.tsv
+Writing 193 to /tmp/tmp.Yn3zwJHokW/DependentVariable.tsv
+Writing 24 to /tmp/tmp.Yn3zwJHokW/Collection.tsv
+Writing 11 to /tmp/tmp.Yn3zwJHokW/ConceptScheme.tsv
+Writing 10 to /tmp/tmp.Yn3zwJHokW/GlobalWarmingLevel.tsv
+Writing 79 to /tmp/tmp.Yn3zwJHokW/Aggregation.tsv
+Writing 4 to /tmp/tmp.Yn3zwJHokW/IndependentVariable.tsv
+Writing 38 to /tmp/tmp.Yn3zwJHokW/Concept.tsv
+Writing 1 to /tmp/tmp.Yn3zwJHokW/Description.tsv
+Writing 4695 to /tmp/tmp.Yn3zwJHokW/DimensionalSpace.tsv
+Writing 2554 to /tmp/tmp.Yn3zwJHokW/VariableSpecialization.tsv
+Writing 2208 to /tmp/tmp.Yn3zwJHokW/EnsembleProjection.tsv
+Writing 157112 to /tmp/tmp.Yn3zwJHokW/ScenarioBasedProjection.tsv
+Writing 514792 to /tmp/tmp.Yn3zwJHokW/SingleProjection.tsv
+Writing 106 to /tmp/tmp.Yn3zwJHokW/SingleProjectionProduction.tsv
+Writing 115 to /tmp/tmp.Yn3zwJHokW/StatisticalProjectionTransformation.tsv
+Writing 4 to /tmp/tmp.Yn3zwJHokW/EnsembleProjectionProduction.tsv
+Writing 56453 to /tmp/tmp.Yn3zwJHokW/ProbabilisticProjection.tsv
+Writing 5 to /tmp/tmp.Yn3zwJHokW/ProbabilisticProjectionProduction.tsv
+Writing 25 to /tmp/tmp.Yn3zwJHokW/Continuum.tsv
+Writing 92 to /tmp/tmp.Yn3zwJHokW/GeodeticRegion.tsv
+Writing 21 to /tmp/tmp.Yn3zwJHokW/SimpleRegularBinning.tsv
+Writing 10 to /tmp/tmp.Yn3zwJHokW/DiscreteDimensionalSpace.tsv
+Writing 13 to /tmp/tmp.Yn3zwJHokW/GeodeticPoint.tsv
+Writing 2500 to /tmp/tmp.Yn3zwJHokW/TemporalRegion.tsv
+Writing 1 to /tmp/tmp.Yn3zwJHokW/SinglePeriodicBinning.tsv
+Writing 4 to /tmp/tmp.Yn3zwJHokW/RegularPeriodicBinning.tsv
+Writing 8 to /tmp/tmp.Yn3zwJHokW/RegularBinning.tsv
+Writing 42 to /tmp/tmp.Yn3zwJHokW/HazardType.tsv
+Writing 667 to /tmp/tmp.Yn3zwJHokW/ClimateModelIntercomparisonExperiment.tsv
+Writing 918 to /tmp/tmp.Yn3zwJHokW/GlobalClimateSimulation.tsv
+Writing 2 to /tmp/tmp.Yn3zwJHokW/Dataset.tsv
+Writing 2 to /tmp/tmp.Yn3zwJHokW/DataGeneratingProcess.tsv
+Writing 43 to /tmp/tmp.Yn3zwJHokW/Action.tsv
+Writing 42 to /tmp/tmp.Yn3zwJHokW/GlobalClimateModel.tsv
+Writing 147 to /tmp/tmp.Yn3zwJHokW/RegionalClimateModel.tsv
+Writing 1 to /tmp/tmp.Yn3zwJHokW/ConvectionPermittingClimateModel.tsv
+Writing 91 to /tmp/tmp.Yn3zwJHokW/Organization.tsv
+Writing 8 to /tmp/tmp.Yn3zwJHokW/GreenhouseGasConcentrationPathway.tsv
+Writing 5 to /tmp/tmp.Yn3zwJHokW/SharedSocioeconomicPathway.tsv
+Writing 2744 to /tmp/tmp.Yn3zwJHokW/SingleSimulation.tsv
+Writing 152 to /tmp/tmp.Yn3zwJHokW/PerturbedParameterClimateEnsembleSimulation.tsv
+Writing 3963 to /tmp/tmp.Yn3zwJHokW/DynamicalDownscaling.tsv
+Writing 1318 to /tmp/tmp.Yn3zwJHokW/EnsembleSimulation.tsv
+Writing 149 to /tmp/tmp.Yn3zwJHokW/UnitOfMeasure.tsv
+Writing 5 to /tmp/tmp.Yn3zwJHokW/Amount.tsv
+Writing 6141 to /tmp/tmp.Yn3zwJHokW/Variable.tsv
+Writing 60 to /tmp/tmp.Yn3zwJHokW/Method.tsv
+Writing 65 to /tmp/tmp.Yn3zwJHokW/InformationRole.tsv
+Writing 81 to /tmp/tmp.Yn3zwJHokW/Operation.tsv
+Writing 207 to /tmp/tmp.Yn3zwJHokW/ObjectProperty.tsv
+Writing 25 to /tmp/tmp.Yn3zwJHokW/DatatypeProperty.tsv
+Writing 3 to /tmp/tmp.Yn3zwJHokW/Ontology.tsv
+Writing 2 to /tmp/tmp.Yn3zwJHokW/SymmetricProperty.tsv
+Writing 12 to /tmp/tmp.Yn3zwJHokW/TransitiveProperty.tsv
+Writing 2 to /tmp/tmp.Yn3zwJHokW/AsymmetricProperty.tsv
+Writing 2 to /tmp/tmp.Yn3zwJHokW/ReflexiveProperty.tsv
+Writing 77 to /tmp/tmp.Yn3zwJHokW/Restriction.tsv
 ERROR:linkml.generators.shaclgen:No URI for type http identifier
 ERROR:linkml.generators.shaclgen:No URI for type http identifier
 ERROR:linkml.generators.shaclgen:No URI for type http identifier
@@ -108,8 +108,6 @@ ERROR:linkml.generators.shaclgen:No URI for type http identifier
 ERROR:linkml.generators.shaclgen:No URI for type http identifier
 ERROR:linkml.generators.shaclgen:No URI for type http identifier
 ERROR:linkml.generators.shaclgen:No URI for type http identifier
-ERROR:linkml.generators.shaclgen:No URI for type identifier
-ERROR:linkml.generators.shaclgen:No URI for type http identifier
 ERROR:linkml.generators.shaclgen:No URI for type http identifier
 ERROR:linkml.generators.shaclgen:No URI for type identifier
 ERROR:linkml.generators.shaclgen:No URI for type http identifier
@@ -126,6 +124,7 @@ ERROR:linkml.generators.shaclgen:No URI for type http identifier
 ERROR:linkml.generators.shaclgen:No URI for type http identifier
 ERROR:linkml.generators.shaclgen:No URI for type http identifier
 ERROR:linkml.generators.shaclgen:No URI for type identifier
+ERROR:linkml.generators.shaclgen:No URI for type http identifier
 ERROR:linkml.generators.shaclgen:No URI for type http identifier
 ERROR:linkml.generators.shaclgen:No URI for type http identifier
 ERROR:linkml.generators.shaclgen:No URI for type http identifier

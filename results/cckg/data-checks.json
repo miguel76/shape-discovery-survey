@@ -6,32 +6,13 @@
   "dangling-range": {
     "<https://w3id.org/hacid/onto/ccso/isDownscalingOf>": {
       "range": [
-        "<https://w3id.org/hacid/onto/ccso/ClimateSimulation>"
+        "<https://w3id.org/hacid/onto/ccso/ProjectionProduction>"
       ],
-      "untyped_values": 22,
+      "untyped_values": 21,
       "examples": [
-        "<https://w3id.org/hacid/data/cs/simulations/cmip5.ACCESS1.3.rcp85.r1i1p1>",
         "<https://w3id.org/hacid/data/cs/simulations/cmip5.BNU-ESM.historical.r1i1p1>",
-        "<https://w3id.org/hacid/data/cs/simulations/cmip5.BNU-ESM.rcp45.r1i1p1>"
-      ]
-    },
-    "<https://w3id.org/hacid/onto/ccso/refersToGlobalWarmingLevel>": {
-      "range": [
-        "<https://w3id.org/hacid/onto/ccso/GlobalWarmingLevel>"
-      ],
-      "untyped_values": 2,
-      "examples": [
-        "<https://w3id.org/hacid/data/cs/GWLs/GWL2>",
-        "<https://w3id.org/hacid/data/cs/GWLs/GWL4>"
-      ]
-    },
-    "<https://w3id.org/hacid/onto/data/basedOnDimensionalSpace>": {
-      "range": [
-        "<https://w3id.org/hacid/onto/data/DimensionalSpace>"
-      ],
-      "untyped_values": 1,
-      "examples": [
-        "<https://w3id.org/hacid/data/cs/dimensions/geodetic/reference-frames/rotated-WGS84/177.5,37.5>"
+        "<https://w3id.org/hacid/data/cs/simulations/cmip5.BNU-ESM.rcp45.r1i1p1>",
+        "<https://w3id.org/hacid/data/cs/simulations/cmip5.BNU-ESM.rcp85.r1i1p1>"
       ]
     },
     "<https://w3id.org/hacid/onto/data/dependsOnVariable>": {
@@ -55,44 +36,15 @@
         "<https://w3id.org/hacid/data/cs/variables/mip/non_tidal_elevation_of_sea_surface_height>"
       ]
     },
-    "<https://w3id.org/hacid/onto/data/hasExactBoundingRegion>": {
-      "range": [
-        "<https://w3id.org/hacid/onto/data/Region>"
-      ],
-      "untyped_values": 1,
-      "examples": [
-        "<https://w3id.org/hacid/data/cs/dimensions/geodetic/reference-frames/OSGB36/coverage>"
-      ]
-    },
     "<https://w3id.org/hacid/onto/data/hasOutput>": {
       "range": [
         "<https://w3id.org/hacid/onto/data/Dataset>"
       ],
-      "untyped_values": 2893,
+      "untyped_values": 2211,
       "examples": [
-        "<https://w3id.org/hacid/data/cs/datasets/cmip5.ACCESS1.3.rcp26.r1i1p1.output>",
-        "<https://w3id.org/hacid/data/cs/datasets/cmip5.ACCESS1.3.rcp85.r1i1p1.output>",
-        "<https://w3id.org/hacid/data/cs/datasets/cmip5.CCSM4.rcp26.r1i1p1.output>"
-      ]
-    },
-    "<https://w3id.org/hacid/onto/data/hasReferencePoint>": {
-      "range": [
-        "<https://w3id.org/hacid/onto/data/Point>"
-      ],
-      "untyped_values": 1,
-      "examples": [
-        "<https://w3id.org/hacid/data/cs/dimensions/geodetic/reference-frames/WGS84/points/177.5,37.5>"
-      ]
-    },
-    "<https://w3id.org/hacid/onto/data/hasValuesOn>": {
-      "range": [
-        "<https://w3id.org/hacid/onto/data/DimensionalSpace>"
-      ],
-      "untyped_values": 4,
-      "examples": [
-        "<https://w3id.org/hacid/data/cs/unitsofmeasure/%C2%B0C%5E2>",
-        "<https://w3id.org/hacid/data/cs/unitsofmeasure/Number%20of%20individual%20heatwaves%20events>",
-        "<https://w3id.org/hacid/data/cs/unitsofmeasure/degree-days>"
+        "<https://w3id.org/hacid/data/cs/datasets/cmip5.ACCESS1-3.rcp26.r1i1p1.output1>",
+        "<https://w3id.org/hacid/data/cs/datasets/cmip5.BCC-CSM1-1.rcp26.r1i1p1.output1>",
+        "<https://w3id.org/hacid/data/cs/datasets/cmip5.BCC-CSM1-1.rcp85.r1i1p1.output1>"
       ]
     },
     "<https://w3id.org/hacid/onto/data/holdsSpecializationOfVariable>": {
@@ -131,22 +83,11 @@
       "range": [
         "<https://w3id.org/hacid/onto/top-level/Entity>"
       ],
-      "untyped_values": 2967,
+      "untyped_values": 2223,
       "examples": [
-        "<https://w3id.org/hacid/data/cs/datasets/cmip5.ACCESS1.3.rcp26.r1i1p1.output>",
-        "<https://w3id.org/hacid/data/cs/datasets/cmip5.ACCESS1.3.rcp85.r1i1p1.output>",
-        "<https://w3id.org/hacid/data/cs/datasets/cmip5.CCSM4.rcp26.r1i1p1.output>"
-      ]
-    },
-    "<https://w3id.org/hacid/onto/top-level/hasUnitOfMeasure>": {
-      "range": [
-        "<https://w3id.org/hacid/onto/top-level/UnitOfMeasure>"
-      ],
-      "untyped_values": 4,
-      "examples": [
-        "<https://w3id.org/hacid/data/cs/unitsofmeasure/%C2%B0C%5E2>",
-        "<https://w3id.org/hacid/data/cs/unitsofmeasure/Number%20of%20individual%20heatwaves%20events>",
-        "<https://w3id.org/hacid/data/cs/unitsofmeasure/degree-days>"
+        "<https://w3id.org/hacid/data/cs/datasets/cmip5.ACCESS1-3.rcp26.r1i1p1.output1>",
+        "<https://w3id.org/hacid/data/cs/datasets/cmip5.BCC-CSM1-1.rcp26.r1i1p1.output1>",
+        "<https://w3id.org/hacid/data/cs/datasets/cmip5.BCC-CSM1-1.rcp85.r1i1p1.output1>"
       ]
     }
   },

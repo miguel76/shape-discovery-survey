@@ -61,8 +61,15 @@ hand, run `pipeline/factor.py SHAPES OUT --hierarchy work/<kg>/data.nt`.
 
 `pipeline/kg_checks.py <kg>` runs data-quality checks on the merged dump. They generalise the
 defects found in CCKG and write `results/<kg>/data-checks.md`.
+`pipeline/link_sources.py <kg>` breaks the dangling links down by source (the named graph of
+each link), property and family of target IRIs, and compares them with all the links of the same
+kind. It writes `results/<kg>/dangling-by-source.md`.
+`analysis/cckg_variables.py` looks up CCKG's undefined variables in the CMIP5/CMIP6/CORDEX CMOR
+tables and the CF standard-name table, to find why they are undefined
+([docs/cckg-variables.md](docs/cckg-variables.md)).
 
-Tests: `python tests/test_implies.py` and `python tests/test_factor.py [TRIALS] [SEED]`, with the
+Tests: `python tests/test_implies.py`, `python tests/test_factor.py [TRIALS] [SEED]` and
+`python tests/test_roundtrip.py`, with the
 pipeline environment (`.tools/pipeline-venv/bin/python`).
 
 Requirements are bash, git, Python ≥ 3.10, Java ≥ 17 and Maven. Docker is not needed. Every tool

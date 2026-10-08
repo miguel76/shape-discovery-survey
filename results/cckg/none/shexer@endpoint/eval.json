@@ -1,0 +1,82 @@
+{
+  "run": "shexer@endpoint",
+  "tool": "shexer",
+  "mode": "endpoint",
+  "source": "http://localhost:3030/kg/sparql",
+  "command": [
+    "tools/shexer/run.sh",
+    "endpoint",
+    "http://localhost:3030/kg/sparql",
+    "results/cckg/none/shexer@endpoint"
+  ],
+  "exit_code": 0,
+  "timed_out": false,
+  "wall_seconds": 2845.77,
+  "cpu_seconds": 1589.08,
+  "peak_rss_mb": 7737.3,
+  "has_output": true,
+  "syntax": "ok",
+  "non_shacl_terms": [
+    "sh:dataType"
+  ],
+  "well_formedness": {
+    "conforms": true,
+    "violations": 0,
+    "focus_nodes": 0,
+    "by_component": {}
+  },
+  "profile": {
+    "triples": 4284,
+    "node_shapes": 59,
+    "property_shapes": 404,
+    "class_path_pairs": 291,
+    "pairs_repeated_from_superclass": 110,
+    "constraint_usage": {
+      "sh:in": 101,
+      "sh:maxCount": 325,
+      "sh:minCount": 229,
+      "sh:node": 130,
+      "sh:nodeKind": 36
+    }
+  },
+  "self_validation": {
+    "conforms": false,
+    "violations": 2912216,
+    "focus_nodes": 589902,
+    "validated_focus_nodes": 595843,
+    "target_focus_nodes": 595843,
+    "partial": false,
+    "seconds": 80,
+    "by_component": {
+      "sh:InConstraintComponent": 1730703,
+      "sh:MaxCountConstraintComponent": 1035712,
+      "sh:NodeConstraintComponent": 145784,
+      "sh:NodeKindConstraintComponent": 17
+    },
+    "top_path_components": {
+      "<http://www.w3.org/1999/02/22-rdf-syntax-ns#type> sh:InConstraintComponent": 1730703,
+      "<http://www.w3.org/1999/02/22-rdf-syntax-ns#type> sh:MaxCountConstraintComponent": 979053,
+      "<https://w3id.org/hacid/onto/data/dependsOnVariable> sh:NodeConstraintComponent": 112838,
+      "<https://w3id.org/hacid/onto/data/dependsOnVariable> sh:MaxCountConstraintComponent": 56376,
+      "<https://w3id.org/hacid/onto/data/hasOutput> sh:NodeConstraintComponent": 16079,
+      "<https://w3id.org/hacid/onto/data/hasValuesOn> sh:NodeConstraintComponent": 6349,
+      "<https://w3id.org/hacid/onto/top-level/hasUnitOfMeasure> sh:NodeConstraintComponent": 6312,
+      "<https://w3id.org/hacid/onto/top-level/hasComponent> sh:NodeConstraintComponent": 3090,
+      "<https://w3id.org/hacid/onto/ccso/hasIndicator> sh:NodeConstraintComponent": 285,
+      "<https://w3id.org/hacid/onto/data/basedOnDimensionalSpace> sh:NodeConstraintComponent": 278,
+      "<https://w3id.org/hacid/onto/data/basedOnDimensionalSpace> sh:MaxCountConstraintComponent": 278,
+      "<https://w3id.org/hacid/onto/top-level/classifies> sh:NodeConstraintComponent": 248,
+      "<https://w3id.org/hacid/onto/data/hasSuggestedQuantization> sh:NodeConstraintComponent": 113,
+      "<https://w3id.org/hacid/onto/data/definesAggregation> sh:NodeConstraintComponent": 79,
+      "<https://w3id.org/hacid/onto/data/holdsSpecializationOfVariable> sh:NodeConstraintComponent": 66,
+      "<https://w3id.org/hacid/onto/top-level/hasExpectedType> sh:NodeKindConstraintComponent": 17,
+      "<https://w3id.org/hacid/onto/top-level/definesRole> sh:NodeConstraintComponent": 17,
+      "<https://w3id.org/hacid/onto/top-level/defines> sh:NodeConstraintComponent": 9,
+      "<http://www.w3.org/2002/07/owl#inverseOf> sh:NodeConstraintComponent": 8,
+      "<https://w3id.org/hacid/onto/data/hasDiscretization> sh:NodeConstraintComponent": 7,
+      "<http://www.w3.org/2000/01/rdf-schema#subPropertyOf> sh:NodeConstraintComponent": 6,
+      "<https://w3id.org/hacid/onto/data/holdsSpecializationOfVariable> sh:MaxCountConstraintComponent": 5
+    }
+  },
+  "inference": "none"
+}

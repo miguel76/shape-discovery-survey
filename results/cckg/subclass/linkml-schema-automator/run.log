@@ -29,10 +29,7 @@ Traceback (most recent call last):
   File "/home/user/shape-discovery-survey/.tools/linkml-venv/lib/python3.11/site-packages/schema_automator/generalizers/rdf_data_generalizer.py", line 39, in convert
     paths = self.graph_to_tables(g, dir)
             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/user/shape-discovery-survey/.tools/linkml-venv/lib/python3.11/site-packages/schema_automator/generalizers/rdf_data_generalizer.py", line 70, in graph_to_tables
-    p = self._as_name(p_uriref)
-        ^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/user/shape-discovery-survey/.tools/linkml-venv/lib/python3.11/site-packages/schema_automator/generalizers/rdf_data_generalizer.py", line 102, in _as_name
-    return v.split(sep)[-1]
-           ^^^^^^^^^^^^
+  File "/home/user/shape-discovery-survey/.tools/linkml-venv/lib/python3.11/site-packages/schema_automator/generalizers/rdf_data_generalizer.py", line 68, in graph_to_tables
+    row['id'] = {s}
+                ^^^
 MemoryError

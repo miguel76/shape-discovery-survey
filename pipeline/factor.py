@@ -38,8 +38,16 @@ import sys
 from collections import defaultdict
 from pathlib import Path
 
+import rdflib
 from rdflib import RDF, RDFS, SH, BNode, Graph, Literal, URIRef
 from rdflib.collection import Collection
+from rdflib.plugins.serializers.turtle import TurtleSerializer
+
+# Keep literals exactly as written. By default rdflib rewrites lexical forms when it parses
+# ("1.5e0"^^xsd:double becomes "1.5") and its Turtle writer rewrites them again (1.5e+00).
+# A different lexical form is a different RDF term, so sh:in and sh:hasValue would no longer
+# match the data.
+rdflib.NORMALIZE_LITERALS = False
 
 # Parameters of SHACL Core constraint components that act on the value nodes of a shape.
 CONSTRAINT_PARAMS = {
@@ -360,6 +368,22 @@ def factor(g, hierarchy, trace=None):
     return report
 
 
+class ExactTurtleSerializer(TurtleSerializer):
+    """Turtle that writes every literal with its lexical form and datatype (no shorthands such
+    as 1.5e+00 or true, which rdflib derives from the value rather than the lexical form)."""
+
+    def label(self, node, position):
+        if isinstance(node, Literal):
+            return node._literal_n3(use_plain=False, qname_callback=lambda dt: self.get_pname(dt, False))
+        return super().label(node, position)
+
+
+def write_turtle(g, path):
+    """Serialise g to `path` as Turtle, keeping every literal term unchanged."""
+    with open(path, "wb") as out:
+        ExactTurtleSerializer(g).serialize(out, encoding="utf-8")
+
+
 def _remove_tree(g, node):
     for _, _, o in list(g.triples((node, None, None))):
         g.remove((node, _, o))
@@ -376,7 +400,7 @@ def main():
     args = p.parse_args()
     g = Graph().parse(args.shapes, format="turtle")
     report = factor(g, load_hierarchy(args.hierarchy))
-    g.serialize(args.out, format="turtle")
+    write_turtle(g, args.out)
     if args.report:
         Path(args.report).write_text(json.dumps(report, indent=2) + "\n")
     print(json.dumps(report))

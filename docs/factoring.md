@@ -2,7 +2,7 @@
 
 Shape discovery tools learn one shape per class, independently of the others. When the class
 hierarchy is visible (the `subclass` and `rdfs` inference regimes, see [inference.md](inference.md)),
-a constraint that holds for a class `D` is learned again for every subclass of `D`. On CCKG, 79–91%
+a constraint that holds for a class `D` is learned again for every subclass of `D`. On CCKG, 82–91%
 of the (class, property) pairs constrained under `subclass` repeat a pair constrained on a
 superclass. *Factoring* removes from each class's shape the constraints that its superclasses'
 shapes already impose. This note defines it, proves that it does not change validation results
@@ -177,6 +177,13 @@ enough here, because any missed implication just leaves a redundant constraint i
     alone, every value that violates the removed constraint must violate one of its premises.
   - 3,000 trials (seeds 3, 7 and 11) found no counterexample, with 12,127 removals in total (about 4
     per trial), each checked on its own.
+- [`tests/test_roundtrip.py`](../tests/test_roundtrip.py) checks that factoring and writing the
+  shapes keep every literal term unchanged. `sh:in` and `sh:hasValue` compare RDF terms, so
+  `"1.5e0"^^xsd:double` and `"1.5"^^xsd:double` are different values. rdflib rewrites lexical
+  forms by default, when it parses and again when it writes Turtle (`1.5e+00`). On the 2026-10-07
+  CCKG dump this made the factored SHACL Play shapes reject the values `1.5e0` … `5.5e0` that their
+  `sh:in` list was learned from, 5 nodes that the original shapes accept. `factor.py` now turns
+  this normalisation off and writes every literal with its lexical form and datatype.
 - The pipeline factors every run under `subclass` and `rdfs` and validates the KG against both
   versions. When the original run's validation stopped on a random sample, the `+factored` run is
   validated on exactly the same sample: `ShaclStats` sorts the focus nodes before its seeded
@@ -185,34 +192,34 @@ enough here, because any missed implication just leaves a redundant constraint i
 
 ## 7. Results on CCKG
 
-The pipeline factors every run of the `subclass` and `rdfs` regimes on the updated CCKG dump
-(2026-09-30). The SHACL Play shapes are those discovered on the previous dump (see
-[cckg-findings.md](cckg-findings.md)). Full tables are in the `## Factoring along the class
-hierarchy` section of [`results/cckg/subclass/summary.md`](../results/cckg/subclass/summary.md) and
+The pipeline factors every run of the `subclass` and `rdfs` regimes. The results below are for the
+CCKG dump of 2026-10-07 ([cckg-findings.md](cckg-findings.md)). SHACL Play did not finish under
+`rdfs`, and SHACLGEN and schema-automator under neither regime. Full tables are in the
+`## Factoring along the class hierarchy` section of
+[`results/cckg/subclass/summary.md`](../results/cckg/subclass/summary.md) and
 [`results/cckg/rdfs/summary.md`](../results/cckg/rdfs/summary.md).
 
 **How much is removed.**
 
 | regime | run | constraints | removed | property shapes | node shapes | node shapes kept intact (referenced by `sh:node`) |
 |---|---|---|---|---|---|---|
-| `subclass` | SHACL Play | 2,112 | 1,676 (79%) | 710 → 228 | 77 → 64 | 0 |
-| `subclass` | sheXer | 4,076 | 2,402 (59%) | 1,732 → 794 | 90 → 73 | 30 |
-| `subclass` | QSE, full | 1,827 | 801 (44%) | 812 → 507 | 89 | 31 |
-| `subclass` | QSE, pruned | 558 | 250 (45%) | 269 → 168 | 45 | 14 |
-| `rdfs` | SHACL Play | 3,012 | 2,434 (81%) | 1,040 → 319 | 79 → 66 | 0 |
-| `rdfs` | sheXer | 4,722 | 2,608 (55%) | 2,114 → 1,055 | 93 → 77 | 33 |
-| `rdfs` | QSE, full | 2,633 | 1,204 (46%) | 1,135 → 683 | 91 | 34 |
-| `rdfs` | QSE, pruned | 930 | 470 (51%) | 434 → 257 | 47 | 15 |
+| `subclass` | SHACL Play | 2,039 | 1,629 (80%) | 672 → 220 | 82 → 65 | 0 |
+| `subclass` | sheXer | 4,444 | 2,709 (61%) | 1,876 → 817 | 93 → 72 | 31 |
+| `subclass` | QSE, full | 1,807 | 800 (44%) | 833 → 510 | 92 | 32 |
+| `subclass` | QSE, pruned | 580 | 288 (50%) | 284 → 165 | 47 | 14 |
+| `rdfs` | sheXer | 5,138 | 2,996 (58%) | 2,329 → 1,104 | 95 → 73 | 32 |
+| `rdfs` | QSE, full | 2,573 | 1,224 (48%) | 1,225 → 712 | 94 | 33 |
+| `rdfs` | QSE, pruned | 892 | 467 (52%) | 474 → 256 | 49 | 14 |
 
 - **SHACL Play gains the most.** It uses no `sh:node`, so every shape can be factored. Its
   class constraints are `sh:or` disjunctions of classes, which the class-disjunction rules of §5
-  handle; without those rules only 1,317 constraints were removed.
+  handle.
 - **sheXer and QSE keep about a third of their node shapes intact,** because other shapes refer to
   them with `sh:node` (§4). QSE's remaining redundancy is mostly in these shapes. Its own
   constraints also imply less than SHACL Play's: it only ever emits `sh:minCount 1` and
   `sh:maxCount 1`.
-- **schema-automator** closes every shape (`sh:closed true`), so nothing is factored. It ran out
-  of memory under both regimes anyway, as did SHACLGEN.
+- **schema-automator** closes every shape (`sh:closed true`), so nothing of it could be factored.
+  It ran out of memory under both regimes anyway, as did SHACLGEN under `rdfs`.
 
 **Validation results are unchanged.** Each factored set of shapes was validated on the same focus
 nodes as the original (§6). A factored shapes graph can only flag a subset of the nodes that the
@@ -220,20 +227,19 @@ original flags, so equal counts mean equal sets.
 
 | regime | run | focus nodes validated | nodes flagged (original = factored) | violations (original → factored) | validation time (original → factored) |
 |---|---|---|---|---|---|
-| `subclass` | SHACL Play | all 595,454 | 116,012 | 1,535,280 → 187,292 (−88%) | 854 s → 527 s |
-| `subclass` | sheXer | sample of 27,014 | 27,001 | 63.9M → 40.2M (−37%) | 600 s → 394 s |
-| `subclass` | QSE, full | sample of 17,448 | 17,447 | 2,612,164 → 1,955,567 (−25%) | 603 s → 372 s |
-| `subclass` | QSE, pruned | sample of 84,009 | 83,991 | 8,606,562 → 7,163,902 (−17%) | 600 s → 420 s |
-| `rdfs` | SHACL Play | sample of 419,379 | 2,875 | 16,155 → 7,737 (−52%) | 1,506 s → 670 s |
-| `rdfs` | sheXer | sample of 240 | 240 | 808,143 → 495,717 (−39%) | 637 s → 108 s |
-| `rdfs` | QSE, full | sample of 1,996 | 1,996 | 443,198 → 297,725 (−33%) | 600 s → 419 s |
-| `rdfs` | QSE, pruned | sample of 368 | 367 | 94,149 → 62,707 (−33%) | 611 s → 369 s |
+| `subclass` | SHACL Play | all 595,459 | 114,585 | 1,591,075 → 185,370 (−88%) | 1,746 s → 945 s |
+| `subclass` | sheXer | sample of 11,782 | 11,778 | 29.4M → 17.5M (−41%) | 600 s → 274 s |
+| `subclass` | QSE, full | sample of 13,339 | 13,338 | 1,451,046 → 1,205,954 (−17%) | 600 s → 411 s |
+| `subclass` | QSE, pruned | sample of 52,274 | 52,267 | 5,365,764 → 4,465,919 (−17%) | 600 s → 384 s |
+| `rdfs` | sheXer | sample of 749 | 749 | 2,628,408 → 1,541,587 (−41%) | 747 s → 139 s |
+| `rdfs` | QSE, full | sample of 1,509 | 1,509 | 264,573 → 212,848 (−20%) | 612 s → 370 s |
+| `rdfs` | QSE, pruned | sample of 10,907 | 10,905 | 1,725,612 → 1,265,748 (−27%) | 600 s → 251 s |
+
+For SHACL Play under `subclass`, the sets of (node, property) pairs with violations were also
+compared over the whole KG, and are identical (114,709 pairs). This comparison is what revealed
+the literal rewriting described in §6: before the fix, the factored shapes flagged 5 more nodes.
 
 The violations drop because the same problem is no longer reported once for each superclass
-shape that repeated the constraint. For SHACL Play under `subclass`, the 116,012 flagged nodes
-were reported with 13.2 violations each, and with 1.6 after factoring. Validation is 30–83% faster,
-since fewer constraints are checked per node.
-
-The SHACL Play shapes used here were discovered on the previous dump, so under `rdfs` they flag
-nodes because of the changes to the data (see [cckg-findings.md](cckg-findings.md)). This makes no
-difference to the comparison, which is between two versions of the same shapes.
+shape that repeated the constraint. For SHACL Play under `subclass`, the 114,585 flagged nodes
+were reported with 13.9 violations each, and with 1.6 after factoring. Validation takes 32–81% less
+time, since fewer constraints are checked per node.
