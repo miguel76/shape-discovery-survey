@@ -221,7 +221,7 @@ def main():
     rows.sort(key=lambda r: (r["category"], -r["links"]))
     args.out.mkdir(parents=True, exist_ok=True)
     with open(args.out / "undefined-variables.csv", "w", newline="") as f:
-        w = csv.DictWriter(f, fieldnames=list(rows[0]))
+        w = csv.DictWriter(f, fieldnames=["variable", "category", "detail", "links", "sources"])
         w.writeheader()
         w.writerows(rows)
     write_markdown(args.out / "undefined-variables.md", rows, len(defined_mip), len(defined_cf), cf_version)
