@@ -5,14 +5,14 @@
 @prefix shape: <https://shacl-play.sparna.fr/shapes/> .
 @prefix xsd:   <http://www.w3.org/2001/XMLSchema#> .
 
-shape:Dataset_label  dash:propertyRole  dash:LabelRole ;
-        sh:datatype        xsd:string ;
-        sh:in              ( "CORDEX-CMIP5 output" "CMIP5 output" ) ;
-        sh:maxCount        1 ;
-        sh:minCount        1 ;
-        sh:name            "label"@en ;
-        sh:nodeKind        sh:Literal ;
-        sh:path            rdfs:label .
+shape:SingleProjection_isEquivalentTo_class_0
+        sh:class  <https://w3id.org/hacid/onto/ccso/SingleProjection> .
+
+shape:Dataset_label  sh:datatype  xsd:string ;
+        sh:maxCount  1 ;
+        sh:name      "label"@en ;
+        sh:nodeKind  sh:Literal ;
+        sh:path      rdfs:label .
 
 shape:PerturbedParameterClimateEnsembleSimulation_hasComponent_class_1
         sh:class  <https://w3id.org/hacid/onto/ccso/GlobalClimateSimulation> .
@@ -27,6 +27,12 @@ shape:SharedSocioeconomicPathway_title
         sh:name            "title"@en ;
         sh:nodeKind        sh:Literal ;
         sh:path            <http://purl.org/dc/terms/title> .
+
+shape:ScenarioBasedProjection_derivedFromVariable_class_1
+        sh:class  <https://w3id.org/hacid/onto/ccso/SingleProjection> .
+
+shape:ProbabilisticProjection_hasRescaledVersion_class_1
+        sh:class  <https://w3id.org/hacid/onto/ccso/ProbabilisticProjection> .
 
 shape:Description_label
         dash:propertyRole  dash:LabelRole ;
@@ -44,22 +50,18 @@ shape:DimensionalSpace_basedOnDimensionalSpace_class_0
 shape:SingleSimulation_usesModel_class_1
         sh:class  <https://w3id.org/hacid/onto/ccso/RegionalClimateModel> .
 
+shape:SingleProjection_isLinearTransformationOf_class_0
+        sh:class  <https://w3id.org/hacid/onto/ccso/SingleProjection> .
+
+shape:StatisticalProjectionTransformation_hasOutput_class_0
+        sh:class  <https://w3id.org/hacid/onto/ccso/SingleProjection> .
+
 shape:Organization  rdf:type  sh:NodeShape ;
         rdfs:label      "Organization"@en ;
         sh:property     shape:Organization_label , shape:Organization_acronym ;
         sh:targetClass  <https://w3id.org/hacid/onto/top-level/Organization> ;
         <https://shacl-play.sparna.fr/ontology#background-color>
-                "ghostwhite" .
-
-shape:StatisticalProjectionTransformation_hasOutput_class_0
-        sh:class  <https://w3id.org/hacid/onto/ccso/SingleProjection> .
-
-shape:DiscreteDimensionalSpace_hasDiscretization
-        sh:class     <https://w3id.org/hacid/onto/data/SimpleRegularBinning> ;
-        sh:maxCount  1 ;
-        sh:name      "hasDiscretization"@en ;
-        sh:nodeKind  sh:IRI ;
-        sh:path      <https://w3id.org/hacid/onto/data/hasDiscretization> .
+                "teal" .
 
 shape:Action_hasOutput_class_0
         sh:class  <https://w3id.org/hacid/onto/ccso/ScenarioBasedProjection> .
@@ -87,15 +89,21 @@ shape:DynamicalDownscaling_hasComponent_class_3
 shape:DataGeneratingProcess_hasComponent_class_2
         sh:class  <https://w3id.org/hacid/onto/ccso/ClimateModelIntercomparisonExperiment> .
 
-shape:SingleSimulation_isDownscalingOf
+shape:SingleProjection_isLinearTransformationOf
         sh:maxCount  1 ;
+        sh:name      "isLinearTransformationOf"@en ;
+        sh:nodeKind  sh:IRI ;
+        sh:or        ( shape:SingleProjection_isLinearTransformationOf_class_0 shape:SingleProjection_isLinearTransformationOf_class_1 ) ;
+        sh:path      <https://w3id.org/hacid/onto/data/isLinearTransformationOf> .
+
+shape:SingleSimulation_isDownscalingOf
         sh:name      "isDownscalingOf"@en ;
         sh:nodeKind  sh:IRI ;
         sh:or        ( shape:SingleSimulation_isDownscalingOf_class_0 shape:SingleSimulation_isDownscalingOf_class_1 shape:SingleSimulation_isDownscalingOf_class_2 ) ;
         sh:path      <https://w3id.org/hacid/onto/ccso/isDownscalingOf> .
 
 shape:ScenarioBasedProjection_isSpecializationOfVariable
-        sh:class     <https://w3id.org/hacid/onto/data/Variable> ;
+        sh:class     <https://w3id.org/hacid/onto/data/DeterministicVariable> ;
         sh:name      "isSpecializationOfVariable"@en ;
         sh:nodeKind  sh:IRI ;
         sh:path      <https://w3id.org/hacid/onto/data/isSpecializationOfVariable> .
@@ -107,8 +115,8 @@ shape:ClimateModelIntercomparisonExperiment_acronym
         sh:nodeKind  sh:Literal ;
         sh:path      <https://w3id.org/hacid/onto/top-level/acronym> .
 
-shape:DimensionalSpace_hasDiscretization_class_3
-        sh:class  <https://w3id.org/hacid/onto/data/SinglePeriodicBinning> .
+shape:ProbabilisticProjection_hasComponent_class_1
+        sh:class  <https://w3id.org/hacid/onto/ccso/ProbabilisticProjection> .
 
 shape:SimpleRegularBinning_hasResolutionValue
         sh:maxCount  1 ;
@@ -128,6 +136,14 @@ shape:ConvectionPermittingClimateModel_label
         sh:nodeKind        sh:Literal ;
         sh:path            rdfs:label .
 
+shape:Aggregation_hasOutput
+        sh:maxCount  1 ;
+        sh:minCount  1 ;
+        sh:name      "hasOutput"@en ;
+        sh:nodeKind  sh:IRI ;
+        sh:or        ( shape:Aggregation_hasOutput_class_0 shape:Aggregation_hasOutput_class_1 ) ;
+        sh:path      <https://w3id.org/hacid/onto/data/hasOutput> .
+
 shape:EnsembleProjection_hasComponent_class_1
         sh:class  <https://w3id.org/hacid/onto/ccso/ScenarioBasedProjection> .
 
@@ -137,6 +153,27 @@ shape:DependentVariable_derivedFromVariable_class_1
 shape:Action_comment_datatype_0
         sh:datatype  rdf:langString .
 
+shape:AbsoluteAnomaly_acronym
+        sh:datatype    rdf:langString ;
+        sh:in          ( "rsdsAnom"@en "tasminAnom"@en "tasAnom"@en "pslAnom"@en "rssAnom"@en "tasmaxAnom"@en "rlsAnom"@en ) ;
+        sh:languageIn  ( "en" ) ;
+        sh:maxCount    1 ;
+        sh:minCount    1 ;
+        sh:name        "acronym"@en ;
+        sh:nodeKind    sh:Literal ;
+        sh:path        <https://w3id.org/hacid/onto/top-level/acronym> .
+
+shape:QuantileFunction_isProbabilisticRepresentationOf_class_1
+        sh:class  <https://w3id.org/hacid/onto/data/RelativeAnomaly> .
+
+shape:DeterministicVariable_acronym
+        sh:datatype    rdf:langString ;
+        sh:languageIn  ( "en" ) ;
+        sh:maxCount    1 ;
+        sh:name        "acronym"@en ;
+        sh:nodeKind    sh:Literal ;
+        sh:path        <https://w3id.org/hacid/onto/top-level/acronym> .
+
 shape:StatisticalProjectionTransformation_hasOutput
         sh:maxCount  1 ;
         sh:minCount  1 ;
@@ -144,6 +181,12 @@ shape:StatisticalProjectionTransformation_hasOutput
         sh:nodeKind  sh:IRI ;
         sh:or        ( shape:StatisticalProjectionTransformation_hasOutput_class_0 shape:StatisticalProjectionTransformation_hasOutput_class_1 shape:StatisticalProjectionTransformation_hasOutput_class_2 shape:StatisticalProjectionTransformation_hasOutput_class_3 ) ;
         sh:path      <https://w3id.org/hacid/onto/data/hasOutput> .
+
+shape:EnsembleProjection_hasRescaledVersion
+        sh:class     <https://w3id.org/hacid/onto/data/Dataset> ;
+        sh:name      "hasRescaledVersion"@en ;
+        sh:nodeKind  sh:IRI ;
+        sh:path      <https://w3id.org/hacid/onto/data/hasRescaledVersion> .
 
 shape:PerturbedParameterClimateEnsembleSimulation_usesModel
         sh:class     <https://w3id.org/hacid/onto/ccso/GlobalClimateModel> ;
@@ -153,28 +196,19 @@ shape:PerturbedParameterClimateEnsembleSimulation_usesModel
         sh:nodeKind  sh:IRI ;
         sh:path      <https://w3id.org/hacid/onto/ccso/usesModel> .
 
-shape:Variable_label  dash:propertyRole
-                dash:LabelRole ;
-        sh:datatype        rdf:langString ;
-        sh:languageIn      ( "en" ) ;
-        sh:minCount        1 ;
-        sh:name            "label"@en ;
-        sh:nodeKind        sh:Literal ;
-        sh:path            rdfs:label .
-
 shape:Description  rdf:type  sh:NodeShape ;
         rdfs:label      "Description"@en ;
         sh:property     shape:Description_comment , shape:Description_label , shape:Description_defines ;
         sh:targetClass  <https://w3id.org/hacid/onto/top-level/Description> ;
         <https://shacl-play.sparna.fr/ontology#background-color>
-                "lightgreen" .
+                "powderblue" .
 
 shape:Concept  rdf:type  sh:NodeShape ;
         rdfs:label      "Concept"@en ;
         sh:property     shape:Concept_classifies , shape:Concept_comment , shape:Concept_isMemberOf , shape:Concept_label , shape:Concept_inScheme ;
         sh:targetClass  <https://w3id.org/hacid/onto/top-level/Concept> ;
         <https://shacl-play.sparna.fr/ontology#background-color>
-                "lavender" .
+                "salmon" .
 
 shape:DimensionalSpace_hasExactBoundingRegion_class_1
         sh:class  <https://w3id.org/hacid/onto/data/GeodeticRegion> .
@@ -190,6 +224,9 @@ shape:DataGeneratingProcess_hasOutput
         sh:name      "hasOutput"@en ;
         sh:nodeKind  sh:IRI ;
         sh:path      <https://w3id.org/hacid/onto/data/hasOutput> .
+
+shape:ProbabilityDensityFunction_isSpecializationOfVariable_class_1
+        sh:class  <https://w3id.org/hacid/onto/data/DeterministicVariable> .
 
 shape:GeodeticPoint_label
         dash:propertyRole  dash:LabelRole ;
@@ -207,7 +244,7 @@ shape:GeodeticPoint  rdf:type  sh:NodeShape ;
         sh:property     shape:GeodeticPoint_asWKT , shape:GeodeticPoint_comment , shape:GeodeticPoint_label , shape:GeodeticPoint_isPointOf ;
         sh:targetClass  <https://w3id.org/hacid/onto/data/GeodeticPoint> ;
         <https://shacl-play.sparna.fr/ontology#background-color>
-                "wheat" .
+                "orange" .
 
 shape:ClimateModelIntercomparisonExperiment_refersToScenario
         sh:class     <https://w3id.org/hacid/onto/ccso/GreenhouseGasConcentrationPathway> ;
@@ -216,20 +253,23 @@ shape:ClimateModelIntercomparisonExperiment_refersToScenario
         sh:nodeKind  sh:IRI ;
         sh:path      <https://w3id.org/hacid/onto/ccso/refersToScenario> .
 
+shape:ScenarioBasedProjection_isLinearTransformationOf_class_0
+        sh:class  <https://w3id.org/hacid/onto/ccso/SingleProjection> .
+
 shape:UnitOfMeasure  rdf:type  sh:NodeShape ;
         rdfs:label      "UnitOfMeasure"@en ;
         sh:property     shape:UnitOfMeasure_label , shape:UnitOfMeasure_hasValuesOn ;
         sh:targetClass  <https://w3id.org/hacid/onto/top-level/UnitOfMeasure> ;
         <https://shacl-play.sparna.fr/ontology#background-color>
-                "mistyrose" .
+                "lemonchiffon" .
 
 shape:DimensionalSpace
         rdf:type        sh:NodeShape ;
         rdfs:label      "DimensionalSpace"@en ;
-        sh:property     shape:DimensionalSpace_hasValuesOn , shape:DimensionalSpace_hasExactBoundingRegion , shape:DimensionalSpace_basedOnDimensionalSpace , shape:DimensionalSpace_hasDiscretization , shape:DimensionalSpace_isConstituentOf , shape:DimensionalSpace_comment , shape:DimensionalSpace_label ;
+        sh:property     shape:DimensionalSpace_hasValuesOn , shape:DimensionalSpace_hasExactBoundingRegion , shape:DimensionalSpace_basedOnDimensionalSpace , shape:DimensionalSpace_adoptsQuantization , shape:DimensionalSpace_isConstituentOf , shape:DimensionalSpace_comment , shape:DimensionalSpace_label ;
         sh:targetClass  <https://w3id.org/hacid/onto/data/DimensionalSpace> ;
         <https://shacl-play.sparna.fr/ontology#background-color>
-                "gray" .
+                "papayawhip" .
 
 shape:GlobalClimateSimulation_hasComponent
         sh:name      "hasComponent"@en ;
@@ -243,20 +283,13 @@ shape:DynamicalDownscaling_isDownscalingOf_class_2
 shape:SingleProjectionProduction_hasOutput_class_1
         sh:class  <https://w3id.org/hacid/onto/ccso/ScenarioBasedProjection> .
 
-shape:Variable_hasValuesOn
-        sh:class     <https://w3id.org/hacid/onto/data/DimensionalSpace> ;
-        sh:maxCount  1 ;
-        sh:name      "hasValuesOn"@en ;
-        sh:nodeKind  sh:IRI ;
-        sh:path      <https://w3id.org/hacid/onto/data/hasValuesOn> .
-
 shape:GlobalWarmingLevel
         rdf:type        sh:NodeShape ;
         rdfs:label      "GlobalWarmingLevel"@en ;
         sh:property     shape:GlobalWarmingLevel_value , shape:GlobalWarmingLevel_comment , shape:GlobalWarmingLevel_label ;
         sh:targetClass  <https://w3id.org/hacid/onto/ccso/GlobalWarmingLevel> ;
         <https://shacl-play.sparna.fr/ontology#background-color>
-                "snow" .
+                "thistle" .
 
 shape:Continuum_hasValuesOn
         sh:class     <https://w3id.org/hacid/onto/data/Continuum> ;
@@ -270,15 +303,17 @@ shape:Amount  rdf:type  sh:NodeShape ;
         rdfs:label      "Amount"@en ;
         sh:targetClass  <https://w3id.org/hacid/onto/top-level/Amount> ;
         <https://shacl-play.sparna.fr/ontology#background-color>
-                "plum" .
+                "slategray" .
 
-shape:Variable_comment
-        sh:datatype    rdf:langString ;
-        sh:languageIn  ( "en" ) ;
-        sh:maxCount    1 ;
-        sh:name        "comment"@en ;
-        sh:nodeKind    sh:Literal ;
-        sh:path        rdfs:comment .
+shape:ScenarioBasedProjection_hasRescaledVersion_class_3
+        sh:class  <https://w3id.org/hacid/onto/data/ProbabilityDensityFunction> .
+
+shape:Sample_hasValuesOn
+        sh:class     <https://w3id.org/hacid/onto/data/DimensionalSpace> ;
+        sh:maxCount  1 ;
+        sh:name      "hasValuesOn"@en ;
+        sh:nodeKind  sh:IRI ;
+        sh:path      <https://w3id.org/hacid/onto/data/hasValuesOn> .
 
 shape:ProbabilisticProjectionProduction_hasOutput_class_0
         sh:class  <https://w3id.org/hacid/onto/ccso/ProbabilisticProjection> .
@@ -290,8 +325,21 @@ shape:ProbabilisticProjection_refersToScenario
         sh:nodeKind  sh:IRI ;
         sh:path      <https://w3id.org/hacid/onto/ccso/refersToScenario> .
 
+shape:ProbabilityDensityFunction_hasValuesOn
+        sh:class     <https://w3id.org/hacid/onto/data/DimensionalSpace> ;
+        sh:maxCount  1 ;
+        sh:name      "hasValuesOn"@en ;
+        sh:nodeKind  sh:IRI ;
+        sh:path      <https://w3id.org/hacid/onto/data/hasValuesOn> .
+
 shape:ClimateModelIntercomparisonExperiment_hasComponent_class_1
         sh:class  <https://w3id.org/hacid/onto/ccso/DynamicalDownscaling> .
+
+shape:SingleProjection_derivedFromVariable
+        sh:name      "derivedFromVariable"@en ;
+        sh:nodeKind  sh:IRI ;
+        sh:or        ( shape:SingleProjection_derivedFromVariable_class_0 shape:SingleProjection_derivedFromVariable_class_1 ) ;
+        sh:path      <https://w3id.org/hacid/onto/data/derivedFromVariable> .
 
 shape:SingleSimulation_refersToScenario
         sh:class     <https://w3id.org/hacid/onto/ccso/GreenhouseGasConcentrationPathway> ;
@@ -302,6 +350,9 @@ shape:SingleSimulation_refersToScenario
 
 shape:SimpleRegularBinning_hasValuesOn_class_1
         sh:class  <https://w3id.org/hacid/onto/data/RegularBinning> .
+
+shape:ScenarioBasedProjection_holdsSpecializationOfVariable_class_1
+        sh:class  <https://w3id.org/hacid/onto/data/Sample> .
 
 shape:VariableSpecialization_label
         sh:datatype    rdf:langString ;
@@ -315,14 +366,25 @@ shape:RegionalClimateModel_label_datatype_0
         sh:datatype  rdf:langString .
 
 shape:ProbabilisticProjection_isSpecializationOfVariable
-        sh:class     <https://w3id.org/hacid/onto/data/Variable> ;
         sh:maxCount  1 ;
         sh:name      "isSpecializationOfVariable"@en ;
         sh:nodeKind  sh:IRI ;
+        sh:or        ( shape:ProbabilisticProjection_isSpecializationOfVariable_class_0 shape:ProbabilisticProjection_isSpecializationOfVariable_class_1 shape:ProbabilisticProjection_isSpecializationOfVariable_class_2 shape:ProbabilisticProjection_isSpecializationOfVariable_class_3 ) ;
         sh:path      <https://w3id.org/hacid/onto/data/isSpecializationOfVariable> .
 
 shape:EnsembleSimulation_hasOutput_class_0
         sh:class  <https://w3id.org/hacid/onto/ccso/ScenarioBasedProjection> .
+
+shape:ProbabilisticProjection_isSpecializationOfVariable_class_1
+        sh:class  <https://w3id.org/hacid/onto/data/DeterministicVariable> .
+
+shape:DeterministicVariable
+        rdf:type        sh:NodeShape ;
+        rdfs:label      "DeterministicVariable"@en ;
+        sh:property     shape:DeterministicVariable_isLinearTransformationOf , shape:DeterministicVariable_hasOppositeValueOf , shape:DeterministicVariable_hasUnitOfMeasure , shape:DeterministicVariable_acronym , shape:DeterministicVariable_label , shape:DeterministicVariable_isMemberOf , shape:DeterministicVariable_isAnomalyOf , shape:DeterministicVariable_hasBaselineRegion , shape:DeterministicVariable_altLabel , shape:DeterministicVariable_hasValuesOn , shape:DeterministicVariable_comment , shape:DeterministicVariable_isSpecializationOfVariable , shape:DeterministicVariable_dependsOnVariable , shape:DeterministicVariable_isProbabilisticRepresentationOf , shape:DeterministicVariable_derivedFromVariable ;
+        sh:targetClass  <https://w3id.org/hacid/onto/data/DeterministicVariable> ;
+        <https://shacl-play.sparna.fr/ontology#background-color>
+                "slateblue" .
 
 shape:SimpleRegularBinning_hasResolution
         sh:class     <https://w3id.org/hacid/onto/top-level/Amount> ;
@@ -330,6 +392,13 @@ shape:SimpleRegularBinning_hasResolution
         sh:name      "hasResolution"@en ;
         sh:nodeKind  sh:IRI ;
         sh:path      <https://w3id.org/hacid/onto/data/hasResolution> .
+
+shape:DeterministicVariable_isSpecializationOfVariable
+        sh:class     <https://w3id.org/hacid/onto/data/DeterministicVariable> ;
+        sh:maxCount  1 ;
+        sh:name      "isSpecializationOfVariable"@en ;
+        sh:nodeKind  sh:IRI ;
+        sh:path      <https://w3id.org/hacid/onto/data/isSpecializationOfVariable> .
 
 shape:SingleProjection_label
         dash:propertyRole  dash:LabelRole ;
@@ -353,10 +422,17 @@ shape:ProbabilisticProjectionProduction_label
 
 shape:TemporalRegion_hasStartDateTime
         sh:datatype  xsd:dateTime ;
+        sh:maxCount  1 ;
         sh:minCount  1 ;
         sh:name      "hasStartDateTime"@en ;
         sh:nodeKind  sh:Literal ;
         sh:path      <https://w3id.org/hacid/onto/data/hasStartDateTime> .
+
+shape:Sample_dependsOnVariable_class_1
+        sh:class  <https://w3id.org/hacid/onto/data/DiscreteDimensionalSpace> .
+
+shape:ScenarioBasedProjection_hasComponent_class_5
+        sh:class  <https://w3id.org/hacid/onto/data/ProbabilityDensityFunction> .
 
 shape:IndependentVariable
         rdf:type        sh:NodeShape ;
@@ -364,7 +440,17 @@ shape:IndependentVariable
         sh:property     shape:IndependentVariable_label , shape:IndependentVariable_acronym ;
         sh:targetClass  <https://w3id.org/hacid/onto/data/IndependentVariable> ;
         <https://shacl-play.sparna.fr/ontology#background-color>
-                "burlywood" .
+                "indianred" .
+
+shape:DimensionalSpace_adoptsQuantization_class_2
+        sh:class  <https://w3id.org/hacid/onto/data/RegularPeriodicBinning> .
+
+shape:Rescaling_hasInput
+        sh:minCount  1 ;
+        sh:name      "hasInput"@en ;
+        sh:nodeKind  sh:IRI ;
+        sh:or        ( shape:Rescaling_hasInput_class_0 shape:Rescaling_hasInput_class_1 ) ;
+        sh:path      <https://w3id.org/hacid/onto/data/hasInput> .
 
 shape:DependentVariable_hasValuesOn
         sh:class     <https://w3id.org/hacid/onto/data/DimensionalSpace> ;
@@ -372,9 +458,6 @@ shape:DependentVariable_hasValuesOn
         sh:name      "hasValuesOn"@en ;
         sh:nodeKind  sh:IRI ;
         sh:path      <https://w3id.org/hacid/onto/data/hasValuesOn> .
-
-shape:DependentVariable_dependsOnVariable_class_0
-        sh:class  <https://w3id.org/hacid/onto/data/Continuum> .
 
 shape:DependentVariable_inScheme
         sh:class     <https://w3id.org/hacid/onto/top-level/ConceptScheme> ;
@@ -385,6 +468,9 @@ shape:DependentVariable_inScheme
 
 shape:GlobalClimateSimulation_hasOutput_class_2
         sh:class  <https://w3id.org/hacid/onto/ccso/EnsembleProjection> .
+
+shape:DependentVariable_dependsOnVariable_class_0
+        sh:class  <https://w3id.org/hacid/onto/data/Continuum> .
 
 shape:DiscreteDimensionalSpace_hasValuesOn
         sh:class     <https://w3id.org/hacid/onto/data/DiscreteDimensionalSpace> ;
@@ -445,12 +531,12 @@ shape:SingleSimulation_componentIdentifier
         sh:nodeKind  sh:Literal ;
         sh:path      <https://w3id.org/hacid/onto/top-level/componentIdentifier> .
 
-shape:Variable_isSpecializationOfVariable
-        sh:class     <https://w3id.org/hacid/onto/data/Variable> ;
+shape:Sample_isProbabilisticRepresentationOf
         sh:maxCount  1 ;
-        sh:name      "isSpecializationOfVariable"@en ;
+        sh:name      "isProbabilisticRepresentationOf"@en ;
         sh:nodeKind  sh:IRI ;
-        sh:path      <https://w3id.org/hacid/onto/data/isSpecializationOfVariable> .
+        sh:or        ( shape:Sample_isProbabilisticRepresentationOf_class_0 shape:Sample_isProbabilisticRepresentationOf_class_1 ) ;
+        sh:path      <https://w3id.org/hacid/onto/data/isProbabilisticRepresentationOf> .
 
 shape:ScenarioBasedProjection_dependsOnVariable
         sh:class     <https://w3id.org/hacid/onto/data/DimensionalSpace> ;
@@ -461,6 +547,9 @@ shape:ScenarioBasedProjection_dependsOnVariable
 shape:GlobalClimateSimulation_label_datatype_1
         sh:datatype  xsd:string .
 
+shape:QuantileFunction_isSpecializationOfVariable_class_0
+        sh:class  <https://w3id.org/hacid/onto/data/QuantileFunction> .
+
 shape:Operation_isSpecializedBy
         sh:class     <https://w3id.org/hacid/onto/top-level/Operation> ;
         sh:name      "isSpecializedBy"@en ;
@@ -470,11 +559,34 @@ shape:Operation_isSpecializedBy
 shape:DimensionalSpace_label_datatype_1
         sh:datatype  xsd:string .
 
+shape:ProbabilisticProjection_hasRescaledVersion_class_3
+        sh:class  <https://w3id.org/hacid/onto/data/QuantileFunction> .
+
+shape:ScenarioBasedProjection_isEquivalentTo_class_1
+        sh:class  <https://w3id.org/hacid/onto/ccso/ScenarioBasedProjection> .
+
 shape:DimensionalSpace_basedOnDimensionalSpace_class_2
         sh:class  <https://w3id.org/hacid/onto/data/RegularBinning> .
 
+shape:QuantileFunction_isSpecializationOfVariable
+        sh:maxCount  1 ;
+        sh:name      "isSpecializationOfVariable"@en ;
+        sh:nodeKind  sh:IRI ;
+        sh:or        ( shape:QuantileFunction_isSpecializationOfVariable_class_0 shape:QuantileFunction_isSpecializationOfVariable_class_1 ) ;
+        sh:path      <https://w3id.org/hacid/onto/data/isSpecializationOfVariable> .
+
+shape:AbsoluteAnomaly_label
+        dash:propertyRole  dash:LabelRole ;
+        sh:datatype        rdf:langString ;
+        sh:languageIn      ( "en" ) ;
+        sh:maxCount        1 ;
+        sh:minCount        1 ;
+        sh:name            "label"@en ;
+        sh:nodeKind        sh:Literal ;
+        sh:path            rdfs:label .
+
 shape:ScenarioBasedProjection_hasComponent_class_0
-        sh:class  <https://w3id.org/hacid/onto/ccso/SingleProjection> .
+        sh:class  <https://w3id.org/hacid/onto/ccso/ScenarioBasedProjection> .
 
 shape:StatisticalProjectionTransformation_hasOutput_class_2
         sh:class  <https://w3id.org/hacid/onto/ccso/ProbabilisticProjection> .
@@ -490,7 +602,7 @@ shape:Action_hasOutput_class_2
         sh:class  <https://w3id.org/hacid/onto/data/Dataset> .
 
 shape:Collection_hasMember_class_1
-        sh:class  <https://w3id.org/hacid/onto/data/Variable> .
+        sh:class  <https://w3id.org/hacid/onto/data/DeterministicVariable> .
 
 shape:Continuum_hasSubDimensionalSpace
         sh:class     <https://w3id.org/hacid/onto/data/Continuum> ;
@@ -507,6 +619,13 @@ shape:UnitOfMeasure_label
         sh:nodeKind        sh:Literal ;
         sh:path            rdfs:label .
 
+shape:GlobalClimateSimulation_usesModel
+        sh:class     <https://w3id.org/hacid/onto/ccso/GlobalClimateModel> ;
+        sh:maxCount  1 ;
+        sh:name      "usesModel"@en ;
+        sh:nodeKind  sh:IRI ;
+        sh:path      <https://w3id.org/hacid/onto/ccso/usesModel> .
+
 shape:RegionalClimateModel_label
         dash:propertyRole  dash:LabelRole ;
         sh:maxCount        1 ;
@@ -516,12 +635,11 @@ shape:RegionalClimateModel_label
         sh:or              ( shape:RegionalClimateModel_label_datatype_0 shape:RegionalClimateModel_label_datatype_1 ) ;
         sh:path            rdfs:label .
 
-shape:GlobalClimateSimulation_usesModel
-        sh:class     <https://w3id.org/hacid/onto/ccso/GlobalClimateModel> ;
-        sh:maxCount  1 ;
-        sh:name      "usesModel"@en ;
-        sh:nodeKind  sh:IRI ;
-        sh:path      <https://w3id.org/hacid/onto/ccso/usesModel> .
+shape:SingleProjection_derivedFromVariable_class_1
+        sh:class  <https://w3id.org/hacid/onto/ccso/ScenarioBasedProjection> .
+
+shape:Collection_associatedWith_class_0
+        sh:class  <https://w3id.org/hacid/onto/ccso/RegionalClimateModel> .
 
 shape:DataGeneratingProcess_comment_datatype_0
         sh:datatype  rdf:langString .
@@ -535,6 +653,12 @@ shape:SingleProjection_comment
 
 shape:DynamicalDownscaling_usesModel_class_1
         sh:class  <https://w3id.org/hacid/onto/ccso/ConvectionPermittingClimateModel> .
+
+shape:ProbabilisticProjection_hasRescaledVersion
+        sh:name      "hasRescaledVersion"@en ;
+        sh:nodeKind  sh:IRI ;
+        sh:or        ( shape:ProbabilisticProjection_hasRescaledVersion_class_0 shape:ProbabilisticProjection_hasRescaledVersion_class_1 shape:ProbabilisticProjection_hasRescaledVersion_class_2 shape:ProbabilisticProjection_hasRescaledVersion_class_3 ) ;
+        sh:path      <https://w3id.org/hacid/onto/data/hasRescaledVersion> .
 
 shape:GlobalWarmingLevel_value
         sh:in        ( 4.5e0 3.5e0 4 6 2 5.5e0 3 1.5e0 5 2.5e0 ) ;
@@ -551,7 +675,7 @@ shape:RegularPeriodicBinning
         sh:property     shape:RegularPeriodicBinning_basedOnDimensionalSpace , shape:RegularPeriodicBinning_hasInPeriodResolutionValue , shape:RegularPeriodicBinning_hasPeriodValue , shape:RegularPeriodicBinning_hasResolutionValue , shape:RegularPeriodicBinning_hasValuesOn ;
         sh:targetClass  <https://w3id.org/hacid/onto/data/RegularPeriodicBinning> ;
         <https://shacl-play.sparna.fr/ontology#background-color>
-                "mediumvioletred" .
+                "lightpink" .
 
 shape:VariableSpecialization_isSpecializationOn
         sh:class     <https://w3id.org/hacid/onto/data/Continuum> ;
@@ -571,6 +695,12 @@ shape:GeodeticPoint_asWKT
         sh:nodeKind  sh:Literal ;
         sh:path      <http://www.opengis.net/ont/geosparql#asWKT> .
 
+shape:ProbabilisticProjection_hasComponent_class_3
+        sh:class  <https://w3id.org/hacid/onto/data/QuantileFunction> .
+
+shape:SimpleRegularBinning_hasResolutionValue_datatype_0
+        sh:datatype  xsd:duration .
+
 shape:DynamicalDownscaling_usesModel
         sh:maxCount  1 ;
         sh:name      "usesModel"@en ;
@@ -578,29 +708,25 @@ shape:DynamicalDownscaling_usesModel
         sh:or        ( shape:DynamicalDownscaling_usesModel_class_0 shape:DynamicalDownscaling_usesModel_class_1 ) ;
         sh:path      <https://w3id.org/hacid/onto/ccso/usesModel> .
 
-shape:SimpleRegularBinning_hasResolutionValue_datatype_0
-        sh:datatype  xsd:duration .
+shape:Rescaling_hasOutput_class_0
+        sh:class  <https://w3id.org/hacid/onto/ccso/SingleProjection> .
 
-shape:Variable_isMemberOf
-        sh:class     <https://w3id.org/hacid/onto/top-level/Collection> ;
-        sh:minCount  1 ;
-        sh:name      "isMemberOf"@en ;
-        sh:nodeKind  sh:IRI ;
-        sh:path      <https://w3id.org/hacid/onto/top-level/isMemberOf> .
+shape:Sample_isSpecializationOfVariable_class_1
+        sh:class  <https://w3id.org/hacid/onto/data/DeterministicVariable> .
 
 shape:Operation  rdf:type  sh:NodeShape ;
         rdfs:label      "Operation"@en ;
         sh:property     shape:Operation_comment , shape:Operation_definesRole , shape:Operation_label , shape:Operation_isSpecializedBy ;
         sh:targetClass  <https://w3id.org/hacid/onto/top-level/Operation> ;
         <https://shacl-play.sparna.fr/ontology#background-color>
-                "teal" .
+                "mediumvioletred" .
 
 shape:ConceptScheme  rdf:type  sh:NodeShape ;
         rdfs:label      "ConceptScheme"@en ;
         sh:property     shape:ConceptScheme_label , shape:ConceptScheme_defines ;
         sh:targetClass  <https://w3id.org/hacid/onto/top-level/ConceptScheme> ;
         <https://shacl-play.sparna.fr/ontology#background-color>
-                "darkseagreen" .
+                "mistyrose" .
 
 shape:DependentVariable_holdsSpecializationOfVariable
         sh:class     <https://w3id.org/hacid/onto/data/DependentVariable> ;
@@ -626,6 +752,9 @@ shape:SharedSocioeconomicPathway_comment
         sh:nodeKind    sh:Literal ;
         sh:path        rdfs:comment .
 
+shape:QuantileFunction_dependsOnVariable_class_1
+        sh:class  <https://w3id.org/hacid/onto/data/DiscreteDimensionalSpace> .
+
 shape:Collection_comment
         sh:datatype    rdf:langString ;
         sh:languageIn  ( "en" ) ;
@@ -643,7 +772,10 @@ shape:DependentVariable
         sh:property     shape:DependentVariable_comment , shape:DependentVariable_isEquivalentTo , shape:DependentVariable_holdsSpecializationOfVariable , shape:DependentVariable_hasUnitOfMeasure , shape:DependentVariable_inScheme , shape:DependentVariable_definesAggregation , shape:DependentVariable_isRelatedToConcept , shape:DependentVariable_dependsOnVariable , shape:DependentVariable_definition , shape:DependentVariable_derivedFromVariable , shape:DependentVariable_label , shape:DependentVariable_hasValuesOn , shape:DependentVariable_isClassifiedBy , shape:DependentVariable_acronym ;
         sh:targetClass  <https://w3id.org/hacid/onto/data/DependentVariable> ;
         <https://shacl-play.sparna.fr/ontology#background-color>
-                "lightyellow" .
+                "gold" .
+
+shape:RegularBinning_hasValuesOn_class_0
+        sh:class  <https://w3id.org/hacid/onto/data/SimpleRegularBinning> .
 
 shape:DependentVariable_hasUnitOfMeasure
         sh:class     <https://w3id.org/hacid/onto/data/DimensionalSpace> ;
@@ -652,15 +784,21 @@ shape:DependentVariable_hasUnitOfMeasure
         sh:nodeKind  sh:IRI ;
         sh:path      <https://w3id.org/hacid/onto/top-level/hasUnitOfMeasure> .
 
-shape:RegularBinning_hasValuesOn_class_0
-        sh:class  <https://w3id.org/hacid/onto/data/SimpleRegularBinning> .
-
 shape:ClimateModelIntercomparisonExperiment_usesModel
         sh:class     <https://w3id.org/hacid/onto/ccso/RegionalClimateModel> ;
         sh:maxCount  1 ;
         sh:name      "usesModel"@en ;
         sh:nodeKind  sh:IRI ;
         sh:path      <https://w3id.org/hacid/onto/ccso/usesModel> .
+
+shape:DeterministicVariable_isLinearTransformationOf
+        sh:class     <https://w3id.org/hacid/onto/data/DeterministicVariable> ;
+        sh:name      "isLinearTransformationOf"@en ;
+        sh:nodeKind  sh:IRI ;
+        sh:path      <https://w3id.org/hacid/onto/data/isLinearTransformationOf> .
+
+shape:SingleProjectionProduction_hasInput_class_1
+        sh:class  <https://w3id.org/hacid/onto/ccso/ScenarioBasedProjection> .
 
 shape:SinglePeriodicBinning_hasPeriodValue
         sh:datatype  xsd:duration ;
@@ -677,6 +815,12 @@ shape:GlobalClimateSimulation_refersToScenario
         sh:name      "refersToScenario"@en ;
         sh:nodeKind  sh:IRI ;
         sh:path      <https://w3id.org/hacid/onto/ccso/refersToScenario> .
+
+shape:DeterministicVariable_altLabel
+        sh:datatype  xsd:string ;
+        sh:name      "altLabel"@en ;
+        sh:nodeKind  sh:Literal ;
+        sh:path      <https://w3id.org/hacid/onto/top-level/altLabel> .
 
 shape:DynamicalDownscaling_hasComponent_class_0
         sh:class  <https://w3id.org/hacid/onto/ccso/SingleSimulation> .
@@ -701,8 +845,15 @@ shape:GeodeticRegion_label
 shape:Dataset_hasComponent_class_1
         sh:class  <https://w3id.org/hacid/onto/ccso/EnsembleProjection> .
 
-shape:DimensionalSpace_hasDiscretization_class_0
-        sh:class  <https://w3id.org/hacid/onto/data/SimpleRegularBinning> .
+shape:ProbabilityDensityFunction_isSpecializationOfVariable
+        sh:maxCount  1 ;
+        sh:name      "isSpecializationOfVariable"@en ;
+        sh:nodeKind  sh:IRI ;
+        sh:or        ( shape:ProbabilityDensityFunction_isSpecializationOfVariable_class_0 shape:ProbabilityDensityFunction_isSpecializationOfVariable_class_1 ) ;
+        sh:path      <https://w3id.org/hacid/onto/data/isSpecializationOfVariable> .
+
+shape:ProbabilityDensityFunction_dependsOnVariable_class_0
+        sh:class  <https://w3id.org/hacid/onto/data/DimensionalSpace> .
 
 shape:EnsembleProjectionProduction_hasComponent
         sh:class     <https://w3id.org/hacid/onto/ccso/SingleProjectionProduction> ;
@@ -718,12 +869,18 @@ shape:EnsembleSimulation_usesModel
         sh:nodeKind  sh:IRI ;
         sh:path      <https://w3id.org/hacid/onto/ccso/usesModel> .
 
+shape:ScenarioBasedProjection_hasRescaledVersion_class_5
+        sh:class  <https://w3id.org/hacid/onto/data/QuantileFunction> .
+
 shape:Dataset_hasComponent
         sh:minCount  1 ;
         sh:name      "hasComponent"@en ;
         sh:nodeKind  sh:IRI ;
-        sh:or        ( shape:Dataset_hasComponent_class_0 shape:Dataset_hasComponent_class_1 ) ;
+        sh:or        ( shape:Dataset_hasComponent_class_0 shape:Dataset_hasComponent_class_1 shape:Dataset_hasComponent_class_2 ) ;
         sh:path      <https://w3id.org/hacid/onto/top-level/hasComponent> .
+
+shape:EnsembleProjection_derivedFromVariable_class_1
+        sh:class  <https://w3id.org/hacid/onto/ccso/EnsembleProjection> .
 
 shape:ClimateModelIntercomparisonExperiment_hasComponent_class_3
         sh:class  <https://w3id.org/hacid/onto/ccso/PerturbedParameterClimateEnsembleSimulation> .
@@ -750,6 +907,12 @@ shape:ScenarioBasedProjection_comment
         sh:name        "comment"@en ;
         sh:nodeKind    sh:Literal ;
         sh:path        rdfs:comment .
+
+shape:DeterministicVariable_dependsOnVariable
+        sh:class     <https://w3id.org/hacid/onto/data/Continuum> ;
+        sh:name      "dependsOnVariable"@en ;
+        sh:nodeKind  sh:IRI ;
+        sh:path      <https://w3id.org/hacid/onto/data/dependsOnVariable> .
 
 shape:SingleProjectionProduction_label
         dash:propertyRole  dash:LabelRole ;
@@ -780,7 +943,7 @@ shape:DataGeneratingProcess
         sh:property     shape:DataGeneratingProcess_comment , shape:DataGeneratingProcess_hasOutput , shape:DataGeneratingProcess_label , shape:DataGeneratingProcess_hasComponent ;
         sh:targetClass  <https://w3id.org/hacid/onto/data/DataGeneratingProcess> ;
         <https://shacl-play.sparna.fr/ontology#background-color>
-                "lightgreen" .
+                "sandybrown" .
 
 shape:SingleProjection_dependsOnVariable_class_0
         sh:class  <https://w3id.org/hacid/onto/data/DiscreteDimensionalSpace> .
@@ -792,6 +955,9 @@ shape:EnsembleProjection_refersToScenario
         sh:nodeKind  sh:IRI ;
         sh:path      <https://w3id.org/hacid/onto/ccso/refersToScenario> .
 
+shape:ScenarioBasedProjection_holdsSpecializationOfVariable_class_3
+        sh:class  <https://w3id.org/hacid/onto/data/QuantileFunction> .
+
 shape:Aggregation_aggregatesVariable
         sh:class     <https://w3id.org/hacid/onto/data/Continuum> ;
         sh:hasValue  <https://w3id.org/hacid/data/cs/dimensions/time> ;
@@ -801,19 +967,41 @@ shape:Aggregation_aggregatesVariable
         sh:nodeKind  sh:IRI ;
         sh:path      <https://w3id.org/hacid/onto/data/aggregatesVariable> .
 
+shape:DeterministicVariable_isProbabilisticRepresentationOf_class_1
+        sh:class  <https://w3id.org/hacid/onto/data/RelativeAnomaly> .
+
 shape:RegionalClimateModel
         rdf:type        sh:NodeShape ;
         rdfs:label      "RegionalClimateModel"@en ;
         sh:property     shape:RegionalClimateModel_label , shape:RegionalClimateModel_isMaintainedBy ;
         sh:targetClass  <https://w3id.org/hacid/onto/ccso/RegionalClimateModel> ;
         <https://shacl-play.sparna.fr/ontology#background-color>
-                "cornflowerblue" .
+                "limegreen" .
+
+shape:Sample_isProbabilisticRepresentationOf_class_1
+        sh:class  <https://w3id.org/hacid/onto/data/RelativeAnomaly> .
 
 shape:Action_hasComponent_class_0
         sh:class  <https://w3id.org/hacid/onto/ccso/DynamicalDownscaling> .
 
 shape:Concept_label_datatype_0
         sh:datatype  rdf:langString .
+
+shape:DimensionalSpace_adoptsQuantization
+        sh:maxCount  1 ;
+        sh:name      "adoptsQuantization"@en ;
+        sh:nodeKind  sh:IRI ;
+        sh:or        ( shape:DimensionalSpace_adoptsQuantization_class_0 shape:DimensionalSpace_adoptsQuantization_class_1 shape:DimensionalSpace_adoptsQuantization_class_2 shape:DimensionalSpace_adoptsQuantization_class_3 ) ;
+        sh:path      <https://w3id.org/hacid/onto/data/adoptsQuantization> .
+
+shape:RelativeAnomaly_hasBaselineRegion
+        sh:class     <https://w3id.org/hacid/onto/data/TemporalRegion> ;
+        sh:in        ( <https://w3id.org/hacid/data/cs/dimensions/time/reference-frames/gregorian/regions/1981-01-01T00:00:00Z-2001-01-01T00:00:00Z> <https://w3id.org/hacid/data/cs/dimensions/time/reference-frames/gregorian/regions/1981-01-01T00:00:00Z-2011-01-01T00:00:00Z> <https://w3id.org/hacid/data/cs/dimensions/time/reference-frames/gregorian/regions/1961-01-01T00:00:00Z-1991-01-01T00:00:00Z> ) ;
+        sh:maxCount  1 ;
+        sh:minCount  1 ;
+        sh:name      "hasBaselineRegion"@en ;
+        sh:nodeKind  sh:IRI ;
+        sh:path      <https://w3id.org/hacid/onto/data/hasBaselineRegion> .
 
 shape:RegionalClimateModel_isMaintainedBy
         sh:class     <https://w3id.org/hacid/onto/top-level/Organization> ;
@@ -830,6 +1018,9 @@ shape:UnitOfMeasure_hasValuesOn
         sh:nodeKind  sh:IRI ;
         sh:path      <https://w3id.org/hacid/onto/data/hasValuesOn> .
 
+shape:ProbabilisticProjection_isSpecializationOfVariable_class_3
+        sh:class  <https://w3id.org/hacid/onto/data/Sample> .
+
 shape:Method_isSpecializedBy
         sh:class     <https://w3id.org/hacid/onto/top-level/Method> ;
         sh:name      "isSpecializedBy"@en ;
@@ -844,6 +1035,9 @@ shape:ProbabilisticProjectionProduction_refersToScenario
         sh:name      "refersToScenario"@en ;
         sh:nodeKind  sh:IRI ;
         sh:path      <https://w3id.org/hacid/onto/ccso/refersToScenario> .
+
+shape:SingleProjection_hasRescaledVersion_class_1
+        sh:class  <https://w3id.org/hacid/onto/ccso/ScenarioBasedProjection> .
 
 shape:SharedSocioeconomicPathway_acronym
         sh:datatype    rdf:langString ;
@@ -864,7 +1058,7 @@ shape:ClimateModelIntercomparisonExperiment
         sh:property     shape:ClimateModelIntercomparisonExperiment_label , shape:ClimateModelIntercomparisonExperiment_hasComponent , shape:ClimateModelIntercomparisonExperiment_refersToScenario , shape:ClimateModelIntercomparisonExperiment_usesModel , shape:ClimateModelIntercomparisonExperiment_acronym , shape:ClimateModelIntercomparisonExperiment_hasOutput , shape:ClimateModelIntercomparisonExperiment_componentIdentifier ;
         sh:targetClass  <https://w3id.org/hacid/onto/ccso/ClimateModelIntercomparisonExperiment> ;
         <https://shacl-play.sparna.fr/ontology#background-color>
-                "sandybrown" .
+                "salmon" .
 
 shape:DynamicalDownscaling_hasOutput_class_1
         sh:class  <https://w3id.org/hacid/onto/ccso/ScenarioBasedProjection> .
@@ -875,23 +1069,26 @@ shape:PerturbedParameterClimateEnsembleSimulation
         sh:property     shape:PerturbedParameterClimateEnsembleSimulation_label , shape:PerturbedParameterClimateEnsembleSimulation_refersToScenario , shape:PerturbedParameterClimateEnsembleSimulation_usesModel , shape:PerturbedParameterClimateEnsembleSimulation_hasOutput , shape:PerturbedParameterClimateEnsembleSimulation_hasComponent ;
         sh:targetClass  <https://w3id.org/hacid/onto/ccso/PerturbedParameterClimateEnsembleSimulation> ;
         <https://shacl-play.sparna.fr/ontology#background-color>
-                "coral" .
+                "grey" .
 
 shape:SingleSimulation_isDownscalingOf_class_1
         sh:class  <https://w3id.org/hacid/onto/ccso/GlobalClimateSimulation> .
 
-shape:DimensionalSpace_hasDiscretization
-        sh:maxCount  1 ;
-        sh:name      "hasDiscretization"@en ;
-        sh:nodeKind  sh:IRI ;
-        sh:or        ( shape:DimensionalSpace_hasDiscretization_class_0 shape:DimensionalSpace_hasDiscretization_class_1 shape:DimensionalSpace_hasDiscretization_class_2 shape:DimensionalSpace_hasDiscretization_class_3 ) ;
-        sh:path      <https://w3id.org/hacid/onto/data/hasDiscretization> .
+shape:ScenarioBasedProjection_hasRescaledVersion_class_0
+        sh:class  <https://w3id.org/hacid/onto/ccso/SingleProjection> .
 
 shape:SingleProjection_hasComponent_class_1
-        sh:class  <https://w3id.org/hacid/onto/ccso/SingleProjection> .
+        sh:class  <https://w3id.org/hacid/onto/ccso/ScenarioBasedProjection> .
 
 shape:Aggregation_hasSuggestedQuantization_class_0
         sh:class  <https://w3id.org/hacid/onto/data/SimpleRegularBinning> .
+
+shape:Sample  rdf:type  sh:NodeShape ;
+        rdfs:label      "Sample"@en ;
+        sh:property     shape:Sample_dependsOnVariable , shape:Sample_acronym , shape:Sample_label , shape:Sample_isMemberOf , shape:Sample_hasUnitOfMeasure , shape:Sample_isSpecializedAccordingTo , shape:Sample_isSpecializationOfVariable , shape:Sample_hasValuesOn , shape:Sample_isProbabilisticRepresentationOf ;
+        sh:targetClass  <https://w3id.org/hacid/onto/data/Sample> ;
+        <https://shacl-play.sparna.fr/ontology#background-color>
+                "goldenrod" .
 
 shape:ProbabilisticProjection_isSpecializedAccordingTo
         sh:class     <https://w3id.org/hacid/onto/data/VariableSpecialization> ;
@@ -900,13 +1097,22 @@ shape:ProbabilisticProjection_isSpecializedAccordingTo
         sh:nodeKind  sh:IRI ;
         sh:path      <https://w3id.org/hacid/onto/data/isSpecializedAccordingTo> .
 
+shape:RelativeAnomaly_isAnomalyOf
+        sh:class     <https://w3id.org/hacid/onto/data/DeterministicVariable> ;
+        sh:in        ( <https://w3id.org/hacid/data/cs/variables/mip/clt> <https://w3id.org/hacid/data/cs/variables/mip/huss> <https://w3id.org/hacid/data/cs/variables/mip/pr> ) ;
+        sh:maxCount  1 ;
+        sh:minCount  1 ;
+        sh:name      "isAnomalyOf"@en ;
+        sh:nodeKind  sh:IRI ;
+        sh:path      <https://w3id.org/hacid/onto/data/isAnomalyOf> .
+
 shape:VariableSpecialization
         rdf:type        sh:NodeShape ;
         rdfs:label      "VariableSpecialization"@en ;
         sh:property     shape:VariableSpecialization_comment , shape:VariableSpecialization_label , shape:VariableSpecialization_hasSelectedRegion , shape:VariableSpecialization_isSpecializationOn ;
         sh:targetClass  <https://w3id.org/hacid/onto/data/VariableSpecialization> ;
         <https://shacl-play.sparna.fr/ontology#background-color>
-                "linen" .
+                "tomato" .
 
 shape:StatisticalProjectionTransformation_refersToScenario
         sh:class     <https://w3id.org/hacid/onto/ccso/GreenhouseGasConcentrationPathway> ;
@@ -924,15 +1130,21 @@ shape:RegularPeriodicBinning_hasResolutionValue
         sh:nodeKind  sh:Literal ;
         sh:path      <https://w3id.org/hacid/onto/data/hasResolutionValue> .
 
+shape:ScenarioBasedProjection_isEquivalentTo
+        sh:maxCount  1 ;
+        sh:name      "isEquivalentTo"@en ;
+        sh:nodeKind  sh:IRI ;
+        sh:or        ( shape:ScenarioBasedProjection_isEquivalentTo_class_0 shape:ScenarioBasedProjection_isEquivalentTo_class_1 ) ;
+        sh:path      <https://w3id.org/hacid/onto/data/isEquivalentTo> .
+
+shape:EnsembleSimulation_hasComponent_class_0
+        sh:class  <https://w3id.org/hacid/onto/ccso/SingleSimulation> .
+
 shape:SingleSimulation_hasOutput
-        sh:minCount  1 ;
         sh:name      "hasOutput"@en ;
         sh:nodeKind  sh:IRI ;
         sh:or        ( shape:SingleSimulation_hasOutput_class_0 shape:SingleSimulation_hasOutput_class_1 ) ;
         sh:path      <https://w3id.org/hacid/onto/data/hasOutput> .
-
-shape:EnsembleSimulation_hasComponent_class_0
-        sh:class  <https://w3id.org/hacid/onto/ccso/SingleSimulation> .
 
 shape:IndependentVariable_label
         dash:propertyRole  dash:LabelRole ;
@@ -947,8 +1159,24 @@ shape:IndependentVariable_label
 shape:GlobalClimateSimulation_hasComponent_class_1
         sh:class  <https://w3id.org/hacid/onto/ccso/GlobalClimateSimulation> .
 
+shape:Sample_isSpecializationOfVariable
+        sh:maxCount  1 ;
+        sh:name      "isSpecializationOfVariable"@en ;
+        sh:nodeKind  sh:IRI ;
+        sh:or        ( shape:Sample_isSpecializationOfVariable_class_0 shape:Sample_isSpecializationOfVariable_class_1 ) ;
+        sh:path      <https://w3id.org/hacid/onto/data/isSpecializationOfVariable> .
+
 shape:SingleProjection_label_datatype_1
         sh:datatype  xsd:string .
+
+shape:RelativeAnomaly_isMemberOf
+        sh:class     <https://w3id.org/hacid/onto/top-level/Collection> ;
+        sh:hasValue  <https://w3id.org/hacid/data/cs/variables/ukcp> ;
+        sh:maxCount  1 ;
+        sh:minCount  1 ;
+        sh:name      "isMemberOf"@en ;
+        sh:nodeKind  sh:IRI ;
+        sh:path      <https://w3id.org/hacid/onto/top-level/isMemberOf> .
 
 shape:Action_comment  sh:name  "comment"@en ;
         sh:nodeKind  sh:Literal ;
@@ -964,6 +1192,28 @@ shape:DependentVariable_label
         sh:nodeKind        sh:Literal ;
         sh:path            rdfs:label .
 
+shape:Aggregation_hasOutput_class_0
+        sh:class  <https://w3id.org/hacid/onto/ccso/SingleProjection> .
+
+shape:QuantileFunction
+        rdf:type        sh:NodeShape ;
+        rdfs:label      "QuantileFunction"@en ;
+        sh:property     shape:QuantileFunction_label , shape:QuantileFunction_acronym , shape:QuantileFunction_hasValuesOn , shape:QuantileFunction_isSpecializedAccordingTo , shape:QuantileFunction_hasUnitOfMeasure , shape:QuantileFunction_isMemberOf , shape:QuantileFunction_dependsOnVariable , shape:QuantileFunction_isSpecializationOfVariable , shape:QuantileFunction_isProbabilisticRepresentationOf ;
+        sh:targetClass  <https://w3id.org/hacid/onto/data/QuantileFunction> ;
+        <https://shacl-play.sparna.fr/ontology#background-color>
+                "cyan" .
+
+shape:ProbabilisticProjection_holdsSpecializationOfVariable_class_1
+        sh:class  <https://w3id.org/hacid/onto/data/DeterministicVariable> .
+
+shape:QuantileFunction_acronym
+        sh:datatype    rdf:langString ;
+        sh:languageIn  ( "en" ) ;
+        sh:maxCount    1 ;
+        sh:name        "acronym"@en ;
+        sh:nodeKind    sh:Literal ;
+        sh:path        <https://w3id.org/hacid/onto/top-level/acronym> .
+
 shape:Continuum_hasReferencePoint
         sh:class     <https://w3id.org/hacid/onto/data/GeodeticPoint> ;
         sh:maxCount  1 ;
@@ -971,11 +1221,18 @@ shape:Continuum_hasReferencePoint
         sh:nodeKind  sh:IRI ;
         sh:path      <https://w3id.org/hacid/onto/data/hasReferencePoint> .
 
+shape:DeterministicVariable_hasUnitOfMeasure
+        sh:class     <https://w3id.org/hacid/onto/data/DimensionalSpace> ;
+        sh:maxCount  1 ;
+        sh:name      "hasUnitOfMeasure"@en ;
+        sh:nodeKind  sh:IRI ;
+        sh:path      <https://w3id.org/hacid/onto/top-level/hasUnitOfMeasure> .
+
 shape:ScenarioBasedProjection_hasComponent_class_2
         sh:class  <https://w3id.org/hacid/onto/ccso/EnsembleProjection> .
 
 shape:PerturbedParameterClimateEnsembleSimulation_hasOutput_class_0
-        sh:class  <https://w3id.org/hacid/onto/ccso/EnsembleProjection> .
+        sh:class  <https://w3id.org/hacid/onto/ccso/ScenarioBasedProjection> .
 
 shape:InformationRole_hasExpectedType
         sh:maxCount  1 ;
@@ -984,13 +1241,11 @@ shape:InformationRole_hasExpectedType
         sh:nodeKind  sh:BlankNodeOrIRI ;
         sh:path      <https://w3id.org/hacid/onto/top-level/hasExpectedType> .
 
-shape:GreenhouseGasConcentrationPathway
-        rdf:type        sh:NodeShape ;
-        rdfs:label      "GreenhouseGasConcentrationPathway"@en ;
-        sh:property     shape:GreenhouseGasConcentrationPathway_comment , shape:GreenhouseGasConcentrationPathway_label , shape:GreenhouseGasConcentrationPathway_acronym ;
-        sh:targetClass  <https://w3id.org/hacid/onto/ccso/GreenhouseGasConcentrationPathway> ;
-        <https://shacl-play.sparna.fr/ontology#background-color>
-                "ivory" .
+shape:SingleProjection_hasRescaledVersion
+        sh:name      "hasRescaledVersion"@en ;
+        sh:nodeKind  sh:IRI ;
+        sh:or        ( shape:SingleProjection_hasRescaledVersion_class_0 shape:SingleProjection_hasRescaledVersion_class_1 ) ;
+        sh:path      <https://w3id.org/hacid/onto/data/hasRescaledVersion> .
 
 shape:VariableSpecialization_comment
         sh:datatype    rdf:langString ;
@@ -999,6 +1254,14 @@ shape:VariableSpecialization_comment
         sh:name        "comment"@en ;
         sh:nodeKind    sh:Literal ;
         sh:path        rdfs:comment .
+
+shape:GreenhouseGasConcentrationPathway
+        rdf:type        sh:NodeShape ;
+        rdfs:label      "GreenhouseGasConcentrationPathway"@en ;
+        sh:property     shape:GreenhouseGasConcentrationPathway_comment , shape:GreenhouseGasConcentrationPathway_label , shape:GreenhouseGasConcentrationPathway_acronym ;
+        sh:targetClass  <https://w3id.org/hacid/onto/ccso/GreenhouseGasConcentrationPathway> ;
+        <https://shacl-play.sparna.fr/ontology#background-color>
+                "magenta" .
 
 shape:RegularPeriodicBinning_basedOnDimensionalSpace
         sh:class     <https://w3id.org/hacid/onto/data/Continuum> ;
@@ -1012,19 +1275,36 @@ shape:RegularPeriodicBinning_basedOnDimensionalSpace
 shape:ClimateModelIntercomparisonExperiment_hasOutput_class_1
         sh:class  <https://w3id.org/hacid/onto/ccso/EnsembleProjection> .
 
+shape:DeterministicVariable_comment
+        sh:datatype    rdf:langString ;
+        sh:languageIn  ( "en" ) ;
+        sh:maxCount    1 ;
+        sh:name        "comment"@en ;
+        sh:nodeKind    sh:Literal ;
+        sh:path        rdfs:comment .
+
 shape:SimpleRegularBinning
         rdf:type        sh:NodeShape ;
         rdfs:label      "SimpleRegularBinning"@en ;
         sh:property     shape:SimpleRegularBinning_hasResolutionValue , shape:SimpleRegularBinning_comment , shape:SimpleRegularBinning_label , shape:SimpleRegularBinning_basedOnDimensionalSpace , shape:SimpleRegularBinning_hasOffsetValue , shape:SimpleRegularBinning_hasValuesOn , shape:SimpleRegularBinning_hasResolution ;
         sh:targetClass  <https://w3id.org/hacid/onto/data/SimpleRegularBinning> ;
         <https://shacl-play.sparna.fr/ontology#background-color>
-                "beige" .
+                "ivory" .
+
+shape:StatisticalProjectionTransformation_hasInput_class_0
+        sh:class  <https://w3id.org/hacid/onto/ccso/ScenarioBasedProjection> .
 
 shape:EnsembleProjection_holdsSpecializationOfVariable
-        sh:class     <https://w3id.org/hacid/onto/data/Variable> ;
+        sh:class     <https://w3id.org/hacid/onto/data/DeterministicVariable> ;
         sh:name      "holdsSpecializationOfVariable"@en ;
         sh:nodeKind  sh:IRI ;
         sh:path      <https://w3id.org/hacid/onto/data/holdsSpecializationOfVariable> .
+
+shape:Sample_dependsOnVariable
+        sh:name      "dependsOnVariable"@en ;
+        sh:nodeKind  sh:IRI ;
+        sh:or        ( shape:Sample_dependsOnVariable_class_0 shape:Sample_dependsOnVariable_class_1 ) ;
+        sh:path      <https://w3id.org/hacid/onto/data/dependsOnVariable> .
 
 shape:TemporalRegion_label
         dash:propertyRole  dash:LabelRole ;
@@ -1045,6 +1325,13 @@ shape:SinglePeriodicBinning_hasValuesOn
         sh:nodeKind  sh:IRI ;
         sh:path      <https://w3id.org/hacid/onto/data/hasValuesOn> .
 
+shape:Aggregation_hasInput
+        sh:minCount  1 ;
+        sh:name      "hasInput"@en ;
+        sh:nodeKind  sh:IRI ;
+        sh:or        ( shape:Aggregation_hasInput_class_0 shape:Aggregation_hasInput_class_1 ) ;
+        sh:path      <https://w3id.org/hacid/onto/data/hasInput> .
+
 shape:SingleProjectionProduction_refersToGlobalWarmingLevel
         sh:class     <https://w3id.org/hacid/onto/ccso/GlobalWarmingLevel> ;
         sh:maxCount  1 ;
@@ -1053,7 +1340,6 @@ shape:SingleProjectionProduction_refersToGlobalWarmingLevel
         sh:path      <https://w3id.org/hacid/onto/ccso/refersToGlobalWarmingLevel> .
 
 shape:DynamicalDownscaling_isDownscalingOf
-        sh:maxCount  1 ;
         sh:name      "isDownscalingOf"@en ;
         sh:nodeKind  sh:IRI ;
         sh:or        ( shape:DynamicalDownscaling_isDownscalingOf_class_0 shape:DynamicalDownscaling_isDownscalingOf_class_1 shape:DynamicalDownscaling_isDownscalingOf_class_2 shape:DynamicalDownscaling_isDownscalingOf_class_3 ) ;
@@ -1061,6 +1347,15 @@ shape:DynamicalDownscaling_isDownscalingOf
 
 shape:ClimateModelIntercomparisonExperiment_label_datatype_0
         sh:datatype  rdf:langString .
+
+shape:AbsoluteAnomaly_isMemberOf
+        sh:class     <https://w3id.org/hacid/onto/top-level/Collection> ;
+        sh:hasValue  <https://w3id.org/hacid/data/cs/variables/ukcp> ;
+        sh:maxCount  1 ;
+        sh:minCount  1 ;
+        sh:name      "isMemberOf"@en ;
+        sh:nodeKind  sh:IRI ;
+        sh:path      <https://w3id.org/hacid/onto/top-level/isMemberOf> .
 
 shape:PerturbedParameterClimateEnsembleSimulation_hasComponent_class_0
         sh:class  <https://w3id.org/hacid/onto/ccso/SingleSimulation> .
@@ -1089,7 +1384,16 @@ shape:SingleSimulation
         sh:property     shape:SingleSimulation_usesModel , shape:SingleSimulation_hasOutput , shape:SingleSimulation_isDownscalingOf , shape:SingleSimulation_label , shape:SingleSimulation_componentIdentifier , shape:SingleSimulation_refersToScenario , shape:SingleSimulation_comment ;
         sh:targetClass  <https://w3id.org/hacid/onto/ccso/SingleSimulation> ;
         <https://shacl-play.sparna.fr/ontology#background-color>
-                "greenyellow" .
+                "snow" .
+
+shape:ScenarioBasedProjection_derivedFromVariable_class_0
+        sh:class  <https://w3id.org/hacid/onto/ccso/ScenarioBasedProjection> .
+
+shape:ProbabilisticProjection_hasRescaledVersion_class_0
+        sh:class  <https://w3id.org/hacid/onto/data/Sample> .
+
+shape:GlobalWarmingLevel_value_datatype_1
+        sh:datatype  xsd:integer .
 
 shape:SimpleRegularBinning_hasOffsetValue
         sh:datatype  xsd:duration ;
@@ -1098,11 +1402,18 @@ shape:SimpleRegularBinning_hasOffsetValue
         sh:nodeKind  sh:Literal ;
         sh:path      <https://w3id.org/hacid/onto/data/hasOffsetValue> .
 
-shape:GlobalWarmingLevel_value_datatype_1
-        sh:datatype  xsd:integer .
+shape:QuantileFunction_label
+        dash:propertyRole  dash:LabelRole ;
+        sh:datatype        rdf:langString ;
+        sh:languageIn      ( "en" ) ;
+        sh:maxCount        1 ;
+        sh:minCount        1 ;
+        sh:name            "label"@en ;
+        sh:nodeKind        sh:Literal ;
+        sh:path            rdfs:label .
 
 shape:SingleProjection_isSpecializationOfVariable
-        sh:class     <https://w3id.org/hacid/onto/data/Variable> ;
+        sh:class     <https://w3id.org/hacid/onto/data/DeterministicVariable> ;
         sh:name      "isSpecializationOfVariable"@en ;
         sh:nodeKind  sh:IRI ;
         sh:path      <https://w3id.org/hacid/onto/data/isSpecializationOfVariable> .
@@ -1116,6 +1427,12 @@ shape:SingleProjection_refersToScenario
         sh:name      "refersToScenario"@en ;
         sh:nodeKind  sh:IRI ;
         sh:path      <https://w3id.org/hacid/onto/ccso/refersToScenario> .
+
+shape:Rescaling_hasInput_class_1
+        sh:class  <https://w3id.org/hacid/onto/ccso/SingleProjection> .
+
+shape:ProbabilityDensityFunction_isProbabilisticRepresentationOf_class_1
+        sh:class  <https://w3id.org/hacid/onto/data/AbsoluteAnomaly> .
 
 shape:HazardType_label
         dash:propertyRole  dash:LabelRole ;
@@ -1135,13 +1452,20 @@ shape:EnsembleSimulation
         sh:property     shape:EnsembleSimulation_hasComponent , shape:EnsembleSimulation_label , shape:EnsembleSimulation_usesModel , shape:EnsembleSimulation_isDownscalingOf , shape:EnsembleSimulation_hasOutput , shape:EnsembleSimulation_refersToScenario ;
         sh:targetClass  <https://w3id.org/hacid/onto/ccso/EnsembleSimulation> ;
         <https://shacl-play.sparna.fr/ontology#background-color>
-                "lightseagreen" .
+                "lightyellow" .
 
 shape:DataGeneratingProcess_hasComponent_class_1
         sh:class  <https://w3id.org/hacid/onto/ccso/GlobalClimateSimulation> .
 
-shape:DimensionalSpace_hasDiscretization_class_2
-        sh:class  <https://w3id.org/hacid/onto/data/RegularPeriodicBinning> .
+shape:DeterministicVariable_derivedFromVariable
+        sh:class     <https://w3id.org/hacid/onto/data/DeterministicVariable> ;
+        sh:maxCount  1 ;
+        sh:name      "derivedFromVariable"@en ;
+        sh:nodeKind  sh:IRI ;
+        sh:path      <https://w3id.org/hacid/onto/data/derivedFromVariable> .
+
+shape:ProbabilisticProjection_hasComponent_class_0
+        sh:class  <https://w3id.org/hacid/onto/data/ProbabilityDensityFunction> .
 
 shape:ConvectionPermittingClimateModel
         rdf:type        sh:NodeShape ;
@@ -1149,7 +1473,7 @@ shape:ConvectionPermittingClimateModel
         sh:property     shape:ConvectionPermittingClimateModel_label , shape:ConvectionPermittingClimateModel_isMaintainedBy ;
         sh:targetClass  <https://w3id.org/hacid/onto/ccso/ConvectionPermittingClimateModel> ;
         <https://shacl-play.sparna.fr/ontology#background-color>
-                "oldlace" .
+                "mediumaquamarine" .
 
 shape:SimpleRegularBinning_basedOnDimensionalSpace
         sh:class     <https://w3id.org/hacid/onto/data/Continuum> ;
@@ -1166,6 +1490,20 @@ shape:DependentVariable_dependsOnVariable
 shape:EnsembleProjection_hasComponent_class_0
         sh:class  <https://w3id.org/hacid/onto/ccso/EnsembleProjection> .
 
+shape:ProbabilityDensityFunction_acronym
+        sh:datatype    rdf:langString ;
+        sh:languageIn  ( "en" ) ;
+        sh:maxCount    1 ;
+        sh:name        "acronym"@en ;
+        sh:nodeKind    sh:Literal ;
+        sh:path        <https://w3id.org/hacid/onto/top-level/acronym> .
+
+shape:ScenarioBasedProjection_derivedFromVariable
+        sh:name      "derivedFromVariable"@en ;
+        sh:nodeKind  sh:IRI ;
+        sh:or        ( shape:ScenarioBasedProjection_derivedFromVariable_class_0 shape:ScenarioBasedProjection_derivedFromVariable_class_1 shape:ScenarioBasedProjection_derivedFromVariable_class_2 ) ;
+        sh:path      <https://w3id.org/hacid/onto/data/derivedFromVariable> .
+
 shape:ScenarioBasedProjection_isSpecializedAccordingTo
         sh:class     <https://w3id.org/hacid/onto/data/VariableSpecialization> ;
         sh:name      "isSpecializedAccordingTo"@en ;
@@ -1173,7 +1511,14 @@ shape:ScenarioBasedProjection_isSpecializedAccordingTo
         sh:path      <https://w3id.org/hacid/onto/data/isSpecializedAccordingTo> .
 
 shape:DependentVariable_derivedFromVariable_class_0
-        sh:class  <https://w3id.org/hacid/onto/data/Variable> .
+        sh:class  <https://w3id.org/hacid/onto/data/DeterministicVariable> .
+
+shape:DeterministicVariable_isAnomalyOf
+        sh:class     <https://w3id.org/hacid/onto/data/DeterministicVariable> ;
+        sh:maxCount  1 ;
+        sh:name      "isAnomalyOf"@en ;
+        sh:nodeKind  sh:IRI ;
+        sh:path      <https://w3id.org/hacid/onto/data/isAnomalyOf> .
 
 shape:GlobalClimateModel
         rdf:type        sh:NodeShape ;
@@ -1181,29 +1526,45 @@ shape:GlobalClimateModel
         sh:property     shape:GlobalClimateModel_label , shape:GlobalClimateModel_isMaintainedBy ;
         sh:targetClass  <https://w3id.org/hacid/onto/ccso/GlobalClimateModel> ;
         <https://shacl-play.sparna.fr/ontology#background-color>
-                "blue" .
+                "darkkhaki" .
+
+shape:DeterministicVariable_label
+        dash:propertyRole  dash:LabelRole ;
+        sh:datatype        rdf:langString ;
+        sh:languageIn      ( "en" ) ;
+        sh:minCount        1 ;
+        sh:name            "label"@en ;
+        sh:nodeKind        sh:Literal ;
+        sh:path            rdfs:label .
 
 shape:Organization_acronym
-        dash:propertyRole  dash:LabelRole ;
-        sh:datatype        xsd:string ;
-        sh:maxCount        1 ;
-        sh:minCount        1 ;
-        sh:name            "acronym"@en ;
-        sh:nodeKind        sh:Literal ;
-        sh:path            <https://w3id.org/hacid/onto/top-level/acronym> .
+        sh:datatype  xsd:string ;
+        sh:minCount  1 ;
+        sh:name      "acronym"@en ;
+        sh:nodeKind  sh:Literal ;
+        sh:path      <https://w3id.org/hacid/onto/top-level/acronym> .
 
 shape:Dataset_comment
         sh:datatype    rdf:langString ;
-        sh:in          ( "Comprehensive output of the 1st Edition of the Coordinated Regional Climate Downscaling Experiment (CORDEX), using as input CMIP5."@en "Comprehensive output of 5th phase of the Coupled Model Intercomparison Project (CMIP5), composed of the outputs of each participating simulation to each of the experiments."@en ) ;
         sh:languageIn  ( "en" ) ;
         sh:maxCount    1 ;
-        sh:minCount    1 ;
         sh:name        "comment"@en ;
         sh:nodeKind    sh:Literal ;
         sh:path        rdfs:comment .
 
 shape:ScenarioBasedProjection_label_datatype_1
         sh:datatype  xsd:string .
+
+shape:QuantileFunction_isProbabilisticRepresentationOf_class_0
+        sh:class  <https://w3id.org/hacid/onto/data/AbsoluteAnomaly> .
+
+shape:SingleProjectionProduction_hasInput
+        sh:maxCount  1 ;
+        sh:minCount  1 ;
+        sh:name      "hasInput"@en ;
+        sh:nodeKind  sh:IRI ;
+        sh:or        ( shape:SingleProjectionProduction_hasInput_class_0 shape:SingleProjectionProduction_hasInput_class_1 ) ;
+        sh:path      <https://w3id.org/hacid/onto/data/hasInput> .
 
 shape:ClimateModelIntercomparisonExperiment_label
         dash:propertyRole  dash:LabelRole ;
@@ -1222,18 +1583,30 @@ shape:DimensionalSpace_comment
         sh:nodeKind    sh:Literal ;
         sh:path        rdfs:comment .
 
+shape:AbsoluteAnomaly_hasBaselineRegion
+        sh:class     <https://w3id.org/hacid/onto/data/TemporalRegion> ;
+        sh:in        ( <https://w3id.org/hacid/data/cs/dimensions/time/reference-frames/gregorian/regions/1961-01-01T00:00:00Z-1991-01-01T00:00:00Z> <https://w3id.org/hacid/data/cs/dimensions/time/reference-frames/gregorian/regions/1981-01-01T00:00:00Z-2011-01-01T00:00:00Z> <https://w3id.org/hacid/data/cs/dimensions/time/reference-frames/gregorian/regions/1981-01-01T00:00:00Z-2001-01-01T00:00:00Z> ) ;
+        sh:maxCount  1 ;
+        sh:minCount  1 ;
+        sh:name      "hasBaselineRegion"@en ;
+        sh:nodeKind  sh:IRI ;
+        sh:path      <https://w3id.org/hacid/onto/data/hasBaselineRegion> .
+
+shape:DeterministicVariable_hasOppositeValueOf
+        sh:class     <https://w3id.org/hacid/onto/data/DeterministicVariable> ;
+        sh:maxCount  1 ;
+        sh:name      "hasOppositeValueOf"@en ;
+        sh:nodeKind  sh:IRI ;
+        sh:path      <https://w3id.org/hacid/onto/data/hasOppositeValueOf> .
+
 shape:StatisticalProjectionTransformation_hasComponent
         sh:class     <https://w3id.org/hacid/onto/ccso/SingleProjectionProduction> ;
         sh:name      "hasComponent"@en ;
         sh:nodeKind  sh:IRI ;
         sh:path      <https://w3id.org/hacid/onto/top-level/hasComponent> .
 
-shape:Variable_hasUnitOfMeasure
-        sh:class     <https://w3id.org/hacid/onto/data/DimensionalSpace> ;
-        sh:maxCount  1 ;
-        sh:name      "hasUnitOfMeasure"@en ;
-        sh:nodeKind  sh:IRI ;
-        sh:path      <https://w3id.org/hacid/onto/top-level/hasUnitOfMeasure> .
+shape:EnsembleProjectionProduction_hasInput_class_1
+        sh:class  <https://w3id.org/hacid/onto/ccso/EnsembleProjection> .
 
 shape:DimensionalSpace_hasExactBoundingRegion_class_0
         sh:class  <https://w3id.org/hacid/onto/data/TemporalRegion> .
@@ -1247,6 +1620,9 @@ shape:DataGeneratingProcess_comment
 
 shape:Action_hasComponent_class_2
         sh:class  <https://w3id.org/hacid/onto/ccso/GlobalClimateSimulation> .
+
+shape:ProbabilityDensityFunction_isSpecializationOfVariable_class_0
+        sh:class  <https://w3id.org/hacid/onto/data/ProbabilityDensityFunction> .
 
 shape:Method_altLabel
         sh:datatype    rdf:langString ;
@@ -1265,13 +1641,20 @@ shape:GlobalClimateModel_label
         sh:nodeKind        sh:Literal ;
         sh:path            rdfs:label .
 
+shape:Aggregation_2  rdf:type  sh:NodeShape ;
+        rdfs:label      "Aggregation"@en ;
+        sh:property     shape:Aggregation_aggregatesVariable , shape:Aggregation_hasSuggestedQuantization ;
+        sh:targetClass  <https://w3id.org/hacid/onto/data/Aggregation> ;
+        <https://shacl-play.sparna.fr/ontology#background-color>
+                "mediumturquoise" .
+
 shape:EnsembleProjectionProduction
         rdf:type        sh:NodeShape ;
         rdfs:label      "EnsembleProjectionProduction"@en ;
-        sh:property     shape:EnsembleProjectionProduction_refersToGlobalWarmingLevel , shape:EnsembleProjectionProduction_refersToScenario , shape:EnsembleProjectionProduction_hasOutput , shape:EnsembleProjectionProduction_label , shape:EnsembleProjectionProduction_hasComponent ;
+        sh:property     shape:EnsembleProjectionProduction_hasInput , shape:EnsembleProjectionProduction_label , shape:EnsembleProjectionProduction_refersToScenario , shape:EnsembleProjectionProduction_refersToGlobalWarmingLevel , shape:EnsembleProjectionProduction_hasComponent , shape:EnsembleProjectionProduction_hasOutput ;
         sh:targetClass  <https://w3id.org/hacid/onto/ccso/EnsembleProjectionProduction> ;
         <https://shacl-play.sparna.fr/ontology#background-color>
-                "darkviolet" .
+                "whitesmoke" .
 
 shape:RegularBinning_basedOnDimensionalSpace
         sh:class     <https://w3id.org/hacid/onto/data/Continuum> ;
@@ -1282,6 +1665,13 @@ shape:RegularBinning_basedOnDimensionalSpace
 
 shape:SingleProjection_isSpecializedAccordingTo
         sh:class     <https://w3id.org/hacid/onto/data/VariableSpecialization> ;
+        sh:name      "isSpecializedAccordingTo"@en ;
+        sh:nodeKind  sh:IRI ;
+        sh:path      <https://w3id.org/hacid/onto/data/isSpecializedAccordingTo> .
+
+shape:QuantileFunction_isSpecializedAccordingTo
+        sh:class     <https://w3id.org/hacid/onto/data/VariableSpecialization> ;
+        sh:maxCount  1 ;
         sh:name      "isSpecializedAccordingTo"@en ;
         sh:nodeKind  sh:IRI ;
         sh:path      <https://w3id.org/hacid/onto/data/isSpecializedAccordingTo> .
@@ -1301,13 +1691,16 @@ shape:HazardType  rdf:type  sh:NodeShape ;
         sh:property     shape:HazardType_isSpecializedBy , shape:HazardType_label , shape:HazardType_hasIndicator ;
         sh:targetClass  <https://w3id.org/hacid/onto/ccso/HazardType> ;
         <https://shacl-play.sparna.fr/ontology#background-color>
-                "peachpuff" .
+                "olivedrab" .
 
 shape:DynamicalDownscaling_isDownscalingOf_class_1
         sh:class  <https://w3id.org/hacid/onto/ccso/GlobalClimateSimulation> .
 
 shape:SingleProjectionProduction_hasOutput_class_0
         sh:class  <https://w3id.org/hacid/onto/ccso/SingleProjection> .
+
+shape:ScenarioBasedProjection_hasRescaledVersion_class_2
+        sh:class  <https://w3id.org/hacid/onto/data/Dataset> .
 
 shape:ClimateModelIntercomparisonExperiment_hasComponent_class_0
         sh:class  <https://w3id.org/hacid/onto/ccso/EnsembleSimulation> .
@@ -1346,6 +1739,9 @@ shape:VariableSpecialization_hasSelectedRegion
         sh:or        ( shape:VariableSpecialization_hasSelectedRegion_class_0 shape:VariableSpecialization_hasSelectedRegion_class_1 ) ;
         sh:path      <https://w3id.org/hacid/onto/data/hasSelectedRegion> .
 
+shape:ScenarioBasedProjection_holdsSpecializationOfVariable_class_0
+        sh:class  <https://w3id.org/hacid/onto/data/DeterministicVariable> .
+
 shape:EnsembleSimulation_hasOutput
         sh:maxCount  1 ;
         sh:minCount  1 ;
@@ -1367,7 +1763,7 @@ shape:InformationRole
         sh:property     shape:InformationRole_hasExpectedType ;
         sh:targetClass  <https://w3id.org/hacid/onto/top-level/InformationRole> ;
         <https://shacl-play.sparna.fr/ontology#background-color>
-                "thistle" .
+                "lightskyblue" .
 
 shape:EnsembleSimulation_hasComponent_class_2
         sh:class  <https://w3id.org/hacid/onto/ccso/GlobalClimateSimulation> .
@@ -1396,10 +1792,13 @@ shape:ScenarioBasedProjection_refersToScenario
 shape:SingleProjection
         rdf:type        sh:NodeShape ;
         rdfs:label      "SingleProjection"@en ;
-        sh:property     shape:SingleProjection_isSpecializationOfVariable , shape:SingleProjection_isSpecializedAccordingTo , shape:SingleProjection_comment , shape:SingleProjection_refersToScenario , shape:SingleProjection_productId , shape:SingleProjection_refersToGlobalWarmingLevel , shape:SingleProjection_label , shape:SingleProjection_dependsOnVariable , shape:SingleProjection_hasComponent , shape:SingleProjection_holdsSpecializationOfVariable ;
+        sh:property     shape:SingleProjection_isSpecializationOfVariable , shape:SingleProjection_derivedFromVariable , shape:SingleProjection_isSpecializedAccordingTo , shape:SingleProjection_hasRescaledVersion , shape:SingleProjection_isEquivalentTo , shape:SingleProjection_comment , shape:SingleProjection_refersToScenario , shape:SingleProjection_isLinearTransformationOf , shape:SingleProjection_productId , shape:SingleProjection_refersToGlobalWarmingLevel , shape:SingleProjection_label , shape:SingleProjection_dependsOnVariable , shape:SingleProjection_hasComponent , shape:SingleProjection_holdsSpecializationOfVariable ;
         sh:targetClass  <https://w3id.org/hacid/onto/ccso/SingleProjection> ;
         <https://shacl-play.sparna.fr/ontology#background-color>
-                "slategray" .
+                "lightslategrey" .
+
+shape:ProbabilisticProjection_isSpecializationOfVariable_class_0
+        sh:class  <https://w3id.org/hacid/onto/data/QuantileFunction> .
 
 shape:RegularPeriodicBinning_hasValuesOn
         sh:class     <https://w3id.org/hacid/onto/data/RegularPeriodicBinning> ;
@@ -1412,6 +1811,9 @@ shape:RegularPeriodicBinning_hasValuesOn
 
 shape:SingleSimulation_hasOutput_class_1
         sh:class  <https://w3id.org/hacid/onto/ccso/SingleProjection> .
+
+shape:ProbabilisticProjection_holdsSpecializationOfVariable_class_3
+        sh:class  <https://w3id.org/hacid/onto/data/Sample> .
 
 shape:Collection_hasMember
         sh:name      "hasMember"@en ;
@@ -1433,6 +1835,12 @@ shape:EnsembleSimulation_isDownscalingOf
         sh:or        ( shape:EnsembleSimulation_isDownscalingOf_class_0 shape:EnsembleSimulation_isDownscalingOf_class_1 shape:EnsembleSimulation_isDownscalingOf_class_2 ) ;
         sh:path      <https://w3id.org/hacid/onto/ccso/isDownscalingOf> .
 
+shape:Sample_dependsOnVariable_class_0
+        sh:class  <https://w3id.org/hacid/onto/data/DimensionalSpace> .
+
+shape:ScenarioBasedProjection_hasComponent_class_4
+        sh:class  <https://w3id.org/hacid/onto/ccso/ProbabilisticProjection> .
+
 shape:SingleProjection_dependsOnVariable
         sh:name      "dependsOnVariable"@en ;
         sh:nodeKind  sh:IRI ;
@@ -1442,17 +1850,20 @@ shape:SingleProjection_dependsOnVariable
 shape:EnsembleProjection
         rdf:type        sh:NodeShape ;
         rdfs:label      "EnsembleProjection"@en ;
-        sh:property     shape:EnsembleProjection_refersToScenario , shape:EnsembleProjection_isSpecializedAccordingTo , shape:EnsembleProjection_dependsOnVariable , shape:EnsembleProjection_refersToGlobalWarmingLevel , shape:EnsembleProjection_hasComponent , shape:EnsembleProjection_label , shape:EnsembleProjection_holdsSpecializationOfVariable ;
+        sh:property     shape:EnsembleProjection_refersToScenario , shape:EnsembleProjection_refersToGlobalWarmingLevel , shape:EnsembleProjection_isSpecializedAccordingTo , shape:EnsembleProjection_dependsOnVariable , shape:EnsembleProjection_hasComponent , shape:EnsembleProjection_derivedFromVariable , shape:EnsembleProjection_hasRescaledVersion , shape:EnsembleProjection_label , shape:EnsembleProjection_holdsSpecializationOfVariable ;
         sh:targetClass  <https://w3id.org/hacid/onto/ccso/EnsembleProjection> ;
         <https://shacl-play.sparna.fr/ontology#background-color>
-                "darkolivegreen" .
+                "limegreen" .
 
 shape:Continuum  rdf:type  sh:NodeShape ;
         rdfs:label      "Continuum"@en ;
         sh:property     shape:Continuum_hasExactBoundingRegion , shape:Continuum_label , shape:Continuum_comment , shape:Continuum_hasValuesOn , shape:Continuum_hasReferencePoint , shape:Continuum_hasSubDimensionalSpace , shape:Continuum_basedOnDimensionalSpace ;
         sh:targetClass  <https://w3id.org/hacid/onto/data/Continuum> ;
         <https://shacl-play.sparna.fr/ontology#background-color>
-                "firebrick" .
+                "gray" .
+
+shape:DimensionalSpace_adoptsQuantization_class_1
+        sh:class  <https://w3id.org/hacid/onto/data/RegularBinning> .
 
 shape:Action_hasComponent
         sh:minCount  1 ;
@@ -1470,18 +1881,19 @@ shape:RegularPeriodicBinning_hasInPeriodResolutionValue
         sh:nodeKind  sh:Literal ;
         sh:path      <https://w3id.org/hacid/onto/data/hasInPeriodResolutionValue> .
 
+shape:QuantileFunction_isProbabilisticRepresentationOf
+        sh:maxCount  1 ;
+        sh:name      "isProbabilisticRepresentationOf"@en ;
+        sh:nodeKind  sh:IRI ;
+        sh:or        ( shape:QuantileFunction_isProbabilisticRepresentationOf_class_0 shape:QuantileFunction_isProbabilisticRepresentationOf_class_1 ) ;
+        sh:path      <https://w3id.org/hacid/onto/data/isProbabilisticRepresentationOf> .
+
 shape:SingleProjection_productId
         sh:datatype  xsd:string ;
         sh:maxCount  1 ;
         sh:name      "productId"@en ;
         sh:nodeKind  sh:Literal ;
         sh:path      <https://w3id.org/hacid/onto/ccso/productId> .
-
-shape:Variable_altLabel
-        sh:datatype  xsd:string ;
-        sh:name      "altLabel"@en ;
-        sh:nodeKind  sh:Literal ;
-        sh:path      <https://w3id.org/hacid/onto/top-level/altLabel> .
 
 shape:ClimateModelIntercomparisonExperiment_hasComponent
         sh:name      "hasComponent"@en ;
@@ -1512,11 +1924,28 @@ shape:DiscreteDimensionalSpace_label
 shape:VariableSpecialization_hasSelectedRegion_class_1
         sh:class  <https://w3id.org/hacid/onto/data/GeodeticRegion> .
 
+shape:ScenarioBasedProjection_isLinearTransformationOf
+        sh:maxCount  1 ;
+        sh:name      "isLinearTransformationOf"@en ;
+        sh:nodeKind  sh:IRI ;
+        sh:or        ( shape:ScenarioBasedProjection_isLinearTransformationOf_class_0 shape:ScenarioBasedProjection_isLinearTransformationOf_class_1 ) ;
+        sh:path      <https://w3id.org/hacid/onto/data/isLinearTransformationOf> .
+
 shape:GlobalClimateSimulation_hasOutput_class_1
         sh:class  <https://w3id.org/hacid/onto/ccso/ScenarioBasedProjection> .
 
 shape:EnsembleProjectionProduction_hasOutput_class_0
         sh:class  <https://w3id.org/hacid/onto/ccso/EnsembleProjection> .
+
+shape:StatisticalProjectionTransformation_hasInput_class_2
+        sh:class  <https://w3id.org/hacid/onto/ccso/EnsembleProjection> .
+
+shape:EnsembleProjection_derivedFromVariable
+        sh:maxCount  1 ;
+        sh:name      "derivedFromVariable"@en ;
+        sh:nodeKind  sh:IRI ;
+        sh:or        ( shape:EnsembleProjection_derivedFromVariable_class_0 shape:EnsembleProjection_derivedFromVariable_class_1 ) ;
+        sh:path      <https://w3id.org/hacid/onto/data/derivedFromVariable> .
 
 shape:EnsembleSimulation_isDownscalingOf_class_1
         sh:class  <https://w3id.org/hacid/onto/ccso/EnsembleSimulation> .
@@ -1530,6 +1959,9 @@ shape:GreenhouseGasConcentrationPathway_comment
         sh:name        "comment"@en ;
         sh:nodeKind    sh:Literal ;
         sh:path        rdfs:comment .
+
+shape:Aggregation_hasInput_class_1
+        sh:class  <https://w3id.org/hacid/onto/ccso/ScenarioBasedProjection> .
 
 shape:SingleProjectionProduction_hasOutput
         sh:maxCount  1 ;
@@ -1552,13 +1984,23 @@ shape:DependentVariable_derivedFromVariable
 shape:StatisticalProjectionTransformation
         rdf:type        sh:NodeShape ;
         rdfs:label      "StatisticalProjectionTransformation"@en ;
-        sh:property     shape:StatisticalProjectionTransformation_hasComponent , shape:StatisticalProjectionTransformation_refersToScenario , shape:StatisticalProjectionTransformation_label , shape:StatisticalProjectionTransformation_refersToGlobalWarmingLevel , shape:StatisticalProjectionTransformation_hasOutput ;
+        sh:property     shape:StatisticalProjectionTransformation_label , shape:StatisticalProjectionTransformation_hasOutput , shape:StatisticalProjectionTransformation_refersToGlobalWarmingLevel , shape:StatisticalProjectionTransformation_hasInput , shape:StatisticalProjectionTransformation_hasComponent , shape:StatisticalProjectionTransformation_refersToScenario ;
         sh:targetClass  <https://w3id.org/hacid/onto/ccso/StatisticalProjectionTransformation> ;
         <https://shacl-play.sparna.fr/ontology#background-color>
-                "grey" .
+                "palevioletred" .
+
+shape:SingleProjection_isEquivalentTo_class_1
+        sh:class  <https://w3id.org/hacid/onto/ccso/ScenarioBasedProjection> .
 
 shape:DimensionalSpace_label_datatype_0
         sh:datatype  rdf:langString .
+
+shape:Collection_associatedWith
+        sh:maxCount  1 ;
+        sh:name      "associatedWith"@en ;
+        sh:nodeKind  sh:IRI ;
+        sh:or        ( shape:Collection_associatedWith_class_0 shape:Collection_associatedWith_class_1 ) ;
+        sh:path      <https://w3id.org/hacid/onto/top-level/associatedWith> .
 
 shape:Operation_definesRole
         sh:class     <https://w3id.org/hacid/onto/top-level/InformationRole> ;
@@ -1566,6 +2008,15 @@ shape:Operation_definesRole
         sh:name      "definesRole"@en ;
         sh:nodeKind  sh:IRI ;
         sh:path      <https://w3id.org/hacid/onto/top-level/definesRole> .
+
+shape:ScenarioBasedProjection_derivedFromVariable_class_2
+        sh:class  <https://w3id.org/hacid/onto/ccso/EnsembleProjection> .
+
+shape:ProbabilisticProjection_hasRescaledVersion_class_2
+        sh:class  <https://w3id.org/hacid/onto/data/ProbabilityDensityFunction> .
+
+shape:ScenarioBasedProjection_isEquivalentTo_class_0
+        sh:class  <https://w3id.org/hacid/onto/ccso/SingleProjection> .
 
 shape:DimensionalSpace_basedOnDimensionalSpace_class_1
         sh:class  <https://w3id.org/hacid/onto/data/SimpleRegularBinning> .
@@ -1575,7 +2026,10 @@ shape:Action  rdf:type  sh:NodeShape ;
         sh:property     shape:Action_comment , shape:Action_label , shape:Action_hasOutput , shape:Action_hasComponent ;
         sh:targetClass  <https://w3id.org/hacid/onto/top-level/Action> ;
         <https://shacl-play.sparna.fr/ontology#background-color>
-                "peachpuff" .
+                "greenyellow" .
+
+shape:SingleSimulation_usesModel_class_2
+        sh:class  <https://w3id.org/hacid/onto/ccso/ConvectionPermittingClimateModel> .
 
 shape:SingleProjectionProduction_refersToScenario
         sh:class     <https://w3id.org/hacid/onto/ccso/GreenhouseGasConcentrationPathway> ;
@@ -1584,8 +2038,8 @@ shape:SingleProjectionProduction_refersToScenario
         sh:nodeKind  sh:IRI ;
         sh:path      <https://w3id.org/hacid/onto/ccso/refersToScenario> .
 
-shape:SingleSimulation_usesModel_class_2
-        sh:class  <https://w3id.org/hacid/onto/ccso/ConvectionPermittingClimateModel> .
+shape:SingleProjection_isLinearTransformationOf_class_1
+        sh:class  <https://w3id.org/hacid/onto/ccso/ScenarioBasedProjection> .
 
 shape:StatisticalProjectionTransformation_hasOutput_class_1
         sh:class  <https://w3id.org/hacid/onto/ccso/ScenarioBasedProjection> .
@@ -1603,10 +2057,13 @@ shape:Action_hasOutput_class_1
 shape:Collection_hasMember_class_0
         sh:class  <https://w3id.org/hacid/onto/data/DependentVariable> .
 
+shape:SingleProjection_derivedFromVariable_class_0
+        sh:class  <https://w3id.org/hacid/onto/ccso/SingleProjection> .
+
 shape:ProbabilisticProjection_hasComponent
-        sh:class     <https://w3id.org/hacid/onto/ccso/ProbabilisticProjection> ;
         sh:name      "hasComponent"@en ;
         sh:nodeKind  sh:IRI ;
+        sh:or        ( shape:ProbabilisticProjection_hasComponent_class_0 shape:ProbabilisticProjection_hasComponent_class_1 shape:ProbabilisticProjection_hasComponent_class_2 shape:ProbabilisticProjection_hasComponent_class_3 ) ;
         sh:path      <https://w3id.org/hacid/onto/top-level/hasComponent> .
 
 shape:ConvectionPermittingClimateModel_isMaintainedBy
@@ -1637,6 +2094,9 @@ shape:Continuum_basedOnDimensionalSpace
         sh:nodeKind  sh:IRI ;
         sh:path      <https://w3id.org/hacid/onto/data/basedOnDimensionalSpace> .
 
+shape:ProbabilisticProjection_hasComponent_class_2
+        sh:class  <https://w3id.org/hacid/onto/data/Sample> .
+
 shape:DataGeneratingProcess_label
         dash:propertyRole  dash:LabelRole ;
         sh:datatype        xsd:string ;
@@ -1658,6 +2118,9 @@ shape:Concept_comment
 shape:EnsembleProjection_hasComponent_class_2
         sh:class  <https://w3id.org/hacid/onto/ccso/SingleProjection> .
 
+shape:Sample_isSpecializationOfVariable_class_0
+        sh:class  <https://w3id.org/hacid/onto/data/Sample> .
+
 shape:EnsembleProjectionProduction_hasOutput
         sh:in        ( <https://w3id.org/hacid/data/cs/derivations/ukcp18.indices.rcp85/output> <https://w3id.org/hacid/data/cs/derivations/ukcp18.derived.rcp26/output> <https://w3id.org/hacid/data/cs/derivations/ukcp18.derived.gwl4/output> <https://w3id.org/hacid/data/cs/derivations/ukcp18.derived.gwl2/output> ) ;
         sh:maxCount  1 ;
@@ -1670,12 +2133,22 @@ shape:EnsembleProjectionProduction_hasOutput
 shape:Action_comment_datatype_1
         sh:datatype  xsd:string .
 
+shape:ProbabilityDensityFunction_isSpecializedAccordingTo
+        sh:class     <https://w3id.org/hacid/onto/data/VariableSpecialization> ;
+        sh:maxCount  1 ;
+        sh:name      "isSpecializedAccordingTo"@en ;
+        sh:nodeKind  sh:IRI ;
+        sh:path      <https://w3id.org/hacid/onto/data/isSpecializedAccordingTo> .
+
+shape:QuantileFunction_dependsOnVariable_class_0
+        sh:class  <https://w3id.org/hacid/onto/data/DimensionalSpace> .
+
 shape:Collection  rdf:type  sh:NodeShape ;
         rdfs:label      "Collection"@en ;
-        sh:property     shape:Collection_comment , shape:Collection_label , shape:Collection_hasComponent , shape:Collection_hasMember ;
+        sh:property     shape:Collection_hasComponent , shape:Collection_comment , shape:Collection_label , shape:Collection_associatedWith , shape:Collection_hasMember ;
         sh:targetClass  <https://w3id.org/hacid/onto/top-level/Collection> ;
         <https://shacl-play.sparna.fr/ontology#background-color>
-                "lightyellow" .
+                "darksalmon" .
 
 shape:EnsembleSimulation_label
         dash:propertyRole  dash:LabelRole ;
@@ -1695,6 +2168,9 @@ shape:DependentVariable_definition
         sh:nodeKind  sh:Literal ;
         sh:path      <https://w3id.org/hacid/onto/top-level/definition> .
 
+shape:SingleProjectionProduction_hasInput_class_0
+        sh:class  <https://w3id.org/hacid/onto/ccso/SingleProjection> .
+
 shape:GeodeticPoint_comment
         sh:datatype    rdf:langString ;
         sh:in          ( "Geodetic point with longitude -162.0° and latitude 39.25°, in reference to the World Geodetic System 1984 (WGS84)."@en "Geodetic point with longitude 141.38° and latitude 60.31°, in reference to the World Geodetic System 1984 (WGS84)."@en "Geodetic point with longitude -166.92° and latitude 6.08°, in reference to the World Geodetic System 1984 (WGS84)."@en "Geodetic point with longitude -103.39° and latitude 43.48°, in reference to the World Geodetic System 1984 (WGS84)."@en "Geodetic point with longitude -123.34° and latitude 79.95°, in reference to the World Geodetic System 1984 (WGS84)."@en "Geodetic point with longitude 83.0° and latitude 42.5°, in reference to the World Geodetic System 1984 (WGS84)."@en "Geodetic point with longitude -56.06° and latitude 70.6°, in reference to the World Geodetic System 1984 (WGS84)."@en "Geodetic point with longitude 177.5° and latitude 37.5°, in reference to the World Geodetic System 1984 (WGS84)."@en "Geodetic point with longitude -64.78° and latitude 77.61°, in reference to the World Geodetic System 1984 (WGS84)."@en "Geodetic point with longitude 180.0° and latitude 90.0°, in reference to the World Geodetic System 1984 (WGS84)."@en "Geodetic point with longitude 0.0° and latitude 6.55°, in reference to the World Geodetic System 1984 (WGS84)."@en "Geodetic point with longitude 113.98° and latitude 75.74°, in reference to the World Geodetic System 1984 (WGS84)."@en "Geodetic point with longitude 198.0° and latitude 39.25°, in reference to the World Geodetic System 1984 (WGS84)."@en ) ;
@@ -1711,6 +2187,14 @@ shape:EnsembleProjection_isSpecializedAccordingTo
         sh:nodeKind  sh:IRI ;
         sh:path      <https://w3id.org/hacid/onto/data/isSpecializedAccordingTo> .
 
+shape:AbsoluteAnomaly
+        rdf:type        sh:NodeShape ;
+        rdfs:label      "AbsoluteAnomaly"@en ;
+        sh:property     shape:AbsoluteAnomaly_hasUnitOfMeasure , shape:AbsoluteAnomaly_hasBaselineRegion , shape:AbsoluteAnomaly_hasValuesOn , shape:AbsoluteAnomaly_label , shape:AbsoluteAnomaly_isMemberOf , shape:AbsoluteAnomaly_acronym , shape:AbsoluteAnomaly_isAnomalyOf ;
+        sh:targetClass  <https://w3id.org/hacid/onto/data/AbsoluteAnomaly> ;
+        <https://shacl-play.sparna.fr/ontology#background-color>
+                "lightsalmon" .
+
 shape:Action_hasComponent_class_4
         sh:class  <https://w3id.org/hacid/onto/top-level/Action> .
 
@@ -1719,6 +2203,13 @@ shape:ProbabilisticProjection_dependsOnVariable
         sh:nodeKind  sh:IRI ;
         sh:or        ( shape:ProbabilisticProjection_dependsOnVariable_class_0 shape:ProbabilisticProjection_dependsOnVariable_class_1 ) ;
         sh:path      <https://w3id.org/hacid/onto/data/dependsOnVariable> .
+
+shape:Sample_hasUnitOfMeasure
+        sh:class     <https://w3id.org/hacid/onto/data/DimensionalSpace> ;
+        sh:maxCount  1 ;
+        sh:name      "hasUnitOfMeasure"@en ;
+        sh:nodeKind  sh:IRI ;
+        sh:path      <https://w3id.org/hacid/onto/top-level/hasUnitOfMeasure> .
 
 shape:EnsembleProjection_hasComponent
         sh:minCount  1 ;
@@ -1746,6 +2237,9 @@ shape:GreenhouseGasConcentrationPathway_acronym
         sh:nodeKind    sh:Literal ;
         sh:path        <https://w3id.org/hacid/onto/top-level/acronym> .
 
+shape:ScenarioBasedProjection_isLinearTransformationOf_class_1
+        sh:class  <https://w3id.org/hacid/onto/ccso/ScenarioBasedProjection> .
+
 shape:SimpleRegularBinning_label
         sh:datatype    rdf:langString ;
         sh:languageIn  ( "en" ) ;
@@ -1755,7 +2249,7 @@ shape:SimpleRegularBinning_label
         sh:path        rdfs:label .
 
 shape:Dataset_hasComponent_class_0
-        sh:class  <https://w3id.org/hacid/onto/ccso/ScenarioBasedProjection> .
+        sh:class  <https://w3id.org/hacid/onto/ccso/SingleProjection> .
 
 shape:DynamicalDownscaling_isDownscalingOf_class_3
         sh:class  <https://w3id.org/hacid/onto/ccso/EnsembleSimulation> .
@@ -1768,13 +2262,25 @@ shape:SingleSimulation_usesModel
         sh:or        ( shape:SingleSimulation_usesModel_class_0 shape:SingleSimulation_usesModel_class_1 shape:SingleSimulation_usesModel_class_2 ) ;
         sh:path      <https://w3id.org/hacid/onto/ccso/usesModel> .
 
+shape:AbsoluteAnomaly_hasValuesOn
+        sh:class     <https://w3id.org/hacid/onto/data/DimensionalSpace> ;
+        sh:in        ( <https://w3id.org/hacid/data/cs/unitsofmeasure/W%20m-2> <https://w3id.org/hacid/data/cs/unitsofmeasure/degC> <https://w3id.org/hacid/data/cs/unitsofmeasure/hPa> ) ;
+        sh:maxCount  1 ;
+        sh:minCount  1 ;
+        sh:name      "hasValuesOn"@en ;
+        sh:nodeKind  sh:IRI ;
+        sh:path      <https://w3id.org/hacid/onto/data/hasValuesOn> .
+
 shape:SharedSocioeconomicPathway
         rdf:type        sh:NodeShape ;
         rdfs:label      "SharedSocioeconomicPathway"@en ;
         sh:property     shape:SharedSocioeconomicPathway_title , shape:SharedSocioeconomicPathway_comment , shape:SharedSocioeconomicPathway_label , shape:SharedSocioeconomicPathway_acronym ;
         sh:targetClass  <https://w3id.org/hacid/onto/ccso/SharedSocioeconomicPathway> ;
         <https://shacl-play.sparna.fr/ontology#background-color>
-                "deeppink" .
+                "peru" .
+
+shape:ScenarioBasedProjection_hasRescaledVersion_class_4
+        sh:class  <https://w3id.org/hacid/onto/ccso/ProbabilisticProjection> .
 
 shape:TemporalRegion_comment
         sh:datatype    rdf:langString ;
@@ -1784,6 +2290,9 @@ shape:TemporalRegion_comment
         sh:nodeKind    sh:Literal ;
         sh:path        rdfs:comment .
 
+shape:EnsembleProjection_derivedFromVariable_class_0
+        sh:class  <https://w3id.org/hacid/onto/ccso/ScenarioBasedProjection> .
+
 shape:ProbabilisticProjectionProduction_hasOutput_class_1
         sh:class  <https://w3id.org/hacid/onto/ccso/ScenarioBasedProjection> .
 
@@ -1791,25 +2300,34 @@ shape:ClimateModelIntercomparisonExperiment_hasComponent_class_2
         sh:class  <https://w3id.org/hacid/onto/ccso/ClimateModelIntercomparisonExperiment> .
 
 shape:ScenarioBasedProjection_holdsSpecializationOfVariable
-        sh:class     <https://w3id.org/hacid/onto/data/Variable> ;
         sh:name      "holdsSpecializationOfVariable"@en ;
         sh:nodeKind  sh:IRI ;
+        sh:or        ( shape:ScenarioBasedProjection_holdsSpecializationOfVariable_class_0 shape:ScenarioBasedProjection_holdsSpecializationOfVariable_class_1 shape:ScenarioBasedProjection_holdsSpecializationOfVariable_class_2 shape:ScenarioBasedProjection_holdsSpecializationOfVariable_class_3 ) ;
         sh:path      <https://w3id.org/hacid/onto/data/holdsSpecializationOfVariable> .
+
+shape:ScenarioBasedProjection_holdsSpecializationOfVariable_class_2
+        sh:class  <https://w3id.org/hacid/onto/data/ProbabilityDensityFunction> .
 
 shape:ProbabilisticProjection
         rdf:type        sh:NodeShape ;
         rdfs:label      "ProbabilisticProjection"@en ;
-        sh:property     shape:ProbabilisticProjection_dependsOnVariable , shape:ProbabilisticProjection_holdsSpecializationOfVariable , shape:ProbabilisticProjection_isSpecializationOfVariable , shape:ProbabilisticProjection_label , shape:ProbabilisticProjection_isSpecializedAccordingTo , shape:ProbabilisticProjection_hasComponent , shape:ProbabilisticProjection_refersToScenario ;
+        sh:property     shape:ProbabilisticProjection_dependsOnVariable , shape:ProbabilisticProjection_holdsSpecializationOfVariable , shape:ProbabilisticProjection_isSpecializationOfVariable , shape:ProbabilisticProjection_label , shape:ProbabilisticProjection_isSpecializedAccordingTo , shape:ProbabilisticProjection_hasComponent , shape:ProbabilisticProjection_hasRescaledVersion , shape:ProbabilisticProjection_refersToScenario ;
         sh:targetClass  <https://w3id.org/hacid/onto/ccso/ProbabilisticProjection> ;
         <https://shacl-play.sparna.fr/ontology#background-color>
-                "dimgray" .
+                "darkolivegreen" .
+
+shape:DeterministicVariable_isProbabilisticRepresentationOf_class_0
+        sh:class  <https://w3id.org/hacid/onto/data/AbsoluteAnomaly> .
 
 shape:Dataset  rdf:type  sh:NodeShape ;
         rdfs:label      "Dataset"@en ;
-        sh:property     shape:Dataset_comment , shape:Dataset_hasComponent , shape:Dataset_label ;
+        sh:property     shape:Dataset_comment , shape:Dataset_label , shape:Dataset_hasComponent ;
         sh:targetClass  <https://w3id.org/hacid/onto/data/Dataset> ;
         <https://shacl-play.sparna.fr/ontology#background-color>
-                "aliceblue" .
+                "papayawhip" .
+
+shape:Sample_isProbabilisticRepresentationOf_class_0
+        sh:class  <https://w3id.org/hacid/onto/data/AbsoluteAnomaly> .
 
 shape:GlobalWarmingLevel_comment
         sh:datatype    rdf:langString ;
@@ -1842,8 +2360,20 @@ shape:Operation_label
 shape:RegionalClimateModel_label_datatype_1
         sh:datatype  xsd:string .
 
+shape:AbsoluteAnomaly_hasUnitOfMeasure
+        sh:class     <https://w3id.org/hacid/onto/data/DimensionalSpace> ;
+        sh:in        ( <https://w3id.org/hacid/data/cs/unitsofmeasure/W%20m-2> <https://w3id.org/hacid/data/cs/unitsofmeasure/degC> <https://w3id.org/hacid/data/cs/unitsofmeasure/hPa> ) ;
+        sh:maxCount  1 ;
+        sh:minCount  1 ;
+        sh:name      "hasUnitOfMeasure"@en ;
+        sh:nodeKind  sh:IRI ;
+        sh:path      <https://w3id.org/hacid/onto/top-level/hasUnitOfMeasure> .
+
 shape:EnsembleSimulation_hasOutput_class_1
         sh:class  <https://w3id.org/hacid/onto/ccso/EnsembleProjection> .
+
+shape:ProbabilisticProjection_isSpecializationOfVariable_class_2
+        sh:class  <https://w3id.org/hacid/onto/data/ProbabilityDensityFunction> .
 
 shape:EnsembleProjection_refersToGlobalWarmingLevel
         sh:class     <https://w3id.org/hacid/onto/ccso/GlobalWarmingLevel> ;
@@ -1851,6 +2381,18 @@ shape:EnsembleProjection_refersToGlobalWarmingLevel
         sh:name      "refersToGlobalWarmingLevel"@en ;
         sh:nodeKind  sh:IRI ;
         sh:path      <https://w3id.org/hacid/onto/ccso/refersToGlobalWarmingLevel> .
+
+shape:EnsembleProjectionProduction_hasInput
+        sh:hasValue  <https://w3id.org/hacid/data/cs/simulations/ukcp18.global.rcp85/output> ;
+        sh:maxCount  1 ;
+        sh:minCount  1 ;
+        sh:name      "hasInput"@en ;
+        sh:nodeKind  sh:IRI ;
+        sh:or        ( shape:EnsembleProjectionProduction_hasInput_class_0 shape:EnsembleProjectionProduction_hasInput_class_1 ) ;
+        sh:path      <https://w3id.org/hacid/onto/data/hasInput> .
+
+shape:SingleProjection_hasRescaledVersion_class_0
+        sh:class  <https://w3id.org/hacid/onto/ccso/SingleProjection> .
 
 shape:Aggregation_hasSuggestedQuantization
         sh:minCount  1 ;
@@ -1897,19 +2439,28 @@ shape:EnsembleProjection_dependsOnVariable
         sh:nodeKind  sh:IRI ;
         sh:path      <https://w3id.org/hacid/onto/data/dependsOnVariable> .
 
-shape:Variable  rdf:type  sh:NodeShape ;
-        rdfs:label      "Variable"@en ;
-        sh:property     shape:Variable_dependsOnVariable , shape:Variable_comment , shape:Variable_label , shape:Variable_hasUnitOfMeasure , shape:Variable_altLabel , shape:Variable_isSpecializationOfVariable , shape:Variable_acronym , shape:Variable_hasValuesOn , shape:Variable_isMemberOf ;
-        sh:targetClass  <https://w3id.org/hacid/onto/data/Variable> ;
-        <https://shacl-play.sparna.fr/ontology#background-color>
-                "peru" .
+shape:ProbabilityDensityFunction_isProbabilisticRepresentationOf
+        sh:maxCount  1 ;
+        sh:name      "isProbabilisticRepresentationOf"@en ;
+        sh:nodeKind  sh:IRI ;
+        sh:or        ( shape:ProbabilityDensityFunction_isProbabilisticRepresentationOf_class_0 shape:ProbabilityDensityFunction_isProbabilisticRepresentationOf_class_1 ) ;
+        sh:path      <https://w3id.org/hacid/onto/data/isProbabilisticRepresentationOf> .
+
+shape:DeterministicVariable_hasBaselineRegion
+        sh:class     <https://w3id.org/hacid/onto/data/TemporalRegion> ;
+        sh:maxCount  1 ;
+        sh:name      "hasBaselineRegion"@en ;
+        sh:nodeKind  sh:IRI ;
+        sh:path      <https://w3id.org/hacid/onto/data/hasBaselineRegion> .
 
 shape:PerturbedParameterClimateEnsembleSimulation_hasOutput
-        sh:minCount  1 ;
         sh:name      "hasOutput"@en ;
         sh:nodeKind  sh:IRI ;
         sh:or        ( shape:PerturbedParameterClimateEnsembleSimulation_hasOutput_class_0 shape:PerturbedParameterClimateEnsembleSimulation_hasOutput_class_1 ) ;
         sh:path      <https://w3id.org/hacid/onto/data/hasOutput> .
+
+shape:ScenarioBasedProjection_hasComponent_class_6
+        sh:class  <https://w3id.org/hacid/onto/data/Sample> .
 
 shape:GlobalClimateSimulation_label
         dash:propertyRole  dash:LabelRole ;
@@ -1920,16 +2471,19 @@ shape:GlobalClimateSimulation_label
         sh:or              ( shape:GlobalClimateSimulation_label_datatype_0 shape:GlobalClimateSimulation_label_datatype_1 ) ;
         sh:path            rdfs:label .
 
+shape:DimensionalSpace_adoptsQuantization_class_3
+        sh:class  <https://w3id.org/hacid/onto/data/SinglePeriodicBinning> .
+
 shape:ScenarioBasedProjection
         rdf:type        sh:NodeShape ;
         rdfs:label      "ScenarioBasedProjection"@en ;
-        sh:property     shape:ScenarioBasedProjection_holdsSpecializationOfVariable , shape:ScenarioBasedProjection_isSpecializedAccordingTo , shape:ScenarioBasedProjection_comment , shape:ScenarioBasedProjection_dependsOnVariable , shape:ScenarioBasedProjection_refersToScenario , shape:ScenarioBasedProjection_hasComponent , shape:ScenarioBasedProjection_productId , shape:ScenarioBasedProjection_label , shape:ScenarioBasedProjection_isSpecializationOfVariable ;
+        sh:property     shape:ScenarioBasedProjection_derivedFromVariable , shape:ScenarioBasedProjection_isLinearTransformationOf , shape:ScenarioBasedProjection_holdsSpecializationOfVariable , shape:ScenarioBasedProjection_isSpecializedAccordingTo , shape:ScenarioBasedProjection_comment , shape:ScenarioBasedProjection_isEquivalentTo , shape:ScenarioBasedProjection_dependsOnVariable , shape:ScenarioBasedProjection_refersToScenario , shape:ScenarioBasedProjection_hasComponent , shape:ScenarioBasedProjection_productId , shape:ScenarioBasedProjection_label , shape:ScenarioBasedProjection_isSpecializationOfVariable , shape:ScenarioBasedProjection_hasRescaledVersion ;
         sh:targetClass  <https://w3id.org/hacid/onto/ccso/ScenarioBasedProjection> ;
         <https://shacl-play.sparna.fr/ontology#background-color>
-                "seagreen" .
+                "moccasin" .
 
 shape:SingleProjection_hasComponent_class_0
-        sh:class  <https://w3id.org/hacid/onto/ccso/ScenarioBasedProjection> .
+        sh:class  <https://w3id.org/hacid/onto/ccso/SingleProjection> .
 
 shape:Concept_label  dash:propertyRole  dash:LabelRole ;
         sh:maxCount        1 ;
@@ -1947,8 +2501,29 @@ shape:SimpleRegularBinning_comment
         sh:nodeKind    sh:Literal ;
         sh:path        rdfs:comment .
 
+shape:QuantileFunction_hasUnitOfMeasure
+        sh:class     <https://w3id.org/hacid/onto/data/DimensionalSpace> ;
+        sh:maxCount  1 ;
+        sh:name      "hasUnitOfMeasure"@en ;
+        sh:nodeKind  sh:IRI ;
+        sh:path      <https://w3id.org/hacid/onto/top-level/hasUnitOfMeasure> .
+
+shape:DiscreteDimensionalSpace_adoptsQuantization
+        sh:class     <https://w3id.org/hacid/onto/data/SimpleRegularBinning> ;
+        sh:maxCount  1 ;
+        sh:name      "adoptsQuantization"@en ;
+        sh:nodeKind  sh:IRI ;
+        sh:path      <https://w3id.org/hacid/onto/data/adoptsQuantization> .
+
 shape:DependentVariable_dependsOnVariable_class_1
         sh:class  <https://w3id.org/hacid/onto/data/IndependentVariable> .
+
+shape:ProbabilityDensityFunction_isMemberOf
+        sh:class     <https://w3id.org/hacid/onto/top-level/Collection> ;
+        sh:maxCount  1 ;
+        sh:name      "isMemberOf"@en ;
+        sh:nodeKind  sh:IRI ;
+        sh:path      <https://w3id.org/hacid/onto/top-level/isMemberOf> .
 
 shape:Continuum_comment
         sh:datatype    rdf:langString ;
@@ -1959,20 +2534,38 @@ shape:Continuum_comment
         sh:nodeKind    sh:Literal ;
         sh:path        rdfs:comment .
 
+shape:RelativeAnomaly_hasValuesOn
+        sh:class     <https://w3id.org/hacid/onto/data/DimensionalSpace> ;
+        sh:hasValue  <https://w3id.org/hacid/data/cs/unitsofmeasure/%25> ;
+        sh:maxCount  1 ;
+        sh:minCount  1 ;
+        sh:name      "hasValuesOn"@en ;
+        sh:nodeKind  sh:IRI ;
+        sh:path      <https://w3id.org/hacid/onto/data/hasValuesOn> .
+
 shape:TemporalRegion  rdf:type  sh:NodeShape ;
         rdfs:label      "TemporalRegion"@en ;
         sh:property     shape:TemporalRegion_comment , shape:TemporalRegion_label , shape:TemporalRegion_hasEndDateTime , shape:TemporalRegion_hasStartDateTime ;
         sh:targetClass  <https://w3id.org/hacid/onto/data/TemporalRegion> ;
         <https://shacl-play.sparna.fr/ontology#background-color>
-                "whitesmoke" .
+                "darkorchid" .
 
-shape:Variable_acronym
-        sh:datatype    rdf:langString ;
-        sh:languageIn  ( "en" ) ;
-        sh:maxCount    1 ;
-        sh:name        "acronym"@en ;
-        sh:nodeKind    sh:Literal ;
-        sh:path        <https://w3id.org/hacid/onto/top-level/acronym> .
+shape:RelativeAnomaly_hasUnitOfMeasure
+        sh:class     <https://w3id.org/hacid/onto/data/DimensionalSpace> ;
+        sh:hasValue  <https://w3id.org/hacid/data/cs/unitsofmeasure/%25> ;
+        sh:maxCount  1 ;
+        sh:minCount  1 ;
+        sh:name      "hasUnitOfMeasure"@en ;
+        sh:nodeKind  sh:IRI ;
+        sh:path      <https://w3id.org/hacid/onto/top-level/hasUnitOfMeasure> .
+
+shape:RelativeAnomaly
+        rdf:type        sh:NodeShape ;
+        rdfs:label      "RelativeAnomaly"@en ;
+        sh:property     shape:RelativeAnomaly_hasBaselineRegion , shape:RelativeAnomaly_hasValuesOn , shape:RelativeAnomaly_isMemberOf , shape:RelativeAnomaly_acronym , shape:RelativeAnomaly_isAnomalyOf , shape:RelativeAnomaly_label , shape:RelativeAnomaly_hasUnitOfMeasure ;
+        sh:targetClass  <https://w3id.org/hacid/onto/data/RelativeAnomaly> ;
+        <https://shacl-play.sparna.fr/ontology#background-color>
+                "mediumslateblue" .
 
 shape:GlobalClimateSimulation_hasComponent_class_0
         sh:class  <https://w3id.org/hacid/onto/ccso/SingleSimulation> .
@@ -1987,11 +2580,34 @@ shape:DiscreteDimensionalSpace_hasExactBoundingRegion
 shape:SingleProjection_label_datatype_0
         sh:datatype  rdf:langString .
 
+shape:QuantileFunction_isSpecializationOfVariable_class_1
+        sh:class  <https://w3id.org/hacid/onto/data/DeterministicVariable> .
+
 shape:Concept_classifies
         sh:class     <https://w3id.org/hacid/onto/data/DependentVariable> ;
         sh:name      "classifies"@en ;
         sh:nodeKind  sh:IRI ;
         sh:path      <https://w3id.org/hacid/onto/top-level/classifies> .
+
+shape:Rescaling_label
+        dash:propertyRole  dash:LabelRole ;
+        sh:datatype        rdf:langString ;
+        sh:languageIn      ( "en" ) ;
+        sh:maxCount        1 ;
+        sh:minCount        1 ;
+        sh:name            "label"@en ;
+        sh:nodeKind        sh:Literal ;
+        sh:path            rdfs:label .
+
+shape:ProbabilityDensityFunction_label
+        dash:propertyRole  dash:LabelRole ;
+        sh:datatype        rdf:langString ;
+        sh:languageIn      ( "en" ) ;
+        sh:maxCount        1 ;
+        sh:minCount        1 ;
+        sh:name            "label"@en ;
+        sh:nodeKind        sh:Literal ;
+        sh:path            rdfs:label .
 
 shape:ProbabilisticProjectionProduction_hasOutput
         sh:in        ( <https://w3id.org/hacid/data/cs/derivations/ukcp18.prob.sres-a1b/output> <https://w3id.org/hacid/data/cs/derivations/ukcp18.prob.rcp85/output> <https://w3id.org/hacid/data/cs/derivations/ukcp18.prob.rcp60/output> <https://w3id.org/hacid/data/cs/derivations/ukcp18.prob.rcp45/output> <https://w3id.org/hacid/data/cs/derivations/ukcp18.prob.rcp26/output> ) ;
@@ -2002,6 +2618,16 @@ shape:ProbabilisticProjectionProduction_hasOutput
         sh:or        ( shape:ProbabilisticProjectionProduction_hasOutput_class_0 shape:ProbabilisticProjectionProduction_hasOutput_class_1 ) ;
         sh:path      <https://w3id.org/hacid/onto/data/hasOutput> .
 
+shape:ProbabilityDensityFunction_hasUnitOfMeasure
+        sh:class     <https://w3id.org/hacid/onto/data/DimensionalSpace> ;
+        sh:maxCount  1 ;
+        sh:name      "hasUnitOfMeasure"@en ;
+        sh:nodeKind  sh:IRI ;
+        sh:path      <https://w3id.org/hacid/onto/top-level/hasUnitOfMeasure> .
+
+shape:ProbabilisticProjection_holdsSpecializationOfVariable_class_0
+        sh:class  <https://w3id.org/hacid/onto/data/QuantileFunction> .
+
 shape:Collection_label
         sh:datatype    rdf:langString ;
         sh:languageIn  ( "en" ) ;
@@ -2010,11 +2636,52 @@ shape:Collection_label
         sh:nodeKind    sh:Literal ;
         sh:path        rdfs:label .
 
+shape:Rescaling  rdf:type  sh:NodeShape ;
+        rdfs:label      "Rescaling"@en ;
+        sh:property     shape:Rescaling_label , shape:Rescaling_hasInput , shape:Rescaling_hasOutput ;
+        sh:targetClass  <https://w3id.org/hacid/onto/ccso/Rescaling> ;
+        <https://shacl-play.sparna.fr/ontology#background-color>
+                "seagreen" .
+
+shape:RelativeAnomaly_acronym
+        sh:datatype    rdf:langString ;
+        sh:in          ( "cltAnom"@en "hussAnom"@en "prAnom"@en ) ;
+        sh:languageIn  ( "en" ) ;
+        sh:maxCount    1 ;
+        sh:minCount    1 ;
+        sh:name        "acronym"@en ;
+        sh:nodeKind    sh:Literal ;
+        sh:path        <https://w3id.org/hacid/onto/top-level/acronym> .
+
+shape:RelativeAnomaly_label
+        dash:propertyRole  dash:LabelRole ;
+        sh:datatype        rdf:langString ;
+        sh:in              ( "Cloud area fraction relative anomaly with respect to 1981-2000 (cltAnom, 1981-2000)"@en "Specific humidity relative anomaly with respect to 1981-2000 (hussAnom, 1981-2000)"@en "Precipitation rate relative anomaly with respect to 1981-2010 (prAnom, 1981-2010)"@en "Precipitation rate relative anomaly with respect to 1961-1990 (prAnom, 1961-1990)"@en "Cloud area fraction relative anomaly with respect to 1981-2010 (cltAnom, 1981-2010)"@en "Specific humidity relative anomaly with respect to 1961-1990 (hussAnom, 1961-1990)"@en "Cloud area fraction relative anomaly with respect to 1961-1990 (cltAnom, 1961-1990)"@en "Specific humidity relative anomaly with respect to 1981-2010 (hussAnom, 1981-2010)"@en "Precipitation rate relative anomaly with respect to 1981-2000 (prAnom, 1981-2000)"@en ) ;
+        sh:languageIn      ( "en" ) ;
+        sh:maxCount        1 ;
+        sh:minCount        1 ;
+        sh:name            "label"@en ;
+        sh:nodeKind        sh:Literal ;
+        sh:path            rdfs:label .
+
 shape:ScenarioBasedProjection_hasComponent_class_1
-        sh:class  <https://w3id.org/hacid/onto/ccso/ScenarioBasedProjection> .
+        sh:class  <https://w3id.org/hacid/onto/ccso/SingleProjection> .
 
 shape:StatisticalProjectionTransformation_hasOutput_class_3
         sh:class  <https://w3id.org/hacid/onto/ccso/EnsembleProjection> .
+
+shape:ProbabilityDensityFunction_dependsOnVariable
+        sh:name      "dependsOnVariable"@en ;
+        sh:nodeKind  sh:IRI ;
+        sh:or        ( shape:ProbabilityDensityFunction_dependsOnVariable_class_0 shape:ProbabilityDensityFunction_dependsOnVariable_class_1 ) ;
+        sh:path      <https://w3id.org/hacid/onto/data/dependsOnVariable> .
+
+shape:DeterministicVariable_isMemberOf
+        sh:class     <https://w3id.org/hacid/onto/top-level/Collection> ;
+        sh:minCount  1 ;
+        sh:name      "isMemberOf"@en ;
+        sh:nodeKind  sh:IRI ;
+        sh:path      <https://w3id.org/hacid/onto/top-level/isMemberOf> .
 
 shape:DimensionalSpace_label
         sh:maxCount  1 ;
@@ -2030,6 +2697,9 @@ shape:DimensionalSpace_hasExactBoundingRegion
         sh:or        ( shape:DimensionalSpace_hasExactBoundingRegion_class_0 shape:DimensionalSpace_hasExactBoundingRegion_class_1 ) ;
         sh:path      <https://w3id.org/hacid/onto/data/hasExactBoundingRegion> .
 
+shape:Collection_associatedWith_class_1
+        sh:class  <https://w3id.org/hacid/onto/ccso/GlobalClimateModel> .
+
 shape:DataGeneratingProcess_comment_datatype_1
         sh:datatype  xsd:string .
 
@@ -2044,10 +2714,21 @@ shape:ClimateModelIntercomparisonExperiment_hasOutput_class_0
 
 shape:TemporalRegion_hasEndDateTime
         sh:datatype  xsd:dateTime ;
+        sh:maxCount  1 ;
         sh:minCount  1 ;
         sh:name      "hasEndDateTime"@en ;
         sh:nodeKind  sh:Literal ;
         sh:path      <https://w3id.org/hacid/onto/data/hasEndDateTime> .
+
+shape:QuantileFunction_hasValuesOn
+        sh:class     <https://w3id.org/hacid/onto/data/DimensionalSpace> ;
+        sh:maxCount  1 ;
+        sh:name      "hasValuesOn"@en ;
+        sh:nodeKind  sh:IRI ;
+        sh:path      <https://w3id.org/hacid/onto/data/hasValuesOn> .
+
+shape:SimpleRegularBinning_hasResolutionValue_datatype_1
+        sh:datatype  xsd:float .
 
 shape:RegularPeriodicBinning_hasPeriodValue
         sh:datatype  xsd:duration ;
@@ -2057,9 +2738,6 @@ shape:RegularPeriodicBinning_hasPeriodValue
         sh:name      "hasPeriodValue"@en ;
         sh:nodeKind  sh:Literal ;
         sh:path      <https://w3id.org/hacid/onto/data/hasPeriodValue> .
-
-shape:SimpleRegularBinning_hasResolutionValue_datatype_1
-        sh:datatype  xsd:float .
 
 shape:Concept_inScheme
         sh:class     <https://w3id.org/hacid/onto/top-level/ConceptScheme> ;
@@ -2072,7 +2750,7 @@ shape:  rdf:type  <http://www.w3.org/2002/07/owl#Ontology> ;
         <http://purl.org/dc/terms/abstract>
                 "Generated by SHACL Play!"@en ;
         <http://purl.org/dc/terms/created>
-                "2026-10-07T10:02:05.771Z"^^xsd:dateTime .
+                "2026-10-25T20:55:39.311Z"^^xsd:dateTime .
 
 shape:GeodeticRegion_comment
         sh:datatype    rdf:langString ;
@@ -2093,6 +2771,9 @@ shape:EnsembleProjectionProduction_label
         sh:nodeKind        sh:Literal ;
         sh:path            rdfs:label .
 
+shape:Rescaling_hasOutput_class_1
+        sh:class  <https://w3id.org/hacid/onto/ccso/ScenarioBasedProjection> .
+
 shape:SimpleRegularBinning_hasValuesOn
         sh:maxCount  1 ;
         sh:name      "hasValuesOn"@en ;
@@ -2103,13 +2784,31 @@ shape:SimpleRegularBinning_hasValuesOn
 shape:ProbabilisticProjection_dependsOnVariable_class_1
         sh:class  <https://w3id.org/hacid/onto/data/DiscreteDimensionalSpace> .
 
+shape:Rescaling_hasOutput
+        sh:maxCount  1 ;
+        sh:minCount  1 ;
+        sh:name      "hasOutput"@en ;
+        sh:nodeKind  sh:IRI ;
+        sh:or        ( shape:Rescaling_hasOutput_class_0 shape:Rescaling_hasOutput_class_1 ) ;
+        sh:path      <https://w3id.org/hacid/onto/data/hasOutput> .
+
+shape:Aggregation_label
+        dash:propertyRole  dash:LabelRole ;
+        sh:datatype        rdf:langString ;
+        sh:languageIn      ( "en" ) ;
+        sh:maxCount        1 ;
+        sh:minCount        1 ;
+        sh:name            "label"@en ;
+        sh:nodeKind        sh:Literal ;
+        sh:path            rdfs:label .
+
 shape:DynamicalDownscaling
         rdf:type        sh:NodeShape ;
         rdfs:label      "DynamicalDownscaling"@en ;
         sh:property     shape:DynamicalDownscaling_hasOutput , shape:DynamicalDownscaling_hasComponent , shape:DynamicalDownscaling_refersToScenario , shape:DynamicalDownscaling_comment , shape:DynamicalDownscaling_usesModel , shape:DynamicalDownscaling_isDownscalingOf , shape:DynamicalDownscaling_label ;
         sh:targetClass  <https://w3id.org/hacid/onto/ccso/DynamicalDownscaling> ;
         <https://shacl-play.sparna.fr/ontology#background-color>
-                "teal" .
+                "darkviolet" .
 
 shape:RegularBinning_hasValuesOn_class_1
         sh:class  <https://w3id.org/hacid/onto/data/RegularBinning> .
@@ -2124,6 +2823,15 @@ shape:DiscreteDimensionalSpace_comment
         sh:nodeKind    sh:Literal ;
         sh:path        rdfs:comment .
 
+shape:Sample_label  dash:propertyRole  dash:LabelRole ;
+        sh:datatype        rdf:langString ;
+        sh:languageIn      ( "en" ) ;
+        sh:maxCount        1 ;
+        sh:minCount        1 ;
+        sh:name            "label"@en ;
+        sh:nodeKind        sh:Literal ;
+        sh:path            rdfs:label .
+
 shape:DimensionalSpace_basedOnDimensionalSpace
         sh:name      "basedOnDimensionalSpace"@en ;
         sh:nodeKind  sh:IRI ;
@@ -2132,9 +2840,7 @@ shape:DimensionalSpace_basedOnDimensionalSpace
 
 shape:GlobalClimateModel_isMaintainedBy
         sh:class     <https://w3id.org/hacid/onto/top-level/Organization> ;
-        sh:in        ( <https://w3id.org/hacid/data/cs/organizations/IPSL> <https://w3id.org/hacid/data/cs/organizations/ICHEC> <https://w3id.org/hacid/data/cs/organizations/CMCC> <https://w3id.org/hacid/data/cs/organizations/NASA-GISS> <https://w3id.org/hacid/data/cs/organizations/NOAA-GFDL> <https://w3id.org/hacid/data/cs/organizations/CSIRO-BOM> <https://w3id.org/hacid/data/cs/organizations/MIROC> <https://w3id.org/hacid/data/cs/organizations/MRI> <https://w3id.org/hacid/data/cs/organizations/NCC> <https://w3id.org/hacid/data/cs/organizations/MPI-M> <https://w3id.org/hacid/data/cs/organizations/INM> <https://w3id.org/hacid/data/cs/organizations/CSIRO-QCCCE> <https://w3id.org/hacid/data/cs/organizations/CNRM-CERFACS> <https://w3id.org/hacid/data/cs/organizations/CCCMA> <https://w3id.org/hacid/data/cs/organizations/MOHC> <https://w3id.org/hacid/data/cs/organizations/NIMR-KMA> <https://w3id.org/hacid/data/cs/organizations/UNSW> <https://w3id.org/hacid/data/cs/organizations/LASG-CESS> <https://w3id.org/hacid/data/cs/organizations/LASG-IAP> ) ;
         sh:maxCount  1 ;
-        sh:minCount  1 ;
         sh:name      "isMaintainedBy"@en ;
         sh:nodeKind  sh:IRI ;
         sh:path      <https://w3id.org/hacid/onto/ccso/isMaintainedBy> .
@@ -2159,27 +2865,61 @@ shape:SingleSimulation_label
         sh:nodeKind        sh:Literal ;
         sh:path            rdfs:label .
 
+shape:Rescaling_hasInput_class_0
+        sh:class  <https://w3id.org/hacid/onto/ccso/ScenarioBasedProjection> .
+
 shape:RegularBinning  rdf:type  sh:NodeShape ;
         rdfs:label      "RegularBinning"@en ;
         sh:property     shape:RegularBinning_basedOnDimensionalSpace , shape:RegularBinning_hasResolutionValue , shape:RegularBinning_hasValuesOn ;
         sh:targetClass  <https://w3id.org/hacid/onto/data/RegularBinning> ;
         <https://shacl-play.sparna.fr/ontology#background-color>
-                "seagreen" .
+                "palegreen" .
+
+shape:ProbabilityDensityFunction_isProbabilisticRepresentationOf_class_0
+        sh:class  <https://w3id.org/hacid/onto/data/RelativeAnomaly> .
 
 shape:DynamicalDownscaling_hasComponent_class_1
         sh:class  <https://w3id.org/hacid/onto/ccso/DynamicalDownscaling> .
 
+shape:QuantileFunction_isMemberOf
+        sh:class     <https://w3id.org/hacid/onto/top-level/Collection> ;
+        sh:maxCount  1 ;
+        sh:name      "isMemberOf"@en ;
+        sh:nodeKind  sh:IRI ;
+        sh:path      <https://w3id.org/hacid/onto/top-level/isMemberOf> .
+
+shape:AbsoluteAnomaly_isAnomalyOf
+        sh:class     <https://w3id.org/hacid/onto/data/DeterministicVariable> ;
+        sh:in        ( <https://w3id.org/hacid/data/cs/variables/mip/rsds> <https://w3id.org/hacid/data/cs/variables/mip/tasmin> <https://w3id.org/hacid/data/cs/variables/mip/tas> <https://w3id.org/hacid/data/cs/variables/mip/psl> <https://w3id.org/hacid/data/cs/variables/mip/rss> <https://w3id.org/hacid/data/cs/variables/mip/tasmax> <https://w3id.org/hacid/data/cs/variables/mip/rls> ) ;
+        sh:maxCount  1 ;
+        sh:minCount  1 ;
+        sh:name      "isAnomalyOf"@en ;
+        sh:nodeKind  sh:IRI ;
+        sh:path      <https://w3id.org/hacid/onto/data/isAnomalyOf> .
+
 shape:DataGeneratingProcess_hasComponent_class_0
         sh:class  <https://w3id.org/hacid/onto/top-level/Action> .
 
-shape:DimensionalSpace_hasDiscretization_class_1
-        sh:class  <https://w3id.org/hacid/onto/data/RegularBinning> .
+shape:Dataset_hasComponent_class_2
+        sh:class  <https://w3id.org/hacid/onto/ccso/ScenarioBasedProjection> .
+
+shape:ScenarioBasedProjection_hasRescaledVersion
+        sh:name      "hasRescaledVersion"@en ;
+        sh:nodeKind  sh:IRI ;
+        sh:or        ( shape:ScenarioBasedProjection_hasRescaledVersion_class_0 shape:ScenarioBasedProjection_hasRescaledVersion_class_1 shape:ScenarioBasedProjection_hasRescaledVersion_class_2 shape:ScenarioBasedProjection_hasRescaledVersion_class_3 shape:ScenarioBasedProjection_hasRescaledVersion_class_4 shape:ScenarioBasedProjection_hasRescaledVersion_class_5 shape:ScenarioBasedProjection_hasRescaledVersion_class_6 ) ;
+        sh:path      <https://w3id.org/hacid/onto/data/hasRescaledVersion> .
+
+shape:ProbabilityDensityFunction_dependsOnVariable_class_1
+        sh:class  <https://w3id.org/hacid/onto/data/DiscreteDimensionalSpace> .
 
 shape:HazardType_isSpecializedBy
         sh:class     <https://w3id.org/hacid/onto/ccso/HazardType> ;
         sh:name      "isSpecializedBy"@en ;
         sh:nodeKind  sh:IRI ;
         sh:path      <https://w3id.org/hacid/onto/top-level/isSpecializedBy> .
+
+shape:ScenarioBasedProjection_hasRescaledVersion_class_6
+        sh:class  <https://w3id.org/hacid/onto/data/Sample> .
 
 shape:DimensionalSpace_isConstituentOf
         sh:class     <https://w3id.org/hacid/onto/top-level/Concept> ;
@@ -2194,6 +2934,13 @@ shape:ConceptScheme_defines
         sh:nodeKind  sh:IRI ;
         sh:path      <https://w3id.org/hacid/onto/top-level/defines> .
 
+shape:SingleProjection_isEquivalentTo
+        sh:maxCount  1 ;
+        sh:name      "isEquivalentTo"@en ;
+        sh:nodeKind  sh:IRI ;
+        sh:or        ( shape:SingleProjection_isEquivalentTo_class_0 shape:SingleProjection_isEquivalentTo_class_1 ) ;
+        sh:path      <https://w3id.org/hacid/onto/data/isEquivalentTo> .
+
 shape:ClimateModelIntercomparisonExperiment_hasComponent_class_4
         sh:class  <https://w3id.org/hacid/onto/ccso/GlobalClimateSimulation> .
 
@@ -2203,6 +2950,13 @@ shape:GlobalClimateSimulation_comment
         sh:name      "comment"@en ;
         sh:nodeKind  sh:Literal ;
         sh:path      rdfs:comment .
+
+shape:DeterministicVariable_hasValuesOn
+        sh:class     <https://w3id.org/hacid/onto/data/DimensionalSpace> ;
+        sh:maxCount  1 ;
+        sh:name      "hasValuesOn"@en ;
+        sh:nodeKind  sh:IRI ;
+        sh:path      <https://w3id.org/hacid/onto/data/hasValuesOn> .
 
 shape:ScenarioBasedProjection_label_datatype_0
         sh:datatype  rdf:langString .
@@ -2226,10 +2980,10 @@ shape:PerturbedParameterClimateEnsembleSimulation_label
 
 shape:Aggregation  rdf:type  sh:NodeShape ;
         rdfs:label      "Aggregation"@en ;
-        sh:property     shape:Aggregation_aggregatesVariable , shape:Aggregation_hasSuggestedQuantization ;
-        sh:targetClass  <https://w3id.org/hacid/onto/data/Aggregation> ;
+        sh:property     shape:Aggregation_label , shape:Aggregation_hasInput , shape:Aggregation_hasOutput ;
+        sh:targetClass  <https://w3id.org/hacid/onto/ccso/Aggregation> ;
         <https://shacl-play.sparna.fr/ontology#background-color>
-                "maroon" .
+                "darkgoldenrod" .
 
 shape:PerturbedParameterClimateEnsembleSimulation_hasComponent
         sh:minCount  1 ;
@@ -2267,21 +3021,25 @@ shape:DependentVariable_definesAggregation
         sh:nodeKind  sh:IRI ;
         sh:path      <https://w3id.org/hacid/onto/data/definesAggregation> .
 
+shape:EnsembleProjectionProduction_hasInput_class_0
+        sh:class  <https://w3id.org/hacid/onto/ccso/ScenarioBasedProjection> .
+
 shape:Action_hasComponent_class_1
         sh:class  <https://w3id.org/hacid/onto/ccso/ClimateModelIntercomparisonExperiment> .
 
 shape:SingleProjectionProduction
         rdf:type        sh:NodeShape ;
         rdfs:label      "SingleProjectionProduction"@en ;
-        sh:property     shape:SingleProjectionProduction_refersToGlobalWarmingLevel , shape:SingleProjectionProduction_label , shape:SingleProjectionProduction_refersToScenario , shape:SingleProjectionProduction_hasOutput ;
+        sh:property     shape:SingleProjectionProduction_refersToGlobalWarmingLevel , shape:SingleProjectionProduction_label , shape:SingleProjectionProduction_refersToScenario , shape:SingleProjectionProduction_hasInput , shape:SingleProjectionProduction_hasOutput ;
         sh:targetClass  <https://w3id.org/hacid/onto/ccso/SingleProjectionProduction> ;
         <https://shacl-play.sparna.fr/ontology#background-color>
-                "royalblue" .
+                "lightpink" .
 
 shape:Concept_label_datatype_1
         sh:datatype  xsd:string .
 
 shape:DynamicalDownscaling_hasOutput
+        sh:maxCount  1 ;
         sh:minCount  1 ;
         sh:name      "hasOutput"@en ;
         sh:nodeKind  sh:IRI ;
@@ -2323,6 +3081,14 @@ shape:DynamicalDownscaling_hasOutput_class_2
 shape:SingleSimulation_isDownscalingOf_class_2
         sh:class  <https://w3id.org/hacid/onto/ccso/DynamicalDownscaling> .
 
+shape:ProbabilityDensityFunction
+        rdf:type        sh:NodeShape ;
+        rdfs:label      "ProbabilityDensityFunction"@en ;
+        sh:property     shape:ProbabilityDensityFunction_hasValuesOn , shape:ProbabilityDensityFunction_dependsOnVariable , shape:ProbabilityDensityFunction_isSpecializedAccordingTo , shape:ProbabilityDensityFunction_acronym , shape:ProbabilityDensityFunction_label , shape:ProbabilityDensityFunction_isSpecializationOfVariable , shape:ProbabilityDensityFunction_hasUnitOfMeasure , shape:ProbabilityDensityFunction_isProbabilisticRepresentationOf , shape:ProbabilityDensityFunction_isMemberOf ;
+        sh:targetClass  <https://w3id.org/hacid/onto/data/ProbabilityDensityFunction> ;
+        <https://shacl-play.sparna.fr/ontology#background-color>
+                "palegreen" .
+
 shape:DynamicalDownscaling_isDownscalingOf_class_0
         sh:class  <https://w3id.org/hacid/onto/ccso/SingleSimulation> .
 
@@ -2333,6 +3099,9 @@ shape:ClimateModelIntercomparisonExperiment_hasOutput
         sh:or        ( shape:ClimateModelIntercomparisonExperiment_hasOutput_class_0 shape:ClimateModelIntercomparisonExperiment_hasOutput_class_1 ) ;
         sh:path      <https://w3id.org/hacid/onto/data/hasOutput> .
 
+shape:ScenarioBasedProjection_hasRescaledVersion_class_1
+        sh:class  <https://w3id.org/hacid/onto/ccso/ScenarioBasedProjection> .
+
 shape:Action_label  dash:propertyRole  dash:LabelRole ;
         sh:maxCount        1 ;
         sh:minCount        1 ;
@@ -2340,6 +3109,12 @@ shape:Action_label  dash:propertyRole  dash:LabelRole ;
         sh:nodeKind        sh:Literal ;
         sh:or              ( shape:Action_label_datatype_0 shape:Action_label_datatype_1 ) ;
         sh:path            rdfs:label .
+
+shape:StatisticalProjectionTransformation_hasInput
+        sh:name      "hasInput"@en ;
+        sh:nodeKind  sh:IRI ;
+        sh:or        ( shape:StatisticalProjectionTransformation_hasInput_class_0 shape:StatisticalProjectionTransformation_hasInput_class_1 shape:StatisticalProjectionTransformation_hasInput_class_2 ) ;
+        sh:path      <https://w3id.org/hacid/onto/data/hasInput> .
 
 shape:Aggregation_hasSuggestedQuantization_class_1
         sh:class  <https://w3id.org/hacid/onto/data/RegularBinning> .
@@ -2363,20 +3138,14 @@ shape:Method  rdf:type  sh:NodeShape ;
         sh:property     shape:Method_isSpecializedBy , shape:Method_altLabel , shape:Method_label ;
         sh:targetClass  <https://w3id.org/hacid/onto/top-level/Method> ;
         <https://shacl-play.sparna.fr/ontology#background-color>
-                "lawngreen" .
-
-shape:Variable_dependsOnVariable
-        sh:class     <https://w3id.org/hacid/onto/data/Continuum> ;
-        sh:name      "dependsOnVariable"@en ;
-        sh:nodeKind  sh:IRI ;
-        sh:path      <https://w3id.org/hacid/onto/data/dependsOnVariable> .
+                "lemonchiffon" .
 
 shape:GeodeticRegion  rdf:type  sh:NodeShape ;
         rdfs:label      "GeodeticRegion"@en ;
         sh:property     shape:GeodeticRegion_asWKT , shape:GeodeticRegion_comment , shape:GeodeticRegion_label , shape:GeodeticRegion_isRegionOf ;
         sh:targetClass  <https://w3id.org/hacid/onto/data/GeodeticRegion> ;
         <https://shacl-play.sparna.fr/ontology#background-color>
-                "lightslategrey" .
+                "springgreen" .
 
 shape:Continuum_hasExactBoundingRegion
         sh:class     <https://w3id.org/hacid/onto/data/GeodeticRegion> ;
@@ -2384,18 +3153,6 @@ shape:Continuum_hasExactBoundingRegion
         sh:name      "hasExactBoundingRegion"@en ;
         sh:nodeKind  sh:IRI ;
         sh:path      <https://w3id.org/hacid/onto/data/hasExactBoundingRegion> .
-
-shape:DependentVariable_isClassifiedBy
-        sh:class     <https://w3id.org/hacid/onto/top-level/Concept> ;
-        sh:name      "isClassifiedBy"@en ;
-        sh:nodeKind  sh:IRI ;
-        sh:path      <https://w3id.org/hacid/onto/top-level/isClassifiedBy> .
-
-shape:ProbabilisticProjection_holdsSpecializationOfVariable
-        sh:class     <https://w3id.org/hacid/onto/data/Variable> ;
-        sh:name      "holdsSpecializationOfVariable"@en ;
-        sh:nodeKind  sh:IRI ;
-        sh:path      <https://w3id.org/hacid/onto/data/holdsSpecializationOfVariable> .
 
 shape:EnsembleProjection_label
         sh:datatype    rdf:langString ;
@@ -2405,8 +3162,23 @@ shape:EnsembleProjection_label
         sh:nodeKind    sh:Literal ;
         sh:path        rdfs:label .
 
+shape:DependentVariable_isClassifiedBy
+        sh:class     <https://w3id.org/hacid/onto/top-level/Concept> ;
+        sh:name      "isClassifiedBy"@en ;
+        sh:nodeKind  sh:IRI ;
+        sh:path      <https://w3id.org/hacid/onto/top-level/isClassifiedBy> .
+
+shape:ProbabilisticProjection_holdsSpecializationOfVariable
+        sh:name      "holdsSpecializationOfVariable"@en ;
+        sh:nodeKind  sh:IRI ;
+        sh:or        ( shape:ProbabilisticProjection_holdsSpecializationOfVariable_class_0 shape:ProbabilisticProjection_holdsSpecializationOfVariable_class_1 shape:ProbabilisticProjection_holdsSpecializationOfVariable_class_2 shape:ProbabilisticProjection_holdsSpecializationOfVariable_class_3 ) ;
+        sh:path      <https://w3id.org/hacid/onto/data/holdsSpecializationOfVariable> .
+
 shape:EnsembleSimulation_hasComponent_class_1
         sh:class  <https://w3id.org/hacid/onto/ccso/DynamicalDownscaling> .
+
+shape:GlobalClimateSimulation_hasComponent_class_2
+        sh:class  <https://w3id.org/hacid/onto/ccso/PerturbedParameterClimateEnsembleSimulation> .
 
 shape:SinglePeriodicBinning
         rdf:type        sh:NodeShape ;
@@ -2414,10 +3186,14 @@ shape:SinglePeriodicBinning
         sh:property     shape:SinglePeriodicBinning_basedOnDimensionalSpace , shape:SinglePeriodicBinning_hasInPeriodResolutionValue , shape:SinglePeriodicBinning_hasPeriodValue , shape:SinglePeriodicBinning_hasValuesOn ;
         sh:targetClass  <https://w3id.org/hacid/onto/data/SinglePeriodicBinning> ;
         <https://shacl-play.sparna.fr/ontology#background-color>
-                "peachpuff" .
+                "seagreen" .
 
-shape:GlobalClimateSimulation_hasComponent_class_2
-        sh:class  <https://w3id.org/hacid/onto/ccso/PerturbedParameterClimateEnsembleSimulation> .
+shape:Sample_isSpecializedAccordingTo
+        sh:class     <https://w3id.org/hacid/onto/data/VariableSpecialization> ;
+        sh:maxCount  1 ;
+        sh:name      "isSpecializedAccordingTo"@en ;
+        sh:nodeKind  sh:IRI ;
+        sh:path      <https://w3id.org/hacid/onto/data/isSpecializedAccordingTo> .
 
 shape:ConceptScheme_label
         sh:datatype  xsd:string ;
@@ -2427,28 +3203,33 @@ shape:ConceptScheme_label
         sh:path      rdfs:label .
 
 shape:SingleProjection_holdsSpecializationOfVariable
-        sh:class     <https://w3id.org/hacid/onto/data/Variable> ;
+        sh:class     <https://w3id.org/hacid/onto/data/DeterministicVariable> ;
         sh:name      "holdsSpecializationOfVariable"@en ;
         sh:nodeKind  sh:IRI ;
         sh:path      <https://w3id.org/hacid/onto/data/holdsSpecializationOfVariable> .
 
+shape:Aggregation_hasOutput_class_1
+        sh:class  <https://w3id.org/hacid/onto/ccso/ScenarioBasedProjection> .
+
 shape:DiscreteDimensionalSpace
         rdf:type        sh:NodeShape ;
         rdfs:label      "DiscreteDimensionalSpace"@en ;
-        sh:property     shape:DiscreteDimensionalSpace_basedOnDimensionalSpace , shape:DiscreteDimensionalSpace_hasExactBoundingRegion , shape:DiscreteDimensionalSpace_comment , shape:DiscreteDimensionalSpace_hasDiscretization , shape:DiscreteDimensionalSpace_hasValuesOn , shape:DiscreteDimensionalSpace_label ;
+        sh:property     shape:DiscreteDimensionalSpace_basedOnDimensionalSpace , shape:DiscreteDimensionalSpace_hasExactBoundingRegion , shape:DiscreteDimensionalSpace_comment , shape:DiscreteDimensionalSpace_adoptsQuantization , shape:DiscreteDimensionalSpace_hasValuesOn , shape:DiscreteDimensionalSpace_label ;
         sh:targetClass  <https://w3id.org/hacid/onto/data/DiscreteDimensionalSpace> ;
         <https://shacl-play.sparna.fr/ontology#background-color>
-                "blanchedalmond" .
+                "ghostwhite" .
 
 shape:Organization_label
         sh:datatype  xsd:string ;
-        sh:maxCount  1 ;
         sh:name      "label"@en ;
         sh:nodeKind  sh:Literal ;
         sh:path      rdfs:label .
 
 shape:SingleSimulation_hasOutput_class_0
         sh:class  <https://w3id.org/hacid/onto/ccso/ScenarioBasedProjection> .
+
+shape:ProbabilisticProjection_holdsSpecializationOfVariable_class_2
+        sh:class  <https://w3id.org/hacid/onto/data/ProbabilityDensityFunction> .
 
 shape:ProbabilisticProjectionProduction
         rdf:type        sh:NodeShape ;
@@ -2464,13 +3245,26 @@ shape:GlobalClimateSimulation
         sh:property     shape:GlobalClimateSimulation_label , shape:GlobalClimateSimulation_hasComponent , shape:GlobalClimateSimulation_hasOutput , shape:GlobalClimateSimulation_usesModel , shape:GlobalClimateSimulation_acronym , shape:GlobalClimateSimulation_comment , shape:GlobalClimateSimulation_componentIdentifier , shape:GlobalClimateSimulation_refersToScenario ;
         sh:targetClass  <https://w3id.org/hacid/onto/ccso/GlobalClimateSimulation> ;
         <https://shacl-play.sparna.fr/ontology#background-color>
-                "lemonchiffon" .
+                "darkgrey" .
+
+shape:Sample_isMemberOf
+        sh:class     <https://w3id.org/hacid/onto/top-level/Collection> ;
+        sh:maxCount  1 ;
+        sh:name      "isMemberOf"@en ;
+        sh:nodeKind  sh:IRI ;
+        sh:path      <https://w3id.org/hacid/onto/top-level/isMemberOf> .
 
 shape:ScenarioBasedProjection_hasComponent_class_3
-        sh:class  <https://w3id.org/hacid/onto/ccso/ProbabilisticProjection> .
+        sh:class  <https://w3id.org/hacid/onto/data/QuantileFunction> .
+
+shape:QuantileFunction_dependsOnVariable
+        sh:name      "dependsOnVariable"@en ;
+        sh:nodeKind  sh:IRI ;
+        sh:or        ( shape:QuantileFunction_dependsOnVariable_class_0 shape:QuantileFunction_dependsOnVariable_class_1 ) ;
+        sh:path      <https://w3id.org/hacid/onto/data/dependsOnVariable> .
 
 shape:PerturbedParameterClimateEnsembleSimulation_hasOutput_class_1
-        sh:class  <https://w3id.org/hacid/onto/ccso/ScenarioBasedProjection> .
+        sh:class  <https://w3id.org/hacid/onto/ccso/EnsembleProjection> .
 
 shape:EnsembleSimulation_refersToScenario
         sh:class     <https://w3id.org/hacid/onto/ccso/GreenhouseGasConcentrationPathway> ;
@@ -2478,6 +3272,16 @@ shape:EnsembleSimulation_refersToScenario
         sh:name      "refersToScenario"@en ;
         sh:nodeKind  sh:IRI ;
         sh:path      <https://w3id.org/hacid/onto/ccso/refersToScenario> .
+
+shape:DimensionalSpace_adoptsQuantization_class_0
+        sh:class  <https://w3id.org/hacid/onto/data/SimpleRegularBinning> .
+
+shape:Sample_acronym  sh:datatype  rdf:langString ;
+        sh:languageIn  ( "en" ) ;
+        sh:maxCount    1 ;
+        sh:name        "acronym"@en ;
+        sh:nodeKind    sh:Literal ;
+        sh:path        <https://w3id.org/hacid/onto/top-level/acronym> .
 
 shape:SinglePeriodicBinning_basedOnDimensionalSpace
         sh:class     <https://w3id.org/hacid/onto/data/Continuum> ;
@@ -2501,13 +3305,16 @@ shape:Continuum_label
 shape:ScenarioBasedProjection_hasComponent
         sh:name      "hasComponent"@en ;
         sh:nodeKind  sh:IRI ;
-        sh:or        ( shape:ScenarioBasedProjection_hasComponent_class_0 shape:ScenarioBasedProjection_hasComponent_class_1 shape:ScenarioBasedProjection_hasComponent_class_2 shape:ScenarioBasedProjection_hasComponent_class_3 ) ;
+        sh:or        ( shape:ScenarioBasedProjection_hasComponent_class_0 shape:ScenarioBasedProjection_hasComponent_class_1 shape:ScenarioBasedProjection_hasComponent_class_2 shape:ScenarioBasedProjection_hasComponent_class_3 shape:ScenarioBasedProjection_hasComponent_class_4 shape:ScenarioBasedProjection_hasComponent_class_5 shape:ScenarioBasedProjection_hasComponent_class_6 ) ;
         sh:path      <https://w3id.org/hacid/onto/top-level/hasComponent> .
 
 shape:VariableSpecialization_hasSelectedRegion_class_0
         sh:class  <https://w3id.org/hacid/onto/data/TemporalRegion> .
 
 shape:GlobalClimateSimulation_hasOutput_class_0
+        sh:class  <https://w3id.org/hacid/onto/ccso/SingleProjection> .
+
+shape:StatisticalProjectionTransformation_hasInput_class_1
         sh:class  <https://w3id.org/hacid/onto/ccso/SingleProjection> .
 
 shape:GeodeticRegion_asWKT
@@ -2520,6 +3327,9 @@ shape:GeodeticRegion_asWKT
 shape:EnsembleSimulation_isDownscalingOf_class_0
         sh:class  <https://w3id.org/hacid/onto/ccso/DynamicalDownscaling> .
 
+shape:Aggregation_hasInput_class_0
+        sh:class  <https://w3id.org/hacid/onto/ccso/SingleProjection> .
+
 shape:GeodeticRegion_isRegionOf
         sh:class     <https://w3id.org/hacid/onto/data/Continuum> ;
         sh:maxCount  1 ;
@@ -2529,3 +3339,10 @@ shape:GeodeticRegion_isRegionOf
 
 shape:ClimateModelIntercomparisonExperiment_label_datatype_1
         sh:datatype  xsd:string .
+
+shape:DeterministicVariable_isProbabilisticRepresentationOf
+        sh:maxCount  1 ;
+        sh:name      "isProbabilisticRepresentationOf"@en ;
+        sh:nodeKind  sh:IRI ;
+        sh:or        ( shape:DeterministicVariable_isProbabilisticRepresentationOf_class_0 shape:DeterministicVariable_isProbabilisticRepresentationOf_class_1 ) ;
+        sh:path      <https://w3id.org/hacid/onto/data/isProbabilisticRepresentationOf> .
