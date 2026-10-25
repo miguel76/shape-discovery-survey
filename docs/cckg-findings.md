@@ -6,7 +6,15 @@ latest evaluation, on the dump of 2026-10-07. Earlier dumps, the data issues fou
 their fixes are recorded in [cckg-change-log.md](cckg-change-log.md).
 
 The numbers are in [`results/cckg/summary.md`](../results/cckg/summary.md), with a per-run
-`eval.json` in each run directory. To reproduce:
+`eval.json` in each run directory. `data/cckg/kg.json` now points to the latest snapshot on
+figshare (v14, 2026-10-24), which has not been evaluated yet. To reproduce these results, set its
+`files` to the 2026-10-07 dump first:
+
+```json
+"files": [{"url": "https://github.com/miguel76/shape-discovery-survey/raw/ef64113/data/cckg/cckg_2026-10-07_10-04-53.nq.gz", "md5": "2523f7983e547bf1d46fd3c70f2bcea2"}]
+```
+
+Then run:
 
 ```sh
 make install
@@ -23,8 +31,9 @@ SHACL Play's shapes, which were validated on all the focus nodes.
 
 ## Input
 
-- **Dump:** [`data/cckg/cckg_2026-10-07_10-04-53.nq.gz`](../data/cckg): 4,613,218 quads in 15
-  named graphs. Twelve hold data (`data/cs` and `data/cs/*`); three hold the ontology modules
+- **Dump:** `cckg_2026-10-07_10-04-53.nq.gz` (MD5 `2523f7983e547bf1d46fd3c70f2bcea2`), which is
+  not among the figshare versions of CCKG. It is kept in the git history ([download](https://github.com/miguel76/shape-discovery-survey/raw/ef64113/data/cckg/cckg_2026-10-07_10-04-53.nq.gz)).
+  It has 4,613,218 quads in 15 named graphs. Twelve hold data (`data/cs` and `data/cs/*`); three hold the ontology modules
   (`onto/*`), which also give the class hierarchy.
 - **What the tools see:** the pipeline merges all graphs into one, giving 4,612,318 distinct
   triples. Of the 595,977 subjects, 595,920 are typed. There are 60 classes, including OWL/RDFS
