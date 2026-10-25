@@ -30,6 +30,8 @@ import sys
 from collections import defaultdict
 from pathlib import Path
 
+from sources import kg_files
+
 ROOT = Path(__file__).resolve().parent.parent
 RDF_TYPE = "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
 RDFS_RANGE = "http://www.w3.org/2000/01/rdf-schema#range"
@@ -91,8 +93,8 @@ def main():
     args = p.parse_args()
     kg_dir = ROOT / "data" / args.kg
     kg = json.loads((kg_dir / "kg.json").read_text())
-    dumps = [kg_dir / f for f in kg["files"]]
-    ontologies = [kg_dir / f for f in kg.get("ontologies", [])]
+    dumps = kg_files(kg_dir, kg["files"])
+    ontologies = kg_files(kg_dir, kg.get("ontologies", []))
     out_dir = args.out or ROOT / "results" / args.kg
 
     # pass 1: typed IRIs and class ranges

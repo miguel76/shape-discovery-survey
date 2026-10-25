@@ -7,7 +7,9 @@ usage: pipeline/run.py KG [--inference none|subclass|rdfs] [--tools t1,t2] [--en
 KG is a directory name under data/ holding a kg.json descriptor:
   files               RDF dump files (any serialisation Jena riot can read, possibly .gz);
                       quads are merged into a single graph (union of all named graphs,
-                      duplicates removed)
+                      duplicates removed). Entries are local file names, or remote files
+                      ({"url": ...} or {"figshare": DOI, "match": pattern}) that are
+                      downloaded to data/<KG>/download/ (see pipeline/sources.py)
   endpoint            (optional) SPARQL endpoint URL of the KG, used by --endpoint
                       unless --local-endpoint is given
   ontologies          (optional) ontology files the KG uses but does not include; they only
@@ -41,6 +43,7 @@ import urllib.request
 from pathlib import Path
 
 from regimes import REGIMES, merged_dump, merged_ontologies, regime_data, regime_turtle
+from sources import kg_files
 
 ROOT = Path(__file__).resolve().parent.parent
 TOOLS_HOME = Path(os.environ.get("TOOLS_HOME", ROOT / ".tools"))
@@ -59,11 +62,11 @@ def log(msg):
 def prepare(kg_dir, work, regime):
     """The regime's data as work/<KG>/<regime>/data.nt and data.ttl (see regimes.py)."""
     kg = json.loads((kg_dir / "kg.json").read_text())
-    sources = [kg_dir / f for f in kg.get("files", [])]
+    sources = kg_files(kg_dir, kg.get("files", []), log)
     if not sources:
         return kg, {}
     merged_dump(sources, work, log)
-    merged_ontologies([kg_dir / f for f in kg.get("ontologies", [])], work, log)
+    merged_ontologies(kg_files(kg_dir, kg.get("ontologies", []), log), work, log)
     nt = regime_data(work, regime, log)
     return kg, {"nt": nt, "ttl": regime_turtle(nt, log)}
 

@@ -2,3 +2,5 @@
 .tools/
 work/
 __pycache__/
+# KG dumps downloaded by pipeline/sources.py
+data/*/download/
