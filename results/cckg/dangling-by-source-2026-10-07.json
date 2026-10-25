@@ -1,0 +1,413 @@
+{
+  "by_source": {
+    "https://w3id.org/hacid/data/cs/ukcp18": {
+      "links": 1819811,
+      "undefined_links": 72590
+    },
+    "https://w3id.org/hacid/data/cs/cordex-cmip5/datasets": {
+      "links": 1143079,
+      "undefined_links": 78801
+    },
+    "https://w3id.org/hacid/data/cs/cmip5/datasets": {
+      "links": 253039,
+      "undefined_links": 31837
+    },
+    "https://w3id.org/hacid/data/cs/mohc-cvs": {
+      "links": 1463,
+      "undefined_links": 20
+    },
+    "https://w3id.org/hacid/data/cs/cmip6/cmor-tables": {
+      "links": 9219,
+      "undefined_links": 1
+    },
+    "https://w3id.org/hacid/data/cs": {
+      "links": 27,
+      "undefined_links": 0
+    },
+    "https://w3id.org/hacid/data/cs/cf": {
+      "links": 14689,
+      "undefined_links": 0
+    },
+    "https://w3id.org/hacid/data/cs/climdex": {
+      "links": 1035,
+      "undefined_links": 0
+    },
+    "https://w3id.org/hacid/data/cs/cmip5/cvs": {
+      "links": 93,
+      "undefined_links": 0
+    },
+    "https://w3id.org/hacid/data/cs/cordex/cvs": {
+      "links": 636,
+      "undefined_links": 0
+    },
+    "https://w3id.org/hacid/data/cs/indices": {
+      "links": 182,
+      "undefined_links": 0
+    },
+    "https://w3id.org/hacid/data/cs/variables": {
+      "links": 1272,
+      "undefined_links": 0
+    }
+  },
+  "by_family": {
+    "hacid/data/cs/variables/cf/*": {
+      "targets": 928,
+      "undefined_targets": 1,
+      "sources": [
+        "https://w3id.org/hacid/data/cs/cmip6/cmor-tables"
+      ]
+    },
+    "hacid/data/cs/simulations/cordex.*": {
+      "targets": 3970,
+      "undefined_targets": 3,
+      "sources": [
+        "https://w3id.org/hacid/data/cs/ukcp18"
+      ]
+    },
+    "hacid/data/cs/datasets/cordex.*": {
+      "targets": 151602,
+      "undefined_targets": 2202,
+      "sources": [
+        "https://w3id.org/hacid/data/cs/ukcp18"
+      ]
+    },
+    "hacid/data/cs/variables/mip/*": {
+      "targets": 1566,
+      "undefined_targets": 295,
+      "sources": [
+        "https://w3id.org/hacid/data/cs/cmip5/datasets",
+        "https://w3id.org/hacid/data/cs/cordex-cmip5/datasets",
+        "https://w3id.org/hacid/data/cs/mohc-cvs",
+        "https://w3id.org/hacid/data/cs/ukcp18"
+      ]
+    },
+    "hacid/data/cs/simulations/cmip5.*": {
+      "targets": 822,
+      "undefined_targets": 29,
+      "sources": [
+        "https://w3id.org/hacid/data/cs/cordex-cmip5/datasets",
+        "https://w3id.org/hacid/data/cs/ukcp18"
+      ]
+    },
+    "hacid/data/cs/datasets/cmip5.*": {
+      "targets": 7615,
+      "undefined_targets": 9,
+      "sources": [
+        "https://w3id.org/hacid/data/cs/ukcp18"
+      ]
+    },
+    "hacid/data/cs/cordex/grids/SAM-20/*": {
+      "targets": 2,
+      "undefined_targets": 2,
+      "sources": [
+        "https://w3id.org/hacid/data/cs/cordex-cmip5/datasets"
+      ]
+    },
+    "hacid/data/cs/cordex/grids/ARC-22/*": {
+      "targets": 2,
+      "undefined_targets": 2,
+      "sources": [
+        "https://w3id.org/hacid/data/cs/cordex-cmip5/datasets"
+      ]
+    }
+  },
+  "rows_total": 24988,
+  "rows": [
+    {
+      "source": "https://w3id.org/hacid/data/cs/ukcp18",
+      "property": "https://w3id.org/hacid/onto/data/hasOutput",
+      "range": [
+        "https://w3id.org/hacid/onto/data/Dataset"
+      ],
+      "family": "hacid/data/cs/datasets/cordex.*",
+      "links": 2869,
+      "undefined_links": 2202,
+      "targets": 2869,
+      "undefined_targets": 2202,
+      "examples": [
+        "https://w3id.org/hacid/data/cs/datasets/cordex.output.EUR-11.CLMcom-ETH.CNRM-CM5.rcp85.r1i1p1.COSMO-crCLIM-v1-1.v1.ann.clt",
+        "https://w3id.org/hacid/data/cs/datasets/cordex.output.EUR-11.CLMcom-ETH.CNRM-CM5.rcp85.r1i1p1.COSMO-crCLIM-v1-1.v1.ann.hurs",
+        "https://w3id.org/hacid/data/cs/datasets/cordex.output.EUR-11.CLMcom-ETH.CNRM-CM5.rcp85.r1i1p1.COSMO-crCLIM-v1-1.v1.ann.huss"
+      ]
+    },
+    {
+      "source": "https://w3id.org/hacid/data/cs/ukcp18",
+      "property": "https://w3id.org/hacid/onto/top-level/hasComponent",
+      "range": [
+        "https://w3id.org/hacid/onto/top-level/Entity"
+      ],
+      "family": "hacid/data/cs/datasets/cordex.*",
+      "links": 2869,
+      "undefined_links": 2202,
+      "targets": 2869,
+      "undefined_targets": 2202,
+      "examples": [
+        "https://w3id.org/hacid/data/cs/datasets/cordex.output.EUR-11.CLMcom-ETH.CNRM-CM5.rcp85.r1i1p1.COSMO-crCLIM-v1-1.v1.ann.clt",
+        "https://w3id.org/hacid/data/cs/datasets/cordex.output.EUR-11.CLMcom-ETH.CNRM-CM5.rcp85.r1i1p1.COSMO-crCLIM-v1-1.v1.ann.hurs",
+        "https://w3id.org/hacid/data/cs/datasets/cordex.output.EUR-11.CLMcom-ETH.CNRM-CM5.rcp85.r1i1p1.COSMO-crCLIM-v1-1.v1.ann.huss"
+      ]
+    },
+    {
+      "source": "https://w3id.org/hacid/data/cs/cordex-cmip5/datasets",
+      "property": "https://w3id.org/hacid/onto/data/holdsSpecializationOfVariable",
+      "range": [
+        "https://w3id.org/hacid/onto/data/Variable"
+      ],
+      "family": "hacid/data/cs/variables/mip/*",
+      "links": 142075,
+      "undefined_links": 38444,
+      "targets": 209,
+      "undefined_targets": 138,
+      "examples": [
+        "https://w3id.org/hacid/data/cs/variables/mip/aclwdnt",
+        "https://w3id.org/hacid/data/cs/variables/mip/alb",
+        "https://w3id.org/hacid/data/cs/variables/mip/apet"
+      ]
+    },
+    {
+      "source": "https://w3id.org/hacid/data/cs/cordex-cmip5/datasets",
+      "property": "https://w3id.org/hacid/onto/data/isSpecializationOfVariable",
+      "range": [
+        "https://w3id.org/hacid/onto/data/Variable"
+      ],
+      "family": "hacid/data/cs/variables/mip/*",
+      "links": 145461,
+      "undefined_links": 39982,
+      "targets": 209,
+      "undefined_targets": 138,
+      "examples": [
+        "https://w3id.org/hacid/data/cs/variables/mip/aclwdnt",
+        "https://w3id.org/hacid/data/cs/variables/mip/alb",
+        "https://w3id.org/hacid/data/cs/variables/mip/apet"
+      ]
+    },
+    {
+      "source": "https://w3id.org/hacid/data/cs/cmip5/datasets",
+      "property": "https://w3id.org/hacid/onto/data/holdsSpecializationOfVariable",
+      "range": [
+        "https://w3id.org/hacid/onto/data/Variable"
+      ],
+      "family": "hacid/data/cs/variables/mip/*",
+      "links": 205475,
+      "undefined_links": 31837,
+      "targets": 546,
+      "undefined_targets": 122,
+      "examples": [
+        "https://w3id.org/hacid/data/cs/variables/mip/ageice",
+        "https://w3id.org/hacid/data/cs/variables/mip/albs",
+        "https://w3id.org/hacid/data/cs/variables/mip/bmelt"
+      ]
+    },
+    {
+      "source": "https://w3id.org/hacid/data/cs/ukcp18",
+      "property": "https://w3id.org/hacid/onto/data/holdsSpecializationOfVariable",
+      "range": [
+        "https://w3id.org/hacid/onto/data/Variable"
+      ],
+      "family": "hacid/data/cs/variables/mip/*",
+      "links": 1917,
+      "undefined_links": 273,
+      "targets": 46,
+      "undefined_targets": 23,
+      "examples": [
+        "https://w3id.org/hacid/data/cs/variables/mip/air_pressure_at_sea_level",
+        "https://w3id.org/hacid/data/cs/variables/mip/air_temperature",
+        "https://w3id.org/hacid/data/cs/variables/mip/beta"
+      ]
+    },
+    {
+      "source": "https://w3id.org/hacid/data/cs/ukcp18",
+      "property": "https://w3id.org/hacid/onto/data/isSpecializationOfVariable",
+      "range": [
+        "https://w3id.org/hacid/onto/data/Variable"
+      ],
+      "family": "hacid/data/cs/variables/mip/*",
+      "links": 416260,
+      "undefined_links": 67883,
+      "targets": 46,
+      "undefined_targets": 23,
+      "examples": [
+        "https://w3id.org/hacid/data/cs/variables/mip/air_pressure_at_sea_level",
+        "https://w3id.org/hacid/data/cs/variables/mip/air_temperature",
+        "https://w3id.org/hacid/data/cs/variables/mip/beta"
+      ]
+    },
+    {
+      "source": "https://w3id.org/hacid/data/cs/cordex-cmip5/datasets",
+      "property": "https://w3id.org/hacid/onto/ccso/isDownscalingOf",
+      "range": [
+        "https://w3id.org/hacid/onto/ccso/ProjectionProduction"
+      ],
+      "family": "hacid/data/cs/simulations/cmip5.*",
+      "links": 2041,
+      "undefined_links": 131,
+      "targets": 157,
+      "undefined_targets": 21,
+      "examples": [
+        "https://w3id.org/hacid/data/cs/simulations/cmip5.BNU-ESM.historical.r1i1p1",
+        "https://w3id.org/hacid/data/cs/simulations/cmip5.BNU-ESM.rcp45.r1i1p1",
+        "https://w3id.org/hacid/data/cs/simulations/cmip5.BNU-ESM.rcp85.r1i1p1"
+      ]
+    },
+    {
+      "source": "https://w3id.org/hacid/data/cs/mohc-cvs",
+      "property": "https://w3id.org/hacid/onto/data/derivedFromVariable",
+      "range": [
+        "https://w3id.org/hacid/onto/data/Variable"
+      ],
+      "family": "hacid/data/cs/variables/mip/*",
+      "links": 179,
+      "undefined_links": 20,
+      "targets": 33,
+      "undefined_targets": 14,
+      "examples": [
+        "https://w3id.org/hacid/data/cs/variables/mip/change_in_mean_sea_level_wrt_solid_surface",
+        "https://w3id.org/hacid/data/cs/variables/mip/mrso%20",
+        "https://w3id.org/hacid/data/cs/variables/mip/non_tidal_elevation_of_sea_surface_height"
+      ]
+    },
+    {
+      "source": "https://w3id.org/hacid/data/cs/ukcp18",
+      "property": "https://w3id.org/hacid/onto/data/hasOutput",
+      "range": [
+        "https://w3id.org/hacid/onto/data/Dataset"
+      ],
+      "family": "hacid/data/cs/datasets/cmip5.*",
+      "links": 26,
+      "undefined_links": 9,
+      "targets": 26,
+      "undefined_targets": 9,
+      "examples": [
+        "https://w3id.org/hacid/data/cs/datasets/cmip5.ACCESS1-3.rcp26.r1i1p1.output1",
+        "https://w3id.org/hacid/data/cs/datasets/cmip5.BCC-CSM1-1.rcp26.r1i1p1.output1",
+        "https://w3id.org/hacid/data/cs/datasets/cmip5.BCC-CSM1-1.rcp85.r1i1p1.output1"
+      ]
+    },
+    {
+      "source": "https://w3id.org/hacid/data/cs/ukcp18",
+      "property": "https://w3id.org/hacid/onto/top-level/hasComponent",
+      "range": [
+        "https://w3id.org/hacid/onto/top-level/Entity"
+      ],
+      "family": "hacid/data/cs/datasets/cmip5.*",
+      "links": 26,
+      "undefined_links": 9,
+      "targets": 26,
+      "undefined_targets": 9,
+      "examples": [
+        "https://w3id.org/hacid/data/cs/datasets/cmip5.ACCESS1-3.rcp26.r1i1p1.output1",
+        "https://w3id.org/hacid/data/cs/datasets/cmip5.BCC-CSM1-1.rcp26.r1i1p1.output1",
+        "https://w3id.org/hacid/data/cs/datasets/cmip5.BCC-CSM1-1.rcp85.r1i1p1.output1"
+      ]
+    },
+    {
+      "source": "https://w3id.org/hacid/data/cs/ukcp18",
+      "property": "https://w3id.org/hacid/onto/top-level/hasComponent",
+      "range": [
+        "https://w3id.org/hacid/onto/top-level/Entity"
+      ],
+      "family": "hacid/data/cs/simulations/cmip5.*",
+      "links": 26,
+      "undefined_links": 9,
+      "targets": 26,
+      "undefined_targets": 9,
+      "examples": [
+        "https://w3id.org/hacid/data/cs/simulations/cmip5.ACCESS1-3.rcp26.r1i1p1",
+        "https://w3id.org/hacid/data/cs/simulations/cmip5.BCC-CSM1-1.rcp26.r1i1p1",
+        "https://w3id.org/hacid/data/cs/simulations/cmip5.BCC-CSM1-1.rcp85.r1i1p1"
+      ]
+    },
+    {
+      "source": "https://w3id.org/hacid/data/cs/ukcp18",
+      "property": "https://w3id.org/hacid/onto/top-level/hasComponent",
+      "range": [
+        "https://w3id.org/hacid/onto/top-level/Entity"
+      ],
+      "family": "hacid/data/cs/simulations/cordex.*",
+      "links": 64,
+      "undefined_links": 3,
+      "targets": 64,
+      "undefined_targets": 3,
+      "examples": [
+        "https://w3id.org/hacid/data/cs/simulations/cordex.EUR-11.CNRM-CM5.rcp85.RegCM4-6.v1.r1i1p1",
+        "https://w3id.org/hacid/data/cs/simulations/cordex.EUR-11.EC-EARTH.rcp85.REMO2015.v1.r12i1p1",
+        "https://w3id.org/hacid/data/cs/simulations/cordex.EUR-11.HadGEM2-ES.rcp85.REMO2015.v1.r1i1p1"
+      ]
+    },
+    {
+      "source": "https://w3id.org/hacid/data/cs/cmip6/cmor-tables",
+      "property": "https://w3id.org/hacid/onto/data/isSpecializationOfVariable",
+      "range": [
+        "https://w3id.org/hacid/onto/data/Variable"
+      ],
+      "family": "hacid/data/cs/variables/cf/*",
+      "links": 1271,
+      "undefined_links": 1,
+      "targets": 928,
+      "undefined_targets": 1,
+      "examples": [
+        "https://w3id.org/hacid/data/cs/variables/cf/isotope_ratio_of_2H_to_1H_in_sea_water_excluding_solutes_and_solids"
+      ]
+    },
+    {
+      "source": "https://w3id.org/hacid/data/cs/cordex-cmip5/datasets",
+      "property": "https://w3id.org/hacid/onto/data/dependsOnVariable",
+      "range": [
+        "https://w3id.org/hacid/onto/data/Variable"
+      ],
+      "family": "hacid/data/cs/cordex/grids/ARC-22/*",
+      "links": 61,
+      "undefined_links": 61,
+      "targets": 1,
+      "undefined_targets": 1,
+      "examples": [
+        "https://w3id.org/hacid/data/cs/cordex/grids/ARC-22/ds"
+      ]
+    },
+    {
+      "source": "https://w3id.org/hacid/data/cs/cordex-cmip5/datasets",
+      "property": "https://w3id.org/hacid/onto/data/dependsOnVariable",
+      "range": [
+        "https://w3id.org/hacid/onto/data/Variable"
+      ],
+      "family": "hacid/data/cs/cordex/grids/SAM-20/*",
+      "links": 61,
+      "undefined_links": 61,
+      "targets": 1,
+      "undefined_targets": 1,
+      "examples": [
+        "https://w3id.org/hacid/data/cs/cordex/grids/SAM-20/ds"
+      ]
+    },
+    {
+      "source": "https://w3id.org/hacid/data/cs/cordex-cmip5/datasets",
+      "property": "https://w3id.org/hacid/onto/data/isSpecializedAccordingTo",
+      "range": [
+        "https://w3id.org/hacid/onto/data/VariableSpecialization"
+      ],
+      "family": "hacid/data/cs/cordex/grids/ARC-22/*",
+      "links": 61,
+      "undefined_links": 61,
+      "targets": 1,
+      "undefined_targets": 1,
+      "examples": [
+        "https://w3id.org/hacid/data/cs/cordex/grids/ARC-22/specialization"
+      ]
+    },
+    {
+      "source": "https://w3id.org/hacid/data/cs/cordex-cmip5/datasets",
+      "property": "https://w3id.org/hacid/onto/data/isSpecializedAccordingTo",
+      "range": [
+        "https://w3id.org/hacid/onto/data/VariableSpecialization"
+      ],
+      "family": "hacid/data/cs/cordex/grids/SAM-20/*",
+      "links": 61,
+      "undefined_links": 61,
+      "targets": 1,
+      "undefined_targets": 1,
+      "examples": [
+        "https://w3id.org/hacid/data/cs/cordex/grids/SAM-20/specialization"
+      ]
+    }
+  ]
+}

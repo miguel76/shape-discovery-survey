@@ -20,7 +20,8 @@ For each (source, property, family) it reports the links and distinct targets, a
 many of them are undefined. Rows with no undefined target are summarised per source only.
 Ranges and types are read from all the dump files and from the KG's ontology files.
 
-Writes results/<KG>/dangling-by-source.md and dangling-by-source.json.
+Writes results/<KG>/dangling-by-source.md and dangling-by-source.json (rows with undefined
+targets only).
 """
 import argparse
 import gzip
@@ -136,8 +137,11 @@ def main():
                  for fam, f in families.items() if f[1]}
 
     out_dir.mkdir(parents=True, exist_ok=True)
+    # only the rows with undefined targets: with deeply nested IRIs (e.g. time intervals) there
+    # can be hundreds of thousands of families, which the totals by source already summarise
     (out_dir / "dangling-by-source.json").write_text(json.dumps(
-        {"by_source": by_source, "by_family": by_family, "rows": rows}, indent=2) + "\n")
+        {"by_source": by_source, "by_family": by_family, "rows_total": len(rows),
+         "rows": [r for r in rows if r["undefined_targets"]]}, indent=2) + "\n")
     write_markdown(out_dir / "dangling-by-source.md", args.kg, by_source, by_family, rows, args.min_undefined)
     print((out_dir / "dangling-by-source.md").read_text())
 
