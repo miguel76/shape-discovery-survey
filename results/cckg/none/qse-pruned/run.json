@@ -10,8 +10,8 @@
   ],
   "exit_code": 0,
   "timed_out": false,
-  "wall_seconds": 57.93,
-  "cpu_seconds": 89.73,
-  "peak_rss_mb": 2824.6,
+  "wall_seconds": 59.74,
+  "cpu_seconds": 90.57,
+  "peak_rss_mb": 3950.9,
   "has_output": true
 }
