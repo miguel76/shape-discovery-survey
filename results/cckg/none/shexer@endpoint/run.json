@@ -1,0 +1,17 @@
+{
+  "tool": "shexer",
+  "mode": "endpoint",
+  "source": "http://localhost:3030/kg/sparql",
+  "command": [
+    "tools/shexer/run.sh",
+    "endpoint",
+    "http://localhost:3030/kg/sparql",
+    "results/cckg/none/shexer@endpoint"
+  ],
+  "exit_code": 0,
+  "timed_out": false,
+  "wall_seconds": 3353.79,
+  "cpu_seconds": 1960.63,
+  "peak_rss_mb": 8845.3,
+  "has_output": true
+}
