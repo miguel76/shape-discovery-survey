@@ -11,7 +11,7 @@ Shapes extracted and validated under the `subclass` regime (see `pipeline/regime
 | qse+factored | 0 | 98.19 | 5874.4 | 92 | 510 | 425 | 289 | sh:NodeKind | 1 |
 | qse-pruned+factored | 0 | 103.49 | 5864.2 | 47 | 165 | 122 | 80 | sh:NodeKind | 1 |
 | shacl-play | 0 | 6157.9 | 5386.2 | 93 | 855 | 855 | 786 | - | 0 |
-| shacl-play+factored | 0 | 4249.76 | 5250.7 | 65 | 220 | 220 | 159 | - | 0 |
+| shacl-play+factored | 0 | 6157.9 | 5386.2 | 71 | 257 | 257 | 188 | - | 0 |
 | shexer+factored | 0 | 355.47 | 3495.2 | 72 | 817 | 418 | 282 | sh:dataType | 0 |
 
 ## Constraint components used (number of shapes using each)
@@ -21,7 +21,7 @@ Shapes extracted and validated under the `subclass` regime (see `pipeline/regime
 | qse+factored | 1820 | 184 |  | 92 |  | 196 | 92 | 221 |  | 247 |
 | qse-pruned+factored | 574 | 37 |  | 47 |  | 57 | 27 | 52 |  | 63 |
 | shacl-play | 4592 | 370 | 20 | 48 | 98 | 588 | 141 |  | 855 | 607 |
-| shacl-play+factored | 2878 | 178 | 9 | 27 | 26 | 69 | 52 |  | 61 | 111 |
+| shacl-play+factored | 4587 | 191 | 12 | 38 | 31 | 90 | 58 |  | 69 | 124 |
 | shexer+factored |  |  |  | 390 |  | 648 | 475 | 183 | 39 |  |
 
 ## Validating the KG against the extracted shapes
@@ -31,7 +31,7 @@ Shapes extracted and validated under the `subclass` regime (see `pipeline/regime
 | qse+factored (sample: 13339/595920 focus nodes) | False | 1205954 | 13338 | sh:InConstraintComponent: 803805, sh:NodeConstraintComponent: 319757, sh:MaxCountConstraintComponent: 82171, sh:MinCountConstraintComponent: 209, sh:ClassConstraintComponent: 12 | - |
 | qse-pruned+factored (sample: 52274/595725 focus nodes) | False | 4465919 | 52267 | sh:InConstraintComponent: 3153154, sh:NodeConstraintComponent: 994773, sh:MaxCountConstraintComponent: 316626, sh:MinCountConstraintComponent: 647, sh:DatatypeConstraintComponent: 461, sh:OrConstraintComponent: 248, sh:ClassConstraintComponent: 10 | - |
 | shacl-play | True | 0 | 0 | - | - |
-| shacl-play+factored | False | 185370 | 114585 | sh:OrConstraintComponent: 185370 | - |
+| shacl-play+factored | True | 0 | 0 | - | - |
 | shexer+factored (sample: 11782/595920 focus nodes) | False | 17506273 | 11778 | sh:InConstraintComponent: 15511945, sh:MaxCountConstraintComponent: 1940055, sh:NodeConstraintComponent: 54273 | - |
 
 ## Factoring along the class hierarchy
@@ -40,4 +40,4 @@ Each `+factored` run holds the shapes of the run above with the constraints impl
 
 | run | constraints | removed | property shapes | node shapes | shapes left intact (referenced / sibling-dependent / other targets) | nodes flagged (original → factored) | violations (original → factored) |
 |---|---|---|---|---|---|---|---|
-| shacl-play | 2,599 | 2,119 (82%) | 855 → 220 | 93 → 65 | 0 / 0 / 0 | 0 (0.0%) → 114,585 (19.2%) | 0 → 185,370 |
+| shacl-play | 2,599 | 2,119 (82%) | 855 → 257 | 93 → 71 | 0 / 0 / 0 | 0 (0.0%) → 0 (0.0%) | 0 → 0 |
