@@ -1,0 +1,60 @@
+{
+  "run": "shacl-play",
+  "tool": "shacl-play",
+  "mode": "file",
+  "source": "work/cckg/none/data.nt",
+  "command": [
+    "tools/shacl-play/run.sh",
+    "file",
+    "work/cckg/none/data.nt",
+    "results/cckg/none/shacl-play"
+  ],
+  "exit_code": 0,
+  "timed_out": false,
+  "wall_seconds": 304.4,
+  "cpu_seconds": 351.98,
+  "peak_rss_mb": 4501.0,
+  "has_output": true,
+  "syntax": "ok",
+  "non_shacl_terms": [],
+  "well_formedness": {
+    "conforms": true,
+    "violations": 0,
+    "focus_nodes": 0,
+    "by_component": {}
+  },
+  "profile": {
+    "triples": 3462,
+    "node_shapes": 56,
+    "property_shapes": 296,
+    "class_path_pairs": 296,
+    "pairs_repeated_from_superclass": 143,
+    "constraint_usage": {
+      "sh:class": 304,
+      "sh:datatype": 122,
+      "sh:hasValue": 17,
+      "sh:in": 41,
+      "sh:languageIn": 58,
+      "sh:maxCount": 221,
+      "sh:minCount": 121,
+      "sh:nodeKind": 296,
+      "sh:or": 83
+    }
+  },
+  "self_validation": {
+    "conforms": false,
+    "violations": 18,
+    "focus_nodes": 9,
+    "validated_focus_nodes": 605417,
+    "target_focus_nodes": 605417,
+    "partial": false,
+    "seconds": 90,
+    "by_component": {
+      "sh:OrConstraintComponent": 18
+    },
+    "top_path_components": {
+      "<https://w3id.org/hacid/onto/data/isProbabilisticRepresentationOf> sh:OrConstraintComponent": 18
+    }
+  },
+  "inference": "none"
+}

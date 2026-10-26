@@ -1,0 +1,58 @@
+{
+  "run": "shaclgen",
+  "tool": "shaclgen",
+  "mode": "file",
+  "source": "work/cckg/none/data.nt",
+  "command": [
+    "tools/shaclgen/run.sh",
+    "file",
+    "work/cckg/none/data.nt",
+    "results/cckg/none/shaclgen"
+  ],
+  "exit_code": 0,
+  "timed_out": false,
+  "wall_seconds": 3068.14,
+  "cpu_seconds": 3032.83,
+  "peak_rss_mb": 7009.3,
+  "has_output": true,
+  "syntax": "ok",
+  "non_shacl_terms": [],
+  "well_formedness": {
+    "conforms": true,
+    "violations": 0,
+    "focus_nodes": 0,
+    "by_component": {}
+  },
+  "profile": {
+    "triples": 1315,
+    "node_shapes": 68,
+    "property_shapes": 99,
+    "class_path_pairs": 381,
+    "pairs_repeated_from_superclass": 143,
+    "constraint_usage": {
+      "sh:class": 151,
+      "sh:datatype": 18,
+      "sh:nodeKind": 162,
+      "sh:or": 29
+    }
+  },
+  "self_validation": {
+    "conforms": false,
+    "violations": 28,
+    "focus_nodes": 28,
+    "validated_focus_nodes": 605919,
+    "target_focus_nodes": 605919,
+    "partial": false,
+    "seconds": 223,
+    "by_component": {
+      "sh:OrConstraintComponent": 27,
+      "sh:ClassConstraintComponent": 1
+    },
+    "top_path_components": {
+      "<http://www.w3.org/2002/07/owl#onProperty> sh:OrConstraintComponent": 14,
+      "<http://www.w3.org/2000/01/rdf-schema#range> sh:OrConstraintComponent": 13,
+      "<http://www.w3.org/2002/07/owl#imports> sh:ClassConstraintComponent": 1
+    }
+  },
+  "inference": "none"
+}

@@ -8,37 +8,37 @@ Shapes extracted and validated under the `none` regime (see `pipeline/regimes.py
 
 | run | exit | wall s | peak RSS MB | node shapes | property shapes | (class, path) pairs | of which also on a superclass | non-SHACL terms | SHACL-SHACL violations |
 |---|---|---|---|---|---|---|---|---|---|
-| linkml-schema-automator | 0 | 818.76 | 7232.7 | 60 | 423 | 363 | 148 | - | 0 |
-| qse | 0 | 64.52 | 2743.0 | 60 | 363 | 303 | 110 | sh:NodeKind | 0 |
-| qse-pruned | 0 | 57.93 | 2824.6 | 21 | 119 | 98 | 26 | sh:NodeKind | 0 |
-| shacl-play | 0 | 207.12 | 3431.8 | 49 | 228 | 228 | 110 | - | 0 |
-| shacl-play@endpoint | 0 | 197.19 | 228.4 | 49 | 228 | 228 | 110 | - | 0 |
-| shaclgen | 0 | 2556.98 | 5986.1 | 60 | 90 | 303 | 110 | - | 0 |
-| shexer | 0 | 150.88 | 1639.9 | 60 | 408 | 303 | 110 | sh:dataType | 0 |
-| shexer@endpoint | 0 | 2845.77 | 7737.3 | 59 | 404 | 291 | 110 | sh:dataType | 0 |
+| linkml-schema-automator | 0 | 947.39 | 8527.4 | 67 | 515 | 448 | 179 | - | 0 |
+| qse | 0 | 60.53 | 3189.5 | 67 | 448 | 386 | 143 | sh:NodeKind | 1 |
+| qse-pruned | 0 | 59.74 | 3950.9 | 25 | 144 | 119 | 33 | sh:NodeKind | 0 |
+| shacl-play | 0 | 304.4 | 4501.0 | 56 | 296 | 296 | 143 | - | 0 |
+| shacl-play@endpoint | 0 | 261.79 | 233.9 | 56 | 296 | 296 | 143 | - | 0 |
+| shaclgen | 0 | 3068.14 | 7009.3 | 68 | 99 | 381 | 143 | - | 0 |
+| shexer | 0 | 117.4 | 1694.8 | 68 | 518 | 381 | 143 | sh:dataType | 0 |
+| shexer@endpoint | 0 | 3353.79 | 8845.3 | 67 | 514 | 369 | 143 | sh:dataType | 0 |
 
 ## Constraint components used (number of shapes using each)
 
 | run | sh:class | sh:closed | sh:datatype | sh:hasValue | sh:in | sh:languageIn | sh:maxCount | sh:minCount | sh:node | sh:nodeKind | sh:or |
 |---|---|---|---|---|---|---|---|---|---|---|---|
-| linkml-schema-automator |  | 60 | 297 |  | 63 |  | 292 |  |  | 297 |  |
-| qse | 269 |  | 140 |  | 60 |  | 249 | 126 | 167 |  | 95 |
-| qse-pruned | 93 |  | 30 |  | 21 |  | 82 | 31 | 44 |  | 27 |
-| shacl-play | 195 |  | 110 | 12 | 35 | 46 | 167 | 101 |  | 228 | 51 |
-| shacl-play@endpoint | 195 |  | 110 | 12 | 35 | 46 | 167 | 101 |  | 228 | 51 |
-| shaclgen | 115 |  | 18 |  |  |  |  |  |  | 145 | 22 |
-| shexer |  |  |  |  | 102 |  | 330 | 234 | 131 | 38 |  |
-| shexer@endpoint |  |  |  |  | 101 |  | 325 | 229 | 130 | 36 |  |
+| linkml-schema-automator |  | 67 | 379 |  | 63 |  | 351 |  |  | 379 |  |
+| qse | 400 |  | 155 |  | 67 |  | 292 | 153 | 228 |  | 125 |
+| qse-pruned | 122 |  | 39 |  | 25 |  | 93 | 35 | 59 |  | 38 |
+| shacl-play | 304 |  | 122 | 17 | 41 | 58 | 221 | 121 |  | 296 | 83 |
+| shacl-play@endpoint | 304 |  | 122 | 17 | 41 | 58 | 221 | 121 |  | 296 | 83 |
+| shaclgen | 151 |  | 18 |  |  |  |  |  |  | 162 | 29 |
+| shexer |  |  |  |  | 134 |  | 428 | 292 | 203 | 27 |  |
+| shexer@endpoint |  |  |  |  | 133 |  | 423 | 287 | 202 | 25 |  |
 
 ## Validating the KG against the extracted shapes
 
 | run | conforms | violations | focus nodes | by component | reference violations also found |
 |---|---|---|---|---|---|
-| linkml-schema-automator | False | 9844910 | 595920 | sh:DatatypeConstraintComponent: 3576364, sh:NodeKindConstraintComponent: 3117701, sh:InConstraintComponent: 2487865, sh:MaxCountConstraintComponent: 662970, sh:ClosedConstraintComponent: 10 | - |
-| qse | False | 4600222 | 590338 | sh:NodeConstraintComponent: 3216953, sh:MaxCountConstraintComponent: 1055446, sh:InConstraintComponent: 324570, sh:MinCountConstraintComponent: 3149, sh:ClassConstraintComponent: 104 | - |
-| qse-pruned | False | 3560890 | 586035 | sh:NodeConstraintComponent: 2191874, sh:MaxCountConstraintComponent: 1028534, sh:InConstraintComponent: 324523, sh:OrConstraintComponent: 6928, sh:DatatypeConstraintComponent: 5556, sh:MinCountConstraintComponent: 2666, sh:ClassConstraintComponent: 809 | - |
-| shacl-play | False | 298318 | 114585 | sh:ClassConstraintComponent: 289348, sh:OrConstraintComponent: 8970 | - |
-| shacl-play@endpoint | False | 298318 | 114585 | sh:ClassConstraintComponent: 289348, sh:OrConstraintComponent: 8970 | - |
-| shaclgen | False | 298346 | 114613 | sh:OrConstraintComponent: 150253, sh:ClassConstraintComponent: 148093 | - |
-| shexer | False | 2911715 | 589732 | sh:InConstraintComponent: 1730703, sh:MaxCountConstraintComponent: 1035712, sh:NodeConstraintComponent: 145300 | - |
-| shexer@endpoint | False | 2912216 | 589902 | sh:InConstraintComponent: 1730703, sh:MaxCountConstraintComponent: 1035712, sh:NodeConstraintComponent: 145784, sh:NodeKindConstraintComponent: 17 | - |
+| linkml-schema-automator | False | 12268117 | 605840 | sh:DatatypeConstraintComponent: 4707705, sh:NodeKindConstraintComponent: 4189186, sh:InConstraintComponent: 2590042, sh:MaxCountConstraintComponent: 781174, sh:ClosedConstraintComponent: 10 | - |
+| qse | False | 2925450 | 600533 | sh:NodeConstraintComponent: 1343684, sh:MaxCountConstraintComponent: 1114595, sh:InConstraintComponent: 459849, sh:MinCountConstraintComponent: 7255, sh:ClassConstraintComponent: 67 | - |
+| qse-pruned | False | 3932942 | 596244 | sh:NodeConstraintComponent: 2377224, sh:MaxCountConstraintComponent: 1084300, sh:InConstraintComponent: 455921, sh:DatatypeConstraintComponent: 12396, sh:MinCountConstraintComponent: 2507, sh:ClassConstraintComponent: 387, sh:OrConstraintComponent: 207 | - |
+| shacl-play | False | 18 | 9 | sh:OrConstraintComponent: 18 | - |
+| shacl-play@endpoint | False | 18 | 9 | sh:OrConstraintComponent: 18 | - |
+| shaclgen | False | 28 | 28 | sh:OrConstraintComponent: 27, sh:ClassConstraintComponent: 1 | - |
+| shexer | False | 7156116 | 599909 | sh:NodeConstraintComponent: 3082152, sh:InConstraintComponent: 2470102, sh:MaxCountConstraintComponent: 1603862 | - |
+| shexer@endpoint | False | 7099703 | 599943 | sh:NodeConstraintComponent: 3025722, sh:InConstraintComponent: 2470102, sh:MaxCountConstraintComponent: 1603862, sh:NodeKindConstraintComponent: 17 | - |
