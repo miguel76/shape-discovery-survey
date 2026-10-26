@@ -1,0 +1,105 @@
+{
+  "run": "qse",
+  "tool": "qse",
+  "mode": "file",
+  "source": "work/cckg/subclass/data.nt",
+  "command": [
+    "tools/qse/run.sh",
+    "file",
+    "work/cckg/subclass/data.nt",
+    "results/cckg/subclass/qse"
+  ],
+  "exit_code": 0,
+  "timed_out": false,
+  "wall_seconds": 126.85,
+  "cpu_seconds": 216.03,
+  "peak_rss_mb": 6863.8,
+  "has_output": true,
+  "syntax": "ok",
+  "non_shacl_terms": [
+    "sh:NodeKind"
+  ],
+  "well_formedness": {
+    "conforms": false,
+    "violations": 2,
+    "focus_nodes": 2,
+    "by_component": {
+      "sh:MaxCountConstraintComponent": 2
+    }
+  },
+  "profile": {
+    "triples": 39314,
+    "node_shapes": 103,
+    "property_shapes": 1037,
+    "class_path_pairs": 946,
+    "pairs_repeated_from_superclass": 787,
+    "constraint_usage": {
+      "sh:class": 5263,
+      "sh:datatype": 383,
+      "sh:in": 103,
+      "sh:maxCount": 376,
+      "sh:minCount": 183,
+      "sh:node": 593,
+      "sh:or": 641
+    }
+  },
+  "self_validation": {
+    "conforms": false,
+    "violations": 1843812,
+    "focus_nodes": 13080,
+    "validated_focus_nodes": 13080,
+    "target_focus_nodes": 605919,
+    "partial": true,
+    "seconds": 601,
+    "by_component": {
+      "sh:InConstraintComponent": 1314983,
+      "sh:NodeConstraintComponent": 528053,
+      "sh:MinCountConstraintComponent": 755,
+      "sh:MaxCountConstraintComponent": 15,
+      "sh:ClassConstraintComponent": 6
+    },
+    "top_path_components": {
+      "<http://www.w3.org/1999/02/22-rdf-syntax-ns#type> sh:InConstraintComponent": 1314983,
+      "<https://w3id.org/hacid/onto/data/isSpecializedAccordingTo> sh:NodeConstraintComponent": 166567,
+      "<https://w3id.org/hacid/onto/data/dependsOnVariable> sh:NodeConstraintComponent": 137669,
+      "<https://w3id.org/hacid/onto/data/isSpecializationOfVariable> sh:NodeConstraintComponent": 66367,
+      "<https://w3id.org/hacid/onto/data/holdsSpecializationOfVariable> sh:NodeConstraintComponent": 45347,
+      "<https://w3id.org/hacid/onto/data/hasRescaledVersion> sh:NodeConstraintComponent": 38032,
+      "<https://w3id.org/hacid/onto/top-level/hasComponent> sh:NodeConstraintComponent": 37912,
+      "<https://w3id.org/hacid/onto/ccso/refersToScenario> sh:NodeConstraintComponent": 25721,
+      "<https://w3id.org/hacid/onto/data/hasOutput> sh:NodeConstraintComponent": 1714,
+      "<https://w3id.org/hacid/onto/ccso/usesModel> sh:NodeConstraintComponent": 1119,
+      "<https://w3id.org/hacid/onto/data/hasInput> sh:NodeConstraintComponent": 999,
+      "<https://w3id.org/hacid/onto/data/hasValuesOn> sh:NodeConstraintComponent": 951,
+      "<https://w3id.org/hacid/onto/data/basedOnDimensionalSpace> sh:NodeConstraintComponent": 814,
+      "<https://w3id.org/hacid/onto/top-level/isMemberOf> sh:NodeConstraintComponent": 771,
+      "<https://w3id.org/hacid/onto/data/hasExactBoundingRegion> sh:NodeConstraintComponent": 752,
+      "<https://w3id.org/hacid/onto/data/adoptsQuantization> sh:NodeConstraintComponent": 648,
+      "<http://www.w3.org/2000/01/rdf-schema#comment> sh:MinCountConstraintComponent": 646,
+      "<https://w3id.org/hacid/onto/ccso/isDownscalingOf> sh:NodeConstraintComponent": 520,
+      "<https://w3id.org/hacid/onto/top-level/hasUnitOfMeasure> sh:NodeConstraintComponent": 481,
+      "<https://w3id.org/hacid/onto/data/isSpecializationOn> sh:NodeConstraintComponent": 399,
+      "<https://w3id.org/hacid/onto/data/hasSelectedRegion> sh:NodeConstraintComponent": 399,
+      "<https://w3id.org/hacid/onto/data/isEquivalentTo> sh:NodeConstraintComponent": 248,
+      "<https://w3id.org/hacid/onto/data/isLinearTransformationOf> sh:NodeConstraintComponent": 231,
+      "<https://w3id.org/hacid/onto/data/derivedFromVariable> sh:NodeConstraintComponent": 208,
+      "<https://w3id.org/hacid/onto/data/hasSuggestedQuantization> sh:MinCountConstraintComponent": 43,
+      "<https://w3id.org/hacid/onto/data/aggregatesVariable> sh:MinCountConstraintComponent": 43,
+      "<https://w3id.org/hacid/onto/top-level/isClassifiedBy> sh:NodeConstraintComponent": 40,
+      "<https://w3id.org/hacid/onto/ccso/isMaintainedBy> sh:NodeConstraintComponent": 30,
+      "<https://w3id.org/hacid/onto/top-level/isSpecializedBy> sh:NodeConstraintComponent": 25,
+      "<https://w3id.org/hacid/onto/data/definesAggregation> sh:NodeConstraintComponent": 12,
+      "<https://w3id.org/hacid/onto/top-level/inScheme> sh:NodeConstraintComponent": 12,
+      "<http://www.w3.org/2000/01/rdf-schema#isDefinedBy> sh:NodeConstraintComponent": 11,
+      "<https://w3id.org/hacid/onto/ccso/refersToGlobalWarmingLevel> sh:NodeConstraintComponent": 10,
+      "<https://w3id.org/hacid/onto/data/hasReferencePoint> sh:NodeConstraintComponent": 9,
+      "<http://www.w3.org/2000/01/rdf-schema#domain> sh:NodeConstraintComponent": 7,
+      "<https://w3id.org/hacid/onto/top-level/definesRole> sh:NodeConstraintComponent": 7,
+      "<http://www.opengis.net/ont/geosparql#asWKT> sh:ClassConstraintComponent": 6,
+      "<https://w3id.org/hacid/onto/top-level/altLabel> sh:MaxCountConstraintComponent": 6,
+      "<https://w3id.org/hacid/onto/data/isProbabilisticRepresentationOf> sh:NodeConstraintComponent": 6,
+      "<http://www.w3.org/2002/07/owl#propertyChainAxiom> sh:MinCountConstraintComponent": 6
+    }
+  },
+  "inference": "subclass"
+}
