@@ -11,9 +11,9 @@
   ],
   "exit_code": 0,
   "timed_out": false,
-  "wall_seconds": 2556.98,
-  "cpu_seconds": 2518.56,
-  "peak_rss_mb": 5986.1,
+  "wall_seconds": 3068.14,
+  "cpu_seconds": 3032.83,
+  "peak_rss_mb": 7009.3,
   "has_output": true,
   "syntax": "ok",
   "non_shacl_terms": [],
@@ -24,39 +24,31 @@
     "by_component": {}
   },
   "profile": {
-    "triples": 1073,
-    "node_shapes": 60,
-    "property_shapes": 90,
-    "class_path_pairs": 303,
-    "pairs_repeated_from_superclass": 110,
+    "triples": 1315,
+    "node_shapes": 68,
+    "property_shapes": 99,
+    "class_path_pairs": 381,
+    "pairs_repeated_from_superclass": 143,
     "constraint_usage": {
-      "sh:class": 115,
+      "sh:class": 151,
       "sh:datatype": 18,
-      "sh:nodeKind": 145,
-      "sh:or": 22
+      "sh:nodeKind": 162,
+      "sh:or": 29
     }
   },
   "self_validation": {
     "conforms": false,
-    "violations": 298346,
-    "focus_nodes": 114613,
-    "validated_focus_nodes": 595920,
-    "target_focus_nodes": 595920,
+    "violations": 28,
+    "focus_nodes": 28,
+    "validated_focus_nodes": 605919,
+    "target_focus_nodes": 605919,
     "partial": false,
-    "seconds": 155,
+    "seconds": 223,
     "by_component": {
-      "sh:OrConstraintComponent": 150253,
-      "sh:ClassConstraintComponent": 148093
+      "sh:OrConstraintComponent": 27,
+      "sh:ClassConstraintComponent": 1
     },
     "top_path_components": {
-      "<https://w3id.org/hacid/onto/data/isSpecializationOfVariable> sh:ClassConstraintComponent": 147848,
-      "<https://w3id.org/hacid/onto/data/holdsSpecializationOfVariable> sh:OrConstraintComponent": 141108,
-      "<https://w3id.org/hacid/onto/top-level/hasComponent> sh:OrConstraintComponent": 4446,
-      "<https://w3id.org/hacid/onto/data/hasOutput> sh:OrConstraintComponent": 4146,
-      "<https://w3id.org/hacid/onto/ccso/isDownscalingOf> sh:OrConstraintComponent": 262,
-      "<https://w3id.org/hacid/onto/data/dependsOnVariable> sh:OrConstraintComponent": 244,
-      "<https://w3id.org/hacid/onto/data/isSpecializedAccordingTo> sh:ClassConstraintComponent": 244,
-      "<https://w3id.org/hacid/onto/data/derivedFromVariable> sh:OrConstraintComponent": 20,
       "<http://www.w3.org/2002/07/owl#onProperty> sh:OrConstraintComponent": 14,
       "<http://www.w3.org/2000/01/rdf-schema#range> sh:OrConstraintComponent": 13,
       "<http://www.w3.org/2002/07/owl#imports> sh:ClassConstraintComponent": 1

@@ -69,7 +69,7 @@ tables and the CF standard-name table, to find why they are undefined
 ([docs/cckg-variables.md](docs/cckg-variables.md)).
 
 Tests: `python tests/test_implies.py`, `python tests/test_factor.py [TRIALS] [SEED]` and
-`python tests/test_roundtrip.py`, with the
+`python tests/test_roundtrip.py`, `python tests/test_sources.py`, with the
 pipeline environment (`.tools/pipeline-venv/bin/python`).
 
 Requirements are bash, git, Python ≥ 3.10, Java ≥ 17 and Maven. Docker is not needed. Every tool
@@ -95,6 +95,17 @@ To add a KG, create `data/<kg>/kg.json` (see [data/toy/kg.json](data/toy/kg.json
 docstring of [pipeline/run.py](pipeline/run.py)). The file lists the dump files and, optionally,
 the `ontologies` the KG uses but does not include (they feed the inference regimes only), a SPARQL
 `endpoint` and `reference_shapes`. Then run `make run evaluate KG=<kg>`.
+
+Dump files need not be in the repository. An entry of `files` can also name a file to download,
+either by URL or from a figshare item:
+
+```json
+"files": [{"figshare": "10.6084/m9.figshare.29066711.v14", "match": "*.nq.gz"}]
+```
+
+The pipeline downloads the files of that item version whose names match the pattern into
+`data/<kg>/download/` (not tracked), checks their MD5 against the one figshare declares, and reuses
+them in later runs ([pipeline/sources.py](pipeline/sources.py)).
 
 To add a tool, create `tools/<tool>/install.sh` and `tools/<tool>/run.sh`, where
 `run.sh (file INPUT | endpoint URL) OUTDIR` writes `OUTDIR/shapes.ttl`. Then register the tool in

@@ -197,7 +197,12 @@ def main():
     p.add_argument("--dump", type=Path)
     p.add_argument("--out", type=Path, default=ROOT / "results" / "cckg")
     args = p.parse_args()
-    dump = args.dump or ROOT / "data" / "cckg" / json.loads((ROOT / "data/cckg/kg.json").read_text())["files"][0]
+    if args.dump:
+        dump = args.dump
+    else:
+        sys.path.insert(0, str(ROOT / "pipeline"))
+        from sources import kg_files
+        dump = kg_files(ROOT / "data" / "cckg", json.loads((ROOT / "data/cckg/kg.json").read_text())["files"])[0]
     typed, uses = read_dump(dump)
     defined_mip = {v[len(V) + 4:] for v in typed if v.startswith(V + "mip/")}
     defined_cf = {v[len(V) + 3:] for v in typed if v.startswith(V + "cf/")}
@@ -216,7 +221,7 @@ def main():
     rows.sort(key=lambda r: (r["category"], -r["links"]))
     args.out.mkdir(parents=True, exist_ok=True)
     with open(args.out / "undefined-variables.csv", "w", newline="") as f:
-        w = csv.DictWriter(f, fieldnames=list(rows[0]))
+        w = csv.DictWriter(f, fieldnames=["variable", "category", "detail", "links", "sources"])
         w.writeheader()
         w.writerows(rows)
     write_markdown(args.out / "undefined-variables.md", rows, len(defined_mip), len(defined_cf), cf_version)

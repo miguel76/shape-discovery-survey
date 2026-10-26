@@ -20,7 +20,8 @@ For each (source, property, family) it reports the links and distinct targets, a
 many of them are undefined. Rows with no undefined target are summarised per source only.
 Ranges and types are read from all the dump files and from the KG's ontology files.
 
-Writes results/<KG>/dangling-by-source.md and dangling-by-source.json.
+Writes results/<KG>/dangling-by-source.md and dangling-by-source.json (rows with undefined
+targets only).
 """
 import argparse
 import gzip
@@ -29,6 +30,8 @@ import re
 import sys
 from collections import defaultdict
 from pathlib import Path
+
+from sources import kg_files
 
 ROOT = Path(__file__).resolve().parent.parent
 RDF_TYPE = "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
@@ -91,8 +94,8 @@ def main():
     args = p.parse_args()
     kg_dir = ROOT / "data" / args.kg
     kg = json.loads((kg_dir / "kg.json").read_text())
-    dumps = [kg_dir / f for f in kg["files"]]
-    ontologies = [kg_dir / f for f in kg.get("ontologies", [])]
+    dumps = kg_files(kg_dir, kg["files"])
+    ontologies = kg_files(kg_dir, kg.get("ontologies", []))
     out_dir = args.out or ROOT / "results" / args.kg
 
     # pass 1: typed IRIs and class ranges
@@ -134,8 +137,11 @@ def main():
                  for fam, f in families.items() if f[1]}
 
     out_dir.mkdir(parents=True, exist_ok=True)
+    # only the rows with undefined targets: with deeply nested IRIs (e.g. time intervals) there
+    # can be hundreds of thousands of families, which the totals by source already summarise
     (out_dir / "dangling-by-source.json").write_text(json.dumps(
-        {"by_source": by_source, "by_family": by_family, "rows": rows}, indent=2) + "\n")
+        {"by_source": by_source, "by_family": by_family, "rows_total": len(rows),
+         "rows": [r for r in rows if r["undefined_targets"]]}, indent=2) + "\n")
     write_markdown(out_dir / "dangling-by-source.md", args.kg, by_source, by_family, rows, args.min_undefined)
     print((out_dir / "dangling-by-source.md").read_text())
 
