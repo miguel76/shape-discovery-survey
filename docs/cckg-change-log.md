@@ -11,29 +11,31 @@ source graph with [`pipeline/link_sources.py`](../pipeline/link_sources.py). Rep
 |---|---|---|
 | `cckg_2026-09-24_10-44-07` | 4,730,998 | [data-checks-2026-09-24.md](../results/cckg/data-checks-2026-09-24.md) |
 | `cckg_2026-09-30_10-40-33` | 4,612,279 | [data-checks-2026-09-30.md](../results/cckg/data-checks-2026-09-30.md) |
-| `cckg_2026-10-07_10-04-53` | 4,612,318 | [data-checks.md](../results/cckg/data-checks.md), [dangling-by-source.md](../results/cckg/dangling-by-source.md) |
-| figshare [v14](https://doi.org/10.6084/m9.figshare.29066711.v14), `cckg.nq.gz` (2026-10-24) | not evaluated yet (5,275,929 quads) | – |
+| `cckg_2026-10-07_10-04-53` | 4,612,318 | [data-checks-2026-10-07.md](../results/cckg/data-checks-2026-10-07.md), [dangling-by-source-2026-10-07.md](../results/cckg/dangling-by-source-2026-10-07.md), [undefined-variables-2026-10-07.md](../results/cckg/undefined-variables-2026-10-07.md) |
+| figshare [v14](https://doi.org/10.6084/m9.figshare.29066711.v14), `cckg.nq.gz` (2026-10-24) | 5,248,556 | [data-checks.md](../results/cckg/data-checks.md), [dangling-by-source.md](../results/cckg/dangling-by-source.md), [undefined-variables.md](../results/cckg/undefined-variables.md) |
 
 The dumps up to 2026-10-07 were committed to this repository (`data/cckg/`) and remain in its git
 history. Since then, `data/cckg/kg.json` refers to the figshare snapshots, which the pipeline
 downloads ([pipeline/sources.py](../pipeline/sources.py)).
 
-The survey results of the evaluations on the earlier dumps are in the version of
-[cckg-findings.md at commit `dc94120`](https://github.com/miguel76/shape-discovery-survey/blob/dc94120/docs/cckg-findings.md).
+The survey results of the evaluations on the earlier dumps are in earlier versions of
+cckg-findings.md: [2026-09-24 and 2026-09-30](https://github.com/miguel76/shape-discovery-survey/blob/dc94120/docs/cckg-findings.md),
+[2026-10-07](https://github.com/miguel76/shape-discovery-survey/blob/30eff82/docs/cckg-findings.md).
 
 ## Status of the issues
 
-| # | issue | 2026-09-24 | 2026-09-30 | 2026-10-07 |
-|---|---|---|---|---|
-| D1 | literal datatype `<geo:wktLiteral>` | 103 | 0 ✅ | 0 |
-| D2 | `…/variables/mip/` used as a predicate, on orphan blank nodes | 56,448 | 0 ✅ | 0 |
-| D3 | `file:///Users/…` IRIs | 67,402 triples | 0 ✅ | 0 |
-| D4 | undefined variables as values of the specialization properties | 287 (281 MIP, 6 CF) | 282 (281 MIP, 1 CF) | 282 (281 MIP, 1 CF) |
-| D5 | misspelled `data:iSpecializationOfVariable` | 145,461 | 0 ✅ | 0 |
-| D6 | undeclared HACID properties | 6,085 triples | 0 ✅ | 0 |
-| D7 | `rdfs:range xsd:datetime` | 2 axioms | 0 ✅ | 0 |
-| D8 | SRES A1B outputs without scenario, possibly duplicated | – | 2 | 0 ✅ |
-| D9 | other dangling links (targets with no `rdf:type`) | 5,924 values | 5,913 values | 4,473 values |
+| # | issue | 2026-09-24 | 2026-09-30 | 2026-10-07 | v14 (2026-10-24) |
+|---|---|---|---|---|---|
+| D1 | literal datatype `<geo:wktLiteral>` | 103 | 0 ✅ | 0 | 0 |
+| D2 | `…/variables/mip/` used as a predicate, on orphan blank nodes | 56,448 | 0 ✅ | 0 | 0 |
+| D3 | `file:///Users/…` IRIs | 67,402 triples | 0 ✅ | 0 | 0 |
+| D4 | undefined variables as values of the specialization properties | 287 (281 MIP, 6 CF) | 282 (281 MIP, 1 CF) | 282 (281 MIP, 1 CF) | 0 ✅ |
+| D5 | misspelled `data:iSpecializationOfVariable` | 145,461 | 0 ✅ | 0 | 0 |
+| D6 | undeclared HACID properties | 6,085 triples | 0 ✅ | 0 | 10 triples (D10) |
+| D7 | `rdfs:range xsd:datetime` | 2 axioms | 0 ✅ | 0 | 0 |
+| D8 | SRES A1B outputs without scenario, possibly duplicated | – | 2 | 0 ✅ | 0 |
+| D9 | other dangling links (targets with no `rdf:type`) | 5,924 values | 5,913 values | 4,473 values | 0 ✅ |
+| D10 | `top-level:associatedWith` used but no longer declared | – | – | – | 10 triples |
 
 D9 counts the untyped values of properties with a declared class range, other than those of D4,
 summed over properties (a target linked by two properties counts twice). Its breakdown is below.
@@ -104,4 +106,22 @@ In the previous dump, the 2,869 CORDEX output datasets appeared as `file:` IRIs 
   them are still undefined.
 - **D4 unchanged** (281 MIP variables and 1 CF variable).
 
-The remaining dangling links are described, by source, in [cckg-findings.md](cckg-findings.md).
+The variable analysis of this dump is in [cckg-variables.md](cckg-variables.md).
+
+## Figshare v14 (2026-10-24)
+
+The first snapshot taken from figshare ([v14](https://doi.org/10.6084/m9.figshare.29066711.v14),
+`cckg.nq.gz`) rather than from a file committed here. It has 5,275,929 quads (4,613,218 on
+2026-10-07).
+
+- **D4 and D9 fixed: no dangling links left.** The variables are now modelled per project
+  (`variables/mip/cmip5/*`, `variables/mip/cmip6/<data specs version>/*`, `variables/cordex/*`,
+  `variables/ukcp/*`), and all of them are defined; the CF variables follow version 95 of the CF
+  table (previously about version 86). The CORDEX outputs that the UKCP18 derivations refer to are
+  described (6,109 `hasOutput` links to CORDEX datasets, all to typed datasets). The graph
+  `cmip6/cmor-tables` is now `cmor-tables`.
+- **D10:** `top-level:associatedWith`, which earlier versions of the ontology declared, is no
+  longer declared, but 10 triples still use it (per-model variable groups such as
+  `variables/cmip5/CNRM-CM5` linked to `models/CNRM-CM5`).
+
+The evaluation of this snapshot is in [cckg-findings.md](cckg-findings.md).

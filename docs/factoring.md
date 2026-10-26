@@ -2,7 +2,7 @@
 
 Shape discovery tools learn one shape per class, independently of the others. When the class
 hierarchy is visible (the `subclass` and `rdfs` inference regimes, see [inference.md](inference.md)),
-a constraint that holds for a class `D` is learned again for every subclass of `D`. On CCKG, 82–91%
+a constraint that holds for a class `D` is learned again for every subclass of `D`. On CCKG, 83–92%
 of the (class, property) pairs constrained under `subclass` repeat a pair constrained on a
 superclass. *Factoring* removes from each class's shape the constraints that its superclasses'
 shapes already impose. This note defines it, proves that it does not change validation results
@@ -192,9 +192,10 @@ enough here, because any missed implication just leaves a redundant constraint i
 
 ## 7. Results on CCKG
 
-The pipeline factors every run of the `subclass` and `rdfs` regimes. The results below are for the
-CCKG dump of 2026-10-07 ([cckg-findings.md](cckg-findings.md)). SHACL Play did not finish under
-`rdfs`, and SHACLGEN and schema-automator under neither regime. Full tables are in the
+The pipeline factors every run of the `subclass` and `rdfs` regimes. The results below are for
+figshare v14 of CCKG (2026-10-24, [cckg-findings.md](cckg-findings.md)). SHACL Play was not run
+under `rdfs`, nor SHACLGEN under `subclass` (both exceed the time limit), and SHACLGEN and
+schema-automator run out of memory under the other regimes. Full tables are in the
 `## Factoring along the class hierarchy` section of
 [`results/cckg/subclass/summary.md`](../results/cckg/subclass/summary.md) and
 [`results/cckg/rdfs/summary.md`](../results/cckg/rdfs/summary.md).
@@ -203,13 +204,13 @@ CCKG dump of 2026-10-07 ([cckg-findings.md](cckg-findings.md)). SHACL Play did n
 
 | regime | run | constraints | removed | property shapes | node shapes | node shapes kept intact (referenced by `sh:node`) |
 |---|---|---|---|---|---|---|
-| `subclass` | SHACL Play | 2,039 | 1,629 (80%) | 672 → 220 | 82 → 65 | 0 |
-| `subclass` | sheXer | 4,444 | 2,709 (61%) | 1,876 → 817 | 93 → 72 | 31 |
-| `subclass` | QSE, full | 1,807 | 800 (44%) | 833 → 510 | 92 | 32 |
-| `subclass` | QSE, pruned | 580 | 288 (50%) | 284 → 165 | 47 | 14 |
-| `rdfs` | sheXer | 5,138 | 2,996 (58%) | 2,329 → 1,104 | 95 → 73 | 32 |
-| `rdfs` | QSE, full | 2,573 | 1,224 (48%) | 1,225 → 712 | 94 | 33 |
-| `rdfs` | QSE, pruned | 892 | 467 (52%) | 474 → 256 | 49 | 14 |
+| `subclass` | SHACL Play | 2,599 | 2,119 (82%) | 855 → 257 | 93 → 71 | 0 |
+| `subclass` | sheXer | 5,585 | 3,406 (61%) | 2,342 → 1,011 | 105 → 80 | 32 |
+| `subclass` | QSE, full | 2,205 | 1,024 (46%) | 1,037 → 604 | 103 | 33 |
+| `subclass` | QSE, pruned | 621 | 355 (57%) | 328 → 164 | 53 | 13 |
+| `rdfs` | sheXer | 6,361 | 3,662 (58%) | 2,834 → 1,334 | 106 → 83 | 34 |
+| `rdfs` | QSE, full | 3,135 | 1,470 (47%) | 1,474 → 856 | 104 | 35 |
+| `rdfs` | QSE, pruned | 1,016 | 544 (54%) | 537 → 284 | 55 | 17 |
 
 - **SHACL Play gains the most.** It uses no `sh:node`, so every shape can be factored. Its
   class constraints are `sh:or` disjunctions of classes, which the class-disjunction rules of §5
@@ -219,7 +220,7 @@ CCKG dump of 2026-10-07 ([cckg-findings.md](cckg-findings.md)). SHACL Play did n
   constraints also imply less than SHACL Play's: it only ever emits `sh:minCount 1` and
   `sh:maxCount 1`.
 - **schema-automator** closes every shape (`sh:closed true`), so nothing of it could be factored.
-  It ran out of memory under both regimes anyway, as did SHACLGEN under `rdfs`.
+  It runs out of memory under both regimes anyway.
 
 **Validation results are unchanged.** Each factored set of shapes was validated on the same focus
 nodes as the original (§6). A factored shapes graph can only flag a subset of the nodes that the
@@ -227,19 +228,21 @@ original flags, so equal counts mean equal sets.
 
 | regime | run | focus nodes validated | nodes flagged (original = factored) | violations (original → factored) | validation time (original → factored) |
 |---|---|---|---|---|---|
-| `subclass` | SHACL Play | all 595,459 | 114,585 | 1,591,075 → 185,370 (−88%) | 1,746 s → 945 s |
-| `subclass` | sheXer | sample of 11,782 | 11,778 | 29.4M → 17.5M (−41%) | 600 s → 274 s |
-| `subclass` | QSE, full | sample of 13,339 | 13,338 | 1,451,046 → 1,205,954 (−17%) | 600 s → 411 s |
-| `subclass` | QSE, pruned | sample of 52,274 | 52,267 | 5,365,764 → 4,465,919 (−17%) | 600 s → 384 s |
-| `rdfs` | sheXer | sample of 749 | 749 | 2,628,408 → 1,541,587 (−41%) | 747 s → 139 s |
-| `rdfs` | QSE, full | sample of 1,509 | 1,509 | 264,573 → 212,848 (−20%) | 612 s → 370 s |
-| `rdfs` | QSE, pruned | sample of 10,907 | 10,905 | 1,725,612 → 1,265,748 (−27%) | 600 s → 251 s |
-
-For SHACL Play under `subclass`, the sets of (node, property) pairs with violations were also
-compared over the whole KG, and are identical (114,709 pairs). This comparison is what revealed
-the literal rewriting described in §6: before the fix, the factored shapes flagged 5 more nodes.
+| `subclass` | SHACL Play | all 605,417 | 0 | 0 → 0 | 2,844 s → 1,302 s |
+| `subclass` | sheXer | sample of 1,043 | 1,043 | 4,776,547 → 2,935,295 (−39%) | 601 s → 134 s |
+| `subclass` | QSE, full | sample of 13,080 | 13,080 | 1,843,812 → 1,564,255 (−15%) | 601 s → 280 s |
+| `subclass` | QSE, pruned | sample of 61,216 | 61,210 | 8,644,390 → 7,034,792 (−19%) | 600 s → 364 s |
+| `rdfs` | sheXer | sample of 720 | 720 | 4,293,433 → 2,757,543 (−36%) | 762 s → 248 s |
+| `rdfs` | QSE, full | sample of 3,147 | 3,147 | 807,932 → 633,952 (−22%) | 1,700 s → 1,022 s |
+| `rdfs` | QSE, pruned | sample of 7,599 | 7,596 | 1,631,140 → 1,378,448 (−15%) | 600 s → 320 s |
 
 The violations drop because the same problem is no longer reported once for each superclass
-shape that repeated the constraint. For SHACL Play under `subclass`, the 114,585 flagged nodes
-were reported with 13.9 violations each, and with 1.6 after factoring. Validation takes 32–81% less
-time, since fewer constraints are checked per node.
+shape that repeated the constraint. Validation takes 39–78% less time, since fewer constraints are
+checked per node.
+
+CCKG now conforms to SHACL Play's `subclass` shapes, so on v14 their comparison only shows that
+factoring adds no violation. On the dump of 2026-10-07, where the same comparison flagged 114,585
+nodes with 1,591,075 violations (185,370 after factoring), the sets of (node, property) pairs with
+violations were also compared over the whole KG and are identical (114,709 pairs). That
+comparison is what revealed the literal rewriting described in §6: before the fix, the factored
+shapes flagged 5 more nodes.

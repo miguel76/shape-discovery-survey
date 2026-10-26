@@ -1,11 +1,15 @@
 # Why some CCKG variables are undefined
 
+> **Status:** this analysis is of the 2026-10-07 dump. In figshare v14 (2026-10-24) all the variables
+> are defined, modelled per project as this note suggested ([change log](cckg-change-log.md)), and the
+> same script finds no undefined variable ([report](../results/cckg/undefined-variables.md)).
+
 In the 2026-10-07 dump, 296 variables are linked but never defined (no `rdf:type`): 295 under
 `variables/mip/` and 1 under `variables/cf/`. They are the values of
 `data:holdsSpecializationOfVariable`, `data:isSpecializationOfVariable` (D4 in the
 [change log](cckg-change-log.md), 282 variables) and `data:derivedFromVariable` (14 more). This note
 looks for the cause of each mismatch. The full list, with the evidence for each variable, is in
-[`results/cckg/undefined-variables.md`](../results/cckg/undefined-variables.md); it is produced by
+[`results/cckg/undefined-variables-2026-10-07.md`](../results/cckg/undefined-variables-2026-10-07.md); it is produced by
 [`analysis/cckg_variables.py`](../analysis/cckg_variables.py).
 
 ## The vocabulary CCKG defines
@@ -141,6 +145,6 @@ These need definitions of their own, from the documentation of the models that p
 | `cmip6/cmor-tables` | 1 | 1 | newer CF name |
 
 Compared with all the variables each source links to (see
-[dangling-by-source.md](../results/cckg/dangling-by-source.md)): `cordex-cmip5/datasets` links 209
+[dangling-by-source-2026-10-07.md](../results/cckg/dangling-by-source-2026-10-07.md)): `cordex-cmip5/datasets` links 209
 MIP variables, of which 138 are undefined (66%); `cmip5/datasets` 546, of which 122 (22%);
 `ukcp18` 46, of which 23 (50%).
