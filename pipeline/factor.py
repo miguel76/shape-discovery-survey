@@ -262,44 +262,57 @@ def target_classes(g, ns):
     return targets
 
 
+class ShapeIndex:
+    """The node shapes of a shapes graph and their constraints per target class and path.
+
+    by_class[C][path] lists (node shape, shape, Constraint) for every constraint that a node
+    shape targeting class C puts on path (None for node-level constraints); path_terms maps
+    each canonical path key back to a path term of g."""
+
+    def __init__(self, g):
+        self.g = g
+        self.node_shapes = {s for s in g.subjects(RDF.type, SH.NodeShape)}
+        for p in TARGET_PARAMS:
+            self.node_shapes |= set(g.subjects(p, None))
+        self.node_shapes -= set(g.subjects(SH.path, None))
+        self.referenced = set()
+        for p in SHAPE_REF_PARAMS:
+            for o in g.objects(None, p):
+                self.referenced |= set(Collection(g, o)) if (o, RDF.first, None) in g else {o}
+        self.by_class = defaultdict(lambda: defaultdict(list))
+        self.path_terms = {None: None}
+        for ns in self.node_shapes:
+            for c in target_classes(g, ns):
+                for k in constraints_of(g, ns):
+                    self.by_class[c][None].append((ns, ns, k))
+                for ps in g.objects(ns, SH.property):
+                    path = g.value(ps, SH.path)
+                    if path is None:
+                        continue
+                    self.path_terms[canon(g, path)] = path
+                    for k in constraints_of(g, ps):
+                        self.by_class[c][canon(g, path)].append((ns, ps, k))
+
+    def sibling_dependent(self, ns):
+        g = self.g
+        return (ns, SH.closed, Literal(True)) in g or any(
+            (ps, SH.qualifiedValueShapesDisjoint, Literal(True)) in g for ps in g.objects(ns, SH.property))
+
+    def factorable(self, ns):
+        """Node shapes whose constraints may be removed (factoring) or added to (folding)."""
+        if ns in self.referenced or self.sibling_dependent(ns):
+            return False
+        other_targets = any((ns, p, None) in self.g for p in TARGET_PARAMS if p != SH.targetClass)
+        return len(target_classes(self.g, ns)) == 1 and not other_targets
+
+
 def factor(g, hierarchy, trace=None):
     """Factor shapes graph g in place; return a report. If `trace` is a list, append to it
     one (class, path, constraint, [(superclass, premise), ...]) tuple per removed constraint,
     with the path term (None for node-level constraints) and the premises that imply it."""
-    node_shapes = {s for s in g.subjects(RDF.type, SH.NodeShape)}
-    for p in TARGET_PARAMS:
-        node_shapes |= set(g.subjects(p, None))
-    node_shapes -= set(g.subjects(SH.path, None))
-
-    referenced = set()
-    for p in SHAPE_REF_PARAMS:
-        for o in g.objects(None, p):
-            referenced |= set(Collection(g, o)) if (o, RDF.first, None) in g else {o}
-
-    def sibling_dependent(ns):
-        return (ns, SH.closed, Literal(True)) in g or any(
-            (ps, SH.qualifiedValueShapesDisjoint, Literal(True)) in g for ps in g.objects(ns, SH.property))
-
-    def factorable(ns):
-        if ns in referenced or sibling_dependent(ns):
-            return False
-        other_targets = any((ns, p, None) in g for p in TARGET_PARAMS if p != SH.targetClass)
-        return len(target_classes(g, ns)) == 1 and not other_targets
-
-    # K(C, p): per target class and path, the constraints and the shapes carrying them
-    by_class = defaultdict(lambda: defaultdict(list))  # class -> path key -> [(node shape, shape, Constraint)]
-    path_terms = {None: None}
-    for ns in node_shapes:
-        for c in target_classes(g, ns):
-            for k in constraints_of(g, ns):
-                by_class[c][None].append((ns, ns, k))
-            for ps in g.objects(ns, SH.property):
-                path = g.value(ps, SH.path)
-                if path is None:
-                    continue
-                path_terms[canon(g, path)] = path
-                for k in constraints_of(g, ps):
-                    by_class[c][canon(g, path)].append((ns, ps, k))
+    idx = ShapeIndex(g)
+    node_shapes, referenced, by_class, path_terms = idx.node_shapes, idx.referenced, idx.by_class, idx.path_terms
+    sibling_dependent, factorable = idx.sibling_dependent, idx.factorable
 
     report = {"node_shapes": len(node_shapes), "factorable_node_shapes": 0, "kept_referenced": 0,
               "kept_sibling_dependent": 0, "kept_other_targets": 0, "constraints": 0, "constraints_removed": 0,

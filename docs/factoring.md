@@ -246,3 +246,64 @@ nodes with 1,591,075 violations (185,370 after factoring), the sets of (node, pr
 violations were also compared over the whole KG and are identical (114,709 pairs). That
 comparison is what revealed the literal rewriting described in §6: before the fix, the factored
 shapes flagged 5 more nodes.
+
+## 8. Folding: the inverse operation
+
+[`pipeline/fold.py`](../pipeline/fold.py) folds shapes along the hierarchy: it adds to the shape of
+each class the constraints of the shapes of all its superclasses. It is used to test that factoring
+is faithful: folding the factored shapes must give back the original ones, shape names apart.
+
+**Definition.** For a factorable node shape `s` targeting `C` (§4), the folded shape has, for every
+path `π`,
+
+    F_s(π) = K_s(π) ∪ ⋃ { K(D, π) | C ≤ D, D ≠ C }
+
+with `K` taken from the shapes graph being folded. The other node shapes are kept as they are.
+Two details keep the result valid SHACL with the same meaning:
+- **Several shapes for one path or node.** SHACL allows only one value per shape for most
+  parameters (`sh:minCount`, `sh:nodeKind`, `sh:in`, …), and a class and its superclass may both
+  have one. The inherited constraints of a path therefore go into additional property shapes for
+  that path, as many as needed. Node-level ones go into the node shape, or into anonymous node
+  shapes that it refers to with `sh:node`. Both are conjunctions.
+- **Sibling-dependent constraints are not copied.** `sh:closed` and qualified value shapes with
+  `sh:qualifiedValueShapesDisjoint` depend on the other property shapes of their node shape. They
+  stay where they are and still apply through the superclass's own shape.
+
+**Faithfulness.** Write `E_S(C, π) = ⋃ { K_S(D, π) | C ≤ D }` for the effective constraints of `C`
+under subclass entailment, which is what folding `S` gives. Then, for every class `C` that has a
+factorable shape in `S'` and every path `π`,
+
+    fold(S')(C, π) = E_S'(C, π)  ≡  E_S(C, π) = fold(S)(C, π)
+
+where `≡` means that the two sets of constraints are satisfied by the same value sets.
+- **`⊆`:** `S'` only drops constraints of `S`.
+- **`⊇`:** let `k ∈ E_S(C, π)` be a constraint of some `D ≥ C` that factoring removed. It was implied
+  by the constraints of the strict superclasses of `D`, which are all in `E_S(C, π)`. By the chain
+  argument of §3, every such premise is either kept in `S'` or removed because it is implied by
+  constraints of classes higher up, which are also in `E_S(C, π)`. So `k` is implied by
+  `E_S'(C, π)`.
+
+Classes whose node shape factoring removed (every constraint implied) have no shape left to fold.
+Their instances are still constrained by the superclass shapes.
+
+**The check.** `fold.py --compare ORIGINAL` folds the factored shapes and compares them with
+`fold(ORIGINAL)`, class by class and path by path rather than shape by shape (so shape names do not
+matter).
+- **Nothing extra:** every constraint of the folded result must be one of the original constraints
+  of `C` and its superclasses.
+- **Nothing missing:** every original constraint must be in the result, or derivable from it by
+  applying `implies()` repeatedly, with each derived constraint becoming a premise.
+- **Shapes kept intact:** classes whose shapes folding keeps unchanged are compared with their
+  original constraints.
+
+[`tests/test_fold.py`](../tests/test_fold.py) applies the check to random shapes. With `S` the
+original shapes, `S'` the factored ones and `F` the folded factored ones, each trial checks that:
+- `fold(factor(S))` and `fold(S)` both pass the check;
+- `S`, `S'` and `F` give the same violating (focus node, path) pairs on random data;
+- folding is deterministic.
+
+Two negative controls make sure the check can fail:
+- `S'` without folding must differ from `S` in most trials;
+- an invented constraint added to `F` must be reported.
+
+Results on CCKG: in progress.

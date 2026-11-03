@@ -58,6 +58,9 @@ class hierarchy: it removes the constraints already implied by superclass shapes
 result as a `<tool>+factored` run. The formal definition, the proof that validation results are
 preserved and the tests are in [docs/factoring.md](docs/factoring.md). To factor a shapes file by
 hand, run `pipeline/factor.py SHAPES OUT --hierarchy work/<kg>/data.nt`.
+`pipeline/fold.py` does the inverse: it adds to each class's shape the constraints of its
+superclasses' shapes. With `--compare ORIGINAL` it checks that folding the factored shapes gives
+back the original ones, modulo implication and shape names ([§8](docs/factoring.md#8-folding-the-inverse-operation)).
 
 `pipeline/kg_checks.py <kg>` runs data-quality checks on the merged dump. They generalise the
 defects found in CCKG and write `results/<kg>/data-checks.md`.
@@ -69,7 +72,8 @@ tables and the CF standard-name table, to find why they are undefined
 ([docs/cckg-variables.md](docs/cckg-variables.md)).
 
 Tests: `python tests/test_implies.py`, `python tests/test_factor.py [TRIALS] [SEED]` and
-`python tests/test_roundtrip.py`, `python tests/test_sources.py`, with the
+`python tests/test_roundtrip.py`, `python tests/test_fold.py [TRIALS] [SEED]`,
+`python tests/test_sources.py`, with the
 pipeline environment (`.tools/pipeline-venv/bin/python`).
 
 Requirements are bash, git, Python ≥ 3.10, Java ≥ 17 and Maven. Docker is not needed. Every tool

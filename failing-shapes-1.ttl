@@ -1,0 +1,44 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://example.org/t/S_B> a sh:NodeShape ;
+    sh:nodeKind sh:IRI ;
+    sh:property <http://example.org/t/P3> ;
+    sh:targetClass <http://example.org/t/B> .
+
+<http://example.org/t/S_C> a sh:NodeShape ;
+    sh:property <http://example.org/t/P16>,
+        <http://example.org/t/P8> ;
+    sh:targetClass <http://example.org/t/C> .
+
+<http://example.org/t/S_F> a sh:NodeShape ;
+    sh:nodeKind sh:IRI ;
+    sh:property [ sh:minInclusive 2 ;
+            sh:path <http://example.org/t/p> ],
+        [ sh:class <http://example.org/t/C> ;
+            sh:path <http://example.org/t/p> ],
+        <http://example.org/t/P28> ;
+    sh:targetClass <http://example.org/t/F> .
+
+<http://example.org/t/S_H> a sh:NodeShape ;
+    sh:nodeKind sh:BlankNodeOrIRI ;
+    sh:property [ sh:maxCount 2 ;
+            sh:maxLength 2 ;
+            sh:path <http://example.org/t/p> ] ;
+    sh:targetClass <http://example.org/t/H> .
+
+<http://example.org/t/P16> sh:maxLength 3 ;
+    sh:path <http://example.org/t/p> .
+
+<http://example.org/t/P28> sh:in ( <http://example.org/t/v0> ) ;
+    sh:maxCount 1 ;
+    sh:path <http://example.org/t/q> .
+
+<http://example.org/t/P3> sh:datatype xsd:string ;
+    sh:path <http://example.org/t/p> .
+
+<http://example.org/t/P8> sh:in ( <http://example.org/t/v0> <http://example.org/t/v1> ) ;
+    sh:nodeKind sh:IRI ;
+    sh:path <http://example.org/t/p> .
+
