@@ -306,4 +306,36 @@ Two negative controls make sure the check can fail:
 - `S'` without folding must differ from `S` in most trials;
 - an invented constraint added to `F` must be reported.
 
-Results on CCKG: in progress.
+**Results.** 3,000 random trials (seeds 3, 7 and 11) pass all the checks:
+- folding re-added 57,124 constraints, 4,310 of them derived by implication rather than found
+  literally;
+- the unfolded shapes differ from the originals in 2,907 trials;
+- all 3,000 invented constraints are caught.
+
+Five deliberately wrong variants of `fold.py` are all detected:
+- skipping node-level constraints;
+- folding in only one superclass;
+- skipping `sh:minCount`;
+- treating every constraint as derivable;
+- not looking for extra constraints.
+
+On CCKG (figshare v14), the folded factored shapes of every run are equivalent to the folded
+original shapes:
+
+| regime | run | classes compared | original constraints (folded) | in the folded result | derived by implication | missing | extra | classes without a shape |
+|---|---|---|---|---|---|---|---|---|
+| `subclass` | SHACL Play | 71 | 19,701 | 12,916 | 6,785 | 0 | 0 | 21 |
+| `subclass` | sheXer | 80 | 8,683 | 8,683 | 0 | 0 | 0 | 25 |
+| `subclass` | QSE, full | 105 | 10,408 | 10,235 | 173 | 0 | 0 | 0 |
+| `subclass` | QSE, pruned | 54 | 1,249 | 1,197 | 52 | 0 | 0 | 0 |
+| `rdfs` | sheXer | 83 | 10,838 | 10,838 | 0 | 0 | 0 | 23 |
+| `rdfs` | QSE, full | 106 | 14,784 | 14,398 | 386 | 0 | 0 | 0 |
+| `rdfs` | QSE, pruned | 56 | 1,976 | 1,851 | 125 | 0 | 0 | 0 |
+
+- **sheXer:** the constraints factoring removed are literal copies of superclass constraints, so
+  folding gives back all of them.
+- **SHACL Play and QSE:** some removed constraints were implied by different ones, so they come
+  back only by implication, through the rules of §5, from the constraints that folding keeps or
+  adds.
+- **Classes without a shape:** these are the classes whose node shape factoring removed
+  altogether.
