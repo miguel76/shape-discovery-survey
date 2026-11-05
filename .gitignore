@@ -4,3 +4,5 @@ work/
 __pycache__/
 # KG dumps downloaded by pipeline/sources.py
 data/*/download/
+# shapes and data that a failing randomised test writes for inspection
+failing-*.ttl

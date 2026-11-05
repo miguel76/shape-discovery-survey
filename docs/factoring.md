@@ -246,3 +246,105 @@ nodes with 1,591,075 violations (185,370 after factoring), the sets of (node, pr
 violations were also compared over the whole KG and are identical (114,709 pairs). That
 comparison is what revealed the literal rewriting described in §6: before the fix, the factored
 shapes flagged 5 more nodes.
+
+## 8. Folding: the inverse operation
+
+[`pipeline/fold.py`](../pipeline/fold.py) folds shapes along the hierarchy: it adds to the shape of
+each class the constraints of the shapes of all its superclasses. It is used to test that factoring
+is faithful: folding the factored shapes must give back the original ones, shape names apart.
+
+**Definition.** Folding goes over every class `C` of the hierarchy (every class with a superclass
+in the KG and its ontologies) and every class targeted by a node shape, whether or not it has a
+shape of its own. For each factorable node shape `s` targeting `C` (§4), the folded shape has,
+for every path `π`,
+
+    F_s(π) = K_s(π) ∪ ⋃ { K(D, π) | C ≤ D, D ≠ C }
+
+with `K` taken from the shapes graph being folded. A class with no factorable shape gets a new
+one, `[ a sh:NodeShape ; sh:targetClass C ]`, for the constraints it inherits. This includes the
+classes whose shape factoring deleted because all its constraints were implied, and classes that
+never had a shape but inherit constraints. At the end, the node shapes still empty are deleted,
+as in factoring. The other node shapes are kept as they are. Two details keep the result valid
+SHACL with the same meaning:
+- **Several shapes for one path or node.** SHACL allows only one value per shape for most
+  parameters (`sh:minCount`, `sh:nodeKind`, `sh:in`, …), and a class and its superclass may both
+  have one. The inherited constraints of a path therefore go into additional property shapes for
+  that path, as many as needed. Node-level ones go into the node shape, or into anonymous node
+  shapes that it refers to with `sh:node`. Both are conjunctions.
+- **Sibling-dependent constraints are not copied.** `sh:closed` and qualified value shapes with
+  `sh:qualifiedValueShapesDisjoint` depend on the other property shapes of their node shape. They
+  stay where they are and still apply through the superclass's own shape.
+
+**Faithfulness.** Write `E_S(C, π) = ⋃ { K_S(D, π) | C ≤ D }` for the effective constraints of `C`
+under subclass entailment, which is what folding `S` gives. Then, for every class `C` and every
+path `π`,
+
+    fold(S')(C, π) = E_S'(C, π)  ≡  E_S(C, π) = fold(S)(C, π)
+
+where `≡` means that the two sets of constraints are satisfied by the same value sets.
+- **`⊆`:** `S'` only drops constraints of `S`.
+- **`⊇`:** let `k ∈ E_S(C, π)` be a constraint of some `D ≥ C` that factoring removed. It was implied
+  by the constraints of the strict superclasses of `D`, which are all in `E_S(C, π)`. By the chain
+  argument of §3, every such premise is either kept in `S'` or removed because it is implied by
+  constraints of classes higher up, which are also in `E_S(C, π)`. So `k` is implied by
+  `E_S'(C, π)`.
+
+**The check.** `fold.py --compare ORIGINAL` folds the factored shapes and compares them with
+`fold(ORIGINAL)`, class by class and path by path rather than shape by shape (so shape names do not
+matter).
+- **Nothing extra:** every constraint of the folded result must be one of the original constraints
+  of `C` and its superclasses.
+- **Nothing missing:** every original constraint must be in the result, or derivable from it by
+  applying `implies()` repeatedly, with each derived constraint becoming a premise.
+- **Every class has a shape:** a class with constraints to state, its own or inherited, must be
+  targeted by a node shape of the result. This also covers classes whose shapes folding keeps
+  unchanged (referenced, closed), whose inherited constraints go into a new shape.
+
+[`tests/test_fold.py`](../tests/test_fold.py) applies the check to random shapes. With `S` the
+original shapes, `S'` the factored ones and `F` the folded factored ones, each trial checks that:
+- `fold(factor(S))` and `fold(S)` both pass the check, with no class left without a shape and no
+  empty foldable node shape left;
+- `S`, `S'` and `F` give the same violating (focus node, path) pairs on random data;
+- folding is deterministic.
+
+Two negative controls make sure the check can fail:
+- `S'` without folding must differ from `S` in most trials;
+- an invented constraint added to `F` must be reported.
+
+**Results.** 3,000 random trials (seeds 3, 7 and 11) pass all the checks:
+- folding added 98,460 constraints, and 5,804 original constraints were recovered by implication
+  rather than found literally;
+- every class with constraints to state has a shape, and no empty foldable shape is left;
+- the unfolded shapes differ from the originals in 2,999 trials;
+- all 3,000 invented constraints are caught.
+
+Seven deliberately wrong variants of `fold.py` are all detected:
+- skipping node-level constraints;
+- folding in only one superclass;
+- skipping `sh:minCount`;
+- treating every constraint as derivable;
+- not looking for extra constraints;
+- not creating shapes for classes without one;
+- not deleting the shapes left empty.
+
+On CCKG (figshare v14), the folded factored shapes of every run are equivalent to the folded
+original shapes, for every class of the hierarchy:
+
+| regime | run | classes compared | node shapes created (factoring had deleted) | original constraints (folded) | in the folded result | derived by implication | missing | extra | classes without a shape |
+|---|---|---|---|---|---|---|---|---|---|
+| `subclass` | SHACL Play | 143 | 72 (22) | 37,735 | 25,740 | 11,995 | 0 | 0 | 0 |
+| `subclass` | sheXer | 155 | 99 (25) | 25,784 | 25,784 | 0 | 0 | 0 | 0 |
+| `subclass` | QSE, full | 155 | 76 (0) | 20,456 | 20,186 | 270 | 0 | 0 | 0 |
+| `subclass` | QSE, pruned | 143 | 100 (0) | 2,862 | 2,801 | 61 | 0 | 0 | 0 |
+| `rdfs` | sheXer | 155 | 98 (23) | 31,169 | 31,169 | 0 | 0 | 0 | 0 |
+| `rdfs` | QSE, full | 155 | 77 (0) | 29,286 | 28,630 | 656 | 0 | 0 | 0 |
+| `rdfs` | QSE, pruned | 143 | 100 (0) | 4,475 | 4,283 | 192 | 0 | 0 | 0 |
+
+- **New node shapes:** they bring back the shapes that factoring deleted, and add shapes for the
+  classes of the hierarchy that inherit constraints but had no foldable shape. Those classes either
+  had no shape at all, or only shapes kept intact, such as QSE's shapes referenced with `sh:node`.
+- **sheXer:** the constraints factoring removed are literal copies of superclass constraints, so
+  folding gives back all of them.
+- **SHACL Play and QSE:** some removed constraints were implied by different ones, so they come
+  back only by implication, through the rules of §5, from the constraints that folding keeps or
+  adds.
