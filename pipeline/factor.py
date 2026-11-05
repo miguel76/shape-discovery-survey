@@ -300,10 +300,17 @@ class ShapeIndex:
 
     def factorable(self, ns):
         """Node shapes whose constraints may be removed (factoring) or added to (folding)."""
-        if ns in self.referenced or self.sibling_dependent(ns):
+        return self.factorable_in(self.g, ns, self.referenced)
+
+    @staticmethod
+    def factorable_in(g, ns, referenced):
+        if ns in referenced:
             return False
-        other_targets = any((ns, p, None) in self.g for p in TARGET_PARAMS if p != SH.targetClass)
-        return len(target_classes(self.g, ns)) == 1 and not other_targets
+        if (ns, SH.closed, Literal(True)) in g or any(
+                (ps, SH.qualifiedValueShapesDisjoint, Literal(True)) in g for ps in g.objects(ns, SH.property)):
+            return False
+        other_targets = any((ns, p, None) in g for p in TARGET_PARAMS if p != SH.targetClass)
+        return len(target_classes(g, ns)) == 1 and not other_targets
 
 
 def factor(g, hierarchy, trace=None):

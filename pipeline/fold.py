@@ -6,35 +6,43 @@ usage: pipeline/fold.py SHAPES.ttl OUT.ttl --hierarchy FILE [FILE ...] [--report
 
 Factoring removes from the shape of a class C the constraints implied by the shapes of its
 superclasses, so that a factored shape only makes sense under subclass entailment, together
-with the shapes of the superclasses. Folding does the opposite: it adds to the shape of each
-class the constraints of the shapes of all its superclasses, so that each folded shape states
-by itself everything that its class's instances must satisfy.
+with the shapes of the superclasses, and it deletes the shapes left empty. Folding does the
+opposite: it adds to the shape of each class the constraints of the shapes of all its
+superclasses, so that each folded shape states by itself everything that its class's instances
+must satisfy.
 
 With K(D, p) the constraints that the node shapes targeting class D put on path p (p = None
 for node-level constraints), the folded shape of a class C has, for every path p,
 
     F(C, p) = K(C, p) ∪ ⋃ { K(D, p) | C ≤ D, D ≠ C }
 
-where ≤ is the subclass order (equivalent classes included). The inherited constraints of a path
-go into additional property shapes for that path, and node-level ones into the node shape or,
-where SHACL allows only one value per shape (two sh:nodeKind, say), into anonymous node shapes
-that it refers to with sh:node: in both cases the result is the conjunction of the constraints. Folding touches the same node
-shapes that factoring may change (pipeline/factor.py: one target class, not referenced by
-sh:node and the like, not closed); other shapes are kept as they are. Constraints that depend
-on their sibling property shapes (sh:closed, qualified value shapes with
-sh:qualifiedValueShapesDisjoint) are not copied: they stay with the shape that has them.
+where ≤ is the subclass order (equivalent classes included).
 
-Faithfulness. For every class C with a node shape and every path p, the folded factored shapes
-must be equivalent to the folded original shapes (the effective constraints of C under subclass
+Classes. Every class of the hierarchy is folded (every class with a superclass in the KG and
+its ontologies), together with the classes targeted by a node shape. A class without a node
+shape that folding may change gets a new one, [ a sh:NodeShape ; sh:targetClass C ], for the
+constraints it inherits: this brings back the shapes that factoring deleted, and adds shapes for
+classes that only inherit constraints. At the end, the node shapes still empty are deleted.
+
+Folding changes the same node shapes that factoring may change (pipeline/factor.py: one target
+class, not referenced by sh:node and the like, not closed); other shapes are kept as they are.
+The inherited constraints of a path go into additional property shapes for that path, and
+node-level ones into the node shape or, where SHACL allows only one value per shape (two
+sh:nodeKind, say), into anonymous node shapes that it refers to with sh:node: in both cases the
+result is the conjunction of the constraints. Constraints that depend on their sibling property
+shapes (sh:closed, qualified value shapes with sh:qualifiedValueShapesDisjoint) are not copied:
+they stay with the shape that has them.
+
+Faithfulness. For every class C and every path p, the folded factored shapes must be
+equivalent to the folded original shapes (the effective constraints of C under subclass
 entailment), modulo implication and shape names:
 
     fold(factor(S))(C, p)  ≡  fold(S)(C, p)
 
 Factoring only removes constraints, so ⊆ holds as sets. --compare checks ⊇: that every
-constraint of the folded ORIGINAL is in the folded result or derivable from it with the
-implication rules of factor.implies(), applied repeatedly. The check is per class with a node
-shape in both graphs; a class whose shape factoring removed entirely (all its constraints were
-implied) has no shape to fold, and is reported separately.
+constraint of the folded ORIGINAL is in the folded result (all the node shapes targeting C) or
+derivable from it with the implication rules of factor.implies(), applied repeatedly. It also
+reports the classes that have constraints to state but no node shape in the result.
 
 The result is written as Turtle that keeps every literal term unchanged (factor.write_turtle).
 """
@@ -97,55 +105,98 @@ def copy_term(src, dst, node, memo):
     return memo[node]
 
 
+def classes_of(idx, hierarchy):
+    """The classes to fold: those of the hierarchy (every class with a superclass in the KG and
+    its ontologies) and those targeted by a node shape."""
+    return set(hierarchy) | {c for ns in idx.node_shapes for c in target_classes(idx.g, ns)}
+
+
 def fold(g, hierarchy):
-    """Fold shapes graph g in place; return a report. All decisions are made on the input
-    constraints, so the result does not depend on the order in which shapes are folded."""
+    """Fold shapes graph g in place; return a report.
+
+    Every class of the hierarchy is considered, not only those with a node shape: a class
+    without a foldable node shape gets a new one (sh:targetClass) for the constraints it
+    inherits. At the end, foldable node shapes left without any constraint are deleted (as
+    factoring does). All decisions are made on the input constraints, so the result does not
+    depend on the order in which classes are folded."""
     idx = ShapeIndex(g)
     snapshot = Graph()  # the input, to copy constraint values from after g has changed
     for t in g:
         snapshot.add(t)
-    report = {"node_shapes": len(idx.node_shapes), "folded_node_shapes": 0, "constraints_added": 0,
-              "property_shapes_added": 0, "node_shapes_added": 0, "not_copied_sibling_dependent": 0}
-    for ns in sorted(idx.node_shapes, key=str):
-        if not idx.factorable(ns):
-            continue
-        (c,) = target_classes(g, ns)  # factorable: exactly one target class
-        own = {path: {k for n, _, k in entries if n == ns} for path, entries in idx.by_class[c].items()}
-        added = False
-        paths = defaultdict(list)
+    report = {"node_shapes": len(idx.node_shapes), "classes": 0, "node_shapes_created": 0,
+              "folded_node_shapes": 0, "constraints_added": 0, "property_shapes_added": 0,
+              "node_shapes_added": 0, "not_copied_sibling_dependent": 0, "empty_node_shapes_deleted": 0}
+    foldable = defaultdict(list)
+    for ns in idx.node_shapes:
+        if idx.factorable(ns):
+            (c,) = target_classes(g, ns)  # factorable: exactly one target class
+            foldable[c].append(ns)
+    for c in sorted(classes_of(idx, hierarchy), key=str):
+        report["classes"] += 1
+        inherited = defaultdict(list)
         for d in sorted(superclasses(c, hierarchy), key=str):
             for path, entries in idx.by_class.get(d, {}).items():
                 for _, _, k in entries:
                     if not copyable(k):
                         report["not_copied_sibling_dependent"] += 1
-                    elif k not in own.get(path, set()) and k not in paths[path]:
-                        paths[path].append(k)
-        for path, ks in sorted(paths.items(), key=lambda x: str(x[0])):
-            ks = sorted(ks, key=lambda k: str(k.key))  # canonical order: the result is deterministic
-            if path is None:
-                # node-level: into the node shape itself while that keeps it valid SHACL, then
-                # into anonymous node shapes it refers to with sh:node (a conjunction)
-                taken = {k.param for k in own.get(None, set())}
-                for n, group in enumerate(layers(ks, taken)):
-                    target = ns
-                    if n > 0 or any(k.param not in MULTI_VALUED and k.param in taken for k in group):
-                        target = BNode()
-                        g.add((ns, SH.node, target))
-                        report["node_shapes_added"] += 1
-                    add_constraints(snapshot, g, target, group)
-            else:
-                # one more property shape for the path per group (property shapes are a conjunction)
-                for group in layers(ks):
-                    target = BNode()
-                    g.add((ns, SH.property, target))
-                    g.add((target, RDF.type, SH.PropertyShape))
-                    g.add((target, SH.path, copy_term(snapshot, g, idx.path_terms[path], {})))
-                    add_constraints(snapshot, g, target, group)
-                    report["property_shapes_added"] += 1
-            report["constraints_added"] += len(ks)
-            added = True
-        report["folded_node_shapes"] += added
+                    elif k not in inherited[path]:
+                        inherited[path].append(k)
+        shapes = sorted(foldable.get(c, []), key=str)
+        if not shapes:
+            if not any(inherited.values()):
+                continue  # nothing to state about c
+            ns = BNode()
+            g.add((ns, RDF.type, SH.NodeShape))
+            g.add((ns, SH.targetClass, c))
+            shapes = [ns]
+            report["node_shapes_created"] += 1
+        for ns in shapes:
+            own = {path: {k for n, _, k in entries if n == ns} for path, entries in idx.by_class[c].items()}
+            added = fold_into(g, snapshot, idx, ns, own,
+                              {path: [k for k in ks if k not in own.get(path, set())] for path, ks in inherited.items()},
+                              report)
+            report["folded_node_shapes"] += added
+    # node shapes that are still empty: delete them
+    for ns in list(set(g.subjects(RDF.type, SH.NodeShape)) | set(g.subjects(SH.targetClass, None))):
+        if (ns, SH.path, None) in g or not ShapeIndex.factorable_in(g, ns, idx.referenced):
+            continue
+        if not constraints_of(g, ns) and (ns, SH.property, None) not in g:
+            for t in list(g.triples((ns, None, None))):
+                g.remove(t)
+            report["empty_node_shapes_deleted"] += 1
     return report
+
+
+def fold_into(g, snapshot, idx, ns, own, inherited, report):
+    """Add the inherited constraints (per path) to node shape ns. Returns whether any was added."""
+    added = False
+    for path, ks in sorted(inherited.items(), key=lambda x: str(x[0])):
+        if not ks:
+            continue
+        ks = sorted(ks, key=lambda k: str(k.key))  # canonical order: the result is deterministic
+        if path is None:
+            # node-level: into the node shape itself while that keeps it valid SHACL, then
+            # into anonymous node shapes it refers to with sh:node (a conjunction)
+            taken = {k.param for k in own.get(None, set())}
+            for n, group in enumerate(layers(ks, taken)):
+                target = ns
+                if n > 0 or any(k.param not in MULTI_VALUED and k.param in taken for k in group):
+                    target = BNode()
+                    g.add((ns, SH.node, target))
+                    report["node_shapes_added"] += 1
+                add_constraints(snapshot, g, target, group)
+        else:
+            # one more property shape for the path per group (property shapes are a conjunction)
+            for group in layers(ks):
+                target = BNode()
+                g.add((ns, SH.property, target))
+                g.add((target, RDF.type, SH.PropertyShape))
+                g.add((target, SH.path, copy_term(snapshot, g, idx.path_terms[path], {})))
+                add_constraints(snapshot, g, target, group)
+                report["property_shapes_added"] += 1
+        report["constraints_added"] += len(ks)
+        added = True
+    return added
 
 
 def add_constraints(src, dst, shape, ks):
@@ -205,32 +256,30 @@ def derivable(base, targets, hierarchy):
 
 def compare(original, folded, hierarchy):
     """Check fold(original) ≡ folded per (class, path), modulo implication. Returns a report.
-    Classes whose shapes folding keeps as they are (referenced, closed) are compared with their
-    original constraints, without inheritance."""
+    The classes compared are those of the hierarchy and those targeted by a node shape in either
+    graph; for each, the folded graph's own constraints (all the node shapes targeting the class)
+    must be equivalent to the effective constraints of the class in the original."""
     oi, fi = ShapeIndex(original), ShapeIndex(folded)
-    folded_classes = {c for ns in fi.node_shapes if fi.factorable(ns) for c in target_classes(folded, ns)}
     report = {"classes": 0, "paths": 0, "constraints_expected": 0, "constraints_in_folded": 0,
               "derived": 0, "missing": [], "extra": [], "classes_without_shape": []}
-    for c in sorted(set(oi.by_class), key=str):
-        expected = effective(oi, c, hierarchy)
-        if c not in fi.by_class:
-            report["classes_without_shape"].append(str(c))
-            continue
-        if c not in folded_classes:
-            expected = own_constraints(oi, c)  # shapes kept as they are (referenced, closed)
+    for c in sorted(classes_of(oi, hierarchy) | classes_of(fi, hierarchy), key=str):
+        expected, got = effective(oi, c, hierarchy), own_constraints(fi, c)
+        if not any(copyable(k) for ks in expected.values() for k in ks) and not any(got.values()):
+            continue  # nothing to state about c
         report["classes"] += 1
-        got = own_constraints(fi, c)
+        if not any(got.values()):
+            report["classes_without_shape"].append(str(c))
         for path in set(expected) | set(got):
             report["paths"] += 1
             exp, have = expected.get(path, set()), got.get(path, set())
             report["constraints_expected"] += len(exp)
             report["constraints_in_folded"] += len(have)
-            missing = derivable({k for k in have}, {k for k in exp if copyable(k)}, hierarchy)
+            missing = derivable(have, {k for k in exp if copyable(k)}, hierarchy)
             report["derived"] += len({k for k in exp if copyable(k)} - have - missing)
             for k in missing:
                 report["missing"].append([str(c), str(oi.path_terms.get(path)), str(k.key)])
-            # the folded shape must not say more than the original: everything in it comes from
-            # the original constraints of c and its superclasses
+            # the folded shapes must not say more than the original: everything in them comes
+            # from the original constraints of c and its superclasses
             for k in have - exp:
                 report["extra"].append([str(c), str(fi.path_terms.get(path)), str(k.key)])
     report["equivalent"] = not report["missing"] and not report["extra"]

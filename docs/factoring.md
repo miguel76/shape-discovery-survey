@@ -253,13 +253,19 @@ shapes flagged 5 more nodes.
 each class the constraints of the shapes of all its superclasses. It is used to test that factoring
 is faithful: folding the factored shapes must give back the original ones, shape names apart.
 
-**Definition.** For a factorable node shape `s` targeting `C` (§4), the folded shape has, for every
-path `π`,
+**Definition.** Folding goes over every class `C` of the hierarchy (every class with a superclass
+in the KG and its ontologies) and every class targeted by a node shape, whether or not it has a
+shape of its own. For each factorable node shape `s` targeting `C` (§4), the folded shape has,
+for every path `π`,
 
     F_s(π) = K_s(π) ∪ ⋃ { K(D, π) | C ≤ D, D ≠ C }
 
-with `K` taken from the shapes graph being folded. The other node shapes are kept as they are.
-Two details keep the result valid SHACL with the same meaning:
+with `K` taken from the shapes graph being folded. A class with no factorable shape gets a new
+one, `[ a sh:NodeShape ; sh:targetClass C ]`, for the constraints it inherits. This includes the
+classes whose shape factoring deleted because all its constraints were implied, and classes that
+never had a shape but inherit constraints. At the end, the node shapes still empty are deleted,
+as in factoring. The other node shapes are kept as they are. Two details keep the result valid
+SHACL with the same meaning:
 - **Several shapes for one path or node.** SHACL allows only one value per shape for most
   parameters (`sh:minCount`, `sh:nodeKind`, `sh:in`, …), and a class and its superclass may both
   have one. The inherited constraints of a path therefore go into additional property shapes for
@@ -270,8 +276,8 @@ Two details keep the result valid SHACL with the same meaning:
   stay where they are and still apply through the superclass's own shape.
 
 **Faithfulness.** Write `E_S(C, π) = ⋃ { K_S(D, π) | C ≤ D }` for the effective constraints of `C`
-under subclass entailment, which is what folding `S` gives. Then, for every class `C` that has a
-factorable shape in `S'` and every path `π`,
+under subclass entailment, which is what folding `S` gives. Then, for every class `C` and every
+path `π`,
 
     fold(S')(C, π) = E_S'(C, π)  ≡  E_S(C, π) = fold(S)(C, π)
 
@@ -283,9 +289,6 @@ where `≡` means that the two sets of constraints are satisfied by the same val
   constraints of classes higher up, which are also in `E_S(C, π)`. So `k` is implied by
   `E_S'(C, π)`.
 
-Classes whose node shape factoring removed (every constraint implied) have no shape left to fold.
-Their instances are still constrained by the superclass shapes.
-
 **The check.** `fold.py --compare ORIGINAL` folds the factored shapes and compares them with
 `fold(ORIGINAL)`, class by class and path by path rather than shape by shape (so shape names do not
 matter).
@@ -293,12 +296,14 @@ matter).
   of `C` and its superclasses.
 - **Nothing missing:** every original constraint must be in the result, or derivable from it by
   applying `implies()` repeatedly, with each derived constraint becoming a premise.
-- **Shapes kept intact:** classes whose shapes folding keeps unchanged are compared with their
-  original constraints.
+- **Every class has a shape:** a class with constraints to state, its own or inherited, must be
+  targeted by a node shape of the result. This also covers classes whose shapes folding keeps
+  unchanged (referenced, closed), whose inherited constraints go into a new shape.
 
 [`tests/test_fold.py`](../tests/test_fold.py) applies the check to random shapes. With `S` the
 original shapes, `S'` the factored ones and `F` the folded factored ones, each trial checks that:
-- `fold(factor(S))` and `fold(S)` both pass the check;
+- `fold(factor(S))` and `fold(S)` both pass the check, with no class left without a shape and no
+  empty foldable node shape left;
 - `S`, `S'` and `F` give the same violating (focus node, path) pairs on random data;
 - folding is deterministic.
 
