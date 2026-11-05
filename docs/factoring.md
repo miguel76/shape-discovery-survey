@@ -312,17 +312,20 @@ Two negative controls make sure the check can fail:
 - an invented constraint added to `F` must be reported.
 
 **Results.** 3,000 random trials (seeds 3, 7 and 11) pass all the checks:
-- folding re-added 57,124 constraints, 4,310 of them derived by implication rather than found
-  literally;
-- the unfolded shapes differ from the originals in 2,907 trials;
+- folding added 98,460 constraints, and 5,804 original constraints were recovered by implication
+  rather than found literally;
+- every class with constraints to state has a shape, and no empty foldable shape is left;
+- the unfolded shapes differ from the originals in 2,999 trials;
 - all 3,000 invented constraints are caught.
 
-Five deliberately wrong variants of `fold.py` are all detected:
+Seven deliberately wrong variants of `fold.py` are all detected:
 - skipping node-level constraints;
 - folding in only one superclass;
 - skipping `sh:minCount`;
 - treating every constraint as derivable;
-- not looking for extra constraints.
+- not looking for extra constraints;
+- not creating shapes for classes without one;
+- not deleting the shapes left empty.
 
 On CCKG (figshare v14), the folded factored shapes of every run are equivalent to the folded
 original shapes, for every class of the hierarchy:
