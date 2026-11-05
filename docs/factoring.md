@@ -325,22 +325,23 @@ Five deliberately wrong variants of `fold.py` are all detected:
 - not looking for extra constraints.
 
 On CCKG (figshare v14), the folded factored shapes of every run are equivalent to the folded
-original shapes:
+original shapes, for every class of the hierarchy:
 
-| regime | run | classes compared | original constraints (folded) | in the folded result | derived by implication | missing | extra | classes without a shape |
-|---|---|---|---|---|---|---|---|---|
-| `subclass` | SHACL Play | 71 | 19,701 | 12,916 | 6,785 | 0 | 0 | 21 |
-| `subclass` | sheXer | 80 | 8,683 | 8,683 | 0 | 0 | 0 | 25 |
-| `subclass` | QSE, full | 105 | 10,408 | 10,235 | 173 | 0 | 0 | 0 |
-| `subclass` | QSE, pruned | 54 | 1,249 | 1,197 | 52 | 0 | 0 | 0 |
-| `rdfs` | sheXer | 83 | 10,838 | 10,838 | 0 | 0 | 0 | 23 |
-| `rdfs` | QSE, full | 106 | 14,784 | 14,398 | 386 | 0 | 0 | 0 |
-| `rdfs` | QSE, pruned | 56 | 1,976 | 1,851 | 125 | 0 | 0 | 0 |
+| regime | run | classes compared | node shapes created (factoring had deleted) | original constraints (folded) | in the folded result | derived by implication | missing | extra | classes without a shape |
+|---|---|---|---|---|---|---|---|---|---|
+| `subclass` | SHACL Play | 143 | 72 (22) | 37,735 | 25,740 | 11,995 | 0 | 0 | 0 |
+| `subclass` | sheXer | 155 | 99 (25) | 25,784 | 25,784 | 0 | 0 | 0 | 0 |
+| `subclass` | QSE, full | 155 | 76 (0) | 20,456 | 20,186 | 270 | 0 | 0 | 0 |
+| `subclass` | QSE, pruned | 143 | 100 (0) | 2,862 | 2,801 | 61 | 0 | 0 | 0 |
+| `rdfs` | sheXer | 155 | 98 (23) | 31,169 | 31,169 | 0 | 0 | 0 | 0 |
+| `rdfs` | QSE, full | 155 | 77 (0) | 29,286 | 28,630 | 656 | 0 | 0 | 0 |
+| `rdfs` | QSE, pruned | 143 | 100 (0) | 4,475 | 4,283 | 192 | 0 | 0 | 0 |
 
+- **New node shapes:** they bring back the shapes that factoring deleted, and add shapes for the
+  classes of the hierarchy that inherit constraints but had no foldable shape. Those classes either
+  had no shape at all, or only shapes kept intact, such as QSE's shapes referenced with `sh:node`.
 - **sheXer:** the constraints factoring removed are literal copies of superclass constraints, so
   folding gives back all of them.
 - **SHACL Play and QSE:** some removed constraints were implied by different ones, so they come
   back only by implication, through the rules of §5, from the constraints that folding keeps or
   adds.
-- **Classes without a shape:** these are the classes whose node shape factoring removed
-  altogether.
